@@ -1,14 +1,21 @@
 package inz.project.models;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
 @Data
 @Entity
-
+@Table(name = "Place")
 public class Place {
 	
 	@Id @GeneratedValue private Long id; 
@@ -20,10 +27,35 @@ public class Place {
 	private String city;
 	private String street;
 	private String number;
-	private Long userId;
+	//@NotNull
+	@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="u_id") //nullable=false, insertable = false, updatable = false)
+	@JsonIgnore //teraz masz błąd, ale jak zobaczysz na poście miejsca zwracany jest user
+	// czasem będzie to przydatne, ale nie zawsze więc puki co możesz zostawić json ignore a kiedyś to naprawisz
+	
+    private User user;
 	private String phoneNumber;
 	private String website;
 	private String status;
+	
+	public Place() {}
+	public Place(Long id, String name, String category, String description, String country, String region, String city,
+			String street, String number, User user, String phoneNumber, String website, String status) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.category = category;
+		this.description = description;
+		this.country = country;
+		this.region = region;
+		this.city = city;
+		this.street = street;
+		this.number = number;
+		this.user = user;
+		this.phoneNumber = phoneNumber;
+		this.website = website;
+		this.status = status;
+	}
 	
 	public Long getId() {
 		return id;
@@ -79,11 +111,11 @@ public class Place {
 	public void setNumber(String number) {
 		this.number = number;
 	}
-	public Long getUserId() {
-		return userId;
+	public User getUser() {
+		return this.user;
 	}
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public String getPhoneNumber() {
 		return phoneNumber;

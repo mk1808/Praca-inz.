@@ -1,5 +1,9 @@
 package inz.project.repositories;
 
-public interface UserRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import inz.project.models.User;
+
+public interface UserRepository extends JpaRepository<User, Long> {
 
 }
