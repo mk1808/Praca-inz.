@@ -9,13 +9,11 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "Trip")
-public class Trip {
+@Table(name = "PositionInTrip")
+public class PositionInTrip {
 	@Id @GeneratedValue private Long id; 
-	private String name;
-	private String User;
-	private String country;
-	private String region;
-	private String description;
-	private String duration;
+	private String tripId;
+	private String placeId;
+
+
 }

@@ -30,9 +30,7 @@ public class Place {
 	//@NotNull
 	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="u_id") //nullable=false, insertable = false, updatable = false)
-	@JsonIgnore //teraz masz błąd, ale jak zobaczysz na poście miejsca zwracany jest user
-	// czasem będzie to przydatne, ale nie zawsze więc puki co możesz zostawić json ignore a kiedyś to naprawisz
-	
+	@JsonIgnore 
     private User user;
 	private String phoneNumber;
 	private String website;
