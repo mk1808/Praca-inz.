@@ -11,11 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import inz.project.models.Place;
+
 import inz.project.models.User;
-import inz.project.repositories.PlaceRepository;
 import inz.project.repositories.UserRepository;
-import inz.project.services.PlaceService;
 import inz.project.services.UserService;
 
 @RestController

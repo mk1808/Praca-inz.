@@ -1,6 +1,10 @@
 package inz.project.controllers;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +29,16 @@ public class TripController {
 	@ResponseStatus(HttpStatus.CREATED)
 	Trip createTrip(@RequestBody Trip trip) {
 		return tripService.createTrip(trip);
+	}
+	
+	@GetMapping()
+	List<Trip> getTrips(){
+	return tripService.getTrips();
+	}
+	
+	@GetMapping("/{id}")
+	Trip getTripById(@PathVariable Long id) {
+		return tripService.getTripById(id);
 	}
 
 }

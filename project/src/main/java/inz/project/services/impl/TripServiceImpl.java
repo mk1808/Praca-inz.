@@ -1,6 +1,8 @@
 package inz.project.services.impl;
 
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import inz.project.services.TripService;
 import inz.project.models.Trip;
@@ -21,5 +23,14 @@ public class TripServiceImpl implements TripService {
 		return this.tripRepository.save(trip);
 		
 	}
+
+	@Override
+	public List<Trip> getTrips(){
+		return this.tripRepository.findAll();
+	}
 	
+	@Override
+	public Trip getTripById(Long id) {
+		return this.tripRepository.findById(id).get();
+	}
 }
