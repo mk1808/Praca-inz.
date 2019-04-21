@@ -8,7 +8,7 @@ import inz.project.models.User;
 import inz.project.repositories.PlaceRepository;
 import inz.project.repositories.UserRepository;
 
-@Component
+//@Component
 public class Data implements CommandLineRunner {
 	
 	private final PlaceRepository placeRepository;

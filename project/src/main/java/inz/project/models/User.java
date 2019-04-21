@@ -26,9 +26,10 @@ public class User {
 	//private String password;
 	@NotNull private String role;
 	
-	/*@OneToMany(mappedBy="user")
-    private List <Place> places;*/
-	
+	@OneToMany(mappedBy="user")
+    private List <Place> places;
+	private String sex;
+	private Long age;
 	private String city;
 	private String country;
 	
@@ -85,9 +86,7 @@ public class User {
 	public void setAge(Long age) {
 		this.age = age;
 	}
-	private String sex;
-	private Long age;
-	
+
 	public User(Long id, @NotNull String mail, @NotNull String login, @NotNull String role, List<Place> places,
 			String city, String country, String sex, Long age) {
 		super();
