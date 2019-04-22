@@ -19,15 +19,41 @@ import lombok.Data;
 @Table(name = "User")
 public class User {
 	
-	@Column(name="u_id")
+	//@Column(name="u_id")
 	@Id @GeneratedValue private Long id; 
 	@NotNull private String mail; 
 	@NotNull private String login;
 	//private String password;
+	
 	@NotNull private String role;
 	
+	
+	
+	///
 	@OneToMany(mappedBy="user")
     private List <Place> places;
+	
+	@OneToMany(mappedBy="user")
+    private List <Trip> trips;
+	///
+	
+	
+	public List<Place> getPlaces() {
+		return places;
+	}
+
+	public void setPlaces(List<Place> places) {
+		this.places = places;
+	}
+
+	public List<Trip> getTrips() {
+		return trips;
+	}
+
+	public void setTrips(List<Trip> trips) {
+		this.trips = trips;
+	}
+
 	private String sex;
 	private Long age;
 	private String city;
@@ -87,14 +113,16 @@ public class User {
 		this.age = age;
 	}
 
-	public User(Long id, @NotNull String mail, @NotNull String login, @NotNull String role, List<Place> places,
+	public User(Long id, @NotNull String mail, @NotNull String login, @NotNull String role,
+			List<Place> places,List<Trip> trips,
 			String city, String country, String sex, Long age) {
 		super();
 		this.id = id;
 		this.mail = mail;
 		this.login = login;
 		this.role = role;
-		//this.places = places;
+		this.trips = trips;
+		this.places = places;
 		this.city = city;
 		this.country = country;
 		this.sex = sex;

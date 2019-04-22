@@ -3,6 +3,8 @@ package inz.project.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -13,13 +15,17 @@ import lombok.Data;
 public class Trip {
 	@Id @GeneratedValue private Long id; 
 	private String name;
-	private String user;
+   
+	@ManyToOne
+    @JoinColumn(name="user_id")
+	private User user;
+	
 	private String country;
 	private String region;
 	private String description;
 	private String duration;
 	public Trip() {}
-	public Trip(Long id, String name, String user, String country, String region, String description, String duration) {
+	public Trip(Long id, String name, User user, String country, String region, String description, String duration) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -41,10 +47,10 @@ public class Trip {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getUser() {
+	public User getUser() {
 		return user;
 	}
-	public void setUser(String user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 	public String getCountry() {

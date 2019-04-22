@@ -28,17 +28,22 @@ public class Place {
 	private String street;
 	private String number;
 	//@NotNull
-	@ManyToOne(fetch=FetchType.LAZY)
+	/*@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="u_id") //nullable=false, insertable = false, updatable = false)
-	@JsonIgnore 
+	@JsonIgnore */
+	
+	@ManyToOne
+    @JoinColumn(name="user_id")
     private User user;
+	
 	private String phoneNumber;
 	private String website;
 	private String status;
 	
 	public Place() {}
 	public Place(Long id, String name, String category, String description, String country, String region, String city,
-			String street, String number, User user, String phoneNumber, String website, String status) {
+			String street, String number, User user, String phoneNumber, 
+			String website, String status) {
 		super();
 		this.id = id;
 		this.name = name;
