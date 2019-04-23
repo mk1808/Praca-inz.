@@ -3,6 +3,8 @@ package inz.project.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -12,14 +14,21 @@ import lombok.Data;
 @Table(name = "PositionInTrip")
 public class PositionInTrip {
 	@Id @GeneratedValue private Long id; 
-	private String tripId;
-	private String placeId;
+
+	@ManyToOne
+    @JoinColumn(name="trip_id")
+    private Trip trip;
+	
+	@ManyToOne
+    @JoinColumn(name="place_id")
+    private Place place;
+	
 	public PositionInTrip(){}
-	public PositionInTrip(Long id, String tripId, String placeId) {
+	public PositionInTrip(Long id, Trip trip, Place place) {
 		super();
 		this.id = id;
-		this.tripId = tripId;
-		this.placeId = placeId;
+		this.trip = trip;
+		this.place = place;
 	}
 	public Long getId() {
 		return id;
@@ -27,17 +36,17 @@ public class PositionInTrip {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getTripId() {
-		return tripId;
+	public Trip getTrip() {
+		return trip;
 	}
-	public void setTripId(String tripId) {
-		this.tripId = tripId;
+	public void setTrip(Trip trip) {
+		this.trip = trip;
 	}
-	public String getPlaceId() {
-		return placeId;
+	public Place getPlace() {
+		return place;
 	}
-	public void setPlaceId(String placeId) {
-		this.placeId = placeId;
+	public void setPlace(Place place) {
+		this.place = place;
 	}
 	
 	

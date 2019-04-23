@@ -27,8 +27,6 @@ public class User {
 	
 	@NotNull private String role;
 	
-	
-	
 	///
 	@OneToMany(mappedBy="user")
     private List <Place> places;
@@ -36,7 +34,33 @@ public class User {
 	@OneToMany(mappedBy="user")
     private List <Trip> trips;
 	///
+
+	private String sex;
+	private Long age;
+	private String city;
+	private String country;
 	
+	public User ()
+    {
+       
+    }
+
+	public User(Long id, @NotNull String mail, @NotNull String login, @NotNull String role,
+			List<Place> places,List<Trip> trips,
+			String city, String country, String sex, Long age) {
+		super();
+		this.id = id;
+		this.mail = mail;
+		this.login = login;
+		this.role = role;
+		this.trips = trips;
+		this.places = places;
+		this.city = city;
+		this.country = country;
+		this.sex = sex;
+		this.age = age;
+	}
+
 	
 	public List<Place> getPlaces() {
 		return places;
@@ -53,16 +77,6 @@ public class User {
 	public void setTrips(List<Trip> trips) {
 		this.trips = trips;
 	}
-
-	private String sex;
-	private Long age;
-	private String city;
-	private String country;
-	
-	public User ()
-    {
-       
-    }
 	
 	public Long getId() {
 		return id;
@@ -113,20 +127,5 @@ public class User {
 		this.age = age;
 	}
 
-	public User(Long id, @NotNull String mail, @NotNull String login, @NotNull String role,
-			List<Place> places,List<Trip> trips,
-			String city, String country, String sex, Long age) {
-		super();
-		this.id = id;
-		this.mail = mail;
-		this.login = login;
-		this.role = role;
-		this.trips = trips;
-		this.places = places;
-		this.city = city;
-		this.country = country;
-		this.sex = sex;
-		this.age = age;
-	}
 
 }

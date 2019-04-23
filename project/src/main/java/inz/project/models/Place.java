@@ -1,11 +1,14 @@
 package inz.project.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -19,10 +22,10 @@ import lombok.Data;
 public class Place {
 	
 	@Id @GeneratedValue private Long id; 
-	private String name;
-	private String category;
+	@NotNull private String name;
+	@NotNull private String category;
 	private String description;
-	private String country;
+	@NotNull private String country;
 	private String region;
 	private String city;
 	private String street;
@@ -38,12 +41,17 @@ public class Place {
 	
 	private String phoneNumber;
 	private String website;
-	private String status;
+	@NotNull private String status;
+	
+	@OneToMany(mappedBy="place")
+    private List <PositionInTrip> positionsInTrip;
+	
 	
 	public Place() {}
-	public Place(Long id, String name, String category, String description, String country, String region, String city,
+	public Place(Long id,@NotNull String name, 	@NotNull String category, String description, 	
+			@NotNull String country, String region, String city,
 			String street, String number, User user, String phoneNumber, 
-			String website, String status) {
+			String website, @NotNull String status,List<PositionInTrip> positionsInTrip ) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -58,6 +66,18 @@ public class Place {
 		this.phoneNumber = phoneNumber;
 		this.website = website;
 		this.status = status;
+		this.positionsInTrip=positionsInTrip;
+	}
+	
+	
+	
+	
+	
+	public List<PositionInTrip> getPositionsInTrip() {
+		return positionsInTrip;
+	}
+	public void setPositionsInTrip(List<PositionInTrip> positionsInTrip) {
+		this.positionsInTrip = positionsInTrip;
 	}
 	
 	public Long getId() {
