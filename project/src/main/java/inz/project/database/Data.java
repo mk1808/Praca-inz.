@@ -21,6 +21,8 @@ public class Data implements CommandLineRunner {
 	
 	@Override
 	public void run (String... args) throws Exception{
+		
+		
 		/*
 		User u1 = new User();
 		u1.setLogin("l");

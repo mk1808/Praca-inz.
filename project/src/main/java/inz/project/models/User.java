@@ -1,33 +1,63 @@
 package inz.project.models;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.persistence.JoinColumn;
 
+import org.hibernate.annotations.NaturalId;
 
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "User")
+@Table(name = "User", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {
+            "login"
+        }),
+        @UniqueConstraint(columnNames = {
+            "mail"
+        })
+})
 public class User {
 	
-	//@Column(name="u_id")
-	@Id @GeneratedValue private Long id; 
-	@NotNull private String mail; 
-	@NotNull private String login;
-	//private String password;
 	
-	@NotNull private String role;
+	@Id 
+	@GeneratedValue 
+	private Long id; 
 	
-	///
+	@NaturalId 
+	@NotNull  
+	@Size(max = 50)
+    @Email
+    private String mail; 
+	
+	@Size(min=5, max = 20)
+	@NotNull 
+	private String login;
+	
+	@NotNull
+	@Size(min=6, max = 100)
+	private String password;
+	
+	
+	
+
 	@OneToMany(mappedBy="user")
     private List <Place> places;
 	
@@ -35,6 +65,14 @@ public class User {
     private List <Trip> trips;
 	///
 
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_roles", 
+      joinColumns = @JoinColumn(name = "user_id"), 
+      inverseJoinColumns = @JoinColumn(name = "role_id"))
+	@NotNull 
+	private Role role;
+	
+	
 	private String sex;
 	private Long age;
 	private String city;
@@ -45,23 +83,41 @@ public class User {
        
     }
 
-	public User(Long id, @NotNull String mail, @NotNull String login, @NotNull String role,
-			List<Place> places,List<Trip> trips,
-			String city, String country, String sex, Long age) {
+	
+
+	public User(Long id, @NotNull @Size(max = 50) @Email String mail, @Size(min = 5, max = 20) @NotNull String login,
+			@NotNull @Size(min = 6, max = 100) String password, @NotNull Role role, List<Place> places,
+			List<Trip> trips, String sex, Long age, String city, String country) {
 		super();
 		this.id = id;
 		this.mail = mail;
 		this.login = login;
+		this.password = password;
 		this.role = role;
-		this.trips = trips;
 		this.places = places;
-		this.city = city;
-		this.country = country;
+		this.trips = trips;
 		this.sex = sex;
 		this.age = age;
+		this.city = city;
+		this.country = country;
+	}
+	
+	public User( @NotNull @Size(max = 50) @Email String mail,
+			@Size(min = 5, max = 20) @NotNull String login,
+			@NotNull @Size(min = 6, max = 100) String password, 
+			@NotNull Role role) {
+		super();
+		
+		this.mail = mail;
+		this.login = login;
+		this.password = password;
+		this.role = role;
+		
 	}
 
-	
+
+
+
 	public List<Place> getPlaces() {
 		return places;
 	}
@@ -96,10 +152,10 @@ public class User {
 	public void setLogin(String login) {
 		this.login = login;
 	}
-	public String getRole() {
+	public Role getRole() {
 		return role;
 	}
-	public void setRole(String role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 	public String getCity() {
@@ -126,6 +182,18 @@ public class User {
 	public void setAge(Long age) {
 		this.age = age;
 	}
+	
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+
 
 
 }

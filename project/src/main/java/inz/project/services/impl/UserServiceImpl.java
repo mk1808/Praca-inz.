@@ -1,6 +1,7 @@
 package inz.project.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -32,5 +33,19 @@ public class UserServiceImpl implements UserService{
 	public User getUserById(Long id) {
 		return this.userRepository.findById(id).get();
 	}
+	
+	@Override
+	public  Optional<User> getUserByLogin(String login) {
+		return this.userRepository.getUserByLogin(login);
+	}
+	@Override
+	public Boolean existsByLogin(String login) {
+		return this.userRepository.existsByLogin(login);
+	}
+	
+	@Override
+	public Boolean existsByMail(String mail) {
+		return this.userRepository.existsByMail(mail);
+	};
 }
 
