@@ -6,3 +6,14 @@
 
 // Import Angular ngx-foundation Framework Added Styles
 @import "~ngx-foundation/assets/scss/main";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+
+.container{
+
+}
+@include foundation-grid;
+
+body{
+  font-family: 'Work Sans', sans-serif;
+}

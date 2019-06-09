@@ -11,6 +11,7 @@ import { InzRoutingModule } from './inz-routing.module';
 import { LayoutComponent } from './layout/layout/layout.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { FlipModule } from 'ngx-flip';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FooterComponent } from './layout/footer/footer.component';
     FooterComponent],
   imports: [
     CommonModule,
+    FlipModule,
     InzRoutingModule,
    
   ]
