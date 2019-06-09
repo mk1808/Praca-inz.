@@ -1,20 +1,156 @@
-<slideshow [height]="height"
-           [minHeight]="'400px'"
-           [autoPlay]="true"
-           [autoPlayInterval]="4500"
-           [showArrows]="true"
-           [showDots]="true"
-           [imageUrls]="imageSources"
-           [lazyLoad]="imageSources?.length > 1"
-           [autoPlayWaitForLazyLoad]="true">
+<slideshow [height]="height" [minHeight]="'400px'" [autoPlay]="true" [autoPlayInterval]="4500" [showArrows]="true"
+  [showDots]="true" [imageUrls]="imageSources" [lazyLoad]="imageSources?.length > 1" [autoPlayWaitForLazyLoad]="true">
 </slideshow>
- 
-<button type="button" class="button primary"
-        tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-  Simple demo
-</button>
+<div class="container">
+  <h2 class="headingStyle">Gdzie się wybierasz?</h2>
 
 
-<alert type="success">Hello, I'm a Success Callout Alert</alert>-->
+  <div class="row whereGo">
+    <div class="large-9 large-centered columns">
+      <div class="input-group input-group-rounded inputPos">
+        <input class="input-group-field" type="search">
+        <div class="input-group-button">
+<!--          <input type="submit" class="button secondary" value="Znajdź !">
+    -->
+    <button class="button secondary">
+      <i class="material-icons">
+        place
+        </i>
+    </button> 
+        </div>
+      </div>
+    </div>
+  </div>
+<!--
+  <div class="grid-block">
+    <div class="grid-block">abc</div>
+    <div class="grid-block">def</div>
+  </div>
+  -->
+  <h2 class="type-sidelines"><span>Popularne miejsca</span></h2>
+<div>
+  <div class="row">
+    <div class="small-2 large-4 columns">
+<div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+    <div class="flip-card-inner">
+      <div class="flip-card-inner-front">
+        <span>Book your next adventure</span>
+      </div>
+      <div class="flip-card-inner-back">
+        <h3 class="flip-card-inner-back-title">Visit Yetiland</h3>
+        <p class="flip-card-inner-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo doloremque accusantium, repellendus ex debitis molestias, recusandae dignissimos delectus.</p>
+        <a href="#" class="button success">Book now</a>
+      </div>
+    </div>
+  </div>
+  
+    </div>
+    <div class="small-4 large-4 columns">
+      <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+        <div class="flip-card-inner">
+          <div class="flip-card-inner-front">
+            <span>Book your next adventure</span>
+          </div>
+          <div class="flip-card-inner-back">
+            <h3 class="flip-card-inner-back-title">Visit Yetiland</h3>
+            <p class="flip-card-inner-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo doloremque accusantium, repellendus ex debitis molestias, recusandae dignissimos delectus.</p>
+            <a href="#" class="button success">Book now</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="small-6 large-4 columns">
+      <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+        <div class="flip-card-inner">
+          <div class="flip-card-inner-front">
+            <span>Book your next adventure</span>
+          </div>
+          <div class="flip-card-inner-back">
+            <h3 class="flip-card-inner-back-title">Visit Yetiland</h3>
+            <p class="flip-card-inner-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo doloremque accusantium, repellendus ex debitis molestias, recusandae dignissimos delectus.</p>
+            <a href="#" class="button success">Book now</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+<button class="button moreBtn button-rounded-hover">Zobacz więcej </button>
+
+
+
+<h2 class="type-sidelines"><span>Nowe wycieczki</span></h2>
+<div>
+  <div class="row">
+    <div class="small-2 large-4 columns">
+<div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+    <div class="flip-card-inner">
+      <div class="flip-card-inner-front">
+        <span>Book your next adventure</span>
+      </div>
+      <div class="flip-card-inner-back">
+        <h3 class="flip-card-inner-back-title">Visit Yetiland</h3>
+        <p class="flip-card-inner-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo doloremque accusantium, repellendus ex debitis molestias, recusandae dignissimos delectus.</p>
+        <a href="#" class="button success">Book now</a>
+      </div>
+    </div>
+  </div>
+  
+    </div>
+    <div class="small-4 large-4 columns">
+      <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+        <div class="flip-card-inner">
+          <div class="flip-card-inner-front">
+            <span>Book your next adventure</span>
+          </div>
+          <div class="flip-card-inner-back">
+            <h3 class="flip-card-inner-back-title">Visit Yetiland</h3>
+            <p class="flip-card-inner-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo doloremque accusantium, repellendus ex debitis molestias, recusandae dignissimos delectus.</p>
+            <a href="#" class="button success">Book now</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="small-6 large-4 columns">
+      <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+        <div class="flip-card-inner">
+          <div class="flip-card-inner-front">
+            <span>Book your next adventure</span>
+          </div>
+          <div class="flip-card-inner-back">
+            <h3 class="flip-card-inner-back-title">Visit Yetiland</h3>
+            <p class="flip-card-inner-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo doloremque accusantium, repellendus ex debitis molestias, recusandae dignissimos delectus.</p>
+            <a href="#" class="button success">Book now</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+  <button type="button" class="button primary" tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+    Simple demo
+  </button>
+
+
+  <alert type="success">Hello, I'm a Success Callout Alert</alert>-->
+
+
+</div>
+
 
 

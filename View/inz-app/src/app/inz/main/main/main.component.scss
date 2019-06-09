@@ -1,0 +1,443 @@
+$sidelines-text-padding: 0.5em !default;
+$sidelines-line-thickness: 1px !default;
+$sidelines-line-length: 9999px !default;
+$sidelines-line-color: null !default;
+$sidelines-line-style: solid !default;
+$sidelines-double-line: false !default;
+$sidelines-double-line-spacing: 0.5em !default;
+
+@mixin sidelines(
+  $text-padding: $sidelines-text-padding,
+  $line-thickness: $sidelines-line-thickness,
+  $line-length: $sidelines-line-length,
+  $line-color: $sidelines-line-color,
+  $line-style: $sidelines-line-style,
+  $double-line: $sidelines-double-line,
+  $double-line-spacing: $sidelines-double-line-spacing ) {
+
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+
+  span {
+    display: inline-block;
+    position: relative;
+    padding-left: $text-padding;
+    padding-right: $text-padding;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: $line-length;
+      top: 50%;
+      border-top-style: $line-style;
+      border-top-width: $line-thickness;
+
+      @if $line-color != null {
+        border-top-color: $line-color;
+      }
+
+      @if $double-line {
+        border-bottom-style: $line-style;
+        border-bottom-width: $line-thickness;
+        border-bottom-color: $line-color;
+        height: $double-line-spacing;
+        margin-top: -($double-line-spacing/2);
+      } @else if $line-thickness > 1 {
+        margin-top: -(floor($line-thickness/2));
+      }
+    }
+
+    &:before {
+      right: 100%;
+    }
+
+    &:after {
+      left: 100%;
+    }
+  }
+}
+
+.type-sidelines {
+  @include sidelines();
+  margin-bottom: 22px;
+}
+
+.double {
+  @include sidelines(
+    $double-line: true
+  );
+}
+
+.custom {
+  @include sidelines(
+    $text-padding: 20px,
+    $line-length: 100%,
+    $line-color: #2980b9,
+    $line-thickness: 4px,
+    $line-style: dotted
+  );
+}
+
+.custom-2 {
+  @include sidelines(
+    $line-color: #27ae60,
+    $line-thickness: 4px
+  );
+}
+
+//input
+.input-group-rounded {
+  width:60%;
+
+  .input-group-field {
+    border-radius: 5000px 0 0 5000px;
+    padding-left: 1rem;
+  }
+
+  .input-group-button .button {
+    border-radius:  0 5000px 5000px 0;
+    font-size: 0.8rem;
+  }
+}
+
+//////////////////////////cards
+
+
+
+.flip-card {
+  -webkit-perspective: 1000;
+          perspective: 1000;
+  border: 0;
+  background: transparent;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card.hover .flip-card-inner {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.flip-card,
+.flip-card-inner-front,
+.flip-card-inner-back {
+  width: 100%;
+  height: 20rem;
+}
+
+.flip-card{
+ //width:30%;
+ 
+}
+
+.flip-card-inner {
+  transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  position: relative;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.flip-card-inner-front,
+.flip-card-inner-back {
+  
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.flip-card-inner-front {
+  background: url(https://images.pexels.com/photos/179124/pexels-photo-179124.jpeg?w=940&h=650&auto=compress&cs=tinysrg) 0 0 no-repeat;
+  z-index: 2;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.flip-card-inner-front span {
+  width: 100%;
+  text-align: center;
+  background: rgba(254, 254, 254, 0.8);
+  padding: 0.25rem 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.flip-card-inner-back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  background: #cacaca;
+  padding: 1rem;
+}
+
+.flip-card-inner-back-title {
+  font-weight: bold;
+}
+
+.flip-card-inner-back-text {
+  line-height: 1.3;
+}
+
+
+
+//////////////////
+.container{
+  margin-left: 20px;
+margin-right: 20px;
+}
+
+.headingStyle{
+  margin-top: 20px;
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+
+}
+.inputPos{
+ // height: 50px;
+ 
+  text-align: center;
+margin-left: 175px;}
+
+.whereGo{
+  margin-bottom:30px;
+}
+
+.moreBtn{
+  margin-left: 37%;
+  width: 26%;
+  margin-top: 10px;
+  margin-bottom: 30px
+}
+  ////////////tosty///////////////////
+  
+.form-registration {
+  background: #fefefe;
+}
+
+.form-registration .form-registration-img {
+  position: relative;
+}
+
+.form-registration .form-registration-img .form-registration-img-caption {
+  position: absolute;
+  padding: 0.5rem;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(1, rgba(254, 254, 254, 0.3)), color-stop(0, #fefefe));
+}
+
+.form-registration-group {
+  padding: 1rem;
+}
+
+.form-registration-group .form-registration-input {
+  border-radius: 0;
+}
+
+.form-registration-group .form-registration-input:focus {
+  border: 2px solid #1779ba;
+  box-shadow: 0 0 5px #1779ba;
+}
+
+.form-registration-group .form-registration-submit-button {
+  text-transform: uppercase;
+  margin-bottom: 0;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 1rem 0;
+  padding: 0.85em 1em;
+  -webkit-appearance: none;
+  border: 1px solid transparent;
+  border-radius: 0;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  font-size: 0.9rem;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  background-color: #1779ba;
+  color: #fefefe;
+  display: block;
+  width: 100%;
+  margin-right: 0;
+  margin-left: 0;
+  border-radius: 5000px;
+}
+
+[data-whatinput='mouse'] .form-registration-group .form-registration-submit-button {
+  outline: 0;
+}
+
+.form-registration-group .form-registration-submit-button:hover, .form-registration-group .form-registration-submit-button:focus {
+  background-color: #126195;
+  color: #fefefe;
+}
+
+.form-registration-group .form-registration-social-button {
+  text-transform: uppercase;
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 1rem 0;
+  padding: 0.85em 1em;
+  -webkit-appearance: none;
+  border: 1px solid transparent;
+  border-radius: 0;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  font-size: 0.9rem;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #3b5998;
+  color: #3b5998;
+  display: block;
+  width: 100%;
+  margin-right: 0;
+  margin-left: 0;
+  border-radius: 5000px;
+}
+
+[data-whatinput='mouse'] .form-registration-group .form-registration-social-button {
+  outline: 0;
+}
+
+.form-registration-group .form-registration-social-button, .form-registration-group .form-registration-social-button:hover, .form-registration-group .form-registration-social-button:focus {
+  background-color: transparent;
+}
+
+.form-registration-group .form-registration-social-button:hover, .form-registration-group .form-registration-social-button:focus {
+  border-color: #1e2d4c;
+  color: #1e2d4c;
+}
+
+.form-registration-group .form-registration-social-button .fa {
+  vertical-align: text-top;
+  margin-right: 0.5rem;
+}
+
+.form-registration-group .form-registration-member-signin {
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.form-registration-group .form-registration-member-signin a {
+  margin-left: 0.25rem;
+}
+
+.form-registration-group .form-registration-terms {
+  text-align: center;
+  font-size: 12px;
+}
+
+.form-registration-group .form-registration-terms a:first-child {
+  margin-right: 0.25rem;
+}
+
+.form-registration-group .form-registration-terms a:last-child {
+  margin-left: 0.25rem;
+}
+
+.form-registration-group .or-divider {
+  position: relative;
+  margin: 1.5rem 0px;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  height: 0px;
+  border: 1px solid #e6e6e6;
+}
+
+.form-registration-group .or-divider span {
+  color: #8a8a8a;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: -12px;
+  background-color: #fefefe;
+  padding: 0 8px;
+}
+
+////////////////button
+
+.button-rounded-hover {
+  border: 0;
+  border-radius: 5000px;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  transition: all 0.35s ease;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+
+.button-rounded-hover:before {
+  opacity: 0;
+  content: "";
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border-radius: inherit;
+  background-color: #fefefe;
+  transition: all 0.3s;
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.button-rounded-hover:after {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border: 5px solid #115b8d;
+  content: '';
+  border-radius: inherit;
+}
+
+.button-rounded-hover:hover,
+.button-rounded-hover:focus {
+  background-color: #115b8d;
+}
+
+.button-rounded-hover:hover:before,
+.button-rounded-hover:focus:before {
+  -webkit-transform: translateX(0%);
+      -ms-transform: translateX(0%);
+          transform: translateX(0%);
+  opacity: 0.25;
+}
+

@@ -21,6 +21,11 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
   }
+  flipDiv = false;
+  onClick() {
+    this.flipDiv = !this.flipDiv;
+  }
+  
 
   
 }
