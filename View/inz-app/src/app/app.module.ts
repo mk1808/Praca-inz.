@@ -1,8 +1,15 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AlertModule, AccordionModule, ButtonsModule, CarouselModule, CollapseModule, BsDatepickerModule, BsDropdownModule, ModalModule, OffcanvasModule, PaginationModule, ProgressbarModule, RatingModule, SortableModule, TabsModule, TimepickerModule, TooltipModule, TypeaheadModule } from 'ngx-foundation';
+import { AlertModule, AccordionModule, ButtonsModule, CarouselModule,
+   CollapseModule, BsDatepickerModule, BsDropdownModule, 
+   ModalModule, OffcanvasModule, PaginationModule, ProgressbarModule, 
+   RatingModule, SortableModule, TabsModule, TimepickerModule,
+    TooltipModule, TypeaheadModule } from 'ngx-foundation';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { InzModule } from './inz/inz.module';
+import { NgxHmCarouselModule } from 'ngx-hm-carousel';
 
 @NgModule({
   declarations: [
@@ -28,7 +35,7 @@ import { AppComponent } from './app.component';
     TabsModule.forRoot(),
     TimepickerModule.forRoot(),
     TooltipModule.forRoot(),
-    TypeaheadModule.forRoot(),
+    TypeaheadModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

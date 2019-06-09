@@ -1,3 +1,20 @@
-<p>
-  main works!
-</p>
+<slideshow [height]="height"
+           [minHeight]="'400px'"
+           [autoPlay]="true"
+           [autoPlayInterval]="4500"
+           [showArrows]="true"
+           [showDots]="true"
+           [imageUrls]="imageSources"
+           [lazyLoad]="imageSources?.length > 1"
+           [autoPlayWaitForLazyLoad]="true">
+</slideshow>
+ 
+<button type="button" class="button primary"
+        tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Simple demo
+</button>
+
+
+<alert type="success">Hello, I'm a Success Callout Alert</alert>-->
+
+
