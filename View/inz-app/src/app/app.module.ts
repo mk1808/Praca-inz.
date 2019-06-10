@@ -9,7 +9,7 @@ import { AlertModule, AccordionModule, ButtonsModule, CarouselModule,
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InzModule } from './inz/inz.module';
-
+import { NgxGalleryModule } from 'ngx-gallery';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestComponent } from './test/test.component';
 
@@ -20,6 +20,7 @@ import { TestComponent } from './test/test.component';
   ],
   imports: [
     BrowserModule,
+    NgxGalleryModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     AlertModule.forRoot(),

@@ -12,6 +12,7 @@ import { LayoutComponent } from './layout/layout/layout.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { FlipModule } from 'ngx-flip';
+import { NgxGalleryModule } from 'ngx-gallery';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { FlipModule } from 'ngx-flip';
     CommonModule,
     FlipModule,
     InzRoutingModule,
-   
+    NgxGalleryModule
   ]
 })
 export class InzModule { }

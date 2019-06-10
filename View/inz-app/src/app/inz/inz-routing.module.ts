@@ -5,11 +5,19 @@ import { LayoutComponent } from './layout/layout/layout.component';
 
 const routes: Routes = [
         {
-                path: "", component: LayoutComponent, children: [
+                path: "",
+                 component: LayoutComponent, children: [
                         {
                                 path: "",
+                                pathMatch:"full",
                                 loadChildren: "./main/main.module#MainModule"
+                        },
+                        {
+                                path:"place",
+                                loadChildren:"./place/place.module#PlaceModule"
+
                         }
+
                 ]
         }
         

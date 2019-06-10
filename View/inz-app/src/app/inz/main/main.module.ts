@@ -36,6 +36,7 @@ import { FlipModule } from 'ngx-flip';
     TooltipModule,
     TypeaheadModule,
 
+    
   ]
 })
 export class MainModule { }
