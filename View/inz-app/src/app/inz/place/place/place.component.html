@@ -1,12 +1,66 @@
-<p>
-  place works!
-</p>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>  
+<div class="container">
+  <div class="holy-grail-grid">
+    <div class="holy-grail-header">
+      <div class="row myRow">
+
+        <div class="columns small-1 heading">
+          <img src="assets/museum.svg" height="40px" width="40px">
+
+
+        </div>
+        <div class="columns small-4 heading">
+          <h3>Muzeum abcc </h3>
+        </div>
+
+        <div class="columns small-5">
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row myRow">
+    <div class="columns small-6">
+      <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+    </div>
+    <div class="columns small-6 smallContainer">
+
+
+      <h4>Informacje</h4>
+      <div class="content">
+        <div class="row">
+          
+          <div class="columns small-1 ">
+
+            <img src="assets/pin.svg" height="20px" width="20px">
+          </div>
+
+          <div class="columns small-4 heading">
+            <h5>Adres</h5>
+            <div class="addressStyle">
+              <h6>ul. Przykładowa 90A</h6>
+              <h6>Warszawa</h6>
+              <h6>Polska</h6>
+            </div>
+          </div>
+          
+          <div class="columns small-1 ">
+
+              <img class="pic"src="assets/clock.svg" height="20px" width="20px">
+            </div>
+          <div class="columns small-4 heading">
+              <h5>Godziny otwarcia</h5>
+              <div class="addressStyle">
+                <h6>Pon-Pt 10-18</h6>
+                <h6>So 11-18</h6>
+                <h6>Ndz 11-15</h6>
+              </div>
+            
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,9 +8,10 @@
 @import "~ngx-foundation/assets/scss/main";
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-
 .container{
-
+  margin-left: 20px;
+margin-right: 20px;
+font-family: 'Work Sans', sans-serif;
 }
 @include foundation-grid;
 
