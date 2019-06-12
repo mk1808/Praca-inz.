@@ -3,14 +3,20 @@ import { CommonModule } from '@angular/common';
 import { PlaceComponent } from './place/place.component';
 import { PlaceRoutingModule } from './place-routing.module';
 import { NgxGalleryModule } from 'ngx-gallery';
+import { StarRatingModule } from 'angular-star-rating';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [PlaceComponent],
   imports: [
     CommonModule,
     PlaceRoutingModule,
-    NgxGalleryModule
-    
+    NgxGalleryModule,
+    StarRatingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBsLVzxs5lP8tAr0ErPMYOhBORJ-OoT0Ts'
+      
+    })    
   ]
 })
 export class PlaceModule { }

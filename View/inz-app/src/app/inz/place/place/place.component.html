@@ -2,21 +2,21 @@
   <div class="holy-grail-grid">
     <div class="holy-grail-header">
       <div class="row myRow">
-
         <div class="columns small-1 heading">
           <img src="assets/museum.svg" height="40px" width="40px">
-
-
         </div>
         <div class="columns small-4 heading">
           <h3>Muzeum abcc </h3>
+
+          <star-rating id="ratingStar" [starType]="'svg'" [rating]="2.63" [disabled]="true"
+ [showHalfStars]="true" size="large" ></star-rating>
+
+
+ 
         </div>
-
         <div class="columns small-5">
-
         </div>
       </div>
-
     </div>
   </div>
   <div class="row myRow">
@@ -24,43 +24,117 @@
       <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
     </div>
     <div class="columns small-6 smallContainer">
-
-
       <h4>Informacje</h4>
       <div class="content">
         <div class="row">
-          
-          <div class="columns small-1 ">
-
-            <img src="assets/pin.svg" height="20px" width="20px">
-          </div>
-
-          <div class="columns small-4 heading">
-            <h5>Adres</h5>
-            <div class="addressStyle">
-              <h6>ul. Przykładowa 90A</h6>
-              <h6>Warszawa</h6>
-              <h6>Polska</h6>
-            </div>
-          </div>
-          
-          <div class="columns small-1 ">
-
-              <img class="pic"src="assets/clock.svg" height="20px" width="20px">
-            </div>
-          <div class="columns small-4 heading">
-              <h5>Godziny otwarcia</h5>
-              <div class="addressStyle">
-                <h6>Pon-Pt 10-18</h6>
-                <h6>So 11-18</h6>
-                <h6>Ndz 11-15</h6>
+          <div class="columns myHighlight small-7 ">
+            <div class="row ">
+              <div class="columns small-3 ">
+                <img src="assets/pin.svg" height="20px" width="20px">
               </div>
-            
+              <div class="columns small-9 heading leftCol">
+                <h5>Adres</h5>
+                <div class="addressStyle">
+                  <h6>ul. Przykładowa 90A</h6>
+                  <h6>Warszawa</h6>
+                  <h6>Polska</h6>
+                </div>
+              </div>
+            </div>
           </div>
 
+
+          <div class="columns myHighlight small-5">
+            <div class="row">
+              <div class="columns small-3 ">
+                <img src="assets/clock.svg" height="20px" width="20px">
+              </div>
+              <div class="columns small-9 heading">
+                <h5>Godziny otwarcia</h5>
+                <div class="addressStyle">
+                  <h6>Pon-Pt 10-18</h6>
+                  <h6>So 11-18</h6>
+                  <h6>Ndz 11-15</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="row secondRow ">
+          <div class="columns small-7 myHighlight oneCell">
+            <div class="row ">
+            <div class="columns small-3 ">
+              <img src="assets/contact.svg" height="20px" width="20px">
+            </div>
+            <div class="columns small-6 heading leftCol">
+              <h5>Dane kontaktowe</h5>
+              <div class="addressStyle">
+                <h6>www.website.com</h6>
+                <h6>website@gmail.com</h6>
+                <h6>145-441-123</h6>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="columns small-5 myHighlight">
+              <div class="row">  
+            <div class="columns small-3 ">
+              <img src="assets/question.svg" height="20px" width="20px">
+            </div>
+            <div class="columns small-7 heading">
+              <h5>Opis</h5>
+              <div class="addressStyle">
+                <h6 class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Integer pellentesque vulputate tortor eget pharetra.
+                  Mauris euismod velit nec sodales varius. In eget luctus mauris.
+                  Nullam et massa et lacus ornare fermentum ac vitae eros.
+                  Nulla ullamcorper orci sem, sit amet vestibulum odio interdum sed.
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
 
         </div>
       </div>
     </div>
   </div>
+  
+</div><div >
+      <agm-map style="width:100%s; height:250px;" [latitude]='latitude' [longitude]='longitude' 
+      [mapTypeId]='mapType'>
+    </agm-map>
+  </div>
+
+<div class="row">
+    <div class="comment-section-container">
+        <h3>Comments (2)</h3>
+        <div class="comment-section-author">
+          <img src="https://placehold.it/50x50" alt="">
+          <div class="comment-section-name">
+            <h5><a href="">Janice Jones</a></h5>
+            <p>March 12, 2017 at 1:28pm</p>
+          </div>
+        </div>
+        <div class="comment-section-text">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum facilis tenetur a voluptatibus quia
+            deserunt.
+          </p>
+        </div>
+        <div class="comment-section-author">
+          <img src="https://placehold.it/50x50" alt="">
+          <div class="comment-section-name">
+            <h5><a href="">Janice Jones</a></h5>
+            <p>March 12, 2017 at 1:28pm</p>
+          </div>
+        </div>
+        <div class="comment-section-text">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum facilis tenetur a voluptatibus quia deserunt.
+          </p>
+        </div>
+      </div>
+
 </div>

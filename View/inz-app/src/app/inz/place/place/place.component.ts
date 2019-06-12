@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 
 @Component({
@@ -8,10 +8,11 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
 })
 export class PlaceComponent implements OnInit {
 
-
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
-
+  latitude = 50.026783;
+  longitude = 21.984447; 
+  mapType = 'roadmap';
   ngOnInit(): void {
 
       this.galleryOptions = [

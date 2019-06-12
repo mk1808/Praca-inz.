@@ -12,6 +12,7 @@ import { InzModule } from './inz/inz.module';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestComponent } from './test/test.component';
+import { StarRatingModule } from 'angular-star-rating';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { TestComponent } from './test/test.component';
   imports: [
     BrowserModule,
     NgxGalleryModule,
+    StarRatingModule.forRoot(),
     BrowserAnimationsModule,
     AppRoutingModule,
     AlertModule.forRoot(),

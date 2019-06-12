@@ -30,6 +30,43 @@ h3 {
 .pic{
     margin-left: 88px;
 }
+
+.columns{
+    float: left !important;
+}
+
+.secondRow{
+    margin-top: 30px;   
+    margin-bottom: 30px;
+}
+
+.description{
+    width:210%;
+}
+
+.leftCol{
+    margin-left: -20px;
+}
+
+.oneCell :hover{
+}
+
+::ng-deep   .rating{
+    justify-content: right!important;
+}
+
+.myHighlight{
+    transition-duration: 500ms !important;
+    color: black;
+}
+.myHighlight :hover{
+    transition-duration: 500ms !important;
+    color:purple;
+    background-color: rgb(255, 245, 255);
+}
+.myHighlight.row{
+    background-color: unset;
+}
 ///header
 
 .holy-grail-grid {
@@ -87,4 +124,34 @@ h3 {
   
   
 
-/////
+//////////////////////
+
+.comment-section-container {
+    background-color: #fefefe;
+    padding: 1rem;
+  }
+  
+  .comment-section-author {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .comment-section-author .comment-section-name {
+    margin-left: 1rem;
+  }
+  
+  .comment-section-author .comment-section-name p {
+    margin-bottom: 0;
+  }
+  
+  .comment-section-box {
+    background-color: #e6e6e6;
+    padding: 1rem;
+  }
+  
+  

@@ -5,8 +5,10 @@
   @include foundation-everything;
 
 // Import Angular ngx-foundation Framework Added Styles
-@import "~ngx-foundation/assets/scss/main";
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+
+
 
 .container{
   margin-left: 20px;
@@ -15,6 +17,20 @@ font-family: 'Work Sans', sans-serif;
 }
 @include foundation-grid;
 
-body{
-  font-family: 'Work Sans', sans-serif;
+body,H1,.h1,h2,h3,h4,h5,h6{
+  font-family: 'Work Sans', sans-serif!important;
 }
+
+
+/* Override colors by using scss variables */
+$color-negative-rating: #0f0 !default;
+$color-ok-rating: rgb(76, 29, 95) !default;
+$color-positive-rating: #00f !default;
+$color-default-rating: rgb(31, 94, 12) !default;
+
+$header-font-family:'Work Sans', sans-serif !default;
+
+@import "~ngx-foundation/assets/scss/main";
+
+@import '~css-star-rating/scss/star-rating';
+/* Import star-rating styles */
