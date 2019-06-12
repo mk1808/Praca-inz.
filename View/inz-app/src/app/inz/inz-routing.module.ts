@@ -16,6 +16,11 @@ const routes: Routes = [
                                 path:"place",
                                 loadChildren:"./place/place.module#PlaceModule"
 
+                        },
+                        {
+                                path:"trip",
+                                loadChildren:"./trip/trip.module#TripModule"
+
                         }
 
                 ]
