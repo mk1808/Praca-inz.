@@ -8,44 +8,46 @@
         <div class="columns small-7 heading">
           <h3>Wycieczka nazwa </h3>
           <div class="columns small-7 smallContainer">
-              <h4>Państwo: abc</h4>
-              <h4>Region: nazwa</h4>
-              <h4 class="description">Opis:   Integer pellentesque vulputate tortor eget pharetra.
-                  Mauris euismod velit nec sodales varius. In eget luctus mauris.
-                  Nullam et massa et lacus ornare fermentum ac vitae eros.
-                  Nulla ullamcorper orci sem, sit amet vestibulum odio interdum sed.
-                </h4>
-              
-            </div>        
-        </div>  
+            <h4>Państwo: abc</h4>
+            <h4>Region: nazwa</h4>
+            <h4 class="description">Opis: Integer pellentesque vulputate tortor eget pharetra.
+              Mauris euismod velit nec sodales varius. In eget luctus mauris.
+              Nullam et massa et lacus ornare fermentum ac vitae eros.
+              Nulla ullamcorper orci sem, sit amet vestibulum odio interdum sed.
+            </h4>
+
+          </div>
+        </div>
       </div>
 
-    <div class="row">
+      <div class="row">
         <div class="columns small-6 ">
-      <table class="responsive-card-table unstriped tbl">
-        <thead>
-          <tr>
-            <th class="id">Numer</th>
-            <th class="name">Nazwa</th>
-            <th class="place">Lokacja</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="ind"
-          *ngFor="let place of tableContent, let i=index"
-          >
-            <td data-label="First Name" (mouseover)="onHover(i)">{{place.id}}</td>
-            <td data-label="Last Name"(mouseover)="onHover(i)">{{place.name}}</td>
-            <td data-label="Hero Title"(mouseover)="onHover(i)">{{place.location}}</td>
-          </tr>
-          </tbody>
-      </table>
-    </div>
-    <div class="myTable">
-        <app-photos-on-hover></app-photos-on-hover>
-    </div>
-      
-    </div>
+          <table class="responsive-card-table unstriped tbl">
+            <thead>
+              <tr>
+                <th class="id">Numer</th>
+                <th class="name">Nazwa</th>
+                <th class="place">Lokacja</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="ind" *ngFor="let place of tableContent, let i=index">
+                <td data-label="First Name" (mouseover)="onHover(i)">{{place.id}}</td>
+                <td data-label="Last Name" (mouseover)="onHover(i)">{{place.name}}</td>
+                <td data-label="Hero Title" (mouseover)="onHover(i)">{{place.location}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div *ngIf="!hover; else photoContainer" >
+          <img class="myIcon" src="assets/air-balloon.svg" width="200px">
+        </div>
+        <ng-template #photoContainer>
+          <div class="myTable">
+            <app-photos-on-hover></app-photos-on-hover>
+          </div>
+        </ng-template>
+      </div>
     </div>
   </div>
 </div>
