@@ -10,6 +10,11 @@ h3 {
 .myRow{
     margin-left: 0;
     margin-right: 0;
+    margin-bottom:60px;
+}
+
+.secondRow{
+  margin-bottom: 40px;
 }
 
 .columns{
@@ -47,6 +52,13 @@ h3 {
 
 .myIcon{
   margin-left:200px!important;
+}
+
+.hovActive tr:hover{
+  background-color: darkslategrey;
+}
+.map{
+  margin-bottom: 40px;
 }
 ////////////////////
 .holy-grail-grid {

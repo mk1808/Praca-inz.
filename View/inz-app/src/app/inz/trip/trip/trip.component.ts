@@ -16,7 +16,9 @@ tableContent:any[] = [
   {id: 5, name: "miejsce005", location:"Warszawa", photo:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO_6Fa6Ht8GVgyFWvzw-Q3vaut7R6kZtVERQk5Rj7-tK-2nxsx"}, 
 ];
   constructor(private componentsService:ComponentsService) { }
-
+  latitude = 50.026783;
+  longitude = 21.984447; 
+  mapType = 'roadmap';
   ngOnInit() {
     this.hover=false;
   }

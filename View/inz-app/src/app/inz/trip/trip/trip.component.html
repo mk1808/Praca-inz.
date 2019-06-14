@@ -20,9 +20,9 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row secondRow">
         <div class="columns small-6 ">
-          <table class="responsive-card-table unstriped tbl">
+          <table class="table">
             <thead>
               <tr>
                 <th class="id">Numer</th>
@@ -31,7 +31,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr id="ind" *ngFor="let place of tableContent, let i=index">
+              <tr class="active hovActive" id="ind" *ngFor="let place of tableContent, let i=index">
                 <td data-label="First Name" (mouseover)="onHover(i)">{{place.id}}</td>
                 <td data-label="Last Name" (mouseover)="onHover(i)">{{place.name}}</td>
                 <td data-label="Hero Title" (mouseover)="onHover(i)">{{place.location}}</td>
@@ -48,6 +48,13 @@
           </div>
         </ng-template>
       </div>
+      
+
     </div>
   </div>
+</div>
+<div class="map">
+    <agm-map style="width:100%; height:250px;" [latitude]='latitude' [longitude]='longitude' 
+    [mapTypeId]='mapType'>
+  </agm-map>
 </div>
