@@ -19,6 +19,33 @@
             </div>        
         </div>  
       </div>
+
+    <div class="row">
+        <div class="columns small-6 ">
+      <table class="responsive-card-table unstriped tbl">
+        <thead>
+          <tr>
+            <th class="id">Numer</th>
+            <th class="name">Nazwa</th>
+            <th class="place">Lokacja</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="ind"
+          *ngFor="let place of tableContent, let i=index"
+          [ngClass]="{'hoverEff':hover==true}" >
+            <td data-label="First Name" (mouseover)="onHover(i)">{{place.id}}</td>
+            <td data-label="Last Name"(mouseover)="onHover(i)">{{place.name}}</td>
+            <td data-label="Hero Title"(mouseover)="onHover(i)">{{place.location}}</td>
+          </tr>
+          </tbody>
+      </table>
+    </div>
+    <div class="myTable">
+      <img src="https://www.w3schools.com/howto/img_snow.jpg" height="375px">
+    </div>
+      
+    </div>
     </div>
   </div>
 </div>
