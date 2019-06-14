@@ -22,8 +22,7 @@ tableContent:any[] = [
   }
 
 onHover(i){
-  console.log(i);
-  console.log(this.tableContent[i]);
+
   this.hover=true;
   let item=this.tableContent[i];
   this.componentsService.setTableItem(item);

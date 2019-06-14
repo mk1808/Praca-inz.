@@ -8,12 +8,16 @@ import { ComponentsService } from 'src/app/shared/services/components.service';
 })
 export class PhotosOnHoverComponent implements OnInit {
 item;
-  constructor(private componentsService:ComponentsService) { }
+  constructor(private componentsService:ComponentsService) { 
+    
+  }
 
   ngOnInit() {
-
-    this.item=this.componentsService.getTableItem();
     
+    this.componentsService.eventEmitter.subscribe(x=>{
+      console.log(x);
+    })
+
   }
 
 }
