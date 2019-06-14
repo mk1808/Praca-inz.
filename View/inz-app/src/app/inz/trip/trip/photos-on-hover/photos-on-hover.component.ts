@@ -7,7 +7,7 @@ import { ComponentsService } from 'src/app/shared/services/components.service';
   styleUrls: ['./photos-on-hover.component.scss']
 })
 export class PhotosOnHoverComponent implements OnInit {
-item;
+photo;
   constructor(private componentsService:ComponentsService) { 
     
   }
@@ -16,6 +16,8 @@ item;
     
     this.componentsService.eventEmitter.subscribe(x=>{
       console.log(x);
+      this.photo=x.photo;
+
     })
 
   }

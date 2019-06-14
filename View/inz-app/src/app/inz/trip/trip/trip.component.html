@@ -33,7 +33,7 @@
         <tbody>
           <tr id="ind"
           *ngFor="let place of tableContent, let i=index"
-          [ngClass]="{'hoverEff':hover==true}" >
+          >
             <td data-label="First Name" (mouseover)="onHover(i)">{{place.id}}</td>
             <td data-label="Last Name"(mouseover)="onHover(i)">{{place.name}}</td>
             <td data-label="Hero Title"(mouseover)="onHover(i)">{{place.location}}</td>
@@ -42,9 +42,9 @@
       </table>
     </div>
     <div class="myTable">
-      <img src="https://www.w3schools.com/howto/img_snow.jpg" height="375px">
+        <app-photos-on-hover></app-photos-on-hover>
     </div>
-      <app-photos-on-hover></app-photos-on-hover>
+      
     </div>
     </div>
   </div>
