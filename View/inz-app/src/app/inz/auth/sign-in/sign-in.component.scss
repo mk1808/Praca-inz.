@@ -1,0 +1,98 @@
+/////
+.container{
+    margin-left: 20px;
+  margin-right: 20px;
+  }
+  
+  .headingStyle{
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+  
+  }
+  .inputPos{
+   // height: 50px;
+   margin-bottom: 0px;
+    text-align: center;
+  margin-left: 175px;}
+  
+  .whereGo{
+    margin-bottom:30px;
+  }
+  
+////input//////formularz
+
+.sign-in-form {
+    padding: 1rem 1.5em;
+    border-radius: .5rem;
+    background-color: white;
+    width: 60%;
+    margin:0 auto;
+    text-align: center;
+  }
+  
+  .sign-in-form h4 {
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .sign-in-form label {
+    text-transform: uppercase;
+    color: #adadad;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    width:50%;
+  }
+  
+  .sign-in-form input {
+    background-color: rgb(160, 155, 155);
+  }
+  
+  .sign-in-form input:focus {
+    opacity: .8;
+    color:blue;
+  }
+  
+  .sign-in-form-username,
+  .sign-in-form-password {
+    border-radius: 30px;
+    border: none;
+    opacity: 0.6;
+    transition: all ease .4s;
+    
+  }
+  
+  .sign-in-form-button {
+    border-radius: 30px;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 20%;
+    padding: 1rem;
+    transition: all ease .4s;
+    margin-top: 15px;
+  }
+  
+  .sign-in-form-button:hover {
+    background-color: #44c8ed;
+    border-color: #44c8ed;
+  }
+  
+  //////
+.singleInput{
+    text-align: left;
+  }
+  
+.noAccount{
+      margin-top:20px;
+      text-align: center;
+  }
+    
+.signUp{
+    width:30%;
+}
