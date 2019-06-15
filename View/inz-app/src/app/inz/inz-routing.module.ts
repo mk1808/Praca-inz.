@@ -21,6 +21,11 @@ const routes: Routes = [
                                 path:"trip",
                                 loadChildren:"./trip/trip.module#TripModule"
 
+                        },
+                        {
+                                path:"auth",
+                                loadChildren:"./auth/auth.module#AuthModule"
+
                         }
 
                 ]
