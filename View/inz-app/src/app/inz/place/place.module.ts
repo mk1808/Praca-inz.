@@ -5,6 +5,8 @@ import { PlaceRoutingModule } from './place-routing.module';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { StarRatingModule } from 'angular-star-rating';
 import { AgmCoreModule } from '@agm/core';
+import { NgxEqualizerModule } from 'ngx-equalizer';
+
 
 @NgModule({
   declarations: [PlaceComponent],
@@ -15,8 +17,8 @@ import { AgmCoreModule } from '@agm/core';
     StarRatingModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBsLVzxs5lP8tAr0ErPMYOhBORJ-OoT0Ts'
-      
-    })    
+    }),
+    NgxEqualizerModule    
   ]
 })
 export class PlaceModule { }

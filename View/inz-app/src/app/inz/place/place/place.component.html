@@ -3,16 +3,16 @@
     <div class="holy-grail-header">
       <div class="row myRow">
         <div class="columns small-1 heading">
-          <img src="assets/museum.svg" height="40px" width="40px">
+          <img src="assets/museum.svg" class="iconStyle" height="80px" width="80px">
         </div>
         <div class="columns small-4 heading">
           <h3>Muzeum abcc </h3>
 
-          <star-rating id="ratingStar" [starType]="'svg'" [rating]="2.63" [disabled]="true"
- [showHalfStars]="true" size="large" ></star-rating>
+          <star-rating id="ratingStar" [starType]="'svg'" [rating]="2.63" [disabled]="true" [showHalfStars]="true"
+            size="large"></star-rating>
 
 
- 
+
         </div>
         <div class="columns small-5">
         </div>
@@ -28,7 +28,7 @@
       <div class="content">
         <div class="row">
           <div class="columns myHighlight small-7 ">
-            <div class="row ">
+            <div class="row">
               <div class="columns small-3 ">
                 <img src="assets/pin.svg" height="20px" width="20px">
               </div>
@@ -63,79 +63,105 @@
 
 
 
-        <div class="row secondRow ">
-          <div class="columns small-7 myHighlight oneCell">
-            <div class="row ">
-            <div class="columns small-3 ">
-              <img src="assets/contact.svg" height="20px" width="20px">
-            </div>
-            <div class="columns small-6 heading leftCol">
-              <h5>Dane kontaktowe</h5>
-              <div class="addressStyle">
-                <h6>www.website.com</h6>
-                <h6>website@gmail.com</h6>
-                <h6>145-441-123</h6>
+
+
+
+        <div class="row secondRow " equalizer>
+          <div class="columns small-7 panel myHighlight oneCell " equalize>
+            <div class="row contactRow">
+              <div class="columns small-3 ">
+                <img src="assets/contact.svg" height="20px" width="20px">
+              </div>
+              <div class="columns small-6 heading leftCol contactRow">
+                <h5>Kontakt</h5>
+                <div class="addressStyle">
+                  <h6>www.website.com</h6>
+                  <h6>website@gmail.com</h6>
+                  <h6>145-441-123</h6>
+                </div>
               </div>
             </div>
           </div>
-          </div>
-          <div class="columns small-5 myHighlight">
-              <div class="row">  
-            <div class="columns small-3 ">
-              <img src="assets/question.svg" height="20px" width="20px">
-            </div>
-            <div class="columns small-7 heading">
-              <h5>Opis</h5>
-              <div class="addressStyle">
-                <h6 class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Integer pellentesque vulputate tortor eget pharetra.
-                  Mauris euismod velit nec sodales varius. In eget luctus mauris.
-                  Nullam et massa et lacus ornare fermentum ac vitae eros.
-                  Nulla ullamcorper orci sem, sit amet vestibulum odio interdum sed.
-                </h6>
+          <div class="columns small-5 panel myHighlight " equalize>
+            <div class="row  contactRow">
+              <div class="columns small-3 ">
+                <img src="assets/question.svg" height="20px" width="20px">
+              </div>
+              <div class="columns small-7 heading  contactRow">
+                <h5>Opis</h5>
+                <div class="addressStyle">
+                  <h6 class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Integer pellentesque vulputate tortor eget pharetra.
+                    Mauris euismod velit nec sodales varius. In eget luctus mauris.
+                    Nullam et massa et lacus ornare fermentum ac vitae eros.
+                    Nulla ullamcorper orci sem, sit amet vestibulum odio interdum sed.
+                  </h6>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
         </div>
       </div>
     </div>
   </div>
-  
+
 </div>
-<div >
-      <agm-map style="width:100%; height:250px;" [latitude]='latitude' [longitude]='longitude' 
-      [mapTypeId]='mapType'>
-    </agm-map>
-  </div>
+<div>
+  <agm-map style="width:100%; height:250px;" [latitude]='latitude' [longitude]='longitude' [mapTypeId]='mapType'>
+  </agm-map>
+</div>
 
 <div class="row">
-    <div class="comment-section-container">
-        <h3>Comments (2)</h3>
-        <div class="comment-section-author">
-          <img src="https://placehold.it/50x50" alt="">
-          <div class="comment-section-name">
-            <h5><a href="">Janice Jones</a></h5>
-            <p>March 12, 2017 at 1:28pm</p>
-          </div>
-        </div>
-        <div class="comment-section-text">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum facilis tenetur a voluptatibus quia
-            deserunt.
-          </p>
-        </div>
-        <div class="comment-section-author">
-          <img src="https://placehold.it/50x50" alt="">
-          <div class="comment-section-name">
-            <h5><a href="">Janice Jones</a></h5>
-            <p>March 12, 2017 at 1:28pm</p>
-          </div>
-        </div>
-        <div class="comment-section-text">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum facilis tenetur a voluptatibus quia deserunt.
-          </p>
-        </div>
+  <div class="comment-section-container">
+    <h3>Comments (2)</h3>
+    <div class="comment-section-author">
+      <img src="https://placehold.it/50x50" alt="">
+      <div class="comment-section-name">
+        <h5><a href="">Janice Jones</a></h5>
+        <p>March 12, 2017 at 1:28pm</p>
       </div>
+    </div>
+    <div class="comment-section-text">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Nulla
+        vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum facilis
+        tenetur a voluptatibus quia
+        deserunt.
+      </p>
+    </div>
+    <div class="comment-section-author">
+      <img src="https://placehold.it/50x50" alt="">
+      <div class="comment-section-name">
+        <h5><a href="">Janice Jones</a></h5>
+        <p>March 12, 2017 at 1:28pm</p>
+      </div>
+    </div>
+    <div class="comment-section-text">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Nulla
+        vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum facilis
+        tenetur a voluptatibus quia deserunt.
+      </p>
+    </div>
+  </div>
 
+</div>
+
+
+<div class="row equalizer" equalizer>
+  <div class="col equalize" equalize>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ornare bibendum magna at consequat.
+    Morbi ultrices, augue eget condimentum commodo, lacus odio sodales odio, non suscipit libero enim nec odio.
+  </div>
+  <div class="col equalize" equalize>
+    Sed lorem elit, bibendum sed varius in, pretium vitae ipsum.<br />Curabitur vulputate mi risus, vitae pulvinar est
+    egestas quis.
+    Phasellus porta lacus eget velit condimentum, ac iaculis lacus volutpat.
+  </div>
+  <div class="col equalize" equalize>
+    Donec quam felis, vulputate non egestas facilisis, sagittis ac odio.
+    Aliquam tincidunt, enim commodo congue volutpat, libero erat tempus massa, eu vehicula risus eros in metus.
+    Etiam convallis, neque quis pellentesque sodales, metus leo gravida magna, dictum ullamcorper metus lectus eget
+    erat.
+    Vestibulum in leo a urna lacinia dapibus a at lacus.
+  </div>
 </div>

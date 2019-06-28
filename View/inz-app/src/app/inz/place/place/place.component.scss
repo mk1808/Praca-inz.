@@ -25,6 +25,7 @@ h3 {
     margin-left: -13px;
     border-left: 4px solid black;
     padding-left: 9px;
+    height: calc(100% - 2rem);
 }
 
 .pic{
@@ -66,6 +67,23 @@ h3 {
 }
 .myHighlight.row{
     background-color: unset;
+}
+.equalizer {
+  border: 2px solid #fffa00;
+
+  .equalize {
+    border: 1px solid #ff07ec;
+    width:30%;
+    float:left;
+  }
+}
+
+.contactRow{
+  height: 100%;
+}
+
+.iconStyle{
+  margin-top: 7px;
 }
 ///header
 
