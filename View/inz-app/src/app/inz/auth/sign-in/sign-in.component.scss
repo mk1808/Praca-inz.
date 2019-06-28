@@ -96,3 +96,12 @@
 .signUp{
     width:30%;
 }
+
+.signUp:focus{
+  outline:none!important;
+}
+
+.signIn:focus{
+  outline:none!important;
+}
+

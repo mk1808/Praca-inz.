@@ -105,3 +105,12 @@
 .signUp{
     width:30%;
 }
+
+.signUp:focus{
+  outline:none!important;
+}
+
+.newAccount:focus{
+  outline:none!important;
+
+}
