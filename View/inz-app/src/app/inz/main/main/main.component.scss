@@ -109,8 +109,7 @@ $sidelines-double-line-spacing: 0.5em !default;
 
 
 .flip-card {
-  -webkit-perspective: 1000;
-          perspective: 1000;
+ 
   border: 0;
   background: transparent;
 }
@@ -128,18 +127,14 @@ $sidelines-double-line-spacing: 0.5em !default;
   height: 20rem;
 }
 
-.flip-card{
- //width:30%;
- 
-}
+
 
 .flip-card-inner {
   transition: 0.6s;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   position: relative;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
 }
 
 .flip-card-inner-front,
