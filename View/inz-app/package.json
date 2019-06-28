@@ -30,6 +30,7 @@
     "foundation-sites": "^6.5.3",
     "material-design-icons": "^3.0.1",
     "ng-simple-slideshow": "^1.2.9",
+    "ngx-equalizer": "^1.0.2",
     "ngx-flip": "^7.0.3",
     "ngx-foundation": "^1.0.8",
     "ngx-gallery": "^5.10.0",
