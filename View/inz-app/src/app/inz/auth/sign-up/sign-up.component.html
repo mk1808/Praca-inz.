@@ -33,15 +33,11 @@
         <div class="singleInput">
           <label for="sign-in-form-password">Kraj</label>
           <select class="sign-in-form-password" id="sign-in-form-password">
-            <option value="text" class="sign-in-form-password" id="sign-in-form-password">
-              Abccd
-            </option>
-            <option value="text" class="sign-in-form-password" id="sign-in-form-password">
-              Abccd1
-            </option>
-            <option value="text" class="sign-in-form-password" id="sign-in-form-password">
-              Abccd2
-            </option>
+
+              <option value="Polska" class="sign-in-form-password" id="sign-in-form-password">Polska</option>
+              <option class="sign-in-form-password" id="sign-in-form-password" *ngFor="let country of countries " [value]="country">
+                {{country}}</option>
+
           </select>
         </div>
         <div class="singleInput">
