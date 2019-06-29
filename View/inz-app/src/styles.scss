@@ -17,6 +17,11 @@ font-family: 'Work Sans', sans-serif;
 }
 @include foundation-grid;
 
+body{
+  background-color: #F7F9F9;
+  color: #334049;
+}
+
 body,H1,.h1,h2,h3,h4,h5,h6{
   font-family: 'Work Sans', sans-serif!important;
 }

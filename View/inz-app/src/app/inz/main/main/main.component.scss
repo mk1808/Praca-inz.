@@ -96,6 +96,7 @@ $sidelines-double-line-spacing: 0.5em !default;
   .input-group-field {
     border-radius: 5000px 0 0 5000px;
     padding-left: 1rem;
+    border-color:#662d91;
   }
 
   .input-group-button .button {
@@ -159,6 +160,7 @@ $sidelines-double-line-spacing: 0.5em !default;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+          color:#334049;
 }
 
 .flip-card-inner-front span {
@@ -186,7 +188,7 @@ $sidelines-double-line-spacing: 0.5em !default;
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: center;
-  background: #cacaca;
+  background: #87689e;
   padding: 1rem;
 }
 
@@ -226,11 +228,32 @@ margin-left: 175px;}
   margin-left: 37%;
   width: 26%;
   margin-top: 10px;
-  margin-bottom: 30px
+  margin-bottom: 60px
 }
 
 .moreBtn:focus{
   outline:none!important;
+}
+
+.secondary{
+  background-color: #662d91;
+
+}
+
+.button.secondary:hover,
+.button.secondary:focus{
+  background-color: #4c216d;
+  outline:none;
+}
+
+.button.success{
+  background-color: #334049;
+  color:#F2F5F9;
+}
+
+button.moreBtn{
+  background-color: #662d91!important;
+
 }
   ////////////tosty///////////////////
   
@@ -398,6 +421,7 @@ margin-left: 175px;}
   transition: all 0.35s ease;
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
+
 }
 
 .button-rounded-hover:before {
@@ -422,7 +446,7 @@ margin-left: 175px;}
   bottom: 0px;
   left: 0px;
   right: 0px;
-  border: 5px solid #115b8d;
+  border: 5px solid #662d91;
   content: '';
   border-radius: inherit;
 }
