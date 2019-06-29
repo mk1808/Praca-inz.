@@ -7,11 +7,11 @@
         <div class="sign-in-form">
           <div class="singleInput">
           <label for="sign-in-form-username">Login</label>
-          <input type="text" class="sign-in-form-username" id="sign-in-form-username"></div>
+          <input type="text" class="sign-in-form-username" id="sign-in-form-username" autocomplete="off"></div>
     
           <div class="singleInput">
           <label for="sign-in-form-password">Hasło</label>
-          <input type="text" class="sign-in-form-password" id="sign-in-form-password"></div>
+          <input type="password" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
           <button type="submit" class="sign-in-form-button signIn">Zaloguj
             
           </button>
@@ -19,7 +19,7 @@
       </form>
     <div class="sign-in-form">
       <h5 class="noAccount">Nie masz konta?</h5>
-      <button class="sign-in-form-button signUp">Zarejestruj</button>
+      <button class="sign-in-form-button signUp" (click)="onSignUp()">Zarejestruj</button>
     </div>
 
 </div>
