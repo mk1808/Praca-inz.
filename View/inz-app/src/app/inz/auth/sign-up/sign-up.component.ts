@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -29,9 +30,13 @@ countries:any[]=["Afganistan","Albania","Algieria","Andora","Angola","Anguilla",
 "Wenezuela","Węgry","Wielka Brytania","Wietnam","Włochy","Wschodni Timor","Wyb.Kości Słoniowej","Wyspa Bouveta","Wyspa Bożego Narodzenia","Wyspy Cooka","Wyspy Dziewicze-USA",
 "Wyspy Dziewicze-W.B","Wyspy Heard i McDonald","Wyspy Kokosowe ","Wyspy Owcze","Wyspy Marshalla","Wyspy Salomona","Wyspa Sint Maarten","Wyspy Św.Tomasza i Książęca","Zambia","Zielony Przylądek","Zimbabwe",
 "Zjedn.Emiraty Arabskie"];
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
+  
 
   ngOnInit() {
   }
 
+  onSignIn(){
+    this.router.navigate(['/auth/signin']);
+  }
 }
