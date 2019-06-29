@@ -1,5 +1,5 @@
 $menu-underline-from-center-bg: #2C3840;
-$menu-underline-from-center-border-thickness: 0.125rem;
+$menu-underline-from-center-border-thickness: 0.165rem;
 
 .hover-underline-menu {
   width: 100%;
@@ -9,12 +9,12 @@ $menu-underline-from-center-border-thickness: 0.125rem;
     background-color: $menu-underline-from-center-bg;
 
     .appNavItemActive{
-      border-bottom: $menu-underline-from-center-border-thickness solid white;
+      border-bottom: $menu-underline-from-center-border-thickness solid #F2f5f9;
      
     }
 
     a {
-      color: white;
+      color: #F2f5f9;
       padding: 1.2rem 1.5rem;
     }
 
@@ -25,7 +25,7 @@ $menu-underline-from-center-border-thickness: 0.125rem;
         content: "";
         position: absolute;
         top: calc(100% - #{$menu-underline-from-center-border-thickness});
-        border-bottom: $menu-underline-from-center-border-thickness solid white;
+        border-bottom: $menu-underline-from-center-border-thickness solid #F2f5f9;
         left: 50%;
         right: 50%;
         transition: all 0.5s ease;
