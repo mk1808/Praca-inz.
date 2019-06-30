@@ -93,6 +93,35 @@
     opacity: .8;
     color:blue;
   }
+
+  ////////////raddio btton
+
+  
+.polls {
+  margin-bottom: 1.3rem;
+  text-align: left!important;
+}
+
+.polls .polls-question {
+  margin-bottom: .5rem;
+}
+
+.polls .polls-question .polls-question-label {
+  color: #1779ba;
+  font-weight: 500;
+  margin-right: .25rem;
+}
+
+.polls .polls-submit {
+  margin-top: .3rem;
+}
+
+.polls .polls-submit .button {
+  margin-right: .5rem;
+  text-transform: uppercase;
+}
+
+
   //////
 .singleInput{
     text-align: left;
@@ -119,4 +148,15 @@
 
 button{
   cursor:pointer;
+}
+
+.label{
+  text-align: left;
+}
+
+.option{
+  width: 20%!important;
+}
+.submit{
+  margin-top:0px;
 }

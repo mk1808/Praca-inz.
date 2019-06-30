@@ -22,13 +22,24 @@
         </div>
       </div>
       <div class="large-6  columns">
-        <div class="singleInput">
-          <label for="sign-in-form-username">Płeć</label>
-          <input type="text" class="sign-in-form-username" id="sign-in-form-username">
-        </div>
+
+          <div class="polls ">
+              <label for="sign-in-form-username label">Płeć</label>
+              <div class="polls-options">
+                <div class="radio-group">
+                  <input type="radio"  value="k" id="k" name="group">
+                  <label >Kobieta</label>
+                  <input type="radio" value="m" id="m" name="group" >
+                  <label class="option">Mężczyzna</label>
+                </div>
+          
+              </div>
+          </div>
+
+        
         <div class="singleInput">
           <label for="sign-in-form-username">Wiek</label>
-          <input type="text" class="sign-in-form-username" id="sign-in-form-username">
+          <input type="number" class="sign-in-form-username" id="sign-in-form-username">
         </div>
         <div class="singleInput">
           <label for="sign-in-form-password">Kraj</label>
@@ -46,10 +57,13 @@
         </div>
       </div>
 
+</div>
+
+    <div class="sign-in-form submit">
             <button type="submit" class="sign-in-form-button newAccount">Utwórz konto
       </button>
-
     </div>
+
   </form>
   <div class="sign-in-form">
     <h5 class="noAccount">Masz już konto?</h5>
