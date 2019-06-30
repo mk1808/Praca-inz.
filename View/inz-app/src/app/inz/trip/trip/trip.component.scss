@@ -55,25 +55,28 @@ h3 {
 }
 
 tbody td .hovActive:hover{
-  background-color: darkslategrey;
+  background-color: #662d91;
+  color:#f7f9f9!important;
 }
 .map{
   margin-bottom: 40px;
 }
 
 .border{
-  border-left: 4px solid black;
+  border-left: 4px solid #4c216d;
     padding-left: 27px;
 }
 
 tr td {
   
-  
+  background-color: rgb(167, 162, 170); 
   transition-duration: 300ms;
+  border-bottom:1px solid #f7f9f9;
 }
 
 tr:hover td {
-  background-color:darkcyan;
+  background-color:#662d91;
+  color:#f7f9f9!important;  
   cursor: pointer;
 }
 
@@ -86,6 +89,20 @@ tr:hover td {
   font-weight: 600;
 }
 
+.photo{
+  height: 300px!important;
+  border: 5px solid #662d91;
+}
+
+thead tr{
+//  border-bottom: 2px solid #662d91;
+  background-color: #662d91;
+  color:#f7f9f9!important;
+}
+
+thead th{
+  font-weight: 100!important;  
+}
 ////////////////////
 .holy-grail-grid {
     display: grid;
@@ -153,7 +170,7 @@ tr:hover td {
 }
 
 .responsive-card-table th {
-  background-color: #e6e6e6;
+  background-color: #A79CAF!important;
 }
 
 .responsive-card-table tr,
