@@ -27,7 +27,7 @@
       <h4>Informacje</h4>
       <div class="content">
         <div class="row">
-          <div class="columns myHighlight small-7 ">
+          <div class="columns myHighlight small-6 ">
             <div class="row">
               <div class="columns small-3 ">
                 <img src="assets/pin.svg" height="20px" width="20px">
@@ -67,7 +67,7 @@
 
 
         <div class="row secondRow " equalizer>
-          <div class="columns small-7 panel myHighlight oneCell " equalize>
+          <div class="columns small-6 panel myHighlight oneCell " equalize>
             <div class="row contactRow">
               <div class="columns small-3 ">
                 <img src="assets/contact.svg" height="20px" width="20px">
@@ -93,7 +93,7 @@
                   <h6 class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Integer pellentesque vulputate tortor eget pharetra.
                     Mauris euismod velit nec sodales varius. In eget luctus mauris.
-                    Nullam et massa et lacus ornare fermentum ac vitae eros.
+                    Nullam et massa et lacus ornare fermentum ac vitae.
                     Nulla ullamcorper orci sem, sit amet vestibulum odio interdum sed.
                   </h6>
                 </div>
@@ -107,46 +107,50 @@
   </div>
 
 </div>
-<div>
-  <agm-map style="width:100%; height:250px;" [latitude]='latitude' [longitude]='longitude' [mapTypeId]='mapType'>
+<div class="mapPos">
+  <agm-map class="map" [latitude]='latitude' [longitude]='longitude' [mapTypeId]='mapType'>
   </agm-map>
 </div>
 
 <div class="row">
   <div class="comment-section-container">
-    <h3>Comments (2)</h3>
-    <div class="comment-section-author">
-      <img src="https://placehold.it/50x50" alt="">
-      <div class="comment-section-name">
-        <h5><a href="">Janice Jones</a></h5>
-        <p>March 12, 2017 at 1:28pm</p>
+    <h3>Komentarze</h3>
+    <div class="singleComment">
+      <div class="comment-section-author">
+        <img src="https://placehold.it/50x50" alt="">
+        <div class="comment-section-name">
+          <h5 class="comment">Janice Jones</h5>
+          <p>March 12, 2017 at 1:28pm</p>
+        </div>
+      </div>
+      <div class="comment-section-text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Nulla
+          vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum facilis
+          tenetur a voluptatibus quia
+          deserunt.
+        </p>
       </div>
     </div>
-    <div class="comment-section-text">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Nulla
-        vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum facilis
-        tenetur a voluptatibus quia
-        deserunt.
-      </p>
-    </div>
-    <div class="comment-section-author">
-      <img src="https://placehold.it/50x50" alt="">
-      <div class="comment-section-name">
-        <h5><a href="">Janice Jones</a></h5>
-        <p>March 12, 2017 at 1:28pm</p>
+    <div class="singleComment">
+      <div class="comment-section-author">
+        <img src="https://placehold.it/50x50" alt="">
+        <div class="comment-section-name">
+          <h5>Janice Jones</h5>
+          <p>March 12, 2017 at 1:28pm</p>
+        </div>
       </div>
-    </div>
-    <div class="comment-section-text">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Nulla
-        vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum facilis
-        tenetur a voluptatibus quia deserunt.
-      </p>
+      <div class="comment-section-text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Nulla
+          vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum facilis
+          tenetur a voluptatibus quia deserunt.
+        </p>
+      </div>
     </div>
   </div>
 
 </div>
 
-
+<!--
 <div class="row equalizer" equalizer>
   <div class="col equalize" equalize>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ornare bibendum magna at consequat.
@@ -164,4 +168,4 @@
     erat.
     Vestibulum in leo a urna lacinia dapibus a at lacus.
   </div>
-</div>
+</div>-->

@@ -26,6 +26,7 @@ h3 {
     border-left: 4px solid black;
     padding-left: 9px;
     height: calc(100% - 2rem);
+    border-color: #4c216d;
 }
 
 .pic{
@@ -62,8 +63,8 @@ h3 {
 }
 .myHighlight :hover{
     transition-duration: 500ms !important;
-    color:purple;
-    background-color: rgb(255, 245, 255);
+    color:#662d91;
+    //background-color: rgb(255, 245, 255);
 }
 .myHighlight.row{
     background-color: unset;
@@ -89,6 +90,30 @@ h3 {
 .colHeader{
   font-weight: 600;
 }
+
+.infoIcon{
+  color: #4c216d;
+}
+
+.singleComment{
+  border: 2px solid #4c216d;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  width:60%;
+  border-radius: 15px;
+  padding-top:10px;
+}
+
+.map{
+  width:100%; height:300px;
+  
+}
+
+.mapPos{
+  margin-bottom:40px;
+}
+
+
 ///header
 
 .holy-grail-grid {
@@ -149,8 +174,9 @@ h3 {
 //////////////////////
 
 .comment-section-container {
-    background-color: #fefefe;
+  //  background-color: #fefefe;
     padding: 1rem;
+    margin-bottom:30px;
   }
   
   .comment-section-author {
