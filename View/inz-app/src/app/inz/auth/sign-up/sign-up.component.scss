@@ -29,6 +29,7 @@
     width: 60%;
     margin:0 auto;
     text-align: center;
+    background-color: #f2f5f9;
   }
   
   .sign-in-form h4 {
@@ -52,8 +53,8 @@
   }
   
   .sign-in-form input:focus {
-    opacity: .8;
-    color:blue;
+    opacity: .9;
+    color: #334049;
   }
   
   .sign-in-form-username,
@@ -69,7 +70,7 @@
     border-radius: 30px;
     border: 1px solid #fff;
     color: #fff;
-    background-color: #666666;
+    background-color: #662d91;
     text-transform: uppercase;
     letter-spacing: 1px;
     width: 35%;
@@ -79,8 +80,8 @@
   }
   
   .sign-in-form-button:hover {
-    background-color: #44c8ed;
-    border-color: #44c8ed;
+    background-color: #4c216d;
+    border-color: #662d91;
   }
   
   
