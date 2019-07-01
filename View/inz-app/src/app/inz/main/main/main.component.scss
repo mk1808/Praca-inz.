@@ -149,7 +149,7 @@ $sidelines-double-line-spacing: 0.5em !default;
 }
 
 .flip-card-inner-front {
-  background: url(https://images.pexels.com/photos/179124/pexels-photo-179124.jpeg?w=940&h=650&auto=compress&cs=tinysrg) 0 0 no-repeat;
+ // background: url(https://images.pexels.com/photos/179124/pexels-photo-179124.jpeg?w=940&h=650&auto=compress&cs=tinysrg) 0 0 no-repeat;
   z-index: 2;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -162,6 +162,7 @@ $sidelines-double-line-spacing: 0.5em !default;
           justify-content: center;
           color:#334049;
 }
+
 
 .flip-card-inner-front span {
   width: 100%;
