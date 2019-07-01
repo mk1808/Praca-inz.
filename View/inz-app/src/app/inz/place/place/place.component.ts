@@ -41,25 +41,30 @@ export class PlaceComponent implements OnInit {
 
       this.galleryImages = [
           {
-              small: 'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500',
-              medium: 'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500',
-              big: 'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500'
+              small: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Louvre_Palace_Courtyard_and_Pyramids.jpg/800px-Louvre_Palace_Courtyard_and_Pyramids.jpg',
+              medium: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Louvre_Palace_Courtyard_and_Pyramids.jpg/800px-Louvre_Palace_Courtyard_and_Pyramids.jpg',
+              big: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Louvre_Palace_Courtyard_and_Pyramids.jpg/800px-Louvre_Palace_Courtyard_and_Pyramids.jpg'
           },
           {
-              small: 'https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500',
-              medium: 'https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500',
-              big: 'https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500'
+              small: 'https://media.fshoq.com/images/283/louvre-in-paris-during-the-night-283-medium.jpg',
+              medium: 'https://media.fshoq.com/images/283/louvre-in-paris-during-the-night-283-medium.jpg',
+              big: 'https://media.fshoq.com/images/283/louvre-in-paris-during-the-night-283-medium.jpg'
           },
           {
-              small: 'https://images.pexels.com/photos/53350/seoul-skyscraper-building-architecture-53350.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-              medium: 'https://images.pexels.com/photos/53350/seoul-skyscraper-building-architecture-53350.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-              big: 'https://images.pexels.com/photos/53350/seoul-skyscraper-building-architecture-53350.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+              small: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Cour-carree-du-louvre-vers-louest.jpg/800px-Cour-carree-du-louvre-vers-louest.jpg',
+              medium: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Cour-carree-du-louvre-vers-louest.jpg/800px-Cour-carree-du-louvre-vers-louest.jpg',
+              big: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Cour-carree-du-louvre-vers-louest.jpg/800px-Cour-carree-du-louvre-vers-louest.jpg'
           },
           {
-            small: 'https://images.pexels.com/photos/417273/pexels-photo-417273.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500',
-            medium: 'https://images.pexels.com/photos/417273/pexels-photo-417273.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500',
-            big: 'https://images.pexels.com/photos/417273/pexels-photo-417273.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500'
-        } 
+            small: 'https://c.pxhere.com/photos/89/bb/picture_painting_picture_gallery_painter_artist_lonardo_da_vinci_works_of_art_image_frame-673590.jpg!d',
+            medium: 'https://c.pxhere.com/photos/89/bb/picture_painting_picture_gallery_painter_artist_lonardo_da_vinci_works_of_art_image_frame-673590.jpg!d',
+            big: 'https://c.pxhere.com/photos/89/bb/picture_painting_picture_gallery_painter_artist_lonardo_da_vinci_works_of_art_image_frame-673590.jpg!d'
+        },
+        {
+          small: 'https://storage.needpix.com/rsynced_images/paris-2373702_1280.jpg',
+          medium: 'https://storage.needpix.com/rsynced_images/paris-2373702_1280.jpg',
+          big: 'https://storage.needpix.com/rsynced_images/paris-2373702_1280.jpg'
+      }  
 
       ];
   }
