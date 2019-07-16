@@ -8,8 +8,10 @@ import { NgxHmCarouselModule } from 'ngx-hm-carousel';
 import {SlideshowModule} from 'ng-simple-slideshow';
   
 import { FlipModule } from 'ngx-flip';
+import { ObjectSearchingResultsComponent } from './object-searching-results/object-searching-results.component';
+import { DestinationSearchingResultsComponent } from './destination-searching-results/destination-searching-results.component';
 @NgModule({
-  declarations: [MainComponent],
+  declarations: [MainComponent, ObjectSearchingResultsComponent, DestinationSearchingResultsComponent],
   imports: [
     CommonModule,
     FlipModule,

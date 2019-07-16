@@ -13,6 +13,10 @@ const routes: Routes = [
                                 loadChildren: "./main/main.module#MainModule"
                         },
                         {
+                                path: "search",
+                                loadChildren: "./main/main.module#MainModule"
+                        },
+                        {
                                 path:"place",
                                 loadChildren:"./place/place.module#PlaceModule"
 

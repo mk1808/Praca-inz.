@@ -1,0 +1,42 @@
+<div class="container">
+  <h4 class="headingStyle">Przeszukiwanie obiektów</h4>
+<div class="row whereGo">
+  <div class="wrap">
+    <div class="search">
+      <input type="text" class="searchTerm" placeholder="Wpisz szukaną frazę">
+      <input type="text" class="searchTerm" placeholder="Wybierz kategorię">
+      <input type="text" class="searchTerm" placeholder="Sortuj według:">
+      <button (click)="onSearch()" type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<h2 class="type-sidelines"><span>Co można zobaczyć w: x</span></h2>
+
+<div class="row">
+  <div class="small-2 large-4 columns">
+    <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+      <div class="flip-card-inner">
+        <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
+              background-size: cover;">
+          <span>Rynek w Zamościu<br>
+            Kategoria: x <br>
+            Ocena: 4.5/5
+
+          </span> 
+      
+        </div>
+        <div class="flip-card-inner-back">
+          <h3 class="flip-card-inner-back-title">Rynek w Zamościu</h3>
+          <p class="flip-card-inner-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo
+            doloremque accusantium, repellendus ex debitis molestias, recusandae dignissimos delectus.</p>
+          <a href="#" class="button success">Zobacz</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

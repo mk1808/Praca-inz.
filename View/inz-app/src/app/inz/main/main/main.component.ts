@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -16,13 +17,18 @@ export class MainComponent implements OnInit {
 'https://media.fshoq.com/images/150/arts-museum-louvre-in-paris-during-the-night-150-medium.jpg'];
 
  
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
   flipDiv = false;
+  
   onClick() {
     this.flipDiv = !this.flipDiv;
+  }
+
+  onSearch(){
+    this.router.navigate(['/search/dest']);
   }
   
 

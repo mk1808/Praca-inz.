@@ -1,0 +1,259 @@
+
+//search
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 32%;
+  border: 3px solid #662d91;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: gray;
+  height: 100%;
+  height:50px;
+}
+
+.searchTerm:focus{
+  color: black;
+}
+
+.searchButton {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #662d91;
+  background: #662d91;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 70%;
+  margin-top:60px;
+
+margin-left:600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+////linie
+$sidelines-text-padding: 0.5em !default;
+$sidelines-line-thickness: 1px !default;
+$sidelines-line-length: 9999px !default;
+$sidelines-line-color: null !default;
+$sidelines-line-style: solid !default;
+$sidelines-double-line: false !default;
+$sidelines-double-line-spacing: 0.5em !default;
+
+@mixin sidelines(
+  $text-padding: $sidelines-text-padding,
+  $line-thickness: $sidelines-line-thickness,
+  $line-length: $sidelines-line-length,
+  $line-color: $sidelines-line-color,
+  $line-style: $sidelines-line-style,
+  $double-line: $sidelines-double-line,
+  $double-line-spacing: $sidelines-double-line-spacing ) {
+
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+
+  span {
+    display: inline-block;
+    position: relative;
+    padding-left: $text-padding;
+    padding-right: $text-padding;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: $line-length;
+      top: 50%;
+      border-top-style: $line-style;
+      border-top-width: $line-thickness;
+
+      @if $line-color != null {
+        border-top-color: $line-color;
+      }
+
+      @if $double-line {
+        border-bottom-style: $line-style;
+        border-bottom-width: $line-thickness;
+        border-bottom-color: $line-color;
+        height: $double-line-spacing;
+        margin-top: -($double-line-spacing/2);
+      } @else if $line-thickness > 1 {
+        margin-top: -(floor($line-thickness/2));
+      }
+    }
+
+    &:before {
+      right: 100%;
+    }
+
+    &:after {
+      left: 100%;
+    }
+  }
+}
+
+.type-sidelines {
+  @include sidelines();
+  margin-bottom: 22px;
+}
+
+.double {
+  @include sidelines(
+    $double-line: true
+  );
+}
+
+.custom {
+  @include sidelines(
+    $text-padding: 20px,
+    $line-length: 100%,
+    $line-color: #2980b9,
+    $line-thickness: 4px,
+    $line-style: dotted
+  );
+}
+
+.custom-2 {
+  @include sidelines(
+    $line-color: #27ae60,
+    $line-thickness: 4px
+  );
+}
+
+
+//////////////////////////cards
+
+
+
+.flip-card {
+ 
+    border: 0;
+    background: transparent;
+  }
+  
+  .flip-card:hover .flip-card-inner,
+  .flip-card.hover .flip-card-inner {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+  
+  .flip-card,
+  .flip-card-inner-front,
+  .flip-card-inner-back {
+    width: 100%;
+    height: 20rem;
+  }
+  
+  
+  
+  .flip-card-inner {
+    transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    position: relative;
+    -moz-backface-visibility: hidden;
+  }
+  
+  .flip-card-inner-front,
+  .flip-card-inner-back {
+    
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .flip-card-inner-front {
+   // background: url(https://images.pexels.com/photos/179124/pexels-photo-179124.jpeg?w=940&h=650&auto=compress&cs=tinysrg) 0 0 no-repeat;
+    z-index: 2;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+            color:#334049;
+  }
+  
+  
+  .flip-card-inner-front span {
+    width: 100%;
+    text-align: center;
+    background: rgba(254, 254, 254, 0.8);
+    padding: 0.25rem 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top:222px;
+  }
+  
+  .flip-card-inner-back {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+    background: #87689e;
+    padding: 1rem;
+  }
+  
+  .flip-card-inner-back-title {
+    font-weight: bold;
+  }
+  
+  .flip-card-inner-back-text {
+    line-height: 1.3;
+  }
+  
+//own
+
+.container{
+    margin-left: 20px;
+  margin-right: 20px;
+  }
+  
+  .headingStyle{
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+  
+  }
