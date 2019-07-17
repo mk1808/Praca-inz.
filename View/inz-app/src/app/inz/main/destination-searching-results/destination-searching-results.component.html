@@ -39,4 +39,56 @@
     </div>
   </div>
 </div>
+<h4 class="headingStyle">Przeszukiwanie wycieczek</h4>
+<div class="row whereGo">
+  <div class="wrap tripWrap">
+    <div class="search">
+      <input type="text" class="searchTerm" placeholder="Wpisz szukaną frazę">
+      <input type="text" class="searchTerm" placeholder="Wybierz z dostępnych tagów">
+      <input type="text" class="searchTerm" placeholder="Wybierz długość wycieczki">
+      <input type="text" class="searchTerm" placeholder="Sortuj według:">
+      <button (click)="onSearch()" type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<h2 class="type-sidelines"><span>Propozycje wycieczek do: x</span></h2>
+
+<div class="row">
+  <div class="small-2 large-4 columns">
+    <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+      <div class="flip-card-inner">
+        <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
+              background-size: cover;">
+          <span>Weekend w Zamościu<br>
+            
+            Długość trwania: 2 dni <br>
+            Ocena: 4.5/5<br>
+ 
+          </span> 
+      
+        </div>
+        <div class="flip-card-inner-back">
+          <h3 class="flip-card-inner-back-title">Weekend w Zamościu</h3>
+          <p class="flip-card-inner-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <span class="tags">
+            Tagi: 
+<!--
+            <mat-chip-list aria-label="Fish selection">
+                <mat-chip>One fish</mat-chip>
+                <mat-chip>Two fish</mat-chip>
+                </mat-chip-list>
+
+-->
+            <span class="newTag"> #weekend </span>  #zwiedzanie #zabytki <br>
+            #miasto #abcd #qwetr #sdffg </span>
+          <a href="#" class="button success goBtn">Zobacz</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

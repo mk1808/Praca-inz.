@@ -25,6 +25,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
     FlipModule,
     InzRoutingModule,
     NgxGalleryModule
+    
   ]
 })
 export class InzModule { }

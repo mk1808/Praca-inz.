@@ -6,7 +6,7 @@ import { MainRoutingModule } from './main-routing.module';
 import { AlertModule, AccordionModule, ButtonsModule, CarouselModule, CollapseModule, BsDatepickerModule, BsDropdownModule, ModalModule, OffcanvasModule, PaginationModule, ProgressbarModule, RatingModule, SortableModule, TabsModule, TimepickerModule, TooltipModule, TypeaheadModule } from 'ngx-foundation';
 import { NgxHmCarouselModule } from 'ngx-hm-carousel';
 import {SlideshowModule} from 'ng-simple-slideshow';
-  
+import {MatChipsModule} from '@angular/material/chips';
 import { FlipModule } from 'ngx-flip';
 import { ObjectSearchingResultsComponent } from './object-searching-results/object-searching-results.component';
 import { DestinationSearchingResultsComponent } from './destination-searching-results/destination-searching-results.component';
@@ -36,7 +36,8 @@ import { DestinationSearchingResultsComponent } from './destination-searching-re
     TabsModule,
     TimepickerModule,
     TooltipModule,
-    TypeaheadModule,
+    TypeaheadModule
+  
 
     
   ]

@@ -35,6 +35,8 @@
     "ngx-foundation": "^1.0.8",
     "ngx-gallery": "^5.10.0",
     "ngx-hm-carousel": "^1.6.5-bata.1",
+    "ngx-page-scroll": "^6.0.2",
+    "ngx-page-scroll-core": "^6.0.2",
     "rxjs": "~6.3.3",
     "spectre.css": "^0.5.8",
     "tslib": "^1.9.0",

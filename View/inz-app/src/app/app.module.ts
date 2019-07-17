@@ -1,6 +1,6 @@
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { AlertModule, AccordionModule, ButtonsModule, CarouselModule,
    CollapseModule, BsDatepickerModule, BsDropdownModule, 
    ModalModule, OffcanvasModule, PaginationModule, ProgressbarModule, 
@@ -13,13 +13,19 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestComponent } from './test/test.component';
 import { StarRatingModule } from 'angular-star-rating';
-
+import { RouterModule } from '@angular/router';
+/*
+@Injectable({
+  providedIn: 'root'
+})
+*/
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent
   ],
   imports: [
+    //RouterModule,
     BrowserModule,
     NgxGalleryModule,
     StarRatingModule.forRoot(),

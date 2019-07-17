@@ -257,3 +257,20 @@ $sidelines-double-line-spacing: 0.5em !default;
     font-family: 'Work Sans', sans-serif;
   
   }
+
+  .tripWrap{
+      width:85%;
+  }
+
+  .goBtn{
+      margin-top:10px;
+  }
+
+  .tags{
+      font-weight: 600;
+
+  }
+
+  .newTag :hover{
+      text-decoration: underline;
+  }
