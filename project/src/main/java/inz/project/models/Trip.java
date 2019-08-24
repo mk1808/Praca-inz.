@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -20,22 +21,28 @@ public class Trip {
 	@Id @GeneratedValue private Long id; 
 	@NotNull private String name;
    
+	
 	@ManyToOne
-    @JoinColumn(name="user_id")
-	private User user;
+    private User user;
+	
+	@ManyToOne
+	private Hotel hotel;
 	
 	@NotNull private String country;
 	@NotNull private String region;
 	private String description;
 	private String duration;
 	
-	@OneToMany(mappedBy="trip")
+	@OneToMany
     private List <PositionInTrip> positionsInTrip;
+	
+	@OneToOne
+	private Schedule schedule;
 	
 	public Trip() {}
 
 	public Trip(Long id, @NotNull String name, User user, @NotNull String country, @NotNull String region,
-			String description, String duration, List<PositionInTrip> positionsInTrip) {
+			String description, String duration, List<PositionInTrip> positionsInTrip, Hotel hotel, Schedule schedule) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -45,8 +52,18 @@ public class Trip {
 		this.description = description;
 		this.duration = duration;
 		this.positionsInTrip = positionsInTrip;
+		this.hotel=hotel;
+		this.schedule=schedule;
 	}
 	
+	public Schedule getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(Schedule schedule) {
+		this.schedule = schedule;
+	}
+
 	public List<PositionInTrip> getPositionsInTrip() {
 		return positionsInTrip;
 	}
@@ -95,6 +112,14 @@ public class Trip {
 	}
 	public void setDuration(String duration) {
 		this.duration = duration;
+	}
+
+	public Hotel getHotel() {
+		return hotel;
+	}
+
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
 	
 }
