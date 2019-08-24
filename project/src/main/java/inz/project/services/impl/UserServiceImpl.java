@@ -26,8 +26,12 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public List<User> getUsers(){
-		return this.userRepository.findAll();
-	}
+		List<User> users = this.userRepository.findAll();
+		for(User user:users) {
+			user.setPassword("");
+		}
+		return users;
+	} 
 	
 	@Override
 	public User getUserById(Long id) {

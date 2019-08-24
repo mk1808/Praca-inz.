@@ -22,6 +22,8 @@ import javax.persistence.JoinColumn;
 
 import org.hibernate.annotations.NaturalId;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Data
@@ -34,6 +36,8 @@ import lombok.Data;
             "mail"
         })
 })
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
 	
 	
@@ -57,12 +61,16 @@ public class User {
 	
 	
 	
-
 	@OneToMany(mappedBy="user")
     private List <Place> places;
 	
 	@OneToMany(mappedBy="user")
     private List <Trip> trips;
+	
+	@OneToMany(mappedBy="user")
+    private List <Hotel> hotels;
+	
+	
 	///
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -85,22 +93,6 @@ public class User {
 
 	
 
-	public User(Long id, @NotNull @Size(max = 50) @Email String mail, @Size(min = 5, max = 20) @NotNull String login,
-			@NotNull @Size(min = 6, max = 100) String password, @NotNull Role role, List<Place> places,
-			List<Trip> trips, String sex, Long age, String city, String country) {
-		super();
-		this.id = id;
-		this.mail = mail;
-		this.login = login;
-		this.password = password;
-		this.role = role;
-		this.places = places;
-		this.trips = trips;
-		this.sex = sex;
-		this.age = age;
-		this.city = city;
-		this.country = country;
-	}
 	
 	public User( @NotNull @Size(max = 50) @Email String mail,
 			@Size(min = 5, max = 20) @NotNull String login,
@@ -117,14 +109,37 @@ public class User {
 
 
 
-
-	public List<Place> getPlaces() {
-		return places;
-	}
-
-	public void setPlaces(List<Place> places) {
+	public User(Long id, @NotNull @Size(max = 50) @Email String mail, @Size(min = 5, max = 20) @NotNull String login,
+			@NotNull @Size(min = 6, max = 100) String password, List<Place> places, List<Trip> trips,
+			List<Hotel> hotels, @NotNull Role role, String sex, Long age, String city, String country) {
+		super();
+		this.id = id;
+		this.mail = mail;
+		this.login = login;
+		this.password = password;
 		this.places = places;
+		this.trips = trips;
+		this.hotels = hotels;
+		this.role = role;
+		this.sex = sex;
+		this.age = age;
+		this.city = city;
+		this.country = country;
 	}
+
+
+
+
+	public List<Hotel> getHotels() {
+		return hotels;
+	}
+
+	public void setHotels(List<Hotel> hotels) {
+		this.hotels = hotels;
+	}
+
+
+
 
 	public List<Trip> getTrips() {
 		return trips;
@@ -164,6 +179,15 @@ public class User {
 	public void setCity(String city) {
 		this.city = city;
 	}
+	public List<Place> getPlaces() {
+		return places;
+	}
+	public void setPlaces(List<Place> places) {
+		this.places = places;
+	}
+
+
+
 	public String getCountry() {
 		return country;
 	}
