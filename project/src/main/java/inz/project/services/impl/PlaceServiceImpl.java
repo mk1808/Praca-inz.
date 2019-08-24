@@ -29,6 +29,7 @@ public class PlaceServiceImpl implements PlaceService{
 	
 	@Override
 	public Place createPlace(Place place) {
+		
 		return this.placeRepository.save(place);
 	}
 	
