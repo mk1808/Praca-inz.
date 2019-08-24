@@ -4,25 +4,36 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import inz.project.models.Place;
+import inz.project.models.Role;
+import inz.project.models.RoleName;
 import inz.project.models.User;
 import inz.project.repositories.PlaceRepository;
+import inz.project.repositories.RoleRepository;
 import inz.project.repositories.UserRepository;
 
-//@Component
+@Component
 public class Data implements CommandLineRunner {
 	
 	private final PlaceRepository placeRepository;
 	private final UserRepository userRepository;
-	public Data (PlaceRepository placeRepository,UserRepository userRepository )
+	private final RoleRepository roleRepository;
+	public Data (PlaceRepository placeRepository,UserRepository userRepository,RoleRepository roleRepository )
 	{
 		this.placeRepository=placeRepository;
 		this.userRepository=userRepository;
+		this.roleRepository=roleRepository;
 	}
 	
 	@Override
 	public void run (String... args) throws Exception{
 		
+		Role r1=new Role();
+		r1.setName(RoleName.ROLE_USER);
+		roleRepository.save(r1);
 		
+		Role r2=new Role();
+		r2.setName(RoleName.ROLE_ADMIN);
+		roleRepository.save(r2);
 		/*
 		User u1 = new User();
 		u1.setLogin("l");
