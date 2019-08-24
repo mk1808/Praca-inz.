@@ -1,9 +1,11 @@
 package inz.project.models;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -61,14 +63,7 @@ public class User {
 	
 	
 	
-	@OneToMany(mappedBy="user")
-    private List <Place> places;
 	
-	@OneToMany(mappedBy="user")
-    private List <Trip> trips;
-	
-	@OneToMany(mappedBy="user")
-    private List <Hotel> hotels;
 	
 	
 	///
@@ -110,16 +105,13 @@ public class User {
 
 
 	public User(Long id, @NotNull @Size(max = 50) @Email String mail, @Size(min = 5, max = 20) @NotNull String login,
-			@NotNull @Size(min = 6, max = 100) String password, List<Place> places, List<Trip> trips,
-			List<Hotel> hotels, @NotNull Role role, String sex, Long age, String city, String country) {
+			@NotNull @Size(min = 6, max = 100) String password,  @NotNull Role role, String sex, Long age, String city, String country) {
 		super();
 		this.id = id;
 		this.mail = mail;
 		this.login = login;
 		this.password = password;
-		this.places = places;
-		this.trips = trips;
-		this.hotels = hotels;
+		
 		this.role = role;
 		this.sex = sex;
 		this.age = age;
@@ -130,24 +122,7 @@ public class User {
 
 
 
-	public List<Hotel> getHotels() {
-		return hotels;
-	}
 
-	public void setHotels(List<Hotel> hotels) {
-		this.hotels = hotels;
-	}
-
-
-
-
-	public List<Trip> getTrips() {
-		return trips;
-	}
-
-	public void setTrips(List<Trip> trips) {
-		this.trips = trips;
-	}
 	
 	public Long getId() {
 		return id;
@@ -179,13 +154,6 @@ public class User {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public List<Place> getPlaces() {
-		return places;
-	}
-	public void setPlaces(List<Place> places) {
-		this.places = places;
-	}
-
 
 
 	public String getCountry() {

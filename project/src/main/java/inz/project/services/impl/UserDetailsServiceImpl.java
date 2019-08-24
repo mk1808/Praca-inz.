@@ -14,8 +14,8 @@ import inz.project.services.UserService;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-   
     UserRepository userRepository;
+    @Autowired
     UserService userService;
     @Override
     @Transactional
