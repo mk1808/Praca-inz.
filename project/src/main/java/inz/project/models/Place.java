@@ -23,7 +23,7 @@ public class Place {
 	
 	@Id @GeneratedValue private Long id; 
 	@NotNull private String name;
-	@NotNull private String category;
+	@NotNull private PlaceCategory category;
 	private String description;
 	@NotNull private String country;
 	private String region;
@@ -35,23 +35,26 @@ public class Place {
     @JoinColumn(name="u_id") //nullable=false, insertable = false, updatable = false)
 	@JsonIgnore */
 	
+	
 	@ManyToOne
-    @JoinColumn(name="user_id")
+    //@JoinColumn(name="user_id")
     private User user;
+	
 	
 	private String phoneNumber;
 	private String website;
 	@NotNull private String status;
 	
+	/*
 	@OneToMany(mappedBy="place")
     private List <PositionInTrip> positionsInTrip;
-	
+	*/
 	
 	public Place() {}
-	public Place(Long id,@NotNull String name, 	@NotNull String category, String description, 	
+	public Place(Long id,@NotNull String name, 	@NotNull PlaceCategory category, String description, 	
 			@NotNull String country, String region, String city,
-			String street, String number, User user, String phoneNumber, 
-			String website, @NotNull String status,List<PositionInTrip> positionsInTrip ) {
+			String street, String number,  String phoneNumber, 
+			String website, @NotNull String status, User user ) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -62,24 +65,24 @@ public class Place {
 		this.city = city;
 		this.street = street;
 		this.number = number;
-		this.user = user;
 		this.phoneNumber = phoneNumber;
 		this.website = website;
 		this.status = status;
-		this.positionsInTrip=positionsInTrip;
+		this.user=user;
+
 	}
 	
 	
 	
 	
 	
-	public List<PositionInTrip> getPositionsInTrip() {
-		return positionsInTrip;
-	}
-	public void setPositionsInTrip(List<PositionInTrip> positionsInTrip) {
-		this.positionsInTrip = positionsInTrip;
-	}
 	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -92,10 +95,10 @@ public class Place {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getCategory() {
+	public PlaceCategory getCategory() {
 		return category;
 	}
-	public void setCategory(String category) {
+	public void setCategory(PlaceCategory category) {
 		this.category = category;
 	}
 	public String getDescription() {
@@ -134,12 +137,7 @@ public class Place {
 	public void setNumber(String number) {
 		this.number = number;
 	}
-	public User getUser() {
-		return this.user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
