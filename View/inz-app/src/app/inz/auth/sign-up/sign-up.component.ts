@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/shared/models/classes';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,6 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
+user: User = new User;
 countries:any[]=["Afganistan","Albania","Algieria","Andora","Angola","Anguilla","Antarktyda","Antigua i Barbuda",
 "Arabia Saudyjska","Argentyna","Armenia","Aruba","Australia","Austria","Azerbejdżan","Bahamy","Bahrajn","Bangladesz",
 "Barbados","Belgia","Belize","Benin","Bermudy","Bhutan","Białoruś","Boliwia","Bonaire, Sint Eustatius i Saba","Bośnia i Hercegowina",
@@ -53,9 +55,28 @@ constructor(private router: Router, private route: ActivatedRoute, private fb: F
   ngOnInit() {
   }
 
-  
-
   onSignIn(){
     this.router.navigate(['/auth/signin']);
   }
+
+  onSignUp(){
+    this.user.email = this.registerForm.controls.email.value;
+    this.user.name = this.registerForm.controls.username.value;
+    this.user.username=this.registerForm.controls.email.value;
+    this.user.role="user";
+    this.user.password = this.registerForm.controls.password.value;
+    this.user.age = this.registerForm.controls.age.value;
+    this.user.country = this.registerForm.controls.country.value;
+    this.user.city = this.registerForm.controls.city.value;
+
+
+    this.auth.register(this.user).subscribe(x => {
+          console.log("yay")        
+        },
+          e => {
+          
+          });
+   
+        }
+  
 }

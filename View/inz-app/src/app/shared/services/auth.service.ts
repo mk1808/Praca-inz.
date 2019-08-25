@@ -18,9 +18,11 @@ export class AuthService {
         'Content-Type': 'application/json'
       })
     };
-    return this.http.post<any>('/api/login',
+    return this.http.post<any>('/api/auth/signin',
       user, httpOptions);
   }
+
+  
   public register(user: User): Observable<any> {
    
     const httpOptions = {
@@ -28,6 +30,6 @@ export class AuthService {
         'Content-Type': 'application/json'
       })
     };
-    return this.http.post<any>('/api/register', user, httpOptions);
+    return this.http.post<any>('/api/auth/signup', user, httpOptions);
   }
 }
