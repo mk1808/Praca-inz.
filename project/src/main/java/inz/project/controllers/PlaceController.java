@@ -1,6 +1,8 @@
 package inz.project.controllers;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,6 +31,21 @@ public class PlaceController {
 	@GetMapping("/{id}")
 	Place getPlaceById(@PathVariable Long id) {
 		return placeService.getPlaceById(id);
+	}
+	
+	@GetMapping("/filter")
+	List<Place> getPlaceByName
+	(@RequestParam(value ="name") String name) 
+	{
+		return placeService.getPlacesByName(name);
+	}
+	
+	@GetMapping("/filter2")
+	Set<String> getPlaceByRegion
+	(@RequestParam(value ="region") String region) 
+	{
+		Set<String> regionSet = new HashSet<String>(placeService.getPlacesByRegion(region)); 
+		return regionSet;
 	}
 	
 	@GetMapping()

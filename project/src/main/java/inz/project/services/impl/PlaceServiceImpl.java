@@ -43,5 +43,15 @@ public class PlaceServiceImpl implements PlaceService{
 	public void deletePlace(Long id) {
 		this.placeRepository.deleteById(id);
 	}
+	
+	@Override
+	public List<Place> getPlacesByName(String name){
+		return this.placeRepository.findPlaceByNames(name);
+	}
+	
+	@Override
+	public List<String> getPlacesByRegion(String region){
+		return this.placeRepository.findPlaceByRegion(region);
+	}
 }
 	
