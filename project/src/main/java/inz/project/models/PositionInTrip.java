@@ -16,19 +16,19 @@ public class PositionInTrip {
 	@Id @GeneratedValue private Long id; 
 
 	@ManyToOne
-    @JoinColumn(name="trip_id")
+    //@JoinColumn(name="trip_id")
     private Trip trip;
 	
 	@ManyToOne
-    @JoinColumn(name="place_id")
+    //@JoinColumn(name="place_id")
     private Place place;
 	
 	public PositionInTrip(){}
-	public PositionInTrip(Long id, Trip trip, Place place) {
+	public PositionInTrip(Long id, Place place, Trip trip) {
 		super();
 		this.id = id;
-		this.trip = trip;
 		this.place = place;
+		this.trip=trip;
 	}
 	public Long getId() {
 		return id;
