@@ -13,6 +13,8 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { FlipModule } from 'ngx-flip';
 import { NgxGalleryModule } from 'ngx-gallery';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,12 @@ import { NgxGalleryModule } from 'ngx-gallery';
     CommonModule,
     FlipModule,
     InzRoutingModule,
-    NgxGalleryModule
+    NgxGalleryModule,
+    FormsModule,
+    ReactiveFormsModule,
+
+    MatTooltipModule
+
     
   ]
 })

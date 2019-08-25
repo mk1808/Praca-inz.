@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -30,11 +33,27 @@ countries:any[]=["Afganistan","Albania","Algieria","Andora","Angola","Anguilla",
 "Wenezuela","Węgry","Wielka Brytania","Wietnam","Włochy","Wschodni Timor","Wyb.Kości Słoniowej","Wyspa Bouveta","Wyspa Bożego Narodzenia","Wyspy Cooka","Wyspy Dziewicze-USA",
 "Wyspy Dziewicze-W.B","Wyspy Heard i McDonald","Wyspy Kokosowe ","Wyspy Owcze","Wyspy Marshalla","Wyspy Salomona","Wyspa Sint Maarten","Wyspy Św.Tomasza i Książęca","Zambia","Zielony Przylądek","Zimbabwe",
 "Zjedn.Emiraty Arabskie"];
-  constructor(private router: Router, private route: ActivatedRoute) { }
+registerForm: FormGroup = this.fb.group({
+  email: ['', Validators.required],
+  username: ['', Validators.required],
+  password: ['', Validators.required],
+  passwordRepeat: ['', Validators.required],
+  sex: [''],
+  age: [''],
+  country: [''],
+  city: ['']
+}, 
+);  
+
+
+constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder, 
+    private auth: AuthService, private cookie: CookieService) { }
   
 
   ngOnInit() {
   }
+
+  
 
   onSignIn(){
     this.router.navigate(['/auth/signin']);

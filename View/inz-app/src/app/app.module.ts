@@ -8,12 +8,18 @@ import { AlertModule, AccordionModule, ButtonsModule, CarouselModule,
     TooltipModule, TypeaheadModule } from 'ngx-foundation';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InzModule } from './inz/inz.module';
 import { NgxGalleryModule } from 'ngx-gallery';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestComponent } from './test/test.component';
 import { StarRatingModule } from 'angular-star-rating';
-import { RouterModule } from '@angular/router';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import {MatChipsModule} from '@angular/material/chips';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 /*
 @Injectable({
   providedIn: 'root'
@@ -27,9 +33,12 @@ import { RouterModule } from '@angular/router';
   imports: [
     //RouterModule,
     BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     NgxGalleryModule,
     StarRatingModule.forRoot(),
-    BrowserAnimationsModule,
     AppRoutingModule,
     AlertModule.forRoot(),
     AccordionModule.forRoot(),
@@ -48,9 +57,14 @@ import { RouterModule } from '@angular/router';
     TabsModule.forRoot(),
     TimepickerModule.forRoot(),
     TooltipModule.forRoot(),
-    TypeaheadModule.forRoot()
+    TypeaheadModule.forRoot(),
+    MatButtonModule,
+    DragDropModule,
+    MatTooltipModule  
+    
+    
   ],
-  providers: [],
+  providers: [ CookieService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
