@@ -6,4 +6,5 @@ import inz.project.models.PositionInTrip;
 
 public interface PositionInTripRepository extends JpaRepository<PositionInTrip, Long>{
 
+	
 }
