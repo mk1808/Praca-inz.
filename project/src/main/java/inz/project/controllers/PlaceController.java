@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import inz.project.models.Place;
+import inz.project.models.PlaceCategory;
 import inz.project.services.PlaceService;
 
 @RestController
@@ -41,11 +42,28 @@ public class PlaceController {
 	}
 	
 	@GetMapping("/filter2")
-	Set<String> getPlaceByRegion
+	Set<String> getRegions
 	(@RequestParam(value ="region") String region) 
 	{
-		Set<String> regionSet = new HashSet<String>(placeService.getPlacesByRegion(region)); 
+		Set<String> regionSet = new HashSet<String>(placeService.getRegions(region)); 
 		return regionSet;
+	}
+	
+	@GetMapping("region/{region}")
+	List<Place> getPlacesByRegion(@PathVariable String region) {
+		return placeService.getPlacesByRegion(region);
+	}
+	
+	@GetMapping("category/{category}")
+	List<Place> getPlacesByCategory(@PathVariable PlaceCategory category) {
+		return placeService.getPlacesByCategory(category);
+	}
+	
+	@GetMapping("region/category/name/{region}/{category}/{name}")
+	List<Place> getPlacesByRegCatNam(@PathVariable String region,
+			@PathVariable String name,
+			@PathVariable PlaceCategory category) {
+		return placeService.findPlaceByRegCatNam(region, name, category);
 	}
 	
 	@GetMapping()

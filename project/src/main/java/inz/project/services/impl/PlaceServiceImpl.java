@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import inz.project.models.Place;
+import inz.project.models.PlaceCategory;
 import inz.project.repositories.PlaceRepository;
 import inz.project.services.PlaceService;
 
@@ -50,8 +51,25 @@ public class PlaceServiceImpl implements PlaceService{
 	}
 	
 	@Override
-	public List<String> getPlacesByRegion(String region){
-		return this.placeRepository.findPlaceByRegion(region);
+	public List<String> getRegions(String region){
+		return this.placeRepository.findRegions(region);
+	}
+	
+
+	
+	@Override
+	public List<Place> getPlacesByRegion(String region){
+		return this.placeRepository.getPlacesByRegion(region);
+	}
+	
+	@Override
+	public List<Place> getPlacesByCategory(PlaceCategory category){
+		return this.placeRepository.getPlacesByCategory(category);
+	}
+	
+	@Override
+	public List<Place> findPlaceByRegCatNam(String region, String name, PlaceCategory category ){
+		return this.placeRepository.findPlaceByRegCatNam(region, name, category);
 	}
 }
 	
