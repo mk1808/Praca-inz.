@@ -85,6 +85,7 @@ public enum Country {
 	Panama("Panama"),PapuaNowaGwinea("Papua Nowa Gwinea"),
 	Paragwaj("Paragwaj"),Peru("Peru"),
 	Pitcairn("Pitcairn"),PolinezjaFrancuska("Polinezja Francuska"),
+	Polska("Polska"),
 	Portugalia("Portugalia"),RepublikaCzeska("Republika Czeska"),
 	RepublikaKorei("Republika Korei"),RepPoludAfryki("Rep.Połud.Afryki"),
 	RepSrodkowoafrykanska("Rep.Środkowoafryańska"),Rosja("Rosja"),

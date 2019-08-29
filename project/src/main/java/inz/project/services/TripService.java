@@ -8,4 +8,5 @@ public interface TripService {
 	Trip createTrip(Trip trip);
 	List<Trip> getTrips();
 	Trip getTripById(Long id);
+	List<Trip> getTripsByUser(Long id);
 }

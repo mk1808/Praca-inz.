@@ -40,5 +40,12 @@ public class TripController {
 	Trip getTripById(@PathVariable Long id) {
 		return tripService.getTripById(id);
 	}
+	
+	@GetMapping("/user/{id}")
+	List<Trip> getTripByUser(@PathVariable Long id) {
+		return tripService.getTripsByUser(id);
+	}
+	
+	
 
 }
