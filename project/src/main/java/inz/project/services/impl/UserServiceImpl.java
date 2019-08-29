@@ -51,5 +51,20 @@ public class UserServiceImpl implements UserService{
 	public Boolean existsByMail(String mail) {
 		return this.userRepository.existsByMail(mail);
 	};
+	
+	@Override
+	public User updateUser(Long id, User user) {
+		user.setId(id);
+		
+		if (user.getPassword().equals("")) {
+			System.out.print("a");
+			user.setPassword(userRepository.findById(id).get().getPassword());
+		}
+		User updated = this.userRepository.save(user);
+		//updated.setPassword("");
+		return updated;
+		
+	}
+	
 }
 
