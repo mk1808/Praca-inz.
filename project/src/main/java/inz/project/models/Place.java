@@ -25,7 +25,7 @@ public class Place {
 	@NotNull private String name;
 	@NotNull private PlaceCategory category;
 	private String description;
-	@NotNull private String country;
+	@NotNull private Country country;
 	private String region;
 	private String city;
 	private String street;
@@ -52,7 +52,7 @@ public class Place {
 	
 	public Place() {}
 	public Place(Long id,@NotNull String name, 	@NotNull PlaceCategory category, String description, 	
-			@NotNull String country, String region, String city,
+			@NotNull Country country, String region, String city,
 			String street, String number,  String phoneNumber, 
 			String website, @NotNull String status, User user ) {
 		super();
@@ -107,10 +107,10 @@ public class Place {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getCountry() {
+	public Country getCountry() {
 		return country;
 	}
-	public void setCountry(String country) {
+	public void setCountry(Country country) {
 		this.country = country;
 	}
 	public String getRegion() {

@@ -28,7 +28,7 @@ public class Trip {
 	@ManyToOne
 	private Hotel hotel;
 	
-	@NotNull private String country;
+	@NotNull private Country country;
 	@NotNull private String region;
 	private String description;
 	private String duration;
@@ -41,7 +41,7 @@ public class Trip {
 	
 	public Trip() {}
 
-	public Trip(Long id, @NotNull String name, User user, @NotNull String country, @NotNull String region,
+	public Trip(Long id, @NotNull String name, User user, @NotNull Country country, @NotNull String region,
 			String description, String duration, List<PositionInTrip> positionsInTrip, Hotel hotel, Schedule schedule) {
 		super();
 		this.id = id;
@@ -89,10 +89,10 @@ public class Trip {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public String getCountry() {
+	public Country getCountry() {
 		return country;
 	}
-	public void setCountry(String country) {
+	public void setCountry(Country country) {
 		this.country = country;
 	}
 	public String getRegion() {

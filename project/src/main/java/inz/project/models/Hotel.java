@@ -18,7 +18,7 @@ public class Hotel{
 	
 	@NotNull private String name;
 	private String description;
-	@NotNull private String country;
+	@NotNull private Country country;
 	private String region;
 	private String city;
 	private String street;
@@ -33,7 +33,7 @@ public class Hotel{
 
 	
 
-	public Hotel(Long id, @NotNull String name, String description, @NotNull String country, String region, String city,
+	public Hotel(Long id, @NotNull String name, String description, @NotNull Country country, String region, String city,
 			String street, String number, User user, String phoneNumber, String website) {
 		super();
 		this.id = id;
@@ -85,13 +85,13 @@ public class Hotel{
 
 
 
-	public String getCountry() {
+	public Country getCountry() {
 		return country;
 	}
 
 
 
-	public void setCountry(String country) {
+	public void setCountry(Country country) {
 		this.country = country;
 	}
 

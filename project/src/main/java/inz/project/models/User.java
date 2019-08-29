@@ -79,7 +79,7 @@ public class User {
 	private String sex;
 	private Long age;
 	private String city;
-	private String country;
+	private Country country;
 	
 	public User ()
     {
@@ -105,7 +105,8 @@ public class User {
 
 
 	public User(Long id, @NotNull @Size(max = 50) @Email String mail, @Size(min = 5, max = 20) @NotNull String login,
-			@NotNull @Size(min = 6, max = 100) String password,  @NotNull Role role, String sex, Long age, String city, String country) {
+			@NotNull @Size(min = 6, max = 100) String password,  @NotNull Role role, String sex, 
+			Long age, String city, Country country) {
 		super();
 		this.id = id;
 		this.mail = mail;
@@ -156,10 +157,10 @@ public class User {
 	}
 
 
-	public String getCountry() {
+	public Country getCountry() {
 		return country;
 	}
-	public void setCountry(String country) {
+	public void setCountry(Country country) {
 		this.country = country;
 	}
 	public String getSex() {
