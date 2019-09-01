@@ -66,7 +66,8 @@ public class AuthController {
 	        SecurityContextHolder.getContext().setAuthentication(authentication);
 
 	        String jwt = jwtProvider.generateJwtToken(authentication);
-	        return ResponseEntity.ok(new JwtResponse(jwt));
+	        User user = userService.getUserByLogin(loginRequest.getLogin()).get();
+	        return ResponseEntity.ok(new JwtResponse(jwt, user));
 	    }
 
 	    @PostMapping("/signup")
@@ -105,6 +106,6 @@ public class AuthController {
 	       // user.setRole(role);
 	        userRepository.save(user);
 
-	        return ResponseEntity.ok().body("User registered successfully!");
+	        return ResponseEntity.ok().body("{\"success\":\"User registered successfully!\"}");
 	    }
 }
