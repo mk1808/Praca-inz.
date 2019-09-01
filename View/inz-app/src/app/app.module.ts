@@ -20,6 +20,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import {AutocompleteLibModule, AutocompleteComponent} from 'angular-ng-autocomplete';
 /*
 @Injectable({
   providedIn: 'root'
@@ -60,7 +61,8 @@ import { CookieService } from 'ngx-cookie-service';
     TypeaheadModule.forRoot(),
     MatButtonModule,
     DragDropModule,
-    MatTooltipModule  
+    MatTooltipModule,
+    AutocompleteLibModule
     
     
   ],

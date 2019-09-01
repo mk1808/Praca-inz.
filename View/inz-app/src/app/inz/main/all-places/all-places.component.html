@@ -4,6 +4,23 @@
   <div class="wrap">
     <div class="search">
       <input type="text" class="searchTerm" placeholder="Wpisz szukaną frazę">
+     
+      <ng-autocomplete 
+      type="text" class="searchTerm " placeholder="Wpisz szukaną frazę"
+      [data]="data"
+      [searchKeyword]="keyword"
+      (selected)='selectEvent($event)'
+      (inputChanged)='onChangeSearch($event)'
+      (inputFocused)='onFocused($event)'
+      [itemTemplate]="itemTemplate"
+      [notFoundTemplate]="notFoundTemplate">                                 
+    </ng-autocomplete>
+     
+    <ng-template #itemTemplate let-item>
+    <a [innerHTML]="item.name"></a>
+    </ng-template>
+
+
       <input type="text" class="searchTerm" placeholder="Wybierz kategorię">
       <input type="text" class="searchTerm" placeholder="Sortuj według:">
       <button (click)="onSearch()" type="submit" class="searchButton">
