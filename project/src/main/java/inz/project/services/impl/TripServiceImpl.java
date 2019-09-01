@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import inz.project.services.TripService;
+import inz.project.models.Schedule;
 import inz.project.models.Trip;
 import inz.project.models.User;
 import inz.project.repositories.TripRepository;
@@ -17,11 +18,13 @@ public class TripServiceImpl implements TripService {
 	
 	@Autowired TripRepository tripRepository;
 	@Autowired UserServiceImpl userService;
+	@Autowired ScheduleServiceImpl scheduleService;
 	
 	@Override
 	public Trip createTrip(Trip trip) {
+		Schedule schedule = new Schedule();
+		trip.setSchedule(this.scheduleService.createSchedule(schedule));
 		return this.tripRepository.save(trip);
-		
 	}
 
 	@Override
