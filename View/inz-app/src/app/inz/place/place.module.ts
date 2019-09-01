@@ -6,10 +6,11 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { StarRatingModule } from 'angular-star-rating';
 import { AgmCoreModule } from '@agm/core';
 import { NgxEqualizerModule } from 'ngx-equalizer';
+import { NewPlaceComponent } from './new-place/new-place.component';
 
 
 @NgModule({
-  declarations: [PlaceComponent],
+  declarations: [PlaceComponent, NewPlaceComponent],
   imports: [
     CommonModule,
     PlaceRoutingModule,

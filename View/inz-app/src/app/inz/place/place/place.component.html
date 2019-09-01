@@ -6,7 +6,7 @@
           <img src="assets/museum.svg" class="iconStyle" height="80px" width="80px">
         </div>
         <div class="columns small-4 heading">
-          <h3>Luwr </h3>
+          <h3>{{place.name}} </h3>
 
           <star-rating id="ratingStar" [starType]="'svg'" [rating]="4.5" [disabled]="true" [showHalfStars]="true"
             size="large"></star-rating>
@@ -35,9 +35,9 @@
               <div class="columns small-9 heading leftCol">
                 <h5 class="colHeader">Adres</h5>
                 <div class="addressStyle">
-                  <h6>ul. Przykładowa 90A</h6>
-                  <h6>Paryż</h6>
-                  <h6>Francja</h6>
+                  <h6>ul. {{place.street}} {{place.number}}</h6>
+                  <h6>{{place.city}}</h6>
+                  <h6>{{place.country}}</h6>
                 </div>
               </div>
             </div>
@@ -75,9 +75,9 @@
               <div class="columns small-6 heading leftCol contactRow">
                 <h5 class="colHeader">Kontakt</h5>
                 <div class="addressStyle">
-                  <h6>www.website.com</h6>
-                  <h6>website@gmail.com</h6>
-                  <h6>145-441-123</h6>
+                  <h6>{{place.website}}</h6>
+               
+                  <h6>{{place.phoneNumber}}</h6>
                 </div>
               </div>
             </div>
@@ -90,11 +90,7 @@
               <div class="columns small-7 heading  contactRow">
                 <h5 class="colHeader">Opis</h5>
                 <div class="addressStyle">
-                  <h6 class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Integer pellentesque vulputate tortor eget pharetra.
-                    Mauris euismod velit nec sodales varius. In eget luctus mauris.
-                    Nullam et massa et lacus ornare fermentum ac vitae.
-                    Nulla ullamcorper orci sem, sit amet vestibulum odio interdum sed.
+                  <h6 class="description">{{place.description}}
                   </h6>
                 </div>
               </div>

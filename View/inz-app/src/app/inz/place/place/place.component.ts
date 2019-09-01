@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import { Router, ActivatedRoute } from '@angular/router';
+import { PlaceService } from 'src/app/shared/services/place.service';
+import { Place } from 'src/app/shared/models/classes';
 
 @Component({
   selector: 'app-place',
@@ -7,13 +10,27 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
   styleUrls: ['./place.component.scss']
 })
 export class PlaceComponent implements OnInit {
-
+id:number;
+place:Place;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
   latitude = 50.026783;
   longitude = 21.984447; 
   mapType = 'roadmap';
+  constructor( private router: Router, private route: ActivatedRoute, private placeService:PlaceService){}
   ngOnInit(): void {
+    this.route.params.subscribe(x => {
+        this.id = x['id'];
+    console.log(this.id)})
+
+    this.placeService.getPlace(this.id).subscribe(x=>{
+        this.place=x;
+        console.log(this.place);
+    })
+
+
+
+
 
       this.galleryOptions = [
           {
