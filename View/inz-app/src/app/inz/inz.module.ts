@@ -29,7 +29,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     NgxGalleryModule,
     FormsModule,
     ReactiveFormsModule,
-
+    
     MatTooltipModule
 
     

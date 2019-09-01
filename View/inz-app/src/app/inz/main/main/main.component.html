@@ -43,13 +43,12 @@
           <div class="flip-card-inner">
             <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
                 background-size: cover;">
-              <span>Rynek w Zamościu</span>
+              <span>{{places[0].name}}</span>
             </div>
             <div class="flip-card-inner-back">
-              <h3 class="flip-card-inner-back-title">Rynek w Zamościu</h3>
-              <p class="flip-card-inner-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo
-                doloremque accusantium, repellendus ex debitis molestias, recusandae dignissimos delectus.</p>
-              <a href="#" class="button success">Zobacz</a>
+              <h3 class="flip-card-inner-back-title">{{places[0].name}}</h3>
+              <p class="flip-card-inner-back-text">{{places[0].description}}</p>
+              <a [href]="'/place/details/'+places[0].id" class="button success" >Zobacz</a>
             </div>
           </div>
         </div>
@@ -61,13 +60,12 @@
             <div class="flip-card-inner-front" style="background:url( https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Zesp%C3%B3%C5%82_Zamku_Krze%C5%BCackiego_MALBORK_01.jpg/800px-Zesp%C3%B3%C5%82_Zamku_Krze%C5%BCackiego_MALBORK_01.jpg
             );
             background-size: cover;">
-              <span>Zamek w Malborku</span>
+              <span>{{places[1].name}}</span>
             </div>
             <div class="flip-card-inner-back">
-              <h3 class="flip-card-inner-back-title">Zamek w Malborku</h3>
-              <p class="flip-card-inner-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo
-                doloremque accusantium, repellendus ex debitis molestias, recusandae dignissimos delectus.</p>
-              <a href="#" class="button success">Zobacz</a>
+              <h3 class="flip-card-inner-back-title">{{places[1].name}}</h3>
+              <p class="flip-card-inner-back-text">{{places[1].description}}</p>
+              <a [href]="'/place/details/'+places[1].id" class="button success" >Zobacz</a>
             </div>
           </div>
         </div>
@@ -78,13 +76,12 @@
           <div class="flip-card-inner">
             <div class="flip-card-inner-front" style="background:url(  https://ocs-pl.oktawave.com/v1/AUTH_f9dd5582-c0b6-4b27-a573-ecf06cf3ef09/tropter-www/uploads/images/72/20/c3d07d4d4b89d695216730eb8d6fadcc4deb/muzeum_fryderykachopina_000_medium.jpeg?t=20181211080851);
             background-size: cover;">
-              <span>Muzeum Chopina w Warszawie</span>
+              <span>{{places[2].name}}</span>
             </div>
             <div class="flip-card-inner-back">
-              <h3 class="flip-card-inner-back-title">Muzeum Chopina w Warszawie</h3>
-              <p class="flip-card-inner-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo
-                doloremque accusantium, repellendus ex debitis molestias, recusandae dignissimos delectus.</p>
-              <a href="#" class="button success">Zobacz</a>
+              <h3 class="flip-card-inner-back-title">{{places[2].name}}</h3>
+              <p class="flip-card-inner-back-text">{{places[2].description}}</p>
+              <a [href]="'/place/details/'+places[2].id" class="button success">Zobacz</a>
             </div>
           </div>
         </div>

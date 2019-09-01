@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PlaceService } from 'src/app/shared/services/place.service';
+import { Place } from 'src/app/shared/models/classes';
 
 
 @Component({
@@ -15,11 +17,17 @@ export class MainComponent implements OnInit {
    
   imageSources:string[]=['https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/London_Eye_at_night_5.jpg/1280px-London_Eye_at_night_5.jpg', 'https://cdn.fstoppers.com/styles/large-16-9/s3/lead/2018/06/ultra-wide-mistakes-lead-image.jpg',
 'https://media.fshoq.com/images/150/arts-museum-louvre-in-paris-during-the-night-150-medium.jpg'];
-
+  places:Place[];
  
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private placeService: PlaceService) { }
 
   ngOnInit() {
+
+    this.placeService.getPlaces().subscribe(x=>{
+      this.places=x;
+      console.log(this.places);
+    })
+
   }
   flipDiv = false;
   
@@ -29,6 +37,12 @@ export class MainComponent implements OnInit {
 
   onSearch(){
     this.router.navigate(['/search/dest']);
+  }
+
+  onPlace(id:string){
+   console.log(id);
+    this.router.navigate(['/place/details/'+id]);
+
   }
   
 

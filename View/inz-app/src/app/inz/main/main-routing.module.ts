@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { DestinationSearchingResultsComponent } from './destination-searching-results/destination-searching-results.component';
+import { AllPlacesComponent } from './all-places/all-places.component';
 
 const routes: Routes = [
     {
@@ -16,7 +17,14 @@ const routes: Routes = [
         path: "dest",
         component:DestinationSearchingResultsComponent
 
-}]
+},
+{
+        
+        path: "all-places",
+        component:AllPlacesComponent
+
+}
+]
 
 
 @NgModule({

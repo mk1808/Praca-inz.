@@ -6,12 +6,18 @@ import { MainRoutingModule } from './main-routing.module';
 import { AlertModule, AccordionModule, ButtonsModule, CarouselModule, CollapseModule, BsDatepickerModule, BsDropdownModule, ModalModule, OffcanvasModule, PaginationModule, ProgressbarModule, RatingModule, SortableModule, TabsModule, TimepickerModule, TooltipModule, TypeaheadModule } from 'ngx-foundation';
 import { NgxHmCarouselModule } from 'ngx-hm-carousel';
 import {SlideshowModule} from 'ng-simple-slideshow';
-import {MatChipsModule} from '@angular/material/chips';
 import { FlipModule } from 'ngx-flip';
 import { ObjectSearchingResultsComponent } from './object-searching-results/object-searching-results.component';
 import { DestinationSearchingResultsComponent } from './destination-searching-results/destination-searching-results.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
+import {MatChipsModule} from '@angular/material/chips';
+import { AllTripsComponent } from './all-trips/all-trips.component';
+import { AllPlacesComponent } from './all-places/all-places.component';
+
 @NgModule({
-  declarations: [MainComponent, ObjectSearchingResultsComponent, DestinationSearchingResultsComponent],
+  declarations: [MainComponent, ObjectSearchingResultsComponent, DestinationSearchingResultsComponent, AllTripsComponent, AllPlacesComponent],
   imports: [
     CommonModule,
     FlipModule,
@@ -36,7 +42,9 @@ import { DestinationSearchingResultsComponent } from './destination-searching-re
     TabsModule,
     TimepickerModule,
     TooltipModule,
-    TypeaheadModule
+    TypeaheadModule,
+    MatButtonModule,
+    MatChipsModule
   
 
     

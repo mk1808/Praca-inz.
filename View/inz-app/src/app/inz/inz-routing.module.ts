@@ -6,10 +6,13 @@ import { LayoutComponent } from './layout/layout/layout.component';
 const routes: Routes = [
         {
                 path: "",
-                 component: LayoutComponent, children: [
+                component: LayoutComponent, children: [
+                        {
+                                path: "place",
+                                loadChildren: "./place/place.module#PlaceModule"
+                        },
                         {
                                 path: "",
-                                pathMatch:"full",
                                 loadChildren: "./main/main.module#MainModule"
                         },
                         {
@@ -17,27 +20,22 @@ const routes: Routes = [
                                 loadChildren: "./main/main.module#MainModule"
                         },
                         {
-                                path:"place",
-                                loadChildren:"./place/place.module#PlaceModule"
+                                path: "trip",
+                                loadChildren: "./trip/trip.module#TripModule"
 
                         },
                         {
-                                path:"trip",
-                                loadChildren:"./trip/trip.module#TripModule"
-
-                        },
-                        {
-                                path:"auth",
-                                loadChildren:"./auth/auth.module#AuthModule"
+                                path: "auth",
+                                loadChildren: "./auth/auth.module#AuthModule"
 
                         }
 
                 ]
         }
-        
-               
 
-        ]
+
+
+]
 
 @NgModule({
         imports: [RouterModule.forChild(routes)],
