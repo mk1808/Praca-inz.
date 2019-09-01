@@ -31,13 +31,12 @@ public class PositionInSchedule {
 	@OneToOne
 	private PositionInTrip positionInTrip;
 	
-	@ManyToOne
-    private Schedule schedule;
+
 	
 	public PositionInSchedule() {	}
 
 	public PositionInSchedule(Long id, Date startDay, Date endDay, Date startTime, Date endTime,
-			PositionInTrip positionInTrip, Schedule schedule) {
+			PositionInTrip positionInTrip) {
 		super();
 		this.id = id;
 		this.startDay = startDay;
@@ -45,7 +44,7 @@ public class PositionInSchedule {
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.positionInTrip = positionInTrip;
-		this.schedule=schedule;
+
 	}
 
 	public Long getId() {
@@ -96,14 +95,7 @@ public class PositionInSchedule {
 		this.positionInTrip = positionInTrip;
 	}
 
-	public Schedule getSchedule() {
-		return schedule;
-	}
 
-	public void setSchedule(Schedule schedule) {
-		this.schedule = schedule;
-	}
-	
 	
 
 
