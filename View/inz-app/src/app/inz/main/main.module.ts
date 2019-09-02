@@ -15,6 +15,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
 import { AllTripsComponent } from './all-trips/all-trips.component';
 import { AllPlacesComponent } from './all-places/all-places.component';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 
 @NgModule({
   declarations: [MainComponent, ObjectSearchingResultsComponent, DestinationSearchingResultsComponent, AllTripsComponent, AllPlacesComponent],
@@ -44,7 +45,8 @@ import { AllPlacesComponent } from './all-places/all-places.component';
     TooltipModule,
     TypeaheadModule,
     MatButtonModule,
-    MatChipsModule
+    MatChipsModule,
+    AutocompleteLibModule
   
 
     

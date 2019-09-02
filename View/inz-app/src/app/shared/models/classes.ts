@@ -26,3 +26,23 @@ export class Place{
     website:string;
     user:User;
 }
+
+export class Trip{
+    id:number;
+    city:string;
+    country:string;
+    description:string;
+    name:string;
+    region:string;
+    status:string;
+    street:string;
+    user:User;
+    duration:string;
+    schedule:Schedule;
+}
+
+export class Schedule{
+    id:number;
+    start:Date;
+    end:Date;
+}
