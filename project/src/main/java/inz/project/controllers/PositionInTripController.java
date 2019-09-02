@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import inz.project.models.Place;
 import inz.project.models.PositionInTrip;
 import inz.project.models.User;
 import inz.project.services.PositionInTripService;
@@ -37,6 +38,11 @@ public class PositionInTripController {
 	@GetMapping("/{id}")
 	PositionInTrip getPositionInTripById(@PathVariable Long id) {
 		return positionInTripService.getPositionInTripById(id);
+	}
+	
+	@GetMapping("/trip/{id}")
+	List<Place> getPositionInTripByTrip(@PathVariable Long id) {
+		return positionInTripService.getPositionInTripByTripId(id);
 	}
 
 }

@@ -1,10 +1,15 @@
 package inz.project.services.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import inz.project.models.Place;
 import inz.project.models.PositionInSchedule;
 import inz.project.models.PositionInTrip;
+import inz.project.models.Trip;
 import inz.project.repositories.PositionInTripRepository;
 import inz.project.services.PositionInTripService;
 
@@ -14,6 +19,7 @@ public class PositionInTripServiceImpl implements PositionInTripService{
 	
 	@Autowired PositionInScheduleServiceImpl positionInScheduleService;
 	@Autowired PositionInTripRepository positionInTripRepository;
+	@Autowired TripServiceImpl tripService;
 	
 	@Override
 	public PositionInTrip createPositionInTrip(PositionInTrip positionInTrip) {
@@ -26,6 +32,19 @@ public class PositionInTripServiceImpl implements PositionInTripService{
 	@Override
 	public PositionInTrip getPositionInTripById(Long id) {
 		return this.positionInTripRepository.findById(id).get();
+	}
+	
+	@Override
+	public 	List<Place> getPositionInTripByTripId(Long id){
+		Trip trip = this.tripService.getTripById(id);
+		List<PositionInTrip>positions = this.positionInTripRepository.getPositionInTripByTrip(trip);
+		List<Place> places = new ArrayList<Place>();
+		for (PositionInTrip pos:positions) {
+			places.add(pos.getPlace());
+		}
+		return places;
+		
+		
 	}
 
 }
