@@ -49,7 +49,11 @@
   }
   
   .sign-in-form input {
-    background-color: rgb(160, 155, 155);
+    background-color: rgb(160, 155, 155)!important;
+  }
+  
+  .sign-in-form input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px rgb(160, 155, 155) inset;
   }
   
   .sign-in-form input:focus {
