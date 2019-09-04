@@ -7,6 +7,37 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
     styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
+    keyword = 'name';
+  data = [
+     {
+       id: 1,
+       name: 'Usa'
+     },
+     {
+       id: 2,
+       name: 'England'
+     }
+  ];
+ 
+  
+  
+ 
+  selectEvent(item) {
+    // do something with selected item
+  }
+ 
+  onChangeSearch(val: string) {
+    // fetch remote data from here
+    // And reassign the 'data' which is binded to 'data' property.
+  }
+  
+  onFocused(e){
+    // do something when input is focused
+  }
+    
+    
+    
+   
     todo = [
         'Get to work',
         'Pick up groceries',
