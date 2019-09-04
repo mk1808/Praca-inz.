@@ -3,17 +3,18 @@
 <div class="row whereGo">
   <div class="wrap">
     <div class="search">
-      <input type="text" class="searchTerm" placeholder="Wpisz szukaną frazę">
+     
      
       <ng-autocomplete 
-      type="text" class="searchTerm " placeholder="Wpisz szukaną frazę"
+      type="text" class="searchTerm auto" 
       [data]="data"
       [searchKeyword]="keyword"
       (selected)='selectEvent($event)'
       (inputChanged)='onChangeSearch($event)'
       (inputFocused)='onFocused($event)'
       [itemTemplate]="itemTemplate"
-      [notFoundTemplate]="notFoundTemplate">                                 
+      [notFoundTemplate]="notFoundTemplate"
+      placeHolder = "Wpisz szukaną frazę"              >                   
     </ng-autocomplete>
      
     <ng-template #itemTemplate let-item>
