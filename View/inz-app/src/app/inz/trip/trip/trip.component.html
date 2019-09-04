@@ -6,15 +6,13 @@
           <img src="assets/map.svg" height="70px" width="70px">
         </div>
         <div class="columns small-7 heading">
-          <h3 class="tripName">Wycieczka nazwa </h3>
+          <h3 class="tripName">{{trip.name}}</h3>
           <div class="columns small-7 smallContainer border">
-            <h4><span class="tripHeader">Państwo:</span> abc</h4>
-            <h4><span class="tripHeader">Region:</span> nazwa</h4>
-            <h4 class="description"><span class="tripHeader"> Opis: </span> Integer pellentesque vulputate tortor eget pharetra.
-              Mauris euismod velit nec sodales varius. In eget luctus mauris.
-              Nullam et massa et lacus ornare fermentum ac vitae eros.
-              Nulla ullamcorper orci sem, sit amet vestibulum odio interdum sed.
-            </h4>
+            <h4><span class="tripHeader">Państwo:</span> {{trip.country}}</h4>
+            <h4><span class="tripHeader">Region:</span> {{trip.region}}</h4>
+            <h4><span class="tripHeader">Czas trwania:</span> {{trip.duration}} dni</h4>
+            <h4 class="description"><span class="tripHeader"> Opis: </span> {{trip.description}}
+            </h4> 
 
           </div>
         </div>
@@ -32,11 +30,11 @@
             </thead>
             <tbody>
               <tr class="active tableRow"(mouseover)="onHover(i)" 
-              *ngFor="let place of tableContent, let i=index"
+              *ngFor="let place of places, let i=index"
              >
-                <td data-label="First Name" >{{place.id}}</td>
+                <td data-label="First Name" >{{i+1}}</td>
                 <td data-label="Last Name" >{{place.name}}</td>
-                <td data-label="Hero Title">{{place.location}}</td>
+                <td data-label="Hero Title">{{place.city}}</td>
               </tr>
             </tbody>
           </table>
