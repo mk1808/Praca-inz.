@@ -21,4 +21,14 @@ public getPlace(id:number): Observable<Place> {
    
   return this.rest.get<Place>('/api/places/'+id);
 }
+
+
+public getPlacesFiltered(place:string): Observable<Place[]> {
+  return this.rest.get(
+    '/api/filter' +
+    '?name=' + place);
+
+  
+}
+
 }
