@@ -16,11 +16,18 @@ import {MatChipsModule} from '@angular/material/chips';
 import { AllTripsComponent } from './all-trips/all-trips.component';
 import { AllPlacesComponent } from './all-places/all-places.component';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {  MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material';
 
 @NgModule({
   declarations: [MainComponent, ObjectSearchingResultsComponent, DestinationSearchingResultsComponent, AllTripsComponent, AllPlacesComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatInputModule,
     FlipModule,
     NgxHmCarouselModule,
     MainRoutingModule,
@@ -46,7 +53,9 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
     TypeaheadModule,
     MatButtonModule,
     MatChipsModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+    MatAutocompleteModule,
+    MatFormFieldModule
   
 
     

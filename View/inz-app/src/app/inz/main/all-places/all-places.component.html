@@ -4,23 +4,27 @@
   <div class="wrap">
     <div class="search">
      
-     
-      <ng-autocomplete 
-      type="text" class="searchTerm auto" 
-      [data]="data"
-      [searchKeyword]="keyword"
-      (selected)='selectEvent($event)'
-      (inputChanged)='onChangeSearch($event)'
-      (inputFocused)='onFocused($event)'
-      [itemTemplate]="itemTemplate"
-      [notFoundTemplate]="notFoundTemplate"
-      placeHolder = "Wpisz szukaną frazę"              >                   
-    </ng-autocomplete>
-     
-    <ng-template #itemTemplate let-item>
-    <a [innerHTML]="item.name"></a>
-    </ng-template>
+ <!--
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+            
+                <span>{{state.name}}</span> |
+                <small>Population: {{state.population}}</small>
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+-->
 
+        <input type="text" class="searchTerm" placeholder="Wpisz szukaną frazę" [matAutocomplete]="auto" [formControl]="stateCtrl">
+        <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+                
+              <span>{{state.name}}</span> |
+              <small>Population: {{state.population}}</small>
+        </mat-option> 
+          </mat-autocomplete> 
 
       <input type="text" class="searchTerm" placeholder="Wybierz kategorię">
       <input type="text" class="searchTerm" placeholder="Sortuj według:">
