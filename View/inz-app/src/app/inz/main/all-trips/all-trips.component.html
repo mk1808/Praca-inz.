@@ -1,3 +1,70 @@
-<p>
-  all-trips works!
-</p>
+<div class="container">
+    <h4 class="headingStyle">Przeszukiwanie obiektów</h4>
+  <div class="row whereGo">
+    <div class="wrap">
+      <div class="search">
+       
+   <!--
+          <mat-form-field class="example-full-width">
+              <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+              
+                  <span>{{state.name}}</span> |
+                  <small>Population: {{state.population}}</small>
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+  -->
+  
+          <input type="text" class="searchTerm" placeholder="Wpisz szukaną frazę" [matAutocomplete]="auto" [formControl]="stateCtrl">
+          <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+                  
+                <span>{{state.name}}</span> |
+                <small>Population: {{state.population}}</small>
+          </mat-option> 
+            </mat-autocomplete> 
+            <input type="text" class="searchTerm" placeholder="Wybierz z dostępnych tagów">
+            <input type="text" class="searchTerm" placeholder="Wybierz długość wycieczki">
+            <input type="text" class="searchTerm" placeholder="Sortuj według:">
+  
+      
+        <button (click)="onSearch()" type="submit" class="searchButton">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+  
+    </div>
+  </div>
+  
+  <h2 class="type-sidelines"><span>Co można zobaczyć w: x</span></h2>
+  
+  <div class="row">
+    <div *ngFor="let trip of trips; let i = index;">
+    <div class="small-2 large-4 columns">
+      <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+        <div class="flip-card-inner">
+          <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
+                background-size: cover;">
+            <span>{{trip.name}}<br>
+           
+              Ocena: 4.5/5
+  
+            </span> 
+        
+          </div>
+          <div class="flip-card-inner-back">
+            <h3 class="flip-card-inner-back-title">{{trip.name}}</h3>
+            <p class="flip-card-inner-back-text">{{trip.description}}</p>
+            <a [href]="'/trip/details/'+trips[i].id" class="button success">Zobacz</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <button class="button moreBtn button-rounded-hover">Zobacz więcej miejsc
+  
+  </button>

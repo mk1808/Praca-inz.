@@ -5,7 +5,7 @@ import { PlaceService } from 'src/app/shared/services/place.service';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-import {map, startWith} from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-all-places',
@@ -16,18 +16,19 @@ import {map, startWith} from 'rxjs/operators';
 
 export class AllPlacesComponent implements OnInit {
 
-  places:Place[];
+  places: Place[];
   stateCtrl = new FormControl();
   filteredStates: Observable<any[]>;
- 
+
   constructor(private router: Router, private route: ActivatedRoute, private placeService: PlaceService) {
 
     this.filteredStates = this.stateCtrl.valueChanges
       .pipe(
         startWith(''),
         map(state => state ? this._filterStates(state) : this.states.slice())
+
       );
-   }
+  }
 
 
   states: any[] = [
@@ -56,20 +57,20 @@ export class AllPlacesComponent implements OnInit {
       flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
     }
   ];
-  
- 
 
-  
+
+
+
   ngOnInit() {
 
-    this.placeService.getPlaces().subscribe(x=>{
-      this.places=x;
+    this.placeService.getPlaces().subscribe(x => {
+      this.places = x;
       console.log(this.places);
     })
 
 
 
-    
+
   }
   private _filterStates(value: string): any[] {
     const filterValue = value.toLowerCase();
@@ -79,6 +80,6 @@ export class AllPlacesComponent implements OnInit {
 
 
 
- 
+
 
 }
