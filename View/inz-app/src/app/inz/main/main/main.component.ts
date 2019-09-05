@@ -50,6 +50,17 @@ export class MainComponent implements OnInit {
     this.router.navigate(['/place/details/'+id]);
 
   }
+
+
+  morePlaces(){
+    this.router.navigate(['/all-places']);
+  }
+  
+
+
+  moreTrips(){
+    this.router.navigate(['/all-trips']);
+  }
   
 
   
