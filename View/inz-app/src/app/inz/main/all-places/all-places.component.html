@@ -21,15 +21,24 @@
         <input type="text" class="searchTerm" placeholder="Wpisz szukaną frazę" [matAutocomplete]="auto"
          formControlName="name">
         <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let state of filteredPlaces" [value]="state.name">
+      <mat-option *ngFor="let place of filteredPlaces" [value]="place.name">
                 
-              <span>{{state.name}}</span> |
-              <small>Population: {{state.population}}</small>
+              <span>{{place.name}}</span> 
+       <!--       <small>Population: {{state.population}}</small>-->
         </mat-option> 
           </mat-autocomplete> 
 
       <input type="text" class="searchTerm" placeholder="Wybierz kategorię">
-      <input type="text" class="searchTerm" placeholder="Sortuj według:">
+
+      <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto2"
+         formControlName="region">
+        <mat-autocomplete #auto2="matAutocomplete">
+      <mat-option *ngFor="let region of filteredRegions" [value]="region">
+                
+              <span>{{region}}</span> 
+       <!--       <small>Population: {{state.population}}</small>-->
+        </mat-option> 
+          </mat-autocomplete> 
       <button (click)="onSearch()" type="submit" class="searchButton">
         <i class="fa fa-search"></i>
       </button>

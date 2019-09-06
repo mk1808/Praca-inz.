@@ -18,6 +18,7 @@ export class AllPlacesComponent implements OnInit {
   filteredPlaces:Place[];
   stateCtrl = new FormControl();
   filteredStates: Observable<any[]>;
+  filteredRegions:String[];
   initialized:boolean = false;
   form:FormGroup;
 
@@ -40,12 +41,23 @@ export class AllPlacesComponent implements OnInit {
     
     })
 
+    
+    this.form.controls.region.valueChanges.subscribe(z=>{
+      console.log(z);
+      this.placeService.getRegionsFiltered(z).subscribe(a=>{
+        this.filteredRegions= a;
+        console.log(this.filteredRegions);
+
+      })
+    
+    })
+
 
 
   }
 
 
-  states: any[] = [
+  placesTab: any[] = [
   ];
 
 

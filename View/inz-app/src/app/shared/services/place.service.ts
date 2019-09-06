@@ -22,11 +22,13 @@ public getPlace(id:number): Observable<Place> {
   return this.rest.get<Place>('/api/places/'+id);
 }
 
-
 public getPlacesFiltered(place:string): Observable<Place[]> {
-  return this.rest.get('/api/places/filter' + '?name=' + place);
 
-  
+  return this.rest.get('/api/places/filter' + '?name=' + place);
 }
 
+public getRegionsFiltered(region:string): Observable<String[]> {
+
+  return this.rest.get('/api/places/filter2' + '?region=' + region);
+}
 }
