@@ -21,6 +21,7 @@ export class AllPlacesComponent implements OnInit {
   filteredRegions:String[];
   initialized:boolean = false;
   form:FormGroup;
+  categories:String[];
 
   constructor(private router: Router, private route: ActivatedRoute, private placeService: PlaceService,
     private fb: FormBuilder) {
@@ -70,6 +71,11 @@ export class AllPlacesComponent implements OnInit {
       this.places = x;
       console.log(this.places);
 
+    })
+
+    this.placeService.getCategories().subscribe(x=>{
+      this.categories=x;
+      console.log(this.categories);
     })
   
 

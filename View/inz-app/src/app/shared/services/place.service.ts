@@ -31,4 +31,9 @@ public getRegionsFiltered(region:string): Observable<String[]> {
 
   return this.rest.get('/api/places/filter2' + '?region=' + region);
 }
+
+public getCategories(): Observable<String[]> {
+   
+  return this.rest.get<String[]>('/api/categories');
+}
 }
