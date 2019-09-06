@@ -24,9 +24,7 @@ public getPlace(id:number): Observable<Place> {
 
 
 public getPlacesFiltered(place:string): Observable<Place[]> {
-  return this.rest.get(
-    '/api/filter' +
-    '?name=' + place);
+  return this.rest.get('/api/places/filter' + '?name=' + place);
 
   
 }

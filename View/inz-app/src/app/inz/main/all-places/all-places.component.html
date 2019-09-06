@@ -19,7 +19,7 @@
 
         <input type="text" class="searchTerm" placeholder="Wpisz szukaną frazę" [matAutocomplete]="auto" [formControl]="stateCtrl">
         <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+      <mat-option *ngFor="let state of filteredPlaces" [value]="state.name">
                 
               <span>{{state.name}}</span> |
               <small>Population: {{state.population}}</small>
@@ -38,7 +38,7 @@
 
 <h2 class="type-sidelines"><span>Co można zobaczyć w: x</span></h2>
 
-<div class="row">
+<div class="row" *ngIf="initialized">
   <div *ngFor="let place of places; let i = index;">
   <div class="small-2 large-4 columns">
     <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
