@@ -7,4 +7,5 @@ import inz.project.models.Country;
 public interface DictionaryService {
 
 	List<String> getCountries();
+	List<String> getCategories();
 }

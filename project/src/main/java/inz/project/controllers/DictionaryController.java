@@ -20,4 +20,8 @@ public class DictionaryController {
 		return dictionaryService.getCountries();
 	}
 
+	@GetMapping ("api/categories")
+	public List<String> getCategories(){
+		return dictionaryService.getCategories();
+	}
 }
