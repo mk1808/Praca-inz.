@@ -1,6 +1,7 @@
 <div class="container">
   <h4 class="headingStyle">Przeszukiwanie obiektów</h4>
-<div class="row whereGo">
+<form [formGroup]="form" *ngIf="initialized">
+  <div class="row whereGo">
   <div class="wrap">
     <div class="search">
      
@@ -17,7 +18,8 @@
           </mat-form-field>
 -->
 
-        <input type="text" class="searchTerm" placeholder="Wpisz szukaną frazę" [matAutocomplete]="auto" [formControl]="stateCtrl">
+        <input type="text" class="searchTerm" placeholder="Wpisz szukaną frazę" [matAutocomplete]="auto"
+         formControlName="name">
         <mat-autocomplete #auto="matAutocomplete">
       <mat-option *ngFor="let state of filteredPlaces" [value]="state.name">
                 
@@ -32,8 +34,9 @@
         <i class="fa fa-search"></i>
       </button>
     </div>
-
   </div>
+</div>
+</form>
 </div>
 
 <h2 class="type-sidelines"><span>Co można zobaczyć w: x</span></h2>
