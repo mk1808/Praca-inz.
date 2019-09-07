@@ -34,6 +34,6 @@ export class AuthService {
   }
 
   public saveCookie(token:string){
-    this.cookie.set("token", token, 0.5);
+    this.cookie.set("token", token, 0.5, "/");
   }
 }
