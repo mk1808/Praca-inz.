@@ -26,9 +26,9 @@ public interface PlaceRepository extends JpaRepository<Place, Long> {
     List<Place> findPlaceByRegCatNam(String region, String name, PlaceCategory category );
 	
 	
-	@Query("SELECT p FROM Place p WHERE p.region LIKE CONCAT(:region,'%')"
-			+ "AND p.category LIKE CONCAT(:category,'%')")
-    List<Place> findPlaceByRegCat(String region, PlaceCategory category );
+	//@Query("SELECT p FROM Place p WHERE p.region LIKE CONCAT(:region,'%')"
+		//	+ "OR p.category LIKE CONCAT(:category,'%')")
+    List<Place> getPlacesByRegionAndCategory(String region, PlaceCategory category);
 	
 
 }

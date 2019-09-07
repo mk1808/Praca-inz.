@@ -1,5 +1,6 @@
 package inz.project.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -64,6 +65,7 @@ public class PlaceServiceImpl implements PlaceService{
 	
 	@Override
 	public List<Place> getPlacesByCategory(PlaceCategory category){
+		System.out.print(category);
 		return this.placeRepository.getPlacesByCategory(category);
 	}
 	
@@ -74,7 +76,11 @@ public class PlaceServiceImpl implements PlaceService{
 	
 	@Override
 	public List<Place> findPlaceByRegCat(String region, PlaceCategory category){
-		return this.placeRepository.findPlaceByRegCat(region, category);
+		 List<Place>places = new ArrayList<Place>();
+		 if (region==""||region==null) {places=this.placeRepository.getPlacesByCategory(category);}
+		 else if (category==null) {places=this.placeRepository.getPlacesByRegion(region);}
+		 else {places = this.placeRepository.getPlacesByRegionAndCategory(region, category); }
+		 return places; 
 	}
 }
 	

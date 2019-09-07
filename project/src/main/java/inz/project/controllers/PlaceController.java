@@ -49,7 +49,7 @@ public class PlaceController {
 		return regionSet;
 	}
 	
-	@GetMapping("region/{region}")
+	@GetMapping("regiooon/{region}")
 	List<Place> getPlacesByRegion(@PathVariable String region) {
 		return placeService.getPlacesByRegion(region);
 	}
@@ -59,17 +59,22 @@ public class PlaceController {
 		return placeService.getPlacesByCategory(category);
 	}
 	
-	@GetMapping("region/category/name/{region}/{category}/{name}")
+	@GetMapping("regioon/category/name/{region}/{category}/{name}")
 	List<Place> getPlacesByRegCatNam(@PathVariable String region,
 			@PathVariable String name,
 			@PathVariable PlaceCategory category) {
 		return placeService.findPlaceByRegCatNam(region, name, category);
 	}
 	
-	@GetMapping("region/{region}/category/{category}")
-	List<Place> getPlacesByRegCat(@PathVariable String region,
-			@PathVariable PlaceCategory category) {
-		return placeService.findPlaceByRegCat(region, category);
+	@GetMapping("/region/category")
+	List<Place> getPlacesByRegCat(@RequestParam(value ="region") String region,
+			@RequestParam(value ="category") PlaceCategory category) {
+		List<Place> places = placeService.findPlaceByRegCat(region, category);
+		System.out.println("nnn");
+		
+		System.out.println(category);
+		System.out.println(region);
+		return places;
 	}
 	
 	@GetMapping()
