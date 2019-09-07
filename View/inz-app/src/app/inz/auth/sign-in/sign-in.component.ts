@@ -17,7 +17,7 @@ export class SignInComponent implements OnInit {
   loginData: User=new User;
   token;
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
-    private auth: AuthService, private cookie: CookieService) {
+    private auth: AuthService) {
     this.loginForm = this.fb.group({
       login: ['', Validators.required],
       password: ['', Validators.required],
@@ -40,7 +40,8 @@ export class SignInComponent implements OnInit {
     this.auth.logIn(this.loginData).subscribe(x => {
       this.token = x.accessToken;
       console.log(x);
-      console.log(this.token)
+      console.log(this.token);
+      this.auth.saveCookie(this.token);
     })
 
   }
