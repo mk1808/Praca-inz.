@@ -32,7 +32,7 @@
             </button>
     <div class="or">lub</div> 
 
-      <mat-select  class="searchTerm" placeholder="Wybierz kategorię"> 
+      <mat-select  class="searchTerm" placeholder="Wybierz kategorię"  formControlName="category"> 
           <mat-option *ngFor="let category of categories" [value]="category">
             {{category}}
           </mat-option>

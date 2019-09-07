@@ -32,5 +32,10 @@ public getRegionsFiltered(region:string): Observable<String[]> {
   return this.rest.get('/api/places/filter2' + '?region=' + region);
 }
 
+public getPlacesByRegCat(region:string, category:string): Observable<Place[]> {
+//region/category?region=dolnoslaskie&category=MUSEUM
+  return this.rest.get('/api/places/region/category/'+'?region=' + region + '&category='+ category);
+}
+
 
 }

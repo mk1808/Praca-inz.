@@ -29,8 +29,8 @@ export class AllPlacesComponent implements OnInit {
 
     this.form = this.fb.group({
       name: [null],
-      category: [null],
-      region: [null]
+      category: [""],
+      region: [""]
     });
     this.initialized = true;
 
@@ -82,15 +82,26 @@ export class AllPlacesComponent implements OnInit {
 
   }
 
-onSearch(){
+  onSearch() {
+    let region = this.form.controls.region.value;
+    let category = this.form.controls.category.value;
+    console.log(category);
+    console.log(region);
+    if ((category != null) || (region != null)) {
 
-}
+      this.placeService.getPlacesByRegCat(region, category).subscribe(x => {
+        this.places = x;
+        console.log(this.places);
 
-onSearchName(){
-  if (this.form.controls.name.value!=""&&this.form.controls.name.value!=null)
-{  
-  this.places=this.filteredPlaces;}
-}
+      })
+    } else console.log("aaa");
+  }
+
+  onSearchName() {
+    if (this.form.controls.name.value != "" && this.form.controls.name.value != null) {
+      this.places = this.filteredPlaces;
+    }
+  }
 
 
 }
