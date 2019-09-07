@@ -13,6 +13,7 @@ public interface PlaceService {
 	List<String> getRegions(String region);
 	List<Place> getPlacesByRegion(String region);
 	List<Place> getPlacesByCategory(PlaceCategory category);
+	List<Place> findPlaceByRegCat(String region, PlaceCategory category);
 	List<Place> findPlaceByRegCatNam(String region, String name, PlaceCategory category );
 	Place createPlace(Place place);
 	Place updatePlace(Long id, Place place);

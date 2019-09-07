@@ -66,6 +66,12 @@ public class PlaceController {
 		return placeService.findPlaceByRegCatNam(region, name, category);
 	}
 	
+	@GetMapping("region/{region}/category/{category}")
+	List<Place> getPlacesByRegCat(@PathVariable String region,
+			@PathVariable PlaceCategory category) {
+		return placeService.findPlaceByRegCat(region, category);
+	}
+	
 	@GetMapping()
 	List<Place> getPlaces(){
 	return placeService.getPlaces();

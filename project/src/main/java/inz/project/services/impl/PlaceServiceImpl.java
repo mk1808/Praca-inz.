@@ -71,5 +71,10 @@ public class PlaceServiceImpl implements PlaceService{
 	public List<Place> findPlaceByRegCatNam(String region, String name, PlaceCategory category ){
 		return this.placeRepository.findPlaceByRegCatNam(region, name, category);
 	}
+	
+	@Override
+	public List<Place> findPlaceByRegCat(String region, PlaceCategory category){
+		return this.placeRepository.findPlaceByRegCat(region, category);
+	}
 }
 	
