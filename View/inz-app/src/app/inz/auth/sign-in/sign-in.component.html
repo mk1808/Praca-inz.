@@ -3,16 +3,18 @@
 
 
 
-    <form>
+    <form [formGroup]="loginForm">
         <div class="sign-in-form">
           <div class="singleInput">
           <label for="sign-in-form-username">Login</label>
-          <input type="text" class="sign-in-form-username" id="sign-in-form-username" autocomplete="off"></div>
+          <input type="text" class="sign-in-form-username" id="sign-in-form-username" autocomplete="off"
+          formControlName="login"></div>
     
           <div class="singleInput">
           <label for="sign-in-form-password">Hasło</label>
-          <input type="password" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
-          <button type="submit" class="sign-in-form-button signIn">Zaloguj
+          <input type="password" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"
+          formControlName="password"></div>
+          <button type="submit" class="sign-in-form-button signIn" (click)="onConfirm()">Zaloguj
             
           </button>
         </div>

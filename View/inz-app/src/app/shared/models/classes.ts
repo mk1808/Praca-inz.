@@ -1,7 +1,8 @@
 export class User{
     id:number;
     name:string;
-    username:string;    
+    username:string; 
+    login:string;   
     email:string;
     password:string;
     role:number|string;
