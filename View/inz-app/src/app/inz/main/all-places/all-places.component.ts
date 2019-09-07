@@ -80,13 +80,17 @@ export class AllPlacesComponent implements OnInit {
       console.log(this.categories);
     })
 
-
-
   }
 
+onSearch(){
 
+}
 
-
+onSearchName(){
+  if (this.form.controls.name.value!=""&&this.form.controls.name.value!=null)
+{  
+  this.places=this.filteredPlaces;}
+}
 
 
 }
