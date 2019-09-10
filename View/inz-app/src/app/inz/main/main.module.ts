@@ -22,6 +22,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 
+
 @NgModule({
   declarations: [MainComponent, ObjectSearchingResultsComponent, DestinationSearchingResultsComponent, AllTripsComponent, AllPlacesComponent],
   imports: [
@@ -58,6 +59,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatAutocompleteModule,
     MatFormFieldModule,
     MatSelectModule
+
   
 
     

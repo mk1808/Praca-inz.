@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Trip } from 'src/app/shared/models/classes';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TripService } from 'src/app/shared/services/trip.service';
@@ -14,65 +14,62 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class AllTripsComponent implements OnInit {
 
- 
-  trips:Trip[];
-  stateCtrl = new FormControl();
-  filteredStates: Observable<any[]>;
- 
-  constructor(private router: Router, private route: ActivatedRoute, private tripService: TripService) {
-
-    this.filteredStates = this.stateCtrl.valueChanges
-      .pipe(
-        startWith(''),
-        map(state => state ? this._filterStates(state) : this.states.slice())
-        
-      );
-   }
+  form: FormGroup;
+  trips: Trip[];
+  initialized = false;
+  filteredTags: Trip[];
+  filteredRegions: string[];
 
 
-  states: any[] = [
-    {
-      name: 'Arkansas',
-      population: '2.978M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
-    },
-    {
-      name: 'California',
-      population: '39.14M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
-    },
-    {
-      name: 'Florida',
-      population: '20.27M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
-    },
-    {
-      name: 'Texas',
-      population: '27.47M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
-    }
-  ];
-ngOnInit(){
-    this.tripService.getTrips().subscribe(x=>{
-      this.trips=x;
+  constructor(private router: Router, private route: ActivatedRoute, private tripService: TripService,
+    private fb: FormBuilder) {
+
+    this.form = this.fb.group({
+      durationFrom: [null],
+      durationTo: [null],
+      tags: [""],
+      region: [""]
+    });
+
+    this.initialized = true;
+
+    this.form.controls.tags.valueChanges.subscribe(y => {
+      console.log(y);
+      this.tripService.getPlacesFiltered(y).subscribe(x => {
+        this.filteredTags = x;
+        console.log(this.filteredTags);
+
+      })
+
+    })
+
+
+    this.form.controls.region.valueChanges.subscribe(z => {
+      console.log(z);
+      this.tripService.getRegionsFiltered(z).subscribe(a => {
+        this.filteredRegions = a;
+        console.log(this.filteredRegions);
+
+      })
+
+    })
+
+  }
+
+
+  ngOnInit() {
+    this.tripService.getTrips().subscribe(x => {
+      this.trips = x;
       console.log(this.trips);
     })
 
 
 
-    
-  }
-  private _filterStates(value: string): any[] {
-    const filterValue = value.toLowerCase();
 
-    return this.states.filter(state => state.name.toLowerCase().indexOf(filterValue) === 0);
   }
 
 
-  
+
+
 
 }
