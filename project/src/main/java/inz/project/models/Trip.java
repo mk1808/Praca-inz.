@@ -1,8 +1,16 @@
 package inz.project.models;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -39,10 +47,19 @@ public class Trip {
 	@OneToOne
 	private Schedule schedule;
 	
+	@ElementCollection(targetClass = TripTag.class)
+	@CollectionTable(name = "trip_tag",
+	            joinColumns = @JoinColumn(name = "trip_id"))
+	@Enumerated(EnumType.STRING)
+	@Column(name = "tag_id")
+	private Set<TripTag> tags;
+	
+	
 	public Trip() {}
 
 	public Trip(Long id, @NotNull String name, User user, @NotNull Country country, @NotNull String region,
-			String description, String duration, List<PositionInTrip> positionsInTrip, Hotel hotel, Schedule schedule) {
+			String description, String duration, List<PositionInTrip> positionsInTrip, Hotel hotel, 
+			Schedule schedule, Set<TripTag> tags) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -54,6 +71,8 @@ public class Trip {
 		this.positionsInTrip = positionsInTrip;
 		this.hotel=hotel;
 		this.schedule=schedule;
+		this.tags=tags;
+	
 	}
 	
 	public Schedule getSchedule() {
@@ -121,5 +140,14 @@ public class Trip {
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
+
+	public Set<TripTag> getTags() {
+		return tags;
+	}
+
+	public void setTags(Set<TripTag> tags) {
+		this.tags = tags;
+	}
+
 	
 }
