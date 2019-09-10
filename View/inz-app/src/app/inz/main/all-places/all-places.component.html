@@ -1,11 +1,11 @@
 <div class="container">
   <h4 class="headingStyle">Przeszukiwanie obiektów</h4>
-<form [formGroup]="form" *ngIf="initialized">
-  <div class="row whereGo">
-  <div class="wrap">
-    <div class="search">
-     
- <!--
+  <form [formGroup]="form" *ngIf="initialized">
+    <div class="row whereGo">
+      <div class="wrap">
+        <div class="search">
+
+          <!--
         <mat-form-field class="example-full-width">
             <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
             <mat-autocomplete #auto="matAutocomplete">
@@ -18,69 +18,69 @@
           </mat-form-field>
 -->
 
-        <input type="text" class="searchTerm" placeholder="Wpisz nazwę" [matAutocomplete]="auto"
-         formControlName="name">
-        <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let place of filteredPlaces" [value]="place.name">
-                
-              <span>{{place.name}}</span> 
-       <!--       <small>Population: {{state.population}}</small>-->
-        </mat-option> 
-          </mat-autocomplete> 
+          <input type="text" class="searchTerm" placeholder="Wpisz nazwę" [matAutocomplete]="auto"
+            formControlName="name">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let place of filteredPlaces" [value]="place.name">
+
+              <span>{{place.name}}</span>
+              <!--       <small>Population: {{state.population}}</small>-->
+            </mat-option>
+          </mat-autocomplete>
           <button (click)="onSearchName()" type="submit" class="searchButton">
-              <i class="fa fa-search"></i>
-            </button>
-    <div class="or">lub</div> 
+            <i class="fa fa-search"></i>
+          </button>
+          <div class="or">lub</div>
 
-      <mat-select  class="searchTerm" placeholder="Wybierz kategorię"  formControlName="category"> 
-          <mat-option *ngFor="let category of categories" [value]="category">
-            {{category}}
-          </mat-option>
-        </mat-select>
+          <mat-select class="searchTerm" placeholder="Wybierz kategorię" formControlName="category">
+            <mat-option *ngFor="let category of categories" [value]="category">
+              {{category}}
+            </mat-option>
+          </mat-select>
 
-      <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto2"
-         formControlName="region">
-        <mat-autocomplete #auto2="matAutocomplete">
-      <mat-option *ngFor="let region of filteredRegions" [value]="region">
-                
-              <span>{{region}}</span> 
-       <!--       <small>Population: {{state.population}}</small>-->
-        </mat-option> 
-          </mat-autocomplete> 
-      <button (click)="onSearch()" type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-      </button>
+          <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto2"
+            formControlName="region">
+          <mat-autocomplete #auto2="matAutocomplete">
+            <mat-option *ngFor="let region of filteredRegions" [value]="region">
+
+              <span>{{region}}</span>
+              <!--       <small>Population: {{state.population}}</small>-->
+            </mat-option>
+          </mat-autocomplete>
+          <button (click)="onSearch()" type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-</form>
+  </form>
 </div>
 
 <h2 class="type-sidelines"><span>Co można zobaczyć w: x</span></h2>
 
 <div class="row" *ngIf="initialized">
   <div *ngFor="let place of places; let i = index;">
-  <div class="small-2 large-4 columns">
-    <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
-      <div class="flip-card-inner">
-        <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
+    <div class="small-2 large-4 columns">
+      <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+        <div class="flip-card-inner">
+          <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
               background-size: cover;">
-          <span>{{place.name}}<br>
-            Kategoria: {{place.category}} <br>
-            Ocena: 4.5/5
+            <span>{{place.name}}<br>
+              Kategoria: {{place.category}} <br>
+              Ocena: 4.5/5
 
-          </span> 
-      
-        </div>
-        <div class="flip-card-inner-back">
-          <h3 class="flip-card-inner-back-title">{{place.name}}</h3>
-          <p class="flip-card-inner-back-text">{{place.description}}</p>
-          <a [href]="'/place/details/'+places[i].id" class="button success">Zobacz</a>
+            </span>
+
+          </div>
+          <div class="flip-card-inner-back">
+            <h3 class="flip-card-inner-back-title">{{place.name}}</h3>
+            <p class="flip-card-inner-back-text">{{place.description}}</p>
+            <a [href]="'/place/details/'+places[i].id" class="button success">Zobacz</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
 <button class="button moreBtn button-rounded-hover">Zobacz więcej miejsc
