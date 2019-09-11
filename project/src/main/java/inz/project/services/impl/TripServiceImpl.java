@@ -2,12 +2,14 @@ package inz.project.services.impl;
 
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import inz.project.services.TripService;
 import inz.project.models.Schedule;
 import inz.project.models.Trip;
+import inz.project.models.TripTag;
 import inz.project.models.User;
 import inz.project.repositories.TripRepository;
 
@@ -41,5 +43,10 @@ public class TripServiceImpl implements TripService {
 	public List<Trip> getTripsByUser(Long id){
 		User user = userService.getUserById(id);
 		return this.tripRepository.getTripsByUser(user);
+	}
+	
+	@Override
+	public List<Trip> getTripsByTags(Set<TripTag> tags){
+		return this.tripRepository.getTripsByTags(tags);
 	}
 }
