@@ -88,7 +88,18 @@ public class TripController {
 	List<Trip> getTripsByRegTagDur (@RequestParam(value ="from") String from, @RequestParam(value ="to") String to,
 			@RequestParam(value ="region") String region, @RequestParam(value ="tags") Collection<TripTag> tags) 
 	{
-		List<Trip> trips = this.tripService.getTripsByDuration(Long.valueOf(from), Long.valueOf(to));
+		List<TripTag> list = new ArrayList();
+		Collections.sort(list);
+		if (tags instanceof List)
+		  list = (List)tags;
+		else
+		  list = new ArrayList(tags);
+		
+		
+		Set set = new HashSet<TripTag>(list);
+		
+		
+		List<Trip> trips = this.tripService.findTripByRegTagDur(region, set, from, to);
 		return trips;
 	}
 	
