@@ -77,6 +77,13 @@ public class TripController {
 		return regionSet;
 	}
 	
+	@GetMapping("/duration")
+	List<Trip> getTripsByDuration (@RequestParam(value ="from") String from, @RequestParam(value ="to") String to) 
+	{
+		List<Trip> trips = this.tripService.getTripsByDuration(Long.valueOf(from), Long.valueOf(to));
+		return trips;
+	}
+	
 	
 	
 

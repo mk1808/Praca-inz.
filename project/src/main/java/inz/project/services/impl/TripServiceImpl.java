@@ -1,6 +1,8 @@
 package inz.project.services.impl;
 
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -53,5 +55,10 @@ public class TripServiceImpl implements TripService {
 	@Override
 	public List<String> getRegions(String region){
 		return this.tripRepository.findRegions(region);
+	}
+	
+	@Override
+	public List<Trip> getTripsByDuration(Long from, Long to){
+		return this.tripRepository.getTripsByDurationGreaterThanEqualAndDurationLessThanEqual(from, to);
 	}
 }
