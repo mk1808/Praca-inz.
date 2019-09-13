@@ -19,4 +19,11 @@ export class DictionaryService {
    
     return this.rest.get<String[]>('/api/countries');
   }
+
+  public getTags(): Observable<String[]> {
+   
+    return this.rest.get<String[]>('/api/tags');
+  }
+
+
 }

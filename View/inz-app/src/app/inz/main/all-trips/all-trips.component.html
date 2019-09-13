@@ -1,11 +1,12 @@
 <div class="container">
   <h4 class="headingStyle">Przeszukiwanie obiektów</h4>
   <form [formGroup]="form" *ngIf="initialized">
-  <div class="row whereGo">
-    <div class="wrap">
-      <div class="search">
+    <div class="row whereGo">
+      <div class="wrap">
+        <div class="search">
 
-        <!--
+          
+          <!--
           <mat-form-field class="example-full-width">
               <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
               <mat-autocomplete #auto="matAutocomplete">
@@ -19,42 +20,59 @@
   -->
 
 
-        <input type="text" class="searchTerm" placeholder="Wybierz tagi" [matAutocomplete]="auto" formControlName="tags">
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let tag of filteredTags" [value]="tag">
-
-            <span>{{tag}}</span>
-          </mat-option>
-        </mat-autocomplete>
-
-
-        <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto2"
-          formControlName="region">
-        <mat-autocomplete #auto2="matAutocomplete">
-          <mat-option *ngFor="let region of filteredRegions" [value]="region">
-
-            <span>{{region}}</span>
-            <!--       <small>Population: {{state.population}}</small>-->
-          </mat-option>
-        </mat-autocomplete>
-
-       
+  <input #fruitInput type="text" class="searchTerm" placeholder="Wybierz tagi" [matAutocomplete]="auto"
+  formControlName="tags" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+  [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
 
 
 
+          <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto2"
+            formControlName="region">
+          <mat-autocomplete #auto2="matAutocomplete">
+            <mat-option *ngFor="let region of filteredRegions" [value]="region">
 
-        <input  type="number" min="1" class="searchTerm" placeholder="Min. ilość dni"  formControlName="durationFrom">
+              <span>{{region}}</span>
+              <!--       <small>Population: {{state.population}}</small>-->
+            </mat-option>
+          </mat-autocomplete>
 
 
-        <input  type="number" min="1" class="searchTerm" placeholder="Max. ilość dni"  formControlName="durationTo">
+<mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let tag of filteredTags" [value]="tag">
 
-        <button (click)="onSearch()" type="submit" class="searchButton">
-          <i class="fa fa-search"></i>
-        </button>
+              <span>{{tag}}</span>
+            </mat-option>
+          </mat-autocomplete>
+
+
+
+          <input type="number" min="1" class="searchTerm" placeholder="Min. ilość dni" formControlName="durationFrom">
+
+
+          <input type="number" min="1" class="searchTerm" placeholder="Max. ilość dni" formControlName="durationTo">
+
+         
+          
+
+
+
+          <button (click)="onSearch()" type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+          </button>
+
+
+        </div>
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip *ngFor="let tag of chosenTags" [selectable]="selectable" [removable]="removable"
+            (removed)="remove(tag)">
+            {{tag}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+
+        </mat-chip-list>
       </div>
-
     </div>
-  </div></form>
+  </form>
 
   <h2 class="type-sidelines"><span>Co można zobaczyć w: x</span></h2>
 

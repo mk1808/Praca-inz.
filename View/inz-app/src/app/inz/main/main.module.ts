@@ -21,6 +21,7 @@ import {  MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon'; 
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import {MatSelectModule} from '@angular/material/select';
     AutocompleteLibModule,
     MatAutocompleteModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatIconModule
 
   
 
