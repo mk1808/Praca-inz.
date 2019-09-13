@@ -24,4 +24,10 @@ public class DictionaryController {
 	public List<String> getCategories(){
 		return dictionaryService.getCategories();
 	}
+	
+	@GetMapping ("api/tags")
+	public List<String> getTags(){
+		return dictionaryService.getTags();
+	}
+	
 }

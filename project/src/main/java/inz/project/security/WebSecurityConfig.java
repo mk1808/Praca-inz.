@@ -63,7 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/positionInTrip/**").permitAll()
                 .antMatchers("/api/categories/**").permitAll()
                 .antMatchers("/api/countries/**").permitAll()
-                
+                .antMatchers("/api/tags/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()

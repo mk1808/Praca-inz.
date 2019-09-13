@@ -8,4 +8,5 @@ public interface DictionaryService {
 
 	List<String> getCountries();
 	List<String> getCategories();
+	List<String> getTags();
 }
