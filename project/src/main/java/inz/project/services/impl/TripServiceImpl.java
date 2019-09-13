@@ -80,6 +80,10 @@ public class TripServiceImpl implements TripService {
 				 Long.valueOf(durationFrom),Long.valueOf(durationTo));}
 		 else if (!regB&&!durB) {trips.addAll(this.tripRepository.getTripsByTagsInOrderByTags(tag));}
 		 else if (!durB&&!tagB) {trips = this.tripRepository.getTripsByRegion(region);}
+		 else if (!durB) {}
+		 else if (!regB) {}
+		 else if (!tagB) {}
+		 else {}
 		 return trips;
 	}
 }
