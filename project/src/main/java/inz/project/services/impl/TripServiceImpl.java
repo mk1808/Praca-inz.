@@ -69,9 +69,17 @@ public class TripServiceImpl implements TripService {
 	
 	
 	@Override
-	public List<Trip> findTripByRegTagDur(String region, TripTag tag, String durationFrom, String durationTo){
+	public List<Trip> findTripByRegTagDur(String region, Set<TripTag> tag, String durationFrom, String durationTo){
 		 List<Trip>trips = new ArrayList<Trip>();
-		 if (region==""||region==null) {}
+		 Boolean regB = (region==""||region==null)?false:true;
+		 Boolean tagB =  (tag==null||tag.isEmpty())?false:true;
+		 Boolean fromB = (durationFrom==""||durationFrom==null)?false:true;
+		 Boolean toB = (durationTo==""||durationTo==null)?false:true;
+		 Boolean durB = fromB||toB;
+		 if(!regB&&!tagB) {trips = this.tripRepository.getTripsByDurationGreaterThanEqualAndDurationLessThanEqual(
+				 Long.valueOf(durationFrom),Long.valueOf(durationTo));}
+		 else if (!regB&&!durB) {trips.addAll(this.tripRepository.getTripsByTagsInOrderByTags(tag));}
+		 else if (!durB&&!tagB) {trips = this.tripRepository.getTripsByRegion(region);}
 		 return trips;
 	}
 }

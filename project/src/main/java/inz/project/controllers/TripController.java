@@ -84,6 +84,14 @@ public class TripController {
 		return trips;
 	}
 	
+	@GetMapping("/all-filters")
+	List<Trip> getTripsByRegTagDur (@RequestParam(value ="from") String from, @RequestParam(value ="to") String to,
+			@RequestParam(value ="region") String region, @RequestParam(value ="tags") Collection<TripTag> tags) 
+	{
+		List<Trip> trips = this.tripService.getTripsByDuration(Long.valueOf(from), Long.valueOf(to));
+		return trips;
+	}
+	
 	
 	
 
