@@ -49,4 +49,9 @@ public class TripServiceImpl implements TripService {
 	public List<Trip> getTripsByTags(Set<TripTag> tags){
 		return this.tripRepository.getTripsByTagsInOrderByTags(tags);
 	}
+	
+	@Override
+	public List<String> getRegions(String region){
+		return this.tripRepository.findRegions(region);
+	}
 }

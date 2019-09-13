@@ -12,4 +12,7 @@ public interface TripService {
 	Trip getTripById(Long id);
 	List<Trip> getTripsByUser(Long id);
 	List<Trip> getTripsByTags(Set<TripTag> tags);
+	
+	List<String> getRegions(String region);
+	
 }
