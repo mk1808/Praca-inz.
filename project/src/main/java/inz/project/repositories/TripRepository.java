@@ -17,7 +17,7 @@ public interface TripRepository extends JpaRepository<Trip, Long> {
 	
 	List<Trip> getTripsByRegion(String region);
 	List<Trip> getTripsByDuration(Long duration);
-	List<Trip> getTripsByTags(Set<TripTag> tags);
+	List<Trip> getTripsByTagsInOrderByTags(Set<TripTag> tags);
 	
 	
 }

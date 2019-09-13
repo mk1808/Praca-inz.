@@ -62,6 +62,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/trips/**").permitAll()
                 .antMatchers("/api/positionInTrip/**").permitAll()
                 .antMatchers("/api/categories/**").permitAll()
+                .antMatchers("/api/countries/**").permitAll()
+                
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()

@@ -47,6 +47,6 @@ public class TripServiceImpl implements TripService {
 	
 	@Override
 	public List<Trip> getTripsByTags(Set<TripTag> tags){
-		return this.tripRepository.getTripsByTags(tags);
+		return this.tripRepository.getTripsByTagsInOrderByTags(tags);
 	}
 }

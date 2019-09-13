@@ -1,5 +1,9 @@
 package inz.project.controllers;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -50,8 +54,17 @@ public class TripController {
 	}
 	
 	@GetMapping("/tags")
-	List<Trip> getTripByTags(@RequestParam Set<TripTag> tags) {
-		return tripService.getTripsByTags(tags);
+	List<Trip> getTripByTags(@RequestParam (value ="tags") Collection<TripTag> tags) {
+		List<TripTag> list = new ArrayList();
+		Collections.sort(list);
+		if (tags instanceof List)
+		  list = (List)tags;
+		else
+		  list = new ArrayList(tags);
+		
+		
+		Set set = new HashSet<TripTag>(list);
+		return tripService.getTripsByTags(set);
 	}
 
 }
