@@ -18,7 +18,7 @@ export class AllTripsComponent implements OnInit {
   trips: Trip[];
   initialized = false;
   filteredTags: Trip[];
-  filteredRegions: string[];
+  filteredRegions: String[];
 
 
   constructor(private router: Router, private route: ActivatedRoute, private tripService: TripService,
@@ -32,7 +32,7 @@ export class AllTripsComponent implements OnInit {
     });
 
     this.initialized = true;
-
+/*
     this.form.controls.tags.valueChanges.subscribe(y => {
       console.log(y);
       this.tripService.getPlacesFiltered(y).subscribe(x => {
@@ -41,7 +41,7 @@ export class AllTripsComponent implements OnInit {
 
       })
 
-    })
+    })*/
 
 
     this.form.controls.region.valueChanges.subscribe(z => {

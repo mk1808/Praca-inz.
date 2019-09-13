@@ -26,4 +26,9 @@ public getPlacesForTrip(id:number): Observable<Place[]> {
    
   return this.rest.get<Place[]>('/api/positionInTrip/trip/'+id);
 }
+
+public getRegionsFiltered(region:string): Observable<String[]> {
+
+  return this.rest.get('/api/trips/filter' + '?region=' + region);
+}
 }

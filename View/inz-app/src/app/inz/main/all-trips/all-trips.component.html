@@ -1,5 +1,6 @@
 <div class="container">
   <h4 class="headingStyle">Przeszukiwanie obiektów</h4>
+  <form [formGroup]="form" *ngIf="initialized">
   <div class="row whereGo">
     <div class="wrap">
       <div class="search">
@@ -53,7 +54,7 @@
       </div>
 
     </div>
-  </div>
+  </div></form>
 
   <h2 class="type-sidelines"><span>Co można zobaczyć w: x</span></h2>
 
