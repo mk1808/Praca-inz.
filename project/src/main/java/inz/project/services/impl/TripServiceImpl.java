@@ -9,6 +9,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import inz.project.services.TripService;
+import inz.project.models.Place;
+import inz.project.models.PlaceCategory;
 import inz.project.models.Schedule;
 import inz.project.models.Trip;
 import inz.project.models.TripTag;
@@ -59,6 +61,17 @@ public class TripServiceImpl implements TripService {
 	
 	@Override
 	public List<Trip> getTripsByDuration(Long from, Long to){
+		if (from==null)from = 1L;
+		if (to==null) to=100L;
 		return this.tripRepository.getTripsByDurationGreaterThanEqualAndDurationLessThanEqual(from, to);
+	}
+	
+	
+	
+	@Override
+	public List<Trip> findTripByRegTagDur(String region, TripTag tag, String durationFrom, String durationTo){
+		 List<Trip>trips = new ArrayList<Trip>();
+		 if (region==""||region==null) {}
+		 return trips;
 	}
 }
