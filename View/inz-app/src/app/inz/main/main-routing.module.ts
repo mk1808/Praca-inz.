@@ -15,7 +15,7 @@ const routes: Routes = [
     },
 {
         
-        path: "dest",
+        path: "dest/:region",
         component:DestinationSearchingResultsComponent
 
 },

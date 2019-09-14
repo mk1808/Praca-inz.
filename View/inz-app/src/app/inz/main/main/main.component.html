@@ -14,12 +14,14 @@
                   formControlName="search">
                 <mat-autocomplete #auto2="matAutocomplete">
                   <mat-optgroup  [label]="groups[0].category">
-                    <mat-option *ngFor="let name of groups[0].values" [value]="name.name">
+                    <mat-option *ngFor="let name of groups[0].values" [value]="name.name" 
+                    (onSelectionChange)="onSelectedPlace(name)">
                       <span>{{name.name}}</span>
                     </mat-option>
                   </mat-optgroup>
                   <mat-optgroup [label]="groups[1].category">
-                    <mat-option *ngFor="let name of groups[1].values" [value]="name">
+                    <mat-option *ngFor="let name of groups[1].values" [value]="name"
+                    (onSelectionChange)="onSelectedReg(name)">
                       <span>{{name}}</span>
                     </mat-option>
                   </mat-optgroup>

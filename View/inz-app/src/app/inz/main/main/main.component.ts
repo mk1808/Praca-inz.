@@ -25,6 +25,8 @@ export class MainComponent implements OnInit {
   initializedTrips = false;
   initialized = false;
   form: FormGroup;
+  chosen:any;
+  chosenReg:any;
   
   groups: any[] = [{
     category: 'Places',
@@ -75,9 +77,7 @@ export class MainComponent implements OnInit {
     this.flipDiv = !this.flipDiv;
   }
 
-  onSearch(){
-    this.router.navigate(['/search/dest']);
-  }
+ 
 
   onPlace(id:string){
    console.log(id);
@@ -95,7 +95,28 @@ export class MainComponent implements OnInit {
   moreTrips(){
     this.router.navigate(['/all-trips']);
   }
+
+  onSelectedPlace(name){
+    this.chosen=name.id;
+    this.chosenReg=false;
+    console.log(this.chosen);
+  }
+
+  onSelectedReg(region){
+    this.chosen=region;
+    this.chosenReg=true;
+ /*   this.placeService.getPlacesByRegCat(region, "").subscribe(x=>{
+      console.log(x);
+    })*/
+  }
   
+
+  onSearch(){
+    if(this.chosenReg)
+    {this.router.navigate(['/search/dest/'+this.chosen]);}
+
+
+  }
 
   
 }
