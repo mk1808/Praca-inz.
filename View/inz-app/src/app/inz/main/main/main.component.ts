@@ -111,10 +111,9 @@ export class MainComponent implements OnInit {
   }
   
 
-  onSearch(){
-    if(this.chosenReg)
-    {this.router.navigate(['/search/dest/'+this.chosen]);}
-
+  onSearch() {
+    if (this.chosenReg) { this.router.navigate(['/search/dest/' + this.chosen]); }
+    else { this.router.navigate(['/search/obj/' + this.chosen]); }
 
   }
 
