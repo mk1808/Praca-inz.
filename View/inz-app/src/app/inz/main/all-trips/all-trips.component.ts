@@ -35,8 +35,8 @@ export class AllTripsComponent implements OnInit {
     private dictionaryService: DictionaryService, private fb: FormBuilder) {
 
     this.form = this.fb.group({
-      durationFrom: [null],
-      durationTo: [null],
+      durationFrom: [""],
+      durationTo: [""],
       tags: [""],
       region: [""]
     });
@@ -99,19 +99,30 @@ export class AllTripsComponent implements OnInit {
     this.chosenTags.push(event.option.viewValue);
     this.fruitInput.nativeElement.value = '';
     this.form.controls.tags.setValue(null);
+
   }
   ngOnInit() {
     this.tripService.getTrips().subscribe(x => {
       this.trips = x;
       console.log(this.trips);
     })
-
-
-
-
   }
 
-
+  onSearch(){
+    console.log(this.chosenTags);
+    let from, to, tags:any[], region;
+    from = this.form.controls.durationFrom.value;
+    to = this.form.controls.durationTo.value;
+    tags = this.chosenTags;
+    region = this.form.controls.region.value;
+    if(from!=null||to!=null||tags!=[]||region!=""){
+    this.tripService.getTripsFiltered(from, to, region, tags).subscribe(x=>{
+      this.trips=x;
+      console.log(x);
+ 
+    })}
+    
+  }
 
 
 
