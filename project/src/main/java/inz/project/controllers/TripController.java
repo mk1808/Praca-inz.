@@ -85,7 +85,7 @@ public class TripController {
 	}
 	
 	@GetMapping("/all-filters")
-	List<Trip> getTripsByRegTagDur (@RequestParam(value ="from") String from, @RequestParam(value ="to") String to,
+	List<Trip> getTripsByRegTagDur (@RequestParam(value ="from") Long from, @RequestParam(value ="to") Long to,
 			@RequestParam(value ="region") String region, @RequestParam(value ="tags") Collection<TripTag> tags) 
 	{
 		List<TripTag> list = new ArrayList();

@@ -69,19 +69,20 @@ public class TripServiceImpl implements TripService {
 	
 	
 	@Override
-	public List<Trip> findTripByRegTagDur(String region, Set<TripTag> tag, String durationFrom, String durationTo){
+	public List<Trip> findTripByRegTagDur(String region, Set<TripTag> tag, Long durationFrom, Long durationTo){
 		 List<Trip>trips = new ArrayList<Trip>();
 		 List<Trip>tripsA = new ArrayList<Trip>();
 		 List<Trip>tripsB = new ArrayList<Trip>();
 		 List<Trip>tripsC = new ArrayList<Trip>();
 		 Boolean regB = (region==""||region==null)?false:true;
 		 Boolean tagB =  (tag==null||tag.isEmpty())?false:true;
-		 Boolean fromB = (durationFrom==""||durationFrom==null)?false:true;
-		 Boolean toB = (durationTo==""||durationTo==null)?false:true;
+		 Boolean fromB = (durationFrom==null)?false:true;
+		 Boolean toB = (durationTo==null)?false:true;
 		 Boolean durB = fromB||toB;
-		 
+		 if (!fromB) {durationFrom=1L;}
+		 if (!toB) {durationTo=999999999999999999L;}
 		 if(!regB&&!tagB) {trips = this.tripRepository.getTripsByDurationGreaterThanEqualAndDurationLessThanEqual(
-				 Long.valueOf(durationFrom),Long.valueOf(durationTo));}
+				 durationFrom,durationTo);}
 		 else if (!regB&&!durB) {trips.addAll(this.tripRepository.getTripsByTagsInOrderByTags(tag));}
 		 else if (!durB&&!tagB) {trips = this.tripRepository.getTripsByRegion(region);}
 		 else if (!durB) {
@@ -92,21 +93,21 @@ public class TripServiceImpl implements TripService {
 		 }
 		 else if (!regB) {
 			 tripsA = this.tripRepository.getTripsByDurationGreaterThanEqualAndDurationLessThanEqual(
-					 Long.valueOf(durationFrom),Long.valueOf(durationTo));
+					 durationFrom,durationTo);
 			 tripsB.addAll(this.tripRepository.getTripsByTagsInOrderByTags(tag));
 			 tripsA.retainAll(tripsB);
 			 trips = tripsA;
 		 }
 		 else if (!tagB) {
 			 tripsA = this.tripRepository.getTripsByDurationGreaterThanEqualAndDurationLessThanEqual(
-					 Long.valueOf(durationFrom),Long.valueOf(durationTo));
+					 durationFrom,durationTo);
 			 tripsB = this.tripRepository.getTripsByRegion(region);
 			 tripsA.retainAll(tripsB);
 			 trips = tripsA;
 		 }
 		 else {
 			 tripsA = this.tripRepository.getTripsByDurationGreaterThanEqualAndDurationLessThanEqual(
-					 Long.valueOf(durationFrom),Long.valueOf(durationTo));
+					 durationFrom,durationTo);
 			 tripsB = this.tripRepository.getTripsByRegion(region);
 			 tripsA.retainAll(tripsB);
 			 tripsC.addAll(this.tripRepository.getTripsByTagsInOrderByTags(tag));

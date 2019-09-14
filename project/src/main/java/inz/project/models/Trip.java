@@ -39,7 +39,7 @@ public class Trip {
 	@NotNull private Country country;
 	@NotNull private String region;
 	private String description;
-	private String duration;
+	private Long duration;
 	
 	@OneToMany
     private List <PositionInTrip> positionsInTrip;
@@ -58,7 +58,7 @@ public class Trip {
 	public Trip() {}
 
 	public Trip(Long id, @NotNull String name, User user, @NotNull Country country, @NotNull String region,
-			String description, String duration, List<PositionInTrip> positionsInTrip, Hotel hotel, 
+			String description, Long duration, List<PositionInTrip> positionsInTrip, Hotel hotel, 
 			Schedule schedule, Set<TripTag> tags) {
 		super();
 		this.id = id;
@@ -126,10 +126,10 @@ public class Trip {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getDuration() {
+	public Long getDuration() {
 		return duration;
 	}
-	public void setDuration(String duration) {
+	public void setDuration(Long duration) {
 		this.duration = duration;
 	}
 
