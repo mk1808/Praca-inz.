@@ -11,10 +11,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
   providers: [
-    
-    
   ]
 })
+
+
 export class MainComponent implements OnInit {
    
   imageSources:string[]=['https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/London_Eye_at_night_5.jpg/1280px-London_Eye_at_night_5.jpg', 'https://cdn.fstoppers.com/styles/large-16-9/s3/lead/2018/06/ultra-wide-mistakes-lead-image.jpg',
@@ -25,6 +25,16 @@ export class MainComponent implements OnInit {
   initializedTrips = false;
   initialized = false;
   form: FormGroup;
+  
+  groups: any[] = [{
+    category: 'Places',
+    values: []
+  },
+  {
+    category: 'Regions',
+    values: []
+  },
+]
  
   constructor(private router: Router, private route: ActivatedRoute, private placeService: PlaceService,
     private tripService: TripService, private fb: FormBuilder) { 
@@ -32,7 +42,18 @@ export class MainComponent implements OnInit {
       this.form = this.fb.group({
         search: [""]
       });
+
+      this.form.controls.search.valueChanges.subscribe(y => {
+        console.log(y);
+        this.tripService.getRegionsFiltered(y).subscribe(a => {
+          this.groups[1].values = a;
+          console.log( this.groups);
+  
+        })
+  
+      })
     }
+
 
   ngOnInit() {
 

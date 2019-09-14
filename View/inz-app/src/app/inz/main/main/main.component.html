@@ -9,13 +9,26 @@
       <div class="wrap">
           <form [formGroup]="form" *ngIf="initialized">
 
-
+              <div class="search">
+                <input type="text" class="searchTerm" placeholder="Wpisz szukany obiekt lub cel podróży" [matAutocomplete]="auto2"
+                  formControlName="search">
+                <mat-autocomplete #auto2="matAutocomplete">
+                  <mat-optgroup *ngFor="let group of groups" [label]="group.category">
+                    <mat-option *ngFor="let name of group.values" [value]="name">
+                      <span>{{name}}</span>
+                    </mat-option>
+                  </mat-optgroup>
+                </mat-autocomplete>
+              </div>
+  <!---->
         <div class="search">
            <input type="text" class="searchTerm" placeholder="Wpisz szukany obiekt lub cel podróży">
            <button (click)="onSearch()" type="submit" class="searchButton">
              <i class="fa fa-search"></i>
           </button>
         </div>
+
+
  </form>
       <!--     <div class="input-group input-group-rounded inputPos">
         <input class="input-group-field" type="search">
