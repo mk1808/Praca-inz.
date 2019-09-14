@@ -6,16 +6,17 @@
 
 
   <div class="row whereGo">
-  <!-- <div class="large-9 large-centered columns">--> 
       <div class="wrap">
+          <form [formGroup]="form" *ngIf="initialized">
+
+
         <div class="search">
            <input type="text" class="searchTerm" placeholder="Wpisz szukany obiekt lub cel podróży">
            <button (click)="onSearch()" type="submit" class="searchButton">
              <i class="fa fa-search"></i>
           </button>
         </div>
-   <!--   </div>-->
- 
+ </form>
       <!--     <div class="input-group input-group-rounded inputPos">
         <input class="input-group-field" type="search">
         <div class="input-group-button">
@@ -36,7 +37,7 @@
   </div>
   -->
   <h2 class="type-sidelines"><span>Popularne miejsca</span></h2>
-  <div>
+  <div  *ngIf="initializedPlaces">
     <div class="row">
       <div class="small-2 large-4 columns">
         <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
@@ -96,7 +97,7 @@
 
 
   <h2 class="type-sidelines"><span>Nowe wycieczki</span></h2>
-  <div>
+  <div  *ngIf="initializedTrips">
     <div class="row">
       <div class="small-2 large-4 columns">
         <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
