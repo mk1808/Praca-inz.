@@ -48,9 +48,10 @@ export class MainComponent implements OnInit {
         this.tripService.getRegionsFiltered(y).subscribe(a => {
           this.groups[1].values = a;
           console.log( this.groups);
-  
         })
-  
+      this.placeService.getPlacesFiltered(y).subscribe(b=>{
+        this.groups[0].values = b;
+      })
       })
     }
 

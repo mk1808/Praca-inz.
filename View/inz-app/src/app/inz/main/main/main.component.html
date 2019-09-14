@@ -13,8 +13,13 @@
                 <input type="text" class="searchTerm" placeholder="Wpisz szukany obiekt lub cel podróży" [matAutocomplete]="auto2"
                   formControlName="search">
                 <mat-autocomplete #auto2="matAutocomplete">
-                  <mat-optgroup *ngFor="let group of groups" [label]="group.category">
-                    <mat-option *ngFor="let name of group.values" [value]="name">
+                  <mat-optgroup  [label]="groups[0].category">
+                    <mat-option *ngFor="let name of groups[0].values" [value]="name.name">
+                      <span>{{name.name}}</span>
+                    </mat-option>
+                  </mat-optgroup>
+                  <mat-optgroup [label]="groups[1].category">
+                    <mat-option *ngFor="let name of groups[1].values" [value]="name">
                       <span>{{name}}</span>
                     </mat-option>
                   </mat-optgroup>
