@@ -67,6 +67,7 @@ public class AuthController {
 
 	        String jwt = jwtProvider.generateJwtToken(authentication);
 	        User user = userService.getUserByLogin(loginRequest.getLogin()).get();
+	        user.setPassword("");
 	        return ResponseEntity.ok(new JwtResponse(jwt, user));
 	    }
 
