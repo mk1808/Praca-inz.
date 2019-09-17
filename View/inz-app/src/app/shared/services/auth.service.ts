@@ -33,7 +33,7 @@ export class AuthService {
     return this.http.post<any>('/api/auth/signup', user, httpOptions);
   }
 
-  public saveCookie(token:string){
-    this.cookie.set("token", token, 0.5, "/");
+  public saveCookie(token:string, name:string){
+    this.cookie.set(token, name, 0.5, "/");
   }
 }
