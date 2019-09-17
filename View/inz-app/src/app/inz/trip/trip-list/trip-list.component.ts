@@ -32,4 +32,12 @@ export class TripListComponent implements OnInit {
 
   }
 
+  onTrip(id){
+    this.router.navigate(['/trip/details/'+id]);
+  }
+
+  onNewTrip(){
+    this.router.navigate(['/trip/new']);
+  }
+
 }

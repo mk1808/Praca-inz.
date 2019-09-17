@@ -10,7 +10,7 @@
         </div>
 
      </div>        
-     <button class="button moreBtn button-rounded-hover">
+     <button class="button moreBtn button-rounded-hover" (click)="onNewTrip()">
         <img src="assets/add.svg" height="30px" width="30px"> 
       Utwórz nową wycieczkę
 
@@ -34,8 +34,7 @@
             </thead>
             <tbody>
               <tr class="active tableRow" 
-              *ngFor="let trip of myTrips, let i=index"
-             >
+              *ngFor="let trip of myTrips, let i=index" (click)="onTrip(trip.id)" >
                 <td data-label="First Name" >{{i+1}}</td>
                 <td data-label="Last Name" >{{trip.name}}</td>
                 <td data-label="Hero Title">{{trip.country}}</td>
