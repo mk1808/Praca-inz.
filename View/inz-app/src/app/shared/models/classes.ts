@@ -40,10 +40,17 @@ export class Trip{
     user:User;
     duration:string;
     schedule:Schedule;
+    positionsInTrip:PositionInTrip[];
 }
 
 export class Schedule{
     id:number;
     start:Date;
     end:Date;
+}
+
+export class PositionInTrip{
+    id:number;
+    trip:Trip;
+    place:Place;
 }
