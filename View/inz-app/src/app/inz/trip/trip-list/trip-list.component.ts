@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-trip-list',
@@ -15,9 +17,12 @@ export class TripListComponent implements OnInit {
     {id: 4, name: "Wycieczka2", country:"Polska",region:"dolnośląskie", time:"4", places:"6",shared:"Tak"},
 
   ];
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute, private cookie:CookieService) { }
 
   ngOnInit() {
+    if (this.cookie.get('user') == "") {
+      this.router.navigate(['/']);
+    }
   }
 
 }
