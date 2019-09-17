@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { TripService } from 'src/app/shared/services/trip.service';
+import { Trip, User } from 'src/app/shared/models/classes';
 
 @Component({
   selector: 'app-trip-list',
@@ -8,21 +10,26 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./trip-list.component.scss']
 })
 export class TripListComponent implements OnInit {
-  hover=false;
-
-  tableContent:any[] = [
-    {id: 1, name: "Wycieczka1", country:"Polska",region:"dolnośląskie", time:"4", places:"6", shared:"Tak"},
-    {id: 2, name: "Wycieczka3", country:"Polska",region:"dolnośląskie", time:"4", places:"6",shared:"Tak"},
-    {id: 3, name: "Wycieczka4", country:"Polska",region:"dolnośląskie", time:"4", places:"6", shared:"Nie"},
-    {id: 4, name: "Wycieczka2", country:"Polska",region:"dolnośląskie", time:"4", places:"6",shared:"Tak"},
-
-  ];
-  constructor(private router: Router, private route: ActivatedRoute, private cookie:CookieService) { }
+  hover = false;
+  myTrips: Trip[];
+  user: User;
+  
+  constructor(private router: Router, private route: ActivatedRoute, private cookie: CookieService,
+    private tripService: TripService) { }
 
   ngOnInit() {
     if (this.cookie.get('user') == "") {
       this.router.navigate(['/']);
+
+    } else {
+      this.user = JSON.parse(this.cookie.get('user'));
+      this.tripService.getTripsByUser(this.user.id).subscribe(x => {
+        this.myTrips = x;
+        console.log(this.myTrips);
+      })
     }
+
+
   }
 
 }

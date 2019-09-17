@@ -34,15 +34,15 @@
             </thead>
             <tbody>
               <tr class="active tableRow" 
-              *ngFor="let place of tableContent, let i=index"
+              *ngFor="let trip of myTrips, let i=index"
              >
-                <td data-label="First Name" >{{place.id}}</td>
-                <td data-label="Last Name" >{{place.name}}</td>
-                <td data-label="Hero Title">{{place.country}}</td>
-                <td data-label="Hero Title">{{place.region}}</td>
-                <td data-label="Hero Title">{{place.time}}</td>
-                <td data-label="Hero Title">{{place.places}}</td>
-                <td data-label="Hero Title">{{place.shared}}</td>
+                <td data-label="First Name" >{{i+1}}</td>
+                <td data-label="Last Name" >{{trip.name}}</td>
+                <td data-label="Hero Title">{{trip.country}}</td>
+                <td data-label="Hero Title">{{trip.region}}</td>
+                <td data-label="Hero Title">{{trip.duration}} dni</td>
+               <td data-label="Hero Title">{{trip.positionsInTrip.length}}</td>
+                <td data-label="Hero Title">Tak</td>
               </tr>
             </tbody>
           </table>

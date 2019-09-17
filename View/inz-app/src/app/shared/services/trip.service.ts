@@ -44,4 +44,9 @@ public getTripsFiltered(from:number, to:number,region:string, tags:String[] ): O
   "&region=" + region + allTags);
 }
 
+public getTripsByUser(id:number): Observable<Trip[]> {
+
+  return this.rest.get('/api/trips/user/' + id);
+}
+
 }
