@@ -7,7 +7,7 @@
 // Import Angular ngx-foundation Framework Added Styles
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 
 .container{
@@ -20,6 +20,7 @@ font-family: 'Work Sans', sans-serif;
 body{
   background-color: #F7F9F9;
   color: #334049;
+
 }
 
 body,H1,.h1,h2,h3,h4,h5,h6{
@@ -40,3 +41,5 @@ $header-font-family:'Work Sans', sans-serif !default;
 
 @import '~css-star-rating/scss/star-rating';
 /* Import star-rating styles */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
