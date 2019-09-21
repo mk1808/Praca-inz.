@@ -39,7 +39,8 @@ places:Place[];
   }
 
   onBack(){
-    this.choosePlaces=true;
+    this.fillingForm=true;
+
   
 
   }
