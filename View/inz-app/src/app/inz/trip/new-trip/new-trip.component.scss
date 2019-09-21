@@ -231,3 +231,97 @@ textarea {
 .flip-card-inner-back-text {
   line-height: 1.3;
 }
+
+
+/////button
+
+
+
+.moreBtn{
+  margin-left: 37%;
+  width: 26%;
+  margin-top: 10px;
+  margin-bottom: 60px
+}
+
+.moreBtn:focus{
+  outline:none!important;
+}
+
+.secondary{
+  background-color: #662d91;
+
+}
+
+.button.secondary:hover,
+.button.secondary:focus{
+  background-color: #4c216d;
+  outline:none;
+}
+
+.button.success{
+  background-color: #334049;
+  color:#F2F5F9;
+}
+
+button.moreBtn{
+  background-color: #662d91!important;
+
+}
+
+
+
+.button-rounded-hover {
+  border: 0;
+  border-radius: 5000px;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  transition: all 0.35s ease;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+
+}
+
+.button-rounded-hover:before {
+  opacity: 0;
+  content: "";
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border-radius: inherit;
+  background-color: #fefefe;
+  transition: all 0.3s;
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.button-rounded-hover:after {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border: 5px solid #662d91;
+  content: '';
+  border-radius: inherit;
+}
+
+.button-rounded-hover:hover,
+.button-rounded-hover:focus {
+  background-color: #115b8d;
+}
+
+.button-rounded-hover:hover:before,
+.button-rounded-hover:focus:before {
+  -webkit-transform: translateX(0%);
+      -ms-transform: translateX(0%);
+          transform: translateX(0%);
+  opacity: 0.25;
+}
