@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PlaceService } from 'src/app/shared/services/place.service';
 import { Place } from 'src/app/shared/models/classes';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-trip',
@@ -14,7 +15,8 @@ fillingForm:boolean = true;
 choosePlaces:boolean = false;
 places:Place[];
 
-  constructor( private fb: FormBuilder,  private placeService: PlaceService) { 
+  constructor( private fb: FormBuilder,  private placeService: PlaceService, 
+    private router: Router, private route: ActivatedRoute) { 
    
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -41,7 +43,10 @@ places:Place[];
   onBack(){
     this.fillingForm=true;
 
-  
+  }
+
+  more(){
+    this.router.navigate(['/all-places']);
 
   }
 
