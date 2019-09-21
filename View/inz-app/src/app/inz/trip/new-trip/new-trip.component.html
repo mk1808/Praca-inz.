@@ -2,33 +2,70 @@
   <h2 class="headingStyle">Tworzenie własnej wycieczki</h2>
 
   <form [formGroup]="form">
-    <div class="sign-in-form">
+    <div class="sign-in-form" *ngIf="fillingForm">
       <div class="singleInput">
         <label for="sign-in-form-username">Nazwa</label>
-        <input type="text" formControlName="name" class="sign-in-form-username" id="sign-in-form-username" autocomplete="off"></div>
+        <input type="text" formControlName="name" class="sign-in-form-username" id="sign-in-form-username"
+          autocomplete="off"></div>
 
       <div class="singleInput">
         <label for="sign-in-form-password">Państwo</label>
-        <input type="text"  formControlName="country" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
+        <input type="text" formControlName="country" class="sign-in-form-password" id="sign-in-form-password"
+          autocomplete="off"></div>
 
       <div class="singleInput">
         <label for="sign-in-form-password">Region</label>
-        <input type="text" formControlName="region" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
+        <input type="text" formControlName="region" class="sign-in-form-password" id="sign-in-form-password"
+          autocomplete="off"></div>
       <div class="singleInput">
         <label for="sign-in-form-password">Proponowany czas trwania</label>
-        <input type="number" formControlName="duration" min = "1" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
+        <input type="number" formControlName="duration" min="1" class="sign-in-form-password" id="sign-in-form-password"
+          autocomplete="off"></div>
 
 
       <div class="singleInput">
         <label for="sign-in-form-password">Opis</label>
-        <textarea formControlName="description" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"> </textarea>
+        <textarea formControlName="description" class="sign-in-form-password" id="sign-in-form-password"
+          autocomplete="off"> </textarea>
       </div>
-
-      <button type="submit" class="sign-in-form-button signIn">Utwórz
-
+    </div>
+    <div class="sign-in-form"  *ngIf="fillingForm">
+      <button type="submit" class="sign-in-form-button signIn" (click)="onCreate()"> Utwórz
       </button>
     </div>
-</form> 
+    <div class="sign-in-form" *ngIf="!fillingForm">
+      <button type="submit" class="sign-in-form-button signIn" (click)="onBack()"> Wróc 
+      </button>
+    </div>
+    
+
+
+    <div class="row" *ngIf="!fillingForm">
+      <div *ngFor="let place of places; let i = index;">
+        <div class="small-2 large-4 columns">
+          <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+            <div class="flip-card-inner">
+              <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
+                  background-size: cover;">
+                <span>{{place.name}}<br>
+                  Kategoria: {{place.category}} <br>
+                  Ocena: 4.5/5
+    
+                </span>
+    
+              </div>
+              <div class="flip-card-inner-back">
+                <h3 class="flip-card-inner-back-title">{{place.name}}</h3>
+                <p class="flip-card-inner-back-text">{{place.description}}</p>
+                <a [href]="'/place/details/'+places[i].id" class="button success">Zobacz</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
 
 
 
