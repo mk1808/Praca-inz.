@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PlaceService } from 'src/app/shared/services/place.service';
 import { Place } from 'src/app/shared/models/classes';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { AddPlaceToTripDialogComponent } from '../add-place-to-trip-dialog/add-place-to-trip-dialog.component';
 
 @Component({
   selector: 'app-new-trip',
@@ -16,7 +18,7 @@ export class NewTripComponent implements OnInit {
   places: Place[];
 
   constructor(private fb: FormBuilder, private placeService: PlaceService,
-    private router: Router, private route: ActivatedRoute) {
+    private router: Router, private route: ActivatedRoute, public dialog: MatDialog) {
 
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -48,6 +50,26 @@ export class NewTripComponent implements OnInit {
 
   more() {
     this.router.navigate(['/all-places']);
+  }
+
+  onAdd(place:Place){
+    console.log(place);
+
+   
+        
+        const dialogRef = this.dialog.open(AddPlaceToTripDialogComponent, {
+          width: '600px',
+          data: {place}
+        });
+    
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+          
+        });
+      
+    
+    
+
 
   }
 
