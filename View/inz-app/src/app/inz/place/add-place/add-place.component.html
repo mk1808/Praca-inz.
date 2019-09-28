@@ -14,8 +14,8 @@
       <tr class="active tableRow" (mouseover)="onHover(i)" *ngFor="let trip of myTrips, let i=index">
         <td data-label="First Name">{{i+1}}</td>
         <td data-label="Last Name">{{trip.name}}</td>
-        <td *ngIf="mouseOver" data-label="Last Name">Wybierz</td>
-
+        <td  data-label="Last Name">
+<span *ngIf="mouseOver">button</span></td>
       </tr>
     </tbody>
   </table>
