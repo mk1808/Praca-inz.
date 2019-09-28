@@ -2,7 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PlaceService } from 'src/app/shared/services/place.service';
-import { Place } from 'src/app/shared/models/classes';
+import { Place, PositionInTrip } from 'src/app/shared/models/classes';
+import { MatDialog } from '@angular/material';
+import { AddPlaceComponent } from '../add-place/add-place.component';
 
 @Component({
   selector: 'app-place',
@@ -18,7 +20,8 @@ place:Place;
   longitude = 21.984447; 
   mapType = 'roadmap';
   logged:boolean=true;
-  constructor( private router: Router, private route: ActivatedRoute, private placeService:PlaceService){}
+  position:PositionInTrip = new PositionInTrip();
+  constructor( private router: Router, private route: ActivatedRoute, private placeService:PlaceService, public dialog: MatDialog){}
   ngOnInit(): void {
     this.route.params.subscribe(x => {
         this.id = x['id'];
@@ -86,4 +89,18 @@ place:Place;
 
       ];
   }
+
+  onAdd(){
+   
+    const dialogRef = this.dialog.open(AddPlaceComponent, {
+      width: '600px',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+    });
+  }
+  
 }
