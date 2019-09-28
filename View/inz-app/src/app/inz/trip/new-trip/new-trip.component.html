@@ -58,11 +58,11 @@
                 <h3 class="flip-card-inner-back-title">{{place.name}}</h3>
                 <p class="flip-card-inner-back-text">{{place.description}}</p>
                 <a [href]="'/place/details/'+places[i].id" class="button success">Zobacz</a>
-                <span class="button success add-button" (click)="onAdd(places[i])">
+                <span class="button success add-button" (click)="onAdd(places[i])" >
                     <i class="material-icons add-icon">
-                        add_circle
+                        {{addButtonIcon}}
                         </i>
-                      <span> Dodaj
+                      <span> {{addButton}}
                         </span>                       
                       </span>
               </div>

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { RestService } from './rest.service';
 import { Observable } from 'rxjs';
-import { Trip, Place } from '../models/classes';
+import { Trip, Place, PositionInTrip } from '../models/classes';
 
 @Injectable({
   providedIn: 'root'
@@ -52,4 +52,11 @@ public getTripsByUser(id:number): Observable<Trip[]> {
 public createTrip(trip: Trip): Observable<Trip> {
   return this.rest.post('/api/trips', trip);
 }
+
+public addPlaceToTrip(position: PositionInTrip): Observable<PositionInTrip> {
+  return this.rest.post('/api/positionInTrip', position);
+}
+
+
+
 }

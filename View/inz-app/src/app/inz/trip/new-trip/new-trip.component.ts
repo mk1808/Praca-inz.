@@ -17,9 +17,12 @@ export class NewTripComponent implements OnInit {
   fillingForm: boolean = true;
   choosePlaces: boolean = false;
   places: Place[];
-  trip:Trip=new Trip();
+  trip: Trip = new Trip();
+  added: boolean = false;
+  addButton: string = "Dodaj";
+  addButtonIcon: string = "add_circle";
 
-  constructor(private fb: FormBuilder, private placeService: PlaceService, private tripService:TripService,
+  constructor(private fb: FormBuilder, private placeService: PlaceService, private tripService: TripService,
     private router: Router, private route: ActivatedRoute, public dialog: MatDialog) {
 
     this.form = this.fb.group({
@@ -35,17 +38,17 @@ export class NewTripComponent implements OnInit {
 
   }
   onCreate() {
-   
+
     if (this.form.controls.region.value != "" && this.form.controls.region.value != null) {
-      this.trip.name=this.form.controls.name.value;
-      this.trip.country=this.form.controls.country.value;
-      this.trip.region=this.form.controls.region.value;
-      this.trip.duration=this.form.controls.duration.value;
-      this.trip.description=this.form.controls.description.value;
-      this.tripService.createTrip(this.trip).subscribe(x=>{
+      this.trip.name = this.form.controls.name.value;
+      this.trip.country = this.form.controls.country.value;
+      this.trip.region = this.form.controls.region.value;
+      this.trip.duration = this.form.controls.duration.value;
+      this.trip.description = this.form.controls.description.value;
+      this.tripService.createTrip(this.trip).subscribe(x => {
         console.log(x);
       })
-      this.fillingForm = false; 
+      this.fillingForm = false;
       this.placeService.getPlacesByRegCat(this.form.controls.region.value, "").subscribe(x => {
         this.places = x;
         console.log(this.places);
@@ -62,23 +65,26 @@ export class NewTripComponent implements OnInit {
     this.router.navigate(['/all-places']);
   }
 
-  onAdd(place:Place){
+  onAdd(place: Place) {
     console.log(place);
 
-   
-        
-        const dialogRef = this.dialog.open(AddPlaceToTripDialogComponent, {
-          width: '600px',
-          data: {place}
-        });
-    
-        dialogRef.afterClosed().subscribe(result => {
-          console.log('The dialog was closed');
-          
-        });
-      
-    
-    
+    this.addButton = "Dodano";
+    this.addButtonIcon = "done";
+    if (!this.added) {
+
+      const dialogRef = this.dialog.open(AddPlaceToTripDialogComponent, {
+        width: '600px',
+        data: { place }
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+
+      });
+    }
+    this.added = true;
+
+
 
 
   }
