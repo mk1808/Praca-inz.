@@ -7,19 +7,26 @@ import { StarRatingModule } from 'angular-star-rating';
 import { AgmCoreModule } from '@agm/core';
 import { NgxEqualizerModule } from 'ngx-equalizer';
 import { NewPlaceComponent } from './new-place/new-place.component';
+import { AddPlaceComponent } from './add-place/add-place.component';
+import { MatDialogModule } from '@angular/material';
 
 
 @NgModule({
-  declarations: [PlaceComponent, NewPlaceComponent],
+  declarations: [PlaceComponent, NewPlaceComponent, AddPlaceComponent],
   imports: [
     CommonModule,
     PlaceRoutingModule,
     NgxGalleryModule,
     StarRatingModule,
+    MatDialogModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBsLVzxs5lP8tAr0ErPMYOhBORJ-OoT0Ts'
     }),
     NgxEqualizerModule    
-  ]
+  ], 
+  entryComponents: [
+
+    AddPlaceComponent
+  ],
 })
 export class PlaceModule { }
