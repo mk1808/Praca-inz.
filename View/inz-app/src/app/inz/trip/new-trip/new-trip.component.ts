@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PlaceService } from 'src/app/shared/services/place.service';
-import { Place, Trip } from 'src/app/shared/models/classes';
+import { Place, Trip, PositionInTrip } from 'src/app/shared/models/classes';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { AddPlaceToTripDialogComponent } from '../add-place-to-trip-dialog/add-place-to-trip-dialog.component';
@@ -18,9 +18,11 @@ export class NewTripComponent implements OnInit {
   choosePlaces: boolean = false;
   places: Place[];
   trip: Trip = new Trip();
+  newTrip: Trip = new Trip();
   added: boolean = false;
   addButton: string = "Dodaj";
   addButtonIcon: string = "add_circle";
+  position:PositionInTrip = new PositionInTrip();
 
   constructor(private fb: FormBuilder, private placeService: PlaceService, private tripService: TripService,
     private router: Router, private route: ActivatedRoute, public dialog: MatDialog) {
@@ -47,6 +49,7 @@ export class NewTripComponent implements OnInit {
       this.trip.description = this.form.controls.description.value;
       this.tripService.createTrip(this.trip).subscribe(x => {
         console.log(x);
+        this.newTrip=x;
       })
       this.fillingForm = false;
       this.placeService.getPlacesByRegCat(this.form.controls.region.value, "").subscribe(x => {
@@ -70,8 +73,14 @@ export class NewTripComponent implements OnInit {
 
     this.addButton = "Dodano";
     this.addButtonIcon = "done";
-    if (!this.added) {
 
+    
+    if (!this.added) {
+      this.position.place=place;
+      this.position.trip=this.newTrip;
+      this.tripService.addPlaceToTrip(this.position).subscribe(x=>{
+        console.log(x);
+      })
       const dialogRef = this.dialog.open(AddPlaceToTripDialogComponent, {
         width: '600px',
         data: { place }
