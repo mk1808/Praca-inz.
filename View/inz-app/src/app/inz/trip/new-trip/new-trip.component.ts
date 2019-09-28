@@ -10,14 +10,14 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./new-trip.component.scss']
 })
 export class NewTripComponent implements OnInit {
-form:FormGroup;
-fillingForm:boolean = true;
-choosePlaces:boolean = false;
-places:Place[];
+  form: FormGroup;
+  fillingForm: boolean = true;
+  choosePlaces: boolean = false;
+  places: Place[];
 
-  constructor( private fb: FormBuilder,  private placeService: PlaceService, 
-    private router: Router, private route: ActivatedRoute) { 
-   
+  constructor(private fb: FormBuilder, private placeService: PlaceService,
+    private router: Router, private route: ActivatedRoute) {
+
     this.form = this.fb.group({
       name: ['', Validators.required],
       country: ['', Validators.required],
@@ -28,24 +28,25 @@ places:Place[];
   }
 
   ngOnInit() {
-    
-  }
-  onCreate(){
-    this.fillingForm=false;
-  
-    this.placeService.getPlacesByRegCat(this.form.controls.region.value, "").subscribe(x => {
-      this.places = x;
-      console.log(this.places);
-
-    })
-  }
-
-  onBack(){
-    this.fillingForm=true;
 
   }
+  onCreate() {
+   
+    if (this.form.controls.region.value != "" && this.form.controls.region.value != null) {
+      this.fillingForm = false; 
+      this.placeService.getPlacesByRegCat(this.form.controls.region.value, "").subscribe(x => {
+        this.places = x;
+        console.log(this.places);
 
-  more(){
+      })
+    }
+  }
+  onBack() {
+    this.fillingForm = true;
+
+  }
+
+  more() {
     this.router.navigate(['/all-places']);
 
   }
