@@ -49,4 +49,7 @@ public getTripsByUser(id:number): Observable<Trip[]> {
   return this.rest.get('/api/trips/user/' + id);
 }
 
+public createTrip(trip: Trip): Observable<Trip> {
+  return this.rest.post('/api/trips', trip);
+}
 }

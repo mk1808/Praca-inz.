@@ -38,4 +38,5 @@ public getPlacesByRegCat(region:string, category:string): Observable<Place[]> {
 }
 
 
+
 }
