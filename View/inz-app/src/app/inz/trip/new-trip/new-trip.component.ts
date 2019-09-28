@@ -23,6 +23,7 @@ export class NewTripComponent implements OnInit {
   addButton: string = "Dodaj";
   addButtonIcon: string = "add_circle";
   position:PositionInTrip = new PositionInTrip();
+  status:boolean[]=[];
 
   constructor(private fb: FormBuilder, private placeService: PlaceService, private tripService: TripService,
     private router: Router, private route: ActivatedRoute, public dialog: MatDialog) {
@@ -54,6 +55,9 @@ export class NewTripComponent implements OnInit {
       this.fillingForm = false;
       this.placeService.getPlacesByRegCat(this.form.controls.region.value, "").subscribe(x => {
         this.places = x;
+        this.places.forEach(x=>{
+          this.status.push(true);
+        })
         console.log(this.places);
 
       })
@@ -68,11 +72,10 @@ export class NewTripComponent implements OnInit {
     this.router.navigate(['/all-places']);
   }
 
-  onAdd(place: Place) {
+  onAdd(place: Place, i:number) {
     console.log(place);
-
-    this.addButton = "Dodano";
-    this.addButtonIcon = "done";
+    this.status[i]=false;
+   
 
     
     if (!this.added) {
