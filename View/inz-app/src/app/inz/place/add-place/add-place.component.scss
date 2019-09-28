@@ -1,0 +1,70 @@
+thead tr{
+    //  border-bottom: 2px solid #662d91;
+      background-color: #662d91;
+      color:#f7f9f9!important;
+    }
+    
+    thead th{
+      font-weight: 100!important;  
+    }
+
+    .hoverEff{
+        background-color: blueviolet;
+      }
+      
+      .myIcon{
+        margin-left:200px!important;
+      }
+      
+      tbody td .hovActive:hover{
+        background-color: #662d91;
+        color:#f7f9f9!important;
+      }
+      .map{
+        margin-bottom: 40px;
+      }
+      
+      .border{
+        border-left: 4px solid #4c216d;
+          padding-left: 27px;
+      }
+      
+      tr td {
+        
+        background-color: rgb(167, 162, 170); 
+        transition-duration: 300ms;
+        border-bottom:1px solid #f7f9f9;
+        text-align: center;
+      }
+      
+      tr:hover td {
+        background-color:#662d91;
+        color:#f7f9f9!important;  
+        cursor: pointer;
+      }
+      
+      .tripName{
+        margin-top:20px;
+        margin-bottom:24px;
+      }
+      
+      .tripHeader{
+        font-weight: 600;
+      }
+      
+      .photo{
+        height: 300px!important;
+        border: 5px solid #662d91;
+      }
+      
+      thead tr{
+      //  border-bottom: 2px solid #662d91;
+        background-color: #662d91;
+        color:#f7f9f9!important;
+      
+      }
+      
+      thead th{
+        font-weight: 100!important;  
+        text-align: center;
+      }
