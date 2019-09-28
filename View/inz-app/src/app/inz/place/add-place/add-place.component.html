@@ -1,18 +1,22 @@
-<table class="table table-striped table-hover">
+<h1 mat-dialog-title>Wybierz wycieczkę</h1>
+<mat-dialog-content *ngIf="initialized">
+  <table class="table table-striped table-hover">
     <thead>
       <tr>
         <th class="id">Numer</th>
         <th class="name">Nazwa</th>
-     
+        <th  class="name">
+          <span *ngIf="mouseOver"></span>
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr class="active tableRow"(mouseover)="onHover(i)" 
-      *ngFor="let trip of myTrips, let i=index"
-     >
-        <td data-label="First Name" >{{i+1}}</td>
-        <td data-label="Last Name" >{{trip.name}}</td>
+      <tr class="active tableRow" (mouseover)="onHover(i)" *ngFor="let trip of myTrips, let i=index">
+        <td data-label="First Name">{{i+1}}</td>
+        <td data-label="Last Name">{{trip.name}}</td>
+        <td *ngIf="mouseOver" data-label="Last Name">Wybierz</td>
 
       </tr>
     </tbody>
   </table>
+</mat-dialog-content>

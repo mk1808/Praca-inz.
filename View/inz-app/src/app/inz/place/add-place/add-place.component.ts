@@ -12,6 +12,8 @@ import { User, Trip } from 'src/app/shared/models/classes';
 export class AddPlaceComponent implements OnInit {
 user:User=new User;
 myTrips:Trip[]=[];
+initialized:boolean=true;
+mouseOver:boolean=false;
   constructor(private router: Router, private route: ActivatedRoute, private cookie: CookieService,
     private tripService: TripService) { }
 
@@ -29,5 +31,7 @@ myTrips:Trip[]=[];
     }
   }
 
-
+  onHover(i){
+    this.mouseOver=true;
+  }
 }
