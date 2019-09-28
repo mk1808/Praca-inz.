@@ -1,23 +1,26 @@
 <div class="container">
-  <div class="holy-grail-grid">
-    <div class="holy-grail-header">
-      <div class="row myRow">
+ 
+      <div class="row firstHeader myRow first">
         <div class="columns small-1 heading">
           <img src="assets/museum.svg" class="iconStyle" height="80px" width="80px">
         </div>
         <div class="columns small-4 heading">
           <h3>{{place.name}} </h3>
-
           <star-rating id="ratingStar" [starType]="'svg'" [rating]="4.5" [disabled]="true" [showHalfStars]="true"
             size="large"></star-rating>
-
+        </div>
+        <div class="columns small-7 heading last">
+            <span class="button success add-button" (click)="onAdd()" *ngIf="logged">
+                <i class="material-icons add-icon">
+                    add_circle
+                    </i>
+                  <span>  Dodaj do wycieczki
+                    </span>                       
+                  </span>
 
 
         </div>
-        <div class="columns small-5">
-        </div>
-      </div>
-    </div>
+ 
   </div>
   <div class="row myRow">
     <div class="columns small-6">

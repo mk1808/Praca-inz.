@@ -119,8 +119,33 @@ h3 {
   padding: 7px;
   border-radius: 10px;
 }
+ 
+.firstHeader{
+  margin-top:20px;  
+  margin-bottom: 20px;
+  max-width: 100%;
+ // text-align: end;
+}
+
+.first{
+  margin-bottom: 20px;
+}
+
+.last{
+  text-align: end;
+}
 
 
+.add-button{
+  padding-top: 2px;
+}
+
+
+.add-icon{
+
+  position: relative;
+  top: 6px;
+}
 ///header
 
 .holy-grail-grid {
@@ -209,4 +234,8 @@ h3 {
     padding: 1rem;
   }
   
-  
+  ///button
+  .button.success{
+    background-color: #334049;
+    color:#F2F5F9;
+  }
