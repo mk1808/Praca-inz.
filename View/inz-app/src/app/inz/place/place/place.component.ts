@@ -17,6 +17,7 @@ place:Place;
   latitude = 50.026783;
   longitude = 21.984447; 
   mapType = 'roadmap';
+  logged:boolean=true;
   constructor( private router: Router, private route: ActivatedRoute, private placeService:PlaceService){}
   ngOnInit(): void {
     this.route.params.subscribe(x => {
