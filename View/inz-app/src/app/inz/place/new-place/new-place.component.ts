@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Place } from 'src/app/shared/models/classes';
+import { Place, User } from 'src/app/shared/models/classes';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PlaceService } from 'src/app/shared/services/place.service';
+import { DictionaryService } from 'src/app/shared/services/dictionary.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-new-place',
@@ -10,11 +12,14 @@ import { PlaceService } from 'src/app/shared/services/place.service';
   styleUrls: ['./new-place.component.scss']
 })
 export class NewPlaceComponent implements OnInit {
-categories:any[]=["muzeum", "galeria sztuki", "park", "pomnik"]
+categories:any[]=[];
 form: FormGroup;
 newPlace: Place=new Place;
+user:User = new User;
+newPlaceId:number;
 constructor(private fb: FormBuilder, private placeService: PlaceService,
-  private router: Router, private route: ActivatedRoute) { }
+  private router: Router, private route: ActivatedRoute,
+   private dictionaryService: DictionaryService, private cookie:CookieService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -28,6 +33,11 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
       phone: ['', Validators.required],
       website: ['', Validators.required],
       description: [''],
+    })
+
+    this.dictionaryService.getCategories().subscribe(x => {
+      this.categories = x;
+      console.log(this.categories);
     })
   }
 
@@ -43,8 +53,14 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
     this.newPlace.website=this.form.controls.website.value;
     this.newPlace.description=this.form.controls.description.value;
 
+this.user = JSON.parse(this.cookie.get('user'));
+this.newPlace.user=this.user;
+this.newPlace.status="new";
+console.log(this.newPlace);
     this.placeService.createPlace(this.newPlace).subscribe(x=>{
       console.log(x);
+      this.newPlaceId=x.id;
+      this.router.navigate(['/place/details/' + this.newPlaceId]);
     })
 
   }
