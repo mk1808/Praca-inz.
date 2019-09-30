@@ -19,7 +19,7 @@ import { AddPlaceComponent } from '../place/add-place/add-place.component'
 @NgModule({
   declarations: [TripComponent, PhotosOnHoverComponent,
     TripListComponent, NewTripComponent, AddScheduleComponent, ScheduleComponent, HourDialogComponent,
-    AddPlaceToTripDialogComponent, AddPlaceComponent],
+    AddPlaceToTripDialogComponent],
   imports: [
     CommonModule,
     TripRoutingModule,
