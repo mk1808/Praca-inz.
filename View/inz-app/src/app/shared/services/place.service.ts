@@ -42,6 +42,10 @@ public getPlacesByUser(id:number): Observable<Place[]> {
   return this.rest.get('/api/places/user/' + id);
 }
 
+public createPlace(place: Place): Observable<Place> {
+  return this.rest.post('/api/places', place);
+}
+
 
 
 }

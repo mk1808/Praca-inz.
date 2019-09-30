@@ -9,6 +9,7 @@ import { NgxEqualizerModule } from 'ngx-equalizer';
 import { NewPlaceComponent } from './new-place/new-place.component';
 import { AddPlaceComponent } from './add-place/add-place.component';
 import { MatDialogModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MatDialogModule } from '@angular/material';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBsLVzxs5lP8tAr0ErPMYOhBORJ-OoT0Ts'
     }),
-    NgxEqualizerModule    
+    NgxEqualizerModule,
+    ReactiveFormsModule    
   ], 
   entryComponents: [
 
