@@ -1,0 +1,61 @@
+<div class="container">
+  <h2 class="headingStyle">Tworzenie nowego miejsca</h2>
+
+  <form>
+    <div class="sign-in-form">
+      <div class="singleInput">
+        <label for="sign-in-form-username">Nazwa</label>
+        <input type="text" class="sign-in-form-username" id="sign-in-form-username" autocomplete="off"></div>
+
+      <div class="singleInput">
+        <label for="sign-in-form-password">Kategoria</label>
+        <select class="sign-in-form-password" id="sign-in-form-password">
+
+          <option value="" class="sign-in-form-password" id="sign-in-form-password">Wybierz</option>
+          <option class="sign-in-form-password" id="sign-in-form-password" *ngFor="let category of categories "
+            [value]="country">
+            {{category}}</option>
+
+        </select>
+      </div>
+      <div class="textCateogory up">- Adres -</div>
+
+      <div class="singleInput">
+        <label for="sign-in-form-password">Państwo</label>
+        <input type="text" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
+
+      <div class="singleInput">
+        <label for="sign-in-form-password">Region</label>
+        <input type="text" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
+      <div class="singleInput">
+        <label for="sign-in-form-password">Miasto</label>
+        <input type="text" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
+      <div class="singleInput">
+        <label for="sign-in-form-password">Ulica</label>
+        <input type="text" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
+      <div class="singleInput">
+        <label for="sign-in-form-password">Numer</label>
+        <input type="text" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
+        <div class="textCateogory down">- Dane kontaktowe -</div>
+        <div class="singleInput">
+        <label for="sign-in-form-password">Telefon</label>
+        <input type="text" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
+      <div class="singleInput">
+        <label for="sign-in-form-password">Strona internetowa</label>
+        <input type="text" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
+
+        <div class="textCateogory down">- Informacje dodatkowe -</div>
+      <div class="singleInput">
+        <label for="sign-in-form-password">Opis</label>
+        <textarea class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"> </textarea></div>
+
+      <button type="submit" class="sign-in-form-button signIn">Utwórz
+
+      </button>
+    </div>
+  </form>
+
+
+
+
+</div>
