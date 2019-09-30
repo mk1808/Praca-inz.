@@ -94,7 +94,7 @@ place:Place;
    
     const dialogRef = this.dialog.open(AddPlaceComponent, {
       width: '600px',
-      data: {}
+      data: this.place
     });
 
     dialogRef.afterClosed().subscribe(result => {

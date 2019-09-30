@@ -1,3 +1,4 @@
+<div *ngIf="before">
 <h1 mat-dialog-title>Wybierz wycieczkę</h1>
 <mat-dialog-content *ngIf="initialized">
   <table class="table table-striped table-hover">
@@ -19,3 +20,27 @@
     </tbody>
   </table>
 </mat-dialog-content>
+</div>
+<div *ngIf="!before">
+
+<h1 mat-dialog-title>Potwierdzenie</h1>
+  <mat-dialog-content *ngIf="initialized">
+
+    <h6>Obiekt {{data.name}} został dodany do Twojej wycieczki {{chosenTrip.name}}!</h6>
+
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+
+      <div class="columns small-9">
+          <button type="submit" class="sign-in-form-button signIn">Zobacz wycieczkę
+            </button>
+      </div>
+  
+      <div class="columns small-3 ">
+        <button type="submit" class="sign-in-form-button signIn">Zamknij
+        </button>
+      </div>
+    </mat-dialog-actions>
+  </div>

@@ -74,4 +74,42 @@ thead tr{
         color:#F2F5F9;
         margin-bottom:0;
       }
+//button
+.sign-in-form-button {
+    border-radius: 30px;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color:#662d91;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    padding: 1rem;
+    transition: all ease .4s;
+margin-bottom:10px;
+  }
+  
+  .sign-in-form-button:hover {
+    background-color: #4c216d;
+    border-color: #662d91;
+  }
+
+  //button
+
+  .signUp{
+    width:30%;
+    margin-bottom:60px;
     
+}
+
+.signUp:focus{
+  outline:none!important;
+}
+
+.signIn:focus{
+  outline:none!important;
+}
+
+button{
+  cursor:pointer;
+
+}
