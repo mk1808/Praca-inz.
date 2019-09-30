@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { TripService } from 'src/app/shared/services/trip.service';
-import { Trip, User } from 'src/app/shared/models/classes';
+import { Trip, User, Place } from 'src/app/shared/models/classes';
+import { PlaceService } from 'src/app/shared/services/place.service';
 
 @Component({
   selector: 'app-trip-list',
@@ -11,11 +12,12 @@ import { Trip, User } from 'src/app/shared/models/classes';
 })
 export class TripListComponent implements OnInit {
   hover = false;
-  myTrips: Trip[];
+  myTrips: Trip[]=[];
+  myPlaces: Place[]=[];
   user: User;
   
   constructor(private router: Router, private route: ActivatedRoute, private cookie: CookieService,
-    private tripService: TripService) { }
+    private tripService: TripService, private placeService:PlaceService) { }
 
   ngOnInit() {
     if (this.cookie.get('user') == "") {
@@ -27,6 +29,12 @@ export class TripListComponent implements OnInit {
         this.myTrips = x;
         console.log(this.myTrips);
       })
+      this.placeService.getPlacesByUser(this.user.id).subscribe(x=>{
+        this.myPlaces=x;
+        console.log(this.myPlaces);
+      })
+
+
     }
 
 

@@ -37,6 +37,11 @@ public getPlacesByRegCat(region:string, category:string): Observable<Place[]> {
   return this.rest.get('/api/places/region/category/'+'?region=' + region + '&category='+ category);
 }
 
+public getPlacesByUser(id:number): Observable<Place[]> {
+
+  return this.rest.get('/api/places/user/' + id);
+}
+
 
 
 }

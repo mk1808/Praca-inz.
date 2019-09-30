@@ -60,23 +60,21 @@
           <tr>
             <th class="id">Numer</th>
             <th class="name">Nazwa</th>
+            <th class="place">Kategoria</th>
+            <th class="place">Miasto</th>
             <th class="place">Państwo</th>
-            <th class="place">Region</th>
-            <th class="place">Czas trwania</th>
-            <th class="place">Ilość miejsc</th>
-            <th class="place">Udostępniona publicznie</th>
           </tr>
+
         </thead>
         <tbody>
-          <tr class="active tableRow" *ngFor="let trip of myTrips, let i=index" (click)="onTrip(trip.id)">
-            <td data-label="First Name">{{i+1}}</td>
-            <td data-label="Last Name">{{trip.name}}</td>
-            <td data-label="Hero Title">{{trip.country}}</td>
-            <td data-label="Hero Title">{{trip.region}}</td>
-            <td data-label="Hero Title">{{trip.duration}} dni</td>
-            <td data-label="Hero Title">{{trip.positionsInTrip.length}}</td>
-            <td data-label="Hero Title">Tak</td>
+          <tr class="active tableRow" *ngFor="let place of myPlaces, let j=index" (click)="onTrip(trip.id)">
+            <td data-label="First Name">{{j+1}}</td>
+            <td data-label="Last Name">{{place.name}}</td>
+            <td data-label="Hero Title">{{place.category}}</td>
+            <td data-label="Hero Title">{{place.city}}</td>
+            <td data-label="Hero Title">{{place.country}} </td>
           </tr>
+
         </tbody>
       </table>
     </div>
