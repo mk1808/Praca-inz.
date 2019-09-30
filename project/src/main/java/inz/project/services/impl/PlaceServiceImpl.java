@@ -7,16 +7,21 @@ import org.springframework.stereotype.Service;
 
 import inz.project.models.Place;
 import inz.project.models.PlaceCategory;
+import inz.project.models.Trip;
+import inz.project.models.User;
 import inz.project.repositories.PlaceRepository;
+import inz.project.repositories.UserRepository;
 import inz.project.services.PlaceService;
 
 @Service
 public class PlaceServiceImpl implements PlaceService{
 	
 	private final PlaceRepository placeRepository;
-	public PlaceServiceImpl (PlaceRepository placeRepository)
+	private final UserServiceImpl userService;
+	public PlaceServiceImpl (PlaceRepository placeRepository, UserServiceImpl userService)
 	{
 		this.placeRepository=placeRepository;
+		this.userService=userService;
 	}
 	
 	@Override
@@ -81,6 +86,12 @@ public class PlaceServiceImpl implements PlaceService{
 		 else if (category==null) {places=this.placeRepository.getPlacesByRegion(region);}
 		 else {places = this.placeRepository.getPlacesByRegionAndCategory(region, category); }
 		 return places; 
+	}
+	
+	@Override
+	public List<Place> getPlacesByUser(Long id){
+		User user = userService.getUserById(id);
+		return this.placeRepository.getPlacesByUser(user);
 	}
 }
 	

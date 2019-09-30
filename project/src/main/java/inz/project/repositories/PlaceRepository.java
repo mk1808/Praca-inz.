@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import inz.project.models.Place;
 import inz.project.models.PlaceCategory;
+import inz.project.models.Trip;
+import inz.project.models.User;
 
 public interface PlaceRepository extends JpaRepository<Place, Long> {
 	
@@ -29,6 +31,7 @@ public interface PlaceRepository extends JpaRepository<Place, Long> {
 	//@Query("SELECT p FROM Place p WHERE p.region LIKE CONCAT(:region,'%')"
 		//	+ "OR p.category LIKE CONCAT(:category,'%')")
     List<Place> getPlacesByRegionAndCategory(String region, PlaceCategory category);
+    List<Place> getPlacesByUser(User user);
 	
 
 }

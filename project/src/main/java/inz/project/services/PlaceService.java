@@ -17,6 +17,7 @@ public interface PlaceService {
 	List<Place> findPlaceByRegCatNam(String region, String name, PlaceCategory category );
 	Place createPlace(Place place);
 	Place updatePlace(Long id, Place place);
+	List<Place> getPlacesByUser(Long id);
 	void deletePlace(Long id);
 	
 }

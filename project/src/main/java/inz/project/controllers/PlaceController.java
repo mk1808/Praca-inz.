@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import inz.project.models.Place;
 import inz.project.models.PlaceCategory;
+import inz.project.models.Trip;
 import inz.project.services.PlaceService;
 
 @RestController
@@ -98,6 +99,12 @@ public class PlaceController {
 	void deletePlace(@PathVariable Long id) {
 		
 	}
+	
+	@GetMapping("/user/{id}")
+	List<Place> getPlaceByUser(@PathVariable Long id) {
+		return placeService.getPlacesByUser(id);
+	}
+	
 	
 	
 }
