@@ -5,8 +5,7 @@
       <tr>
         <th class="id">Numer</th>
         <th class="name">Nazwa</th>
-        <th  class="name">
-          <span *ngIf="mouseOver"></span>
+        <th  class="name">&nbsp;Wybierz
         </th>
       </tr>
     </thead>
@@ -15,7 +14,7 @@
         <td data-label="First Name">{{i+1}}</td>
         <td data-label="Last Name">{{trip.name}}</td>
         <td  data-label="Last Name">
-<span *ngIf="mouseOver">button</span></td>
+            <span class="button success add-button" (click)="onAdd(i)">+</span></td>
       </tr>
     </tbody>
   </table>

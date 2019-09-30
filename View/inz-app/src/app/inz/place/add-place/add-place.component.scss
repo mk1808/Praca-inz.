@@ -40,7 +40,7 @@ thead tr{
       tr:hover td {
         background-color:#662d91;
         color:#f7f9f9!important;  
-        cursor: pointer;
+       // cursor: pointer;
       }
       
       .tripName{
@@ -68,3 +68,10 @@ thead tr{
         font-weight: 100!important;  
         text-align: center;
       }
+
+      .button.success{
+        background-color: #334049;
+        color:#F2F5F9;
+        margin-bottom:0;
+      }
+    
