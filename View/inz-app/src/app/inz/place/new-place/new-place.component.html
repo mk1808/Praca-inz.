@@ -9,14 +9,22 @@
 
       <div class="singleInput">
         <label for="sign-in-form-password">Kategoria</label>
-        <select class="sign-in-form-password"  formControlName="category" id="sign-in-form-password">
+       <!-- <select class="sign-in-form-password"  formControlName="category" id="sign-in-form-password">
 
           <option value="" class="sign-in-form-password" id="sign-in-form-password">Wybierz</option>
           <option class="sign-in-form-password" id="sign-in-form-password" *ngFor="let category of categories "
             [value]="country">
             {{category}}</option>
 
-        </select>
+        </select> -->
+
+        <mat-select class="searchTerm sign-in-form-username selectInput" placeholder="Wybierz kategorię" formControlName="category">
+            <mat-option *ngFor="let category of categories"
+            
+       [value]="category">
+              {{category}}
+            </mat-option>
+          </mat-select>
       </div>
       <div class="textCateogory up">- Adres -</div>
 

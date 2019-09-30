@@ -8,8 +8,9 @@ import { AgmCoreModule } from '@agm/core';
 import { NgxEqualizerModule } from 'ngx-equalizer';
 import { NewPlaceComponent } from './new-place/new-place.component';
 import { AddPlaceComponent } from './add-place/add-place.component';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule, MatSelectModule, MatFormFieldModule, MatAutocompleteModule, MatChipsModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 
 
 @NgModule({
@@ -24,7 +25,12 @@ import { ReactiveFormsModule } from '@angular/forms';
       apiKey: 'AIzaSyBsLVzxs5lP8tAr0ErPMYOhBORJ-OoT0Ts'
     }),
     NgxEqualizerModule,
-    ReactiveFormsModule    
+    ReactiveFormsModule,
+    MatChipsModule,
+    AutocompleteLibModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatSelectModule 
   ], 
   entryComponents: [
 
