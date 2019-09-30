@@ -48,4 +48,11 @@ export class TripListComponent implements OnInit {
     this.router.navigate(['/trip/new']);
   }
 
+  onPlace(id){
+    this.router.navigate(['/place/details/'+id]);
+  }
+
+  onNewPlace(){
+    this.router.navigate(['/place/new']);
+  }
 }

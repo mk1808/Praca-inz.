@@ -67,7 +67,7 @@
 
         </thead>
         <tbody>
-          <tr class="active tableRow" *ngFor="let place of myPlaces, let j=index" (click)="onTrip(trip.id)">
+          <tr class="active tableRow" *ngFor="let place of myPlaces, let j=index" (click)="onPlace(place.id)">
             <td data-label="First Name">{{j+1}}</td>
             <td data-label="Last Name">{{place.name}}</td>
             <td data-label="Hero Title">{{place.category}}</td>
@@ -79,7 +79,7 @@
       </table>
     </div>
   </div>
-  <button class="button moreBtn button-rounded-hover" (click)="onNewTrip()">
+  <button class="button moreBtn button-rounded-hover" (click)="onNewPlace()">
     <img src="assets/add.svg" height="30px" width="30px">
     Dodaj nowe miejsce
 
