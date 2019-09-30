@@ -10,11 +10,7 @@
         </div>
 
      </div>        
-     <button class="button moreBtn button-rounded-hover" (click)="onNewTrip()">
-        <img src="assets/add.svg" height="30px" width="30px"> 
-      Utwórz nową wycieczkę
-
-    </button>
+     
      <h2 class="type-sidelines"><span>Twoje wycieczki</span></h2>
     </div>
 
@@ -47,5 +43,50 @@
           </table>
           </div>
           </div>
-
+          <button class="button moreBtn button-rounded-hover" (click)="onNewTrip()">
+              <img src="assets/add.svg" height="30px" width="30px"> 
+            Utwórz nową wycieczkę
+      
+          </button>
+          <div class="holy-grail-header">
+                  
+            
+             <h2 class="type-sidelines"><span>Twoje wycieczki</span></h2>
+            </div>
+        
+            <div class="row secondRow">
+                <div class="columns small-12 noPadding ">
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th class="id">Numer</th>
+                        <th class="name">Nazwa</th>
+                        <th class="place">Państwo</th>
+                        <th class="place">Region</th>
+                        <th class="place">Czas trwania</th>
+                        <th class="place">Ilość miejsc</th>
+                        <th class="place">Udostępniona publicznie</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="active tableRow" 
+                      *ngFor="let trip of myTrips, let i=index" (click)="onTrip(trip.id)" >
+                        <td data-label="First Name" >{{i+1}}</td>
+                        <td data-label="Last Name" >{{trip.name}}</td>
+                        <td data-label="Hero Title">{{trip.country}}</td>
+                        <td data-label="Hero Title">{{trip.region}}</td>
+                        <td data-label="Hero Title">{{trip.duration}} dni</td>
+                       <td data-label="Hero Title">{{trip.positionsInTrip.length}}</td>
+                        <td data-label="Hero Title">Tak</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  </div>
+                  <button class="button moreBtn button-rounded-hover" (click)="onNewTrip()">
+                      <img src="assets/add.svg" height="30px" width="30px"> 
+                    Dodaj nowe miejsce
+              
+                  </button>
+        
 </div>
