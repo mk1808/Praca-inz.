@@ -47,10 +47,20 @@ export class Schedule{
     id:number;
     start:Date;
     end:Date;
+    positionsInSchedule:PositionInSchedule[];
 }
 
 export class PositionInTrip{
     id:number;
     trip:Trip;
     place:Place;
+}
+
+export class PositionInSchedule{
+    id:number;
+    startDay;
+    endDay;
+    startTime;
+    endTime;
+    positionInTrip:PositionInTrip;
 }
