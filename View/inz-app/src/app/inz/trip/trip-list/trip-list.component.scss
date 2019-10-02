@@ -273,7 +273,23 @@ thead th{
   }
 }
 
+.button.success{
+  background-color: #334049;
+  color:#F2F5F9;
+  width: max-content;
+  margin-bottom: 0px;
+}
 
+.add-button{
+  padding-top: 2px;
+}
+
+
+.add-icon{
+
+  position: relative;
+  top: 6px;
+}
 ////linie
 $sidelines-text-padding: 0.5em !default;
 $sidelines-line-thickness: 1px !default;

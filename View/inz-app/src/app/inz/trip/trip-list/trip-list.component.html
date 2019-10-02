@@ -26,6 +26,7 @@
             <th class="place">Czas trwania</th>
             <th class="place">Ilość miejsc</th>
             <th class="place">Udostępniona publicznie</th>
+            <th class="place">Grafik</th>
           </tr>
         </thead>
         <tbody>
@@ -37,7 +38,23 @@
             <td data-label="Hero Title">{{trip.duration}} dni</td>
             <td data-label="Hero Title">{{trip.positionsInTrip.length}}</td>
             <td data-label="Hero Title">Tak</td>
-          </tr>
+            <td data-label="Hero Title">
+              <div *ngIf="trip.schedule.positionsInSchedule.length!=0; else addSchedule">
+                <i class="material-icons">
+                  done
+                </i>Dodany</div>
+              <ng-template #addSchedule>
+                <span class="button success add-button" (click)="onAdd()">
+                  <i class="material-icons add-icon">
+                    add_circle
+                  </i>
+                  <span> Dodaj
+                  </span>
+                </span>
+            
+              </ng-template>
+            </td>
+          </tr> 
         </tbody>
       </table>
     </div>
