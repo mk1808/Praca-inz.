@@ -5,12 +5,13 @@
     <div class="singleInput">
       <label for="sign-in-form-username">Początek</label>
       <input type="date" formControlName="start" class="sign-in-form-username" id="sign-in-form-username"
-        autocomplete="off"></div>
+        autocomplete="off" (change)="countDays()"></div>
   
   <div class="singleInput">
     <label for="sign-in-form-username">Koniec</label>
     <input type="date" formControlName="end" class="sign-in-form-username" id="sign-in-form-username"
-      autocomplete="off"></div>
+      autocomplete="off" (change)="countDays()"></div>
+      <div *ngIf = "dayCount"class="textCateogory up">Twoja wycieczka będzie trwać {{days}} dni</div>
 </div>
 
 <div class="sign-in-form" *ngIf="fillingForm">

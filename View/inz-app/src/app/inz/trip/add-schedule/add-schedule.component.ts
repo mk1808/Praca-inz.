@@ -12,14 +12,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddScheduleComponent implements OnInit {
 form: FormGroup;
 fillingForm: boolean = true;
+days:number;
+dayCount=false;
   constructor(private fb: FormBuilder, public dialog: MatDialog) { 
     this.form = this.fb.group({
-        start: ['', Validators.required],
-        end: ['', Validators.required]
+        start: [null, Validators.required],
+        end: [null, Validators.required]
       })
   }
 
   ngOnInit() {
+     
   }
   todo = [
     'Get to work',
@@ -106,5 +109,18 @@ openDial(item)
     });
   
 
+}
+
+
+countDays(){
+    if(this.form.controls.start.value!=null&&this.form.controls.end.value!=null)
+    {
+        this.dayCount=true;
+        let startDate = new Date(this.form.controls.start.value);
+        let endDate = new Date(this.form.controls.end.value);
+        console.log(startDate);
+        this.days = Number(endDate.getDate())-Number(startDate.getDate());
+        console.log(this.days);
+    }
 }
 }
