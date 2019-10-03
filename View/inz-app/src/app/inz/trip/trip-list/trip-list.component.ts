@@ -56,7 +56,7 @@ export class TripListComponent implements OnInit {
     this.router.navigate(['/place/new']);
   }
 
-  onCreateSchedule(){
-    this.router.navigate(['/trip/new-schedule']);
+  onCreateSchedule(id:number){
+    this.router.navigate(['/trip/new-schedule', id]);
   }
 }

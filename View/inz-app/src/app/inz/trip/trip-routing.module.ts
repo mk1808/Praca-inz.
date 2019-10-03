@@ -27,7 +27,7 @@ const routes: Routes = [
         },
         {
 
-                path: "new-schedule",
+                path: "new-schedule/:id",
                 component: AddScheduleComponent
 
         },
