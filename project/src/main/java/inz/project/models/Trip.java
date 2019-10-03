@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -41,7 +42,7 @@ public class Trip {
 	private String description;
 	private Long duration;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
     private List <PositionInTrip> positionsInTrip;
 	
 	@OneToOne
