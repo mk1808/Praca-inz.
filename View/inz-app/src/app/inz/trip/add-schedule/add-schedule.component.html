@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="headingStyle">Tworzenie grafiku wycieczki xyz</h2>
+  <h2 class="headingStyle">Tworzenie grafiku wycieczki {{trip.name}}</h2>
 <form [formGroup]="form">
   <div class="sign-in-form" *ngIf="fillingForm">
     <div class="singleInput">
@@ -11,14 +11,16 @@
     <label for="sign-in-form-username">Koniec</label>
     <input type="date" formControlName="end" class="sign-in-form-username" id="sign-in-form-username"
       autocomplete="off" (change)="countDays()"></div>
-      <div *ngIf = "dayCount"class="textCateogory up">Twoja wycieczka będzie trwać {{days}} dni</div>
+      <div *ngIf = "dayCount"class="textCateogory up">Wycieczka będzie trwać {{days}}&nbsp; dni</div>
 </div>
 
 <div class="sign-in-form" *ngIf="fillingForm">
-  <button type="submit" class="sign-in-form-button signIn" (click)="onBack()"> Zatwierdź 
+  <button type="submit" class="sign-in-form-button signIn" (click)="onCreate()"> Zatwierdź 
   </button>
 </div>
 </form> 
+
+<div *ngIf = "!fillingForm" class="textCateogory up">Twoja wycieczka ma długość {{trip.duration}}dni</div>
 
 
 <div class="test3">

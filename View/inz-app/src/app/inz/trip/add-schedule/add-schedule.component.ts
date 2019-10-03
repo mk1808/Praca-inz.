@@ -3,6 +3,10 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { MatDialog } from '@angular/material/dialog';
 import { HourDialogComponent } from './hour-dialog/hour-dialog.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TripService } from 'src/app/shared/services/trip.service';
+import { Trip, Schedule } from 'src/app/shared/models/classes';
+import { ScheduleService } from 'src/app/shared/services/schedule.service';
 
 @Component({
   selector: 'app-add-schedule',
@@ -14,7 +18,11 @@ form: FormGroup;
 fillingForm: boolean = true;
 days:number;
 dayCount=false;
-  constructor(private fb: FormBuilder, public dialog: MatDialog) { 
+id:number;
+trip:Trip=new Trip();
+schedule:Schedule=new Schedule();
+  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, 
+    private tripService:TripService, private scheduleService:ScheduleService, public dialog: MatDialog) { 
     this.form = this.fb.group({
         start: [null, Validators.required],
         end: [null, Validators.required]
@@ -22,8 +30,16 @@ dayCount=false;
   }
 
   ngOnInit() {
-     
+    this.route.params.subscribe(x => {
+        this.id = x['id'];
+        this.tripService.getTrip(this.id).subscribe(x=>{
+            this.trip=x;
+        })
+    console.log(this.trip)})
+
   }
+
+
   todo = [
     'Get to work',
     'Pick up groceries',
@@ -122,5 +138,17 @@ countDays(){
         this.days = Number(endDate.getDate())-Number(startDate.getDate());
         console.log(this.days);
     }
+}
+
+onCreate(){
+    this.fillingForm=false;
+    this.schedule=this.trip.schedule;
+    this.schedule.start=this.form.controls.start.value;
+    this.schedule.end=this.form.controls.end.value;
+    this.scheduleService.updateSchedule(this.schedule).subscribe(x=>{
+        console.log(x);
+    })
+
+    
 }
 }
