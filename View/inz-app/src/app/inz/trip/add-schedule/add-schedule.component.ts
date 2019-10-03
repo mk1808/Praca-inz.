@@ -15,7 +15,7 @@ import { ScheduleService } from 'src/app/shared/services/schedule.service';
 })
 export class AddScheduleComponent implements OnInit {
 form: FormGroup;
-fillingForm: boolean = false;
+fillingForm: boolean = true;
 days:number;
 dayCount=false;
 id:number;

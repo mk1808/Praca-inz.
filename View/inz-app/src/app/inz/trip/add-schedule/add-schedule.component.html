@@ -30,7 +30,7 @@
         <h2>Dzień 1.</h2>
         <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="next" class="example-list2"
           (cdkDropListDropped)="dropn($event)">
-          <span>abcd</span>
+          <span class="noPlacesForDay">Przeciągnij tutaj miejsca, aby dodać je do tego dnia. </span>
           <div class="example-box" *ngFor="let item of next" cdkDrag matTooltip="{{item}}  
          pn-pt 10-18
          so 10-15">
