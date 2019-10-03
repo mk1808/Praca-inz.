@@ -19,6 +19,7 @@ public interface TripRepository extends JpaRepository<Trip, Long> {
 	List<Trip> getTripsByDurationGreaterThanEqualAndDurationLessThanEqual(Long duration, Long duration2);
 	
 	List<Trip> getTripsByTagsInOrderByTags(Set<TripTag> tags);
+	Trip getTripByScheduleId(Long id);
 	
 	
 }
