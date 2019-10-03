@@ -2,6 +2,7 @@ package inz.project.services.impl;
 
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -117,4 +118,19 @@ public class TripServiceImpl implements TripService {
 		 }
 		 return trips;
 	}
+	
+	@Override
+	public Trip updateTrip(Trip trip) {
+		Trip fromBase=this.getTripById(trip.getId());
+		fromBase.setCountry(trip.getCountry());
+		fromBase.setDescription(trip.getDescription());
+		fromBase.setDuration(trip.getDuration());
+		fromBase.setName(trip.getName());
+		fromBase.setRegion(trip.getRegion());
+		fromBase.setTags(trip.getTags());
+		Trip updated = this.tripRepository.save(fromBase);
+		return updated;
+	}
+	
+	
 }

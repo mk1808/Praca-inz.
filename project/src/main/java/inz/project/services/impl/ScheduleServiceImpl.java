@@ -18,6 +18,7 @@ public class ScheduleServiceImpl implements ScheduleService{
 
 	@Autowired ScheduleRepository scheduleRepository;
 	@Autowired TripRepository tripRepository;
+	@Autowired TripServiceImpl tripService;
 	
 	@Override
 	public Schedule createSchedule(Schedule schedule) {
@@ -34,9 +35,11 @@ public class ScheduleServiceImpl implements ScheduleService{
 		Long end=Long.valueOf(cal.get(Calendar.DAY_OF_MONTH));
 		Long duration=end-start;
 		Trip trip = this.tripRepository.getTripByScheduleId(id);
-		
+	
 		Schedule updated = this.scheduleRepository.save(schedule);
-		trip.setSchedule(updated);
+		trip.setSchedule(schedule);
+		trip.setDuration(duration);
+		this.tripService.updateTrip(trip);
 		return updated;
 	}
 }

@@ -16,4 +16,5 @@ public interface TripService {
 	List<String> getRegions(String region);
 	List<Trip> getTripsByDuration(Long from, Long to);
 	List<Trip> findTripByRegTagDur(String region, Set<TripTag> tag, Long durationFrom, Long durationTo);
+	Trip updateTrip(Trip trip);
 }
