@@ -26,6 +26,7 @@ public class PositionInTripServiceImpl implements PositionInTripService{
 		PositionInSchedule positionSchedule = new PositionInSchedule();
 		PositionInTrip positionTrip = this.positionInTripRepository.save(positionInTrip);
 		positionSchedule.setPositionInTrip(positionTrip);
+		this.positionInScheduleService.createPositionInSchedule(positionSchedule);
 		return positionTrip;
 	}
 	
