@@ -1,0 +1,86 @@
+<div class="container">
+  <h2 class="headingStyle">Tworzenie grafiku wycieczki xyz</h2>
+<form [formGroup]="form">
+  <div class="sign-in-form" *ngIf="fillingForm">
+    <div class="singleInput">
+      <label for="sign-in-form-username">Początek</label>
+      <input type="date" formControlName="start" class="sign-in-form-username" id="sign-in-form-username"
+        autocomplete="off"></div>
+  
+  <div class="singleInput">
+    <label for="sign-in-form-username">Koniec</label>
+    <input type="date" formControlName="end" class="sign-in-form-username" id="sign-in-form-username"
+      autocomplete="off"></div>
+</div>
+
+<div class="sign-in-form" *ngIf="fillingForm">
+  <button type="submit" class="sign-in-form-button signIn" (click)="onBack()"> Zatwierdź 
+  </button>
+</div>
+</form> 
+
+
+<div class="test3">
+  <div cdkDropListGroup>
+    <div class="columns small-8 topMargin">
+      <div class="example-container">
+        <h2>Dzień 1.</h2>
+        <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="next" class="example-list2"
+          (cdkDropListDropped)="dropn($event)">
+          <div class="example-box" *ngFor="let item of next" cdkDrag matTooltip="{{item}}  
+         pn-pt 10-18
+         so 10-15">
+            {{item}}</div>
+        </div>
+      </div>
+      <br><br>
+
+      <div class="example-container">
+        <h2>Dzień 2.</h2>
+        <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="todo" class="example-list2"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of todo" (click)="openDial(item)" cdkDrag matTooltip="Info about the action">{{item}} </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns small-3">
+      <div class="example-container">
+        <h2>Lista miejsc</h2>
+        <div cdkDropList [cdkDropListData]="done" class="example-list" (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of done" cdkDrag matTooltip="Info about the action">{{item}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+
