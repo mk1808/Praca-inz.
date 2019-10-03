@@ -15,12 +15,13 @@ import { ScheduleService } from 'src/app/shared/services/schedule.service';
 })
 export class AddScheduleComponent implements OnInit {
 form: FormGroup;
-fillingForm: boolean = true;
+fillingForm: boolean = false;
 days:number;
 dayCount=false;
 id:number;
 trip:Trip=new Trip();
 places:Place[]=[];
+allDays=[];
 todo = [
     
 ];
@@ -32,6 +33,8 @@ done = [
 next = [
    
 ];
+
+list=[];
 schedule:Schedule=new Schedule();
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, 
     private tripService:TripService, private scheduleService:ScheduleService, public dialog: MatDialog) { 
@@ -47,7 +50,13 @@ schedule:Schedule=new Schedule();
         this.tripService.getTrip(this.id).subscribe(y=>{
             this.trip=y;
             this.done=[];
+            let tab=[];
+            for (let i=0; i<this.trip.duration; i++){
+                this.allDays.push([]);
+                
+            }
             console.log(this.trip);
+            console.log(this.allDays);
             this.tripService.getPlacesForTrip(this.id).subscribe(z=>{
                 this.places=z;
                 console.log(this.places);
@@ -66,7 +75,7 @@ schedule:Schedule=new Schedule();
 
 
 
-drop(event: CdkDragDrop<string[]>) {
+drop(event: CdkDragDrop<string[]>, k:number) {
     if (event.previousContainer === event.container) {
         moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -75,6 +84,8 @@ drop(event: CdkDragDrop<string[]>) {
             event.previousIndex,
             event.currentIndex);
     }
+    console.log(k);
+    console.log(this.allDays);
 }
 
 dropn(event: CdkDragDrop<string[]>) {
@@ -90,29 +101,6 @@ dropn(event: CdkDragDrop<string[]>) {
 
 
 
-timePeriods = [
-    'Bronze age',
-    'Iron age',
-    'Middle ages',
-    'Early modern period',
-    'Long nineteenth century'
-];
-
-drop2(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.timePeriods, event.previousIndex, event.currentIndex);
-
-
-    {
-        if (event.previousContainer === event.container) {
-            moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-        } else {
-            transferArrayItem(event.previousContainer.data,
-                event.container.data,
-                event.previousIndex,
-                event.currentIndex);
-        }
-    }
-}
 
 openDial(item)
 {

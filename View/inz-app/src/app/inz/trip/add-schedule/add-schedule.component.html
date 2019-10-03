@@ -26,24 +26,32 @@
 <div *ngIf = "!fillingForm" class="test3">
   <div cdkDropListGroup>
     <div class="columns small-8 topMargin">
-      <div class="example-container">
-        <h2>Dzień 1.</h2>
-        <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="next" class="example-list2"
-          (cdkDropListDropped)="dropn($event)">
-          <span class="noPlacesForDay">Przeciągnij tutaj miejsca, aby dodać je do tego dnia. </span>
-          <div class="example-box" *ngFor="let item of next" cdkDrag matTooltip="{{item}}  
+      <div *ngFor="let next of allDays; let k=index" class="example-container">
+        <h2>Dzień {{k+1}}.</h2>
+        <div cdkDropList cdkDropListOrientation="horizontal" #{{k}} [cdkDropListData]="next" class="example-list2 myList"
+          (cdkDropListDropped)="drop($event, k)">
+          <!--<span  class="noPlacesForDay">Przeciągnij tutaj miejsca, aby dodać je do tego dnia. </span>-->
+          <div class="example-box" *ngFor="let item of next" (click)="openDial(item)"cdkDrag matTooltip="{{item}}  
          pn-pt 10-18
          so 10-15">
             {{item}}</div>
         </div>
       </div>
-      <br><br>
+
 
       <div class="example-container">
         <h2>Dzień 2.</h2>
         <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="todo" class="example-list2"
           (cdkDropListDropped)="drop($event)">
           <div class="example-box" *ngFor="let item of todo" (click)="openDial(item)" cdkDrag matTooltip="Info about the action">{{item}} </div>
+        </div>
+      </div>
+
+      <div class="example-container">
+        <h2>Dzień 3.</h2>
+        <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="list" class="example-list2"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of list" (click)="openDial(item)" cdkDrag matTooltip="Info about the action">{{item}} </div>
         </div>
       </div>
     </div>
