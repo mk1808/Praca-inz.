@@ -5,7 +5,7 @@ import { HourDialogComponent } from './hour-dialog/hour-dialog.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TripService } from 'src/app/shared/services/trip.service';
-import { Trip, Schedule } from 'src/app/shared/models/classes';
+import { Trip, Schedule, Place } from 'src/app/shared/models/classes';
 import { ScheduleService } from 'src/app/shared/services/schedule.service';
 
 @Component({
@@ -15,11 +15,23 @@ import { ScheduleService } from 'src/app/shared/services/schedule.service';
 })
 export class AddScheduleComponent implements OnInit {
 form: FormGroup;
-fillingForm: boolean = true;
+fillingForm: boolean = false;
 days:number;
 dayCount=false;
 id:number;
 trip:Trip=new Trip();
+places:Place[]=[];
+todo = [
+    
+];
+
+done = [
+    
+];
+
+next = [
+   
+];
 schedule:Schedule=new Schedule();
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, 
     private tripService:TripService, private scheduleService:ScheduleService, public dialog: MatDialog) { 
@@ -32,36 +44,27 @@ schedule:Schedule=new Schedule();
   ngOnInit() {
     this.route.params.subscribe(x => {
         this.id = x['id'];
-        this.tripService.getTrip(this.id).subscribe(x=>{
-            this.trip=x;
+        this.tripService.getTrip(this.id).subscribe(y=>{
+            this.trip=y;
+            this.done=[];
+            console.log(this.trip);
+            this.tripService.getPlacesForTrip(this.id).subscribe(z=>{
+                this.places=z;
+                console.log(this.places);
+                this.places.forEach(position=>{
+                    this.done.push(position.name);
+            })
+              })
+            
+           
         })
-    console.log(this.trip)})
+    
+})
 
   }
 
 
-  todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-];
 
-done = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-];
-
-next = [
-    'Get up2',
-    'Brush teeth2',
-    'Take a shower2',
-    'Check e-mail2',
-    'Walk dog2'
-];
 
 drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
