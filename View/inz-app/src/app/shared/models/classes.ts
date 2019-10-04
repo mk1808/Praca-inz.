@@ -38,7 +38,7 @@ export class Trip{
     status:string;
     street:string;
     user:User;
-    duration:string;
+    duration:number;
     schedule:Schedule;
     positionsInTrip:PositionInTrip[];
 }

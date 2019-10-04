@@ -22,6 +22,7 @@ id:number;
 trip:Trip=new Trip();
 places:Place[]=[];
 allDays=[];
+allDates=[];
 todo = [
     
 ];
@@ -35,7 +36,9 @@ next = [
 ];
 
 list=[];
+dates=[];
 schedule:Schedule=new Schedule();
+
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, 
     private tripService:TripService, private scheduleService:ScheduleService, public dialog: MatDialog) { 
     this.form = this.fb.group({
@@ -50,11 +53,17 @@ schedule:Schedule=new Schedule();
         this.tripService.getTrip(this.id).subscribe(y=>{
             this.trip=y;
             this.done=[];
-            let tab=[];
+          //  let firstDay:Date=new Date(this.trip.schedule.start);
             for (let i=0; i<this.trip.duration; i++){
                 this.allDays.push([]);
-                
+                let firstDay:Date=new Date(this.trip.schedule.start);
+                firstDay.setDate(firstDay.getDate()+i);
+                this.allDates.push(firstDay);
+                //this.dates.push(this.trip.schedule.start.getDate() );
             }
+            
+            
+            console.log(this.allDates);
             console.log(this.trip);
             console.log(this.allDays);
             this.tripService.getPlacesForTrip(this.id).subscribe(z=>{

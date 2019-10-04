@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container"> 
   <h2 class="headingStyle">Tworzenie grafiku wycieczki {{trip.name}}</h2>
 <form [formGroup]="form">
   <div class="sign-in-form" *ngIf="fillingForm">
@@ -27,7 +27,7 @@
   <div cdkDropListGroup>
     <div class="columns small-8 topMargin">
       <div *ngFor="let next of allDays; let k=index" class="example-container">
-        <h2>Dzień {{k+1}}.</h2>
+        <h2>Dzień {{k+1}}. {{allDates[k].getDate()}}.{{allDates[k].getMonth()}}.{{allDates[k].getFullYear()}}</h2>
         <div cdkDropList cdkDropListOrientation="horizontal" #{{k}} [cdkDropListData]="next" class="example-list2 myList"
           (cdkDropListDropped)="drop($event, k)">
           <!--<span  class="noPlacesForDay">Przeciągnij tutaj miejsca, aby dodać je do tego dnia. </span>-->
@@ -66,6 +66,7 @@
     </div>
   </div>
 </div>
+
 
 </div>
 
