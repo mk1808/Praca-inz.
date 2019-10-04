@@ -289,3 +289,12 @@ outline:none!important;
     margin-top: 12px;
 }
 
+::ng-deep .notifier__notification--default{
+  background-color: #662d91;
+  color: #ffffff;
+}
+
+::ng-deep .notifier__notification--warning{
+ 
+  color: #111111;
+}

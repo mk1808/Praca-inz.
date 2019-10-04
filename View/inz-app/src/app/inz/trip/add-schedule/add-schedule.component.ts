@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TripService } from 'src/app/shared/services/trip.service';
 import { Trip, Schedule, Place } from 'src/app/shared/models/classes';
 import { ScheduleService } from 'src/app/shared/services/schedule.service';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-add-schedule',
@@ -38,9 +39,11 @@ next = [
 list=[];
 dates=[];
 schedule:Schedule=new Schedule();
-
+notifier: NotifierService;
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, 
-    private tripService:TripService, private scheduleService:ScheduleService, public dialog: MatDialog) { 
+    private tripService:TripService, private scheduleService:ScheduleService, public dialog: MatDialog,
+    notifierService: NotifierService) { 
+        this.notifier = notifierService;
     this.form = this.fb.group({
         start: [null, Validators.required],
         end: [null, Validators.required]
@@ -48,6 +51,7 @@ schedule:Schedule=new Schedule();
   }
 
   ngOnInit() {
+    this.notifier.notify( 'default', 'Obiekt może nie być otwarty w tym dniu.' );
     this.route.params.subscribe(x => {
         this.id = x['id'];
         this.tripService.getTrip(this.id).subscribe(y=>{
@@ -124,7 +128,7 @@ openDial(item)
       
     });
   
-
+    
 }
 
 
