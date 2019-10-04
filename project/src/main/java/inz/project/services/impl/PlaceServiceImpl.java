@@ -5,10 +5,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import inz.project.models.OpeningHours;
 import inz.project.models.Place;
 import inz.project.models.PlaceCategory;
 import inz.project.models.Trip;
 import inz.project.models.User;
+import inz.project.repositories.OpeningHoursRepository;
 import inz.project.repositories.PlaceRepository;
 import inz.project.repositories.UserRepository;
 import inz.project.services.PlaceService;
@@ -17,11 +19,14 @@ import inz.project.services.PlaceService;
 public class PlaceServiceImpl implements PlaceService{
 	
 	private final PlaceRepository placeRepository;
+	private final OpeningHoursRepository openingHoursRepository;
 	private final UserServiceImpl userService;
-	public PlaceServiceImpl (PlaceRepository placeRepository, UserServiceImpl userService)
+	public PlaceServiceImpl (PlaceRepository placeRepository, UserServiceImpl userService,
+			OpeningHoursRepository openingHoursRepository)
 	{
 		this.placeRepository=placeRepository;
 		this.userService=userService;
+		this.openingHoursRepository=openingHoursRepository;
 	}
 	
 	@Override
@@ -36,7 +41,32 @@ public class PlaceServiceImpl implements PlaceService{
 	
 	@Override
 	public Place createPlace(Place place) {
+		OpeningHours hours = new OpeningHours(
+				place.getHours().getMon()==null?true:false,
+				place.getHours().getTue()==null?true:false,
+				place.getHours().getWed()==null?true:false,
+				place.getHours().getThu()==null?true:false,
+				place.getHours().getFri()==null?true:false,
+				place.getHours().getSat()==null?true:false,
+				place.getHours().getSun()==null?true:false,
+				place.getHours().getMonOpen(),
+				place.getHours().getMonClose(),
+				place.getHours().getTueOpen(),
+				place.getHours().getTueClose(),
+				place.getHours().getWedOpen(),
+				place.getHours().getWedClose(),
+				place.getHours().getThuOpen(),
+				place.getHours().getThuClose(),
+				place.getHours().getFriOpen(),
+				place.getHours().getFriClose(),
+				place.getHours().getSatOpen(),
+				place.getHours().getSatClose(),
+				place.getHours().getSunOpen(),
+				place.getHours().getSunClose()
+				);
 		
+		OpeningHours newHours = this.openingHoursRepository.save(hours);
+		place.setHours(newHours);
 		return this.placeRepository.save(place);
 	}
 	
