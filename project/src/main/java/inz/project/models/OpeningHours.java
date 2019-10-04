@@ -86,6 +86,35 @@ public class OpeningHours {
 		this.sunClose = sunClose;
 		
 	}
+	
+	public OpeningHours(@NotNull Boolean mon, @NotNull Boolean tue, @NotNull Boolean wed, @NotNull Boolean thu,
+			@NotNull Boolean fri, @NotNull Boolean sat, @NotNull Boolean sun, Long monOpen, Long monClose, Long tueOpen,
+			Long tueClose, Long wedOpen, Long wedClose, Long thuOpen, Long thuClose, Long friOpen, Long friClose,
+			Long satOpen, Long satClose, Long sunOpen, Long sunClose) {
+		super();
+		this.mon = mon;
+		this.tue = tue;
+		this.wed = wed;
+		this.thu = thu;
+		this.fri = fri;
+		this.sat = sat;
+		this.sun = sun;
+		this.monOpen = monOpen;
+		this.monClose = monClose;
+		this.tueOpen = tueOpen;
+		this.tueClose = tueClose;
+		this.wedOpen = wedOpen;
+		this.wedClose = wedClose;
+		this.thuOpen = thuOpen;
+		this.thuClose = thuClose;
+		this.friOpen = friOpen;
+		this.friClose = friClose;
+		this.satOpen = satOpen;
+		this.satClose = satClose;
+		this.sunOpen = sunOpen;
+		this.sunClose = sunClose;
+		
+	}
 
 	public Long getId() {
 		return id;
