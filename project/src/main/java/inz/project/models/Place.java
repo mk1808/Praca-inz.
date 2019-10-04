@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -44,7 +45,8 @@ public class Place {
 	private String phoneNumber;
 	private String website;
 	@NotNull private String status;
-	
+	@OneToOne
+	private OpeningHours hours;
 	/*
 	@OneToMany(mappedBy="place")
     private List <PositionInTrip> positionsInTrip;
@@ -54,7 +56,7 @@ public class Place {
 	public Place(Long id,@NotNull String name, 	@NotNull PlaceCategory category, String description, 	
 			@NotNull Country country, String region, String city,
 			String street, String number,  String phoneNumber, 
-			String website, @NotNull String status, User user ) {
+			String website, @NotNull String status, User user, OpeningHours hours ) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -69,6 +71,7 @@ public class Place {
 		this.website = website;
 		this.status = status;
 		this.user=user;
+		this.hours=hours;
 
 	}
 	
@@ -156,4 +159,12 @@ public class Place {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public OpeningHours getHours() {
+		return hours;
+	}
+	public void setHours(OpeningHours hours) {
+		this.hours = hours;
+	}
+	
+	
 }
