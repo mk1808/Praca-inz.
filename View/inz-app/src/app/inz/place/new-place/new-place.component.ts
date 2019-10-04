@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Place, User } from 'src/app/shared/models/classes';
+import { Place, User, OpeningHours } from 'src/app/shared/models/classes';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PlaceService } from 'src/app/shared/services/place.service';
 import { DictionaryService } from 'src/app/shared/services/dictionary.service';
@@ -17,6 +17,7 @@ form: FormGroup;
 newPlace: Place=new Place;
 user:User = new User;
 newPlaceId:number;
+openingHours:OpeningHours = new OpeningHours();
 constructor(private fb: FormBuilder, private placeService: PlaceService,
   private router: Router, private route: ActivatedRoute,
    private dictionaryService: DictionaryService, private cookie:CookieService) { }
@@ -52,6 +53,7 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
     this.newPlace.phoneNumber=this.form.controls.phone.value;
     this.newPlace.website=this.form.controls.website.value;
     this.newPlace.description=this.form.controls.description.value;
+    this.newPlace.hours=this.openingHours;
 
 this.user = JSON.parse(this.cookie.get('user'));
 this.newPlace.user=this.user;

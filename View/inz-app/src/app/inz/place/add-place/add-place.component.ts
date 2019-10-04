@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { TripService } from 'src/app/shared/services/trip.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { User, Trip, Place, PositionInTrip } from 'src/app/shared/models/classes';
+import { User, Trip, Place, PositionInTrip, OpeningHours } from 'src/app/shared/models/classes';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
