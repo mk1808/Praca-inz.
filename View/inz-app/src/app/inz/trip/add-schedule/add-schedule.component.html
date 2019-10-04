@@ -34,7 +34,8 @@
           <div class="example-box" *ngFor="let item of next" (click)="openDial(item)"cdkDrag matTooltip="{{item}}  
          pn-pt 10-18
          so 10-15">
-            {{item}}</div>
+         <span matBadge="{{correctPosition?'':'!'}}" matBadgeOverlap="false" > {{item}}</span>
+           </div>
         </div>
       </div>
 

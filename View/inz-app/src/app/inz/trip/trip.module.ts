@@ -15,6 +15,8 @@ import { HourDialogComponent } from './add-schedule/hour-dialog/hour-dialog.comp
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddPlaceToTripDialogComponent } from './add-place-to-trip-dialog/add-place-to-trip-dialog.component';
 import { AddPlaceComponent } from '../place/add-place/add-place.component'
+import { AlertModule } from 'ngx-foundation';
+import { MatBadgeModule } from '@angular/material';
 
 @NgModule({
   declarations: [TripComponent, PhotosOnHoverComponent,
@@ -27,6 +29,8 @@ import { AddPlaceComponent } from '../place/add-place/add-place.component'
     MatTooltipModule,
     MatDialogModule,
     ReactiveFormsModule,
+    MatBadgeModule,
+    AlertModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBsLVzxs5lP8tAr0ErPMYOhBORJ-OoT0Ts'
 

@@ -38,6 +38,7 @@ next = [
 
 list=[];
 dates=[];
+correctPosition=true;
 schedule:Schedule=new Schedule();
 notifier: NotifierService;
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, 

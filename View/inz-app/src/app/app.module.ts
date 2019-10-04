@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import {AutocompleteLibModule, AutocompleteComponent} from 'angular-ng-autocomplete';
 import { NotifierModule } from 'angular-notifier';
+import { MatBadgeModule } from '@angular/material';
 /*
 @Injectable({
   providedIn: 'root'
@@ -64,6 +65,7 @@ import { NotifierModule } from 'angular-notifier';
     DragDropModule,
     MatTooltipModule,
     AutocompleteLibModule,
+    MatBadgeModule,
     NotifierModule.withConfig(
      { position: {
  
