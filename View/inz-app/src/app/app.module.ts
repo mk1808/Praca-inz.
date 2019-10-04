@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import {AutocompleteLibModule, AutocompleteComponent} from 'angular-ng-autocomplete';
+import { NotifierModule } from 'angular-notifier';
 /*
 @Injectable({
   providedIn: 'root'
@@ -62,7 +63,24 @@ import {AutocompleteLibModule, AutocompleteComponent} from 'angular-ng-autocompl
     MatButtonModule,
     DragDropModule,
     MatTooltipModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+    NotifierModule.withConfig(
+     { position: {
+ 
+        vertical: {
+          position: 'top',
+          distance: 60
+        },
+       
+        horizontal: {
+          position: 'middle',
+          distance: 12
+          //,gap: 10
+        }
+       
+      }
+    }
+    )
     
     
   ],
