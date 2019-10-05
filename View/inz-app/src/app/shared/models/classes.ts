@@ -26,6 +26,7 @@ export class Place{
     street:string;
     website:string;
     user:User;
+    hours:OpeningHours;
 }
 
 export class Trip{
@@ -63,4 +64,28 @@ export class PositionInSchedule{
     startTime;
     endTime;
     positionInTrip:PositionInTrip;
+}
+
+export class OpeningHours{
+    mon:boolean;
+    tue:boolean;
+	wed:boolean;
+	thu:boolean;
+	fri:boolean;
+	sat:boolean;
+	sun:boolean;
+	monOpen;
+	monClose;
+	tueOpen;
+	tueClose;
+	wedOpen;
+	wedClose;
+	thuOpen;
+	thuClose;
+	friOpen;
+	friClose;
+	satOpen;
+	satClose;
+	sunOpen;
+	sunClose;
 }
