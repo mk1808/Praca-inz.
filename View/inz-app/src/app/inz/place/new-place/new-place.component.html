@@ -44,6 +44,137 @@
       <div class="singleInput">
         <label for="sign-in-form-password">Numer</label>
         <input type="text" formControlName="number" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
+        
+        <div class="textCateogory down up">- Godziny otwarcia -</div>
+        <div class="row">
+          <div class=" columns small-4 weekDays">
+            <div class="checkbox">
+              <mat-checkbox>Poniedziałek</mat-checkbox><br>
+            </div>
+          </div>
+          <div class="columns small-1 weekDays from">od</div>
+          <div class="columns small-2 weekDays">
+            <div class="singleInput">
+              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
+          </div>
+          <div class="columns small-1 weekDays from">do</div>
+          <div class="columns small-2 weekDays">
+            <div class="singleInput">
+              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
+          </div>
+          <div class="columns small-2"></div>
+        </div>
+        <div class="row">
+          <div class=" columns small-4 weekDays">
+            <div class="checkbox">
+              <mat-checkbox>Wtorek</mat-checkbox><br>
+            </div>
+          </div>
+          <div class="columns small-1 weekDays from">od</div>
+          <div class="columns small-2 weekDays">
+            <div class="singleInput">
+              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
+          </div>
+          <div class="columns small-1 weekDays from">do</div>
+          <div class="columns small-2 weekDays">
+            <div class="singleInput">
+              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
+          </div>
+          <div class="columns small-2"></div>
+        </div>
+        <div class="row">
+          <div class=" columns small-4 weekDays">
+            <div class="checkbox">
+              <mat-checkbox>Środa</mat-checkbox><br>
+            </div>
+          </div>
+          <div class="columns small-1 weekDays from">od</div>
+          <div class="columns small-2 weekDays">
+            <div class="singleInput">
+              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
+          </div>
+          <div class="columns small-1 weekDays from">do</div>
+          <div class="columns small-2 weekDays">
+            <div class="singleInput">
+              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
+          </div>
+          <div class="columns small-2"></div>
+        </div>
+        <div class="row">
+          <div class=" columns small-4 weekDays">
+            <div class="checkbox">
+              <mat-checkbox>Czwartek</mat-checkbox><br>
+            </div>
+          </div>
+          <div class="columns small-1 weekDays from">od</div>
+          <div class="columns small-2 weekDays">
+            <div class="singleInput">
+              <input [disabled]="true"type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
+          </div>
+          <div class="columns small-1 weekDays from">do</div>
+          <div class="columns small-2 weekDays">
+            <div class="singleInput">
+              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
+          </div>
+          <div class="columns small-2"></div>
+        </div>
+        <div class="row">
+          <div class=" columns small-4 weekDays">
+            <div class="checkbox">
+              <mat-checkbox>Piątek</mat-checkbox><br>
+            </div>
+          </div>
+          <div class="columns small-1 weekDays from">od</div>
+          <div class="columns small-2 weekDays">
+            <div class="singleInput">
+              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
+          </div>
+          <div class="columns small-1 weekDays from">do</div>
+          <div class="columns small-2 weekDays">
+            <div class="singleInput">
+              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
+          </div>
+          <div class="columns small-2"></div>
+        </div>
+        <div class="row">
+          <div class=" columns small-4 weekDays">
+            <div class="checkbox">
+              <mat-checkbox>Sobota</mat-checkbox><br>
+            </div>
+          </div>
+          <div class="columns small-1 weekDays from">od</div>
+          <div class="columns small-2 weekDays">
+            <div class="singleInput">
+              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
+          </div>
+          <div class="columns small-1 weekDays from">do</div>
+          <div class="columns small-2 weekDays">
+            <div class="singleInput">
+              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
+          </div>
+          <div class="columns small-2"></div>
+        </div>
+        <div class="row">
+          <div class=" columns small-4 weekDays">
+            <div class="checkbox">
+              <mat-checkbox>Niedziela</mat-checkbox><br>
+            </div>
+          </div>
+          <div class="columns small-1 weekDays from">od</div>
+          <div class="columns small-2 weekDays">
+            <div class="singleInput">
+              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
+          </div>
+          <div class="columns small-1 weekDays from">do</div>
+          <div class="columns small-2 weekDays">
+            <div class="singleInput">
+              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
+          </div>
+          <div class="columns small-2"></div>
+        </div>
+     
+    
+    
         <div class="textCateogory down">- Dane kontaktowe -</div>
         <div class="singleInput">
         <label for="sign-in-form-password">Telefon</label>
@@ -51,19 +182,15 @@
       <div class="singleInput">
         <label for="sign-in-form-password">Strona internetowa</label>
         <input type="text" formControlName="website" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
-
+ 
         <div class="textCateogory down">- Informacje dodatkowe -</div>
       <div class="singleInput">
         <label for="sign-in-form-password">Opis</label>
         <textarea  formControlName="description" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"> </textarea></div>
-
+      
       <button type="submit" class="sign-in-form-button signIn" (click)="create()">Utwórz
 
       </button>
     </div>
   </form>
-
-
-
-
 </div>

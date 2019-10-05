@@ -165,3 +165,40 @@ textarea {
     padding-left: 10px;
     font-family: "Work Sans", sans-serif !important;
 }
+//checkbox
+::ng-deep .mat-checkbox-frame{
+  border-width: 1px!important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: #4c216d!important;
+}
+
+::ng-deep .mat-checkbox
+{
+  font-family: 'Work Sans', sans-serif!important;
+  // Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.weekDays{
+  text-align: left;
+}
+
+.checkbox{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.smallInput{
+  width:92px;
+}
+
+.from{
+  margin-top: 6px;
+    text-align: end;
+    padding-right: 0;
+}
+
+.up{
+  margin-bottom:20px;
+}
