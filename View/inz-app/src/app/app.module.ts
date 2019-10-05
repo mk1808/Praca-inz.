@@ -66,6 +66,7 @@ import { MatBadgeModule } from '@angular/material';
     MatTooltipModule,
     AutocompleteLibModule,
     MatBadgeModule,
+   MatCheckboxModule,
     NotifierModule.withConfig(
      { position: {
  

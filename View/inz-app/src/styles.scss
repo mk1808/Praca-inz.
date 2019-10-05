@@ -39,7 +39,6 @@ $color-default-rating: #4c216d !default;
 $header-font-family:'Work Sans', sans-serif !default;
 
 @import "~ngx-foundation/assets/scss/main";
-
 @import '~css-star-rating/scss/star-rating';
 /* Import star-rating styles */
 html, body { height: 100%; }
