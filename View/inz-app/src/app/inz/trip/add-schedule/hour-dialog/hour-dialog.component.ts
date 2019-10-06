@@ -15,8 +15,14 @@ export class HourDialogComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      filename:''
+      hourStart:'',
+      hourEnd:'',
+      
     })
+  }
+
+  addHour(){
+
   }
 
 }

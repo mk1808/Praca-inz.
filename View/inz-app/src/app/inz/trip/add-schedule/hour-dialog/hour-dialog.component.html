@@ -1,12 +1,16 @@
 <form [formGroup]="form" (ngSubmit)="submit(form)">
-  <h1 mat-dialog-title>Wybierz godzinę, o której chcesz odwiedzić obiekt</h1>
+  <h1 mat-dialog-title>Wybierz godziny, w których chcesz odwiedzić obiekt</h1>
   <mat-dialog-content>
 
     <div class="sign-in-form">
       <div class="singleInput">
-        <label for="sign-in-form-username">Godzina</label>
-        <input type="time" class="sign-in-form-username" id="sign-in-form-username" autocomplete="off"></div>
-    </div>
+        <label for="sign-in-form-username">Początek</label>
+        <input type="time" formControlName = "hourStart" class="sign-in-form-username" id="sign-in-form-username" autocomplete="off"></div>
+        <div class="singleInput">
+          <label for="sign-in-form-username">Koniec</label>
+          <input type="time" formControlName = "hourEnd" class="sign-in-form-username" id="sign-in-form-username" autocomplete="off"></div>
+    
+      </div>
 
 
   </mat-dialog-content>
@@ -18,7 +22,7 @@
         </div>
         
     <div class="columns small-3 ">
-    <button type="submit" class="sign-in-form-button signIn">Zatwierdź
+    <button type="submit" (click)="addHour()" class="sign-in-form-button signIn">Zatwierdź
         </button>
         </div>
   </mat-dialog-actions>
