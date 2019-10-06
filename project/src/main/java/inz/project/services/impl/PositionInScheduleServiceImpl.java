@@ -16,6 +16,7 @@ import inz.project.services.PositionInScheduleService;
 public class PositionInScheduleServiceImpl implements PositionInScheduleService {
 
 	@Autowired PositionInScheduleRepository positionInScheduleRepository;
+	@Autowired PositionInTripServiceImpl positionInTripService;
 	
 
 	@Override
@@ -42,5 +43,11 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 		updated.setEndTime(position.getEndTime());
 		
 		return this.positionInScheduleRepository.save(updated);
+	}
+	
+	@Override
+	public PositionInSchedule getPositionInScheduleByPositionInTrip(Long id) {
+		PositionInTrip position = this.positionInTripService.getPositionInTripById(id);
+		return this.positionInScheduleRepository.getPositionInScheduleByPositionInTrip(position);
 	}
 }
