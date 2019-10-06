@@ -44,7 +44,7 @@ next = [
 
 list=[];
 dates=[];
-correctPosition=true;
+correctPosition=false;
 tripPlace;
 schedule:Schedule=new Schedule();
 notifier: NotifierService;

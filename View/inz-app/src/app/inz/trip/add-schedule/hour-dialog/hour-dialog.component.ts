@@ -16,7 +16,11 @@ export class HourDialogComponent implements OnInit {
   position:PositionInSchedule=new PositionInSchedule();
   place:Place;
   trip:Trip;
-  day;
+  day:Date;
+  open;
+  close;
+  dayOpen:boolean;
+  hourCorrect:boolean;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, 
   private formBuilder: FormBuilder, private scheduleService:ScheduleService) {
     const{trip,place,day}=this.data; 
@@ -44,6 +48,50 @@ export class HourDialogComponent implements OnInit {
     this.position.startTime=this.form.controls.hourStart.value;
     this.position.endTime=this.form.controls.hourEnd.value;
     this.position.startDay=this.day;
+    let dayOfWeek=this.day.getDay();
+    switch(dayOfWeek){
+    case 0:
+      this.dayOpen=this.place.hours.mon;
+      this.open = this.place.hours.monOpen;
+      this.close=this.place.hours.monClose;
+      break;
+    case 1:
+        this.dayOpen=this.place.hours.tue;
+        this.open = this.place.hours.tueOpen;
+        this.close=this.place.hours.tueClose;
+      break;
+    case 2:
+        this.dayOpen=this.place.hours.wed;
+        this.open = this.place.hours.wedOpen;
+        this.close=this.place.hours.wedClose;
+      break;
+    case 3:
+        this.dayOpen=this.place.hours.thu;
+        this.open = this.place.hours.thuOpen;
+        this.close=this.place.hours.thuClose;
+      break;
+    case 4:
+        this.dayOpen=this.place.hours.fri;
+        this.open = this.place.hours.friOpen;
+        this.close=this.place.hours.friClose;
+      break;
+    case 5:
+        this.dayOpen=this.place.hours.sat;
+        this.open = this.place.hours.satOpen;
+        this.close=this.place.hours.satClose;
+      break;
+    case 6:
+        this.dayOpen=this.place.hours.sun;
+        this.open = this.place.hours.sunOpen;
+        this.close=this.place.hours.sunClose;
+      break;
+    }
+    console.log(dayOfWeek);
+   this.scheduleService.isCorrectHour(this.open, this.close, this.position.startTime, this.position.endTime).subscribe(x=>{
+    this.hourCorrect=x; 
+    console.log(this.hourCorrect);
+   })
+   
     this.scheduleService.updatePositionInSchedule(this.position).subscribe(x=>{
       console.log(x);
     })
