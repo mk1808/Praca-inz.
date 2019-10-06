@@ -1,5 +1,6 @@
 package inz.project.services;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,4 +15,5 @@ public interface PositionInScheduleService {
 	PositionInSchedule updatePositionInSchedule(PositionInSchedule position);
 	PositionInSchedule getPositionInScheduleByPositionInTrip(Long id);
 	PositionInSchedule getPositionInScheduleByTripAndPlace(Long idPlace, Long idTrip);
+	Boolean isHourCorrect(Date open, Date close, Date start, Date end);
 }

@@ -1,12 +1,15 @@
 package inz.project.controllers;
 
+import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import inz.project.models.Place;
@@ -42,6 +45,14 @@ public class PositionInScheduleController {
 		return positionInScheduleService.getPositionInScheduleByTripAndPlace(idPlace, idTrip);
 	}
 	
+	@GetMapping 
+	Boolean isHourCorrect(
+			@RequestParam(value ="open") @DateTimeFormat(pattern = "HH:mm") Date open,
+			@RequestParam(value ="close") @DateTimeFormat(pattern = "HH:mm") Date close,
+			@RequestParam(value ="start") @DateTimeFormat(pattern = "HH:mm") Date start,
+			@RequestParam(value ="end") @DateTimeFormat(pattern = "HH:mm") Date end) {
 	
+	 return this.positionInScheduleService.isHourCorrect(open, close, start, end);
+	}
 
 }

@@ -1,6 +1,7 @@
 package inz.project.services.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +54,8 @@ public class PositionInTripServiceImpl implements PositionInTripService{
 		Trip trip = this.tripService.getTripById(idTrip);
 		return this.positionInTripRepository.getPositionInTripByTripAndPlace(trip, place);
 	}
+	
+	
+	
 
 }

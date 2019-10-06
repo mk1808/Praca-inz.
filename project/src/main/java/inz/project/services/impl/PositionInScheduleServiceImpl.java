@@ -1,6 +1,7 @@
 package inz.project.services.impl;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,5 +57,16 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 		PositionInTrip posInTrip = this.positionInTripService.getPositionInTripByTripAndPlace(idTrip, idPlace);
 		PositionInSchedule posInSchedule = this.getPositionInScheduleByPositionInTrip(posInTrip.getId());
 		return posInSchedule;
+	}
+	@Override
+	public Boolean isHourCorrect(Date open, Date close, Date start, Date end){
+		int f=start.compareTo(open);
+		int l=close.compareTo(end);
+		System.out.println(l);
+		System.out.println(f);
+		if (f>0&&l>0)
+			    return true;
+			    else return false;
+		
 	}
 }

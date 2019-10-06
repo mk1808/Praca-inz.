@@ -1,6 +1,7 @@
 package inz.project.services;
 
 
+import java.util.Date;
 import java.util.List;
 
 import inz.project.models.Place;
@@ -16,4 +17,5 @@ public interface PositionInTripService {
 	PositionInTrip getPositionInTripById(Long id) ;
     List<Place> getPositionInTripByTripId(Long id);
     PositionInTrip getPositionInTripByTripAndPlace(Long idTrip, Long idPlace);
+    
 }
