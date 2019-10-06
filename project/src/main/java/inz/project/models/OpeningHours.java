@@ -1,11 +1,17 @@
 package inz.project.models;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
@@ -36,20 +42,37 @@ public class OpeningHours {
 	@NotNull
 	private Boolean sun;
 	
-	private Long monOpen;
-	private Long monClose;
-	private Long tueOpen;
-	private Long tueClose;
-	private Long wedOpen;
-	private Long wedClose;
-	private Long thuOpen;
-	private Long thuClose;
-	private Long friOpen;
-	private Long friClose;
-	private Long satOpen;
-	private Long satClose;
-	private Long sunOpen;
-	private Long sunClose;
+	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+//	private Date data;
+
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private Date monOpen;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private Date monClose;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private Date tueOpen;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private Date tueClose;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private Date wedOpen;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private Date wedClose;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private Date thuOpen;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private Date thuClose;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private Date friOpen;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private Date friClose;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private Date satOpen;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private Date satClose;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private Date sunOpen;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private Date sunClose;
 	
 	
 
@@ -58,9 +81,9 @@ public class OpeningHours {
 	}
 
 	public OpeningHours(Long id, @NotNull Boolean mon, @NotNull Boolean tue, @NotNull Boolean wed, @NotNull Boolean thu,
-			@NotNull Boolean fri, @NotNull Boolean sat, @NotNull Boolean sun, Long monOpen, Long monClose, Long tueOpen,
-			Long tueClose, Long wedOpen, Long wedClose, Long thuOpen, Long thuClose, Long friOpen, Long friClose,
-			Long satOpen, Long satClose, Long sunOpen, Long sunClose) {
+			@NotNull Boolean fri, @NotNull Boolean sat, @NotNull Boolean sun, Date monOpen, Date monClose, Date tueOpen,
+			Date tueClose, Date wedOpen, Date wedClose, Date thuOpen, Date thuClose, Date friOpen, Date friClose,
+			Date satOpen, Date satClose, Date sunOpen, Date sunClose) {
 		super();
 		this.id = id;
 		this.mon = mon;
@@ -86,11 +109,11 @@ public class OpeningHours {
 		this.sunClose = sunClose;
 		
 	}
-	
+
 	public OpeningHours(@NotNull Boolean mon, @NotNull Boolean tue, @NotNull Boolean wed, @NotNull Boolean thu,
-			@NotNull Boolean fri, @NotNull Boolean sat, @NotNull Boolean sun, Long monOpen, Long monClose, Long tueOpen,
-			Long tueClose, Long wedOpen, Long wedClose, Long thuOpen, Long thuClose, Long friOpen, Long friClose,
-			Long satOpen, Long satClose, Long sunOpen, Long sunClose) {
+			@NotNull Boolean fri, @NotNull Boolean sat, @NotNull Boolean sun, Date monOpen, Date monClose, Date tueOpen,
+			Date tueClose, Date wedOpen, Date wedClose, Date thuOpen, Date thuClose, Date friOpen, Date friClose,
+			Date satOpen, Date satClose, Date sunOpen, Date sunClose) {
 		super();
 		this.mon = mon;
 		this.tue = tue;
@@ -115,7 +138,7 @@ public class OpeningHours {
 		this.sunClose = sunClose;
 		
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -180,117 +203,118 @@ public class OpeningHours {
 		this.sun = sun;
 	}
 
-	public Long getMonOpen() {
+	public Date getMonOpen() {
 		return monOpen;
 	}
 
-	public void setMonOpen(Long monOpen) {
+	public void setMonOpen(Date monOpen) {
 		this.monOpen = monOpen;
 	}
 
-	public Long getMonClose() {
+	public Date getMonClose() {
 		return monClose;
 	}
 
-	public void setMonClose(Long monClose) {
+	public void setMonClose(Date monClose) {
 		this.monClose = monClose;
 	}
 
-	public Long getTueOpen() {
+	public Date getTueOpen() {
 		return tueOpen;
 	}
 
-	public void setTueOpen(Long tueOpen) {
+	public void setTueOpen(Date tueOpen) {
 		this.tueOpen = tueOpen;
 	}
 
-	public Long getTueClose() {
+	public Date getTueClose() {
 		return tueClose;
 	}
 
-	public void setTueClose(Long tueClose) {
+	public void setTueClose(Date tueClose) {
 		this.tueClose = tueClose;
 	}
 
-	public Long getWedOpen() {
+	public Date getWedOpen() {
 		return wedOpen;
 	}
 
-	public void setWedOpen(Long wedOpen) {
+	public void setWedOpen(Date wedOpen) {
 		this.wedOpen = wedOpen;
 	}
 
-	public Long getWedClose() {
+	public Date getWedClose() {
 		return wedClose;
 	}
 
-	public void setWedClose(Long wedClose) {
+	public void setWedClose(Date wedClose) {
 		this.wedClose = wedClose;
 	}
 
-	public Long getThuOpen() {
+	public Date getThuOpen() {
 		return thuOpen;
 	}
 
-	public void setThuOpen(Long thuOpen) {
+	public void setThuOpen(Date thuOpen) {
 		this.thuOpen = thuOpen;
 	}
 
-	public Long getThuClose() {
+	public Date getThuClose() {
 		return thuClose;
 	}
 
-	public void setThuClose(Long thuClose) {
+	public void setThuClose(Date thuClose) {
 		this.thuClose = thuClose;
 	}
 
-	public Long getFriOpen() {
+	public Date getFriOpen() {
 		return friOpen;
 	}
 
-	public void setFriOpen(Long friOpen) {
+	public void setFriOpen(Date friOpen) {
 		this.friOpen = friOpen;
 	}
 
-	public Long getFriClose() {
+	public Date getFriClose() {
 		return friClose;
 	}
 
-	public void setFriClose(Long friClose) {
+	public void setFriClose(Date friClose) {
 		this.friClose = friClose;
 	}
 
-	public Long getSatOpen() {
+	public Date getSatOpen() {
 		return satOpen;
 	}
 
-	public void setSatOpen(Long satOpen) {
+	public void setSatOpen(Date satOpen) {
 		this.satOpen = satOpen;
 	}
 
-	public Long getSatClose() {
+	public Date getSatClose() {
 		return satClose;
 	}
 
-	public void setSatClose(Long satClose) {
+	public void setSatClose(Date satClose) {
 		this.satClose = satClose;
 	}
 
-	public Long getSunOpen() {
+	public Date getSunOpen() {
 		return sunOpen;
 	}
 
-	public void setSunOpen(Long sunOpen) {
+	public void setSunOpen(Date sunOpen) {
 		this.sunOpen = sunOpen;
 	}
 
-	public Long getSunClose() {
+	public Date getSunClose() {
 		return sunClose;
 	}
 
-	public void setSunClose(Long sunClose) {
+	public void setSunClose(Date sunClose) {
 		this.sunClose = sunClose;
 	}
 
+	
 	
 }

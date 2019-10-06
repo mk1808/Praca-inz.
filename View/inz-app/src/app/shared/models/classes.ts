@@ -74,7 +74,7 @@ export class OpeningHours{
 	fri:boolean;
 	sat:boolean;
 	sun:boolean;
-	monOpen;
+	monOpen:string;
 	monClose;
 	tueOpen;
 	tueClose;
