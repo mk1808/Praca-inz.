@@ -35,13 +35,28 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
       phone: ['', Validators.required],
       website: ['', Validators.required],
       description: [''],
-      mon:[],
-      tue:[],
-      wed:[],
-      thu:[],
-      fri:[],
-      sat:[],
-      sun:[]
+      mon:[false],
+      tue:[false],
+      wed:[false],
+      thu:[false],
+      fri:[false],
+      sat:[false],
+      sun:[false],
+      monOpen:[null],
+      tueOpen:[null],
+      wedOpen:[null],
+      thuOpen:[null],
+      friOpen:[null],
+      satOpen:[null],
+      sunOpen:[null],
+      monClose:[null],
+      tueClose:[null],
+      wedClose:[null],
+      thuClose:[null],
+      friClose:[null],
+      satClose:[null],
+      sunClose:[null],
+      
     })
 
     this.dictionaryService.getCategories().subscribe(x => {
@@ -61,7 +76,29 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
     this.newPlace.phoneNumber=this.form.controls.phone.value;
     this.newPlace.website=this.form.controls.website.value;
     this.newPlace.description=this.form.controls.description.value;
+    this.openingHours.mon=this.form.controls.mon.value;
+    this.openingHours.tue=this.form.controls.tue.value;
+    this.openingHours.wed=this.form.controls.wed.value;
+    this.openingHours.thu=this.form.controls.thu.value;
+    this.openingHours.fri=this.form.controls.fri.value;
+    this.openingHours.sat=this.form.controls.sat.value;
+    this.openingHours.sun=this.form.controls.sun.value;
+    this.openingHours.monOpen=this.form.controls.monOpen.value;
+    this.openingHours.monClose=this.form.controls.monClose.value;
+    this.openingHours.tueOpen=this.form.controls.tueOpen.value;
+    this.openingHours.tueClose=this.form.controls.tueClose.value;
+    this.openingHours.wedOpen=this.form.controls.wedOpen.value;
+    this.openingHours.wedClose=this.form.controls.wedClose.value;
+    this.openingHours.thuOpen=this.form.controls.thuOpen.value;
+    this.openingHours.thuClose=this.form.controls.thuClose.value;
+    this.openingHours.friOpen=this.form.controls.friOpen.value;
+    this.openingHours.friClose=this.form.controls.friClose.value;
+    this.openingHours.satOpen=this.form.controls.satOpen.value;
+    this.openingHours.satClose=this.form.controls.satClose.value;
+    this.openingHours.sunOpen=this.form.controls.sunOpen.value;
+    this.openingHours.sunClose=this.form.controls.sunClose.value;
     this.newPlace.hours=this.openingHours;
+    
 
 this.user = JSON.parse(this.cookie.get('user'));
 this.newPlace.user=this.user;
