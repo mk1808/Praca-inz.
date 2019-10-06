@@ -5,14 +5,16 @@
     <div class="sign-in-form">
       <div class="singleInput">
         <label for="sign-in-form-username">Początek</label>
-        <input type="time" formControlName = "hourStart" class="sign-in-form-username" id="sign-in-form-username" autocomplete="off"></div>
+        <input type="time" formControlName = "hourStart" (change)="isCorrect()"
+         class="sign-in-form-username" id="sign-in-form-username" autocomplete="off"></div>
         <div class="singleInput">
           <label for="sign-in-form-username">Koniec</label>
-          <input type="time" formControlName = "hourEnd" class="sign-in-form-username" id="sign-in-form-username" autocomplete="off"></div>
+          <input type="time" formControlName = "hourEnd" (change)="isCorrect()"
+          class="sign-in-form-username" id="sign-in-form-username" autocomplete="off"></div>
     
       </div>
 
-
+<div *ngIf = "!hourCorrect" class="closed">Obiekt może być zamknięty w wybranych godzinach</div>
   </mat-dialog-content>
   <mat-dialog-actions>
     
