@@ -24,8 +24,10 @@ public class PositionInSchedule {
 
 	private Date endDay;
 	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
 	private Date startTime;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
 	private Date endTime;
 	
 	@OneToOne
