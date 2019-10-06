@@ -45,7 +45,7 @@ next = [
 list=[];
 dates=[];
 correctPosition=true;
-tripPlace:TripPlace=new TripPlace();
+tripPlace;
 schedule:Schedule=new Schedule();
 notifier: NotifierService;
 placeToAdd:Place=new Place();
@@ -125,18 +125,18 @@ dropn(event: CdkDragDrop<string[]>) {
 
 
 
-openDial(item)
+openDial(item, dayDate)
 {
    this.places.forEach(element => {
        if (element.name==item)
        this.placeToAdd=element;
    });
-    this.tripPlace.trip=this.trip;
-    this.tripPlace.place=this.placeToAdd;
+
+  
     console.log(this.tripPlace);
     const dialogRef = this.dialog.open(HourDialogComponent, {
       width: '600px',
-      data: this.tripPlace
+      data: {trip:this.trip, place:this.placeToAdd, day:dayDate}
     });
 
     dialogRef.afterClosed().subscribe(result => {
