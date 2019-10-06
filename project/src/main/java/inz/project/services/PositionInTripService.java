@@ -14,5 +14,6 @@ public interface PositionInTripService {
 
 	PositionInTrip createPositionInTrip(PositionInTrip positionInTrip);
 	PositionInTrip getPositionInTripById(Long id) ;
-List<Place> getPositionInTripByTripId(Long id);
+    List<Place> getPositionInTripByTripId(Long id);
+    PositionInTrip getPositionInTripByTripAndPlace(Long idTrip, Long idPlace);
 }

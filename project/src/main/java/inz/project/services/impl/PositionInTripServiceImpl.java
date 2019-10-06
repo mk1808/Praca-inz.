@@ -20,6 +20,7 @@ public class PositionInTripServiceImpl implements PositionInTripService{
 	@Autowired PositionInScheduleServiceImpl positionInScheduleService;
 	@Autowired PositionInTripRepository positionInTripRepository;
 	@Autowired TripServiceImpl tripService;
+	@Autowired PlaceServiceImpl placeService;
 	
 	@Override
 	public PositionInTrip createPositionInTrip(PositionInTrip positionInTrip) {
@@ -44,8 +45,13 @@ public class PositionInTripServiceImpl implements PositionInTripService{
 			places.add(pos.getPlace());
 		}
 		return places;
-		
-		
+	}
+	
+	@Override
+	public PositionInTrip getPositionInTripByTripAndPlace(Long idTrip, Long idPlace) {
+		Place place = this.placeService.getPlaceById(idPlace);
+		Trip trip = this.tripService.getTripById(idTrip);
+		return this.positionInTripRepository.getPositionInTripByTripAndPlace(trip, place);
 	}
 
 }

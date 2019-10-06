@@ -45,4 +45,5 @@ public class PositionInTripController {
 		return positionInTripService.getPositionInTripByTripId(id);
 	}
 
+	
 }
