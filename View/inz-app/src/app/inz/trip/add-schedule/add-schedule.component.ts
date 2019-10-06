@@ -8,12 +8,18 @@ import { TripService } from 'src/app/shared/services/trip.service';
 import { Trip, Schedule, Place } from 'src/app/shared/models/classes';
 import { ScheduleService } from 'src/app/shared/services/schedule.service';
 import { NotifierService } from 'angular-notifier';
+import { PlaceService } from 'src/app/shared/services/place.service';
 
+export class TripPlace{
+    trip:Trip;
+    place:Place;
+}
 @Component({
   selector: 'app-add-schedule',
   templateUrl: './add-schedule.component.html',
   styleUrls: ['./add-schedule.component.scss']
 })
+
 export class AddScheduleComponent implements OnInit {
 form: FormGroup;
 fillingForm: boolean = false;
@@ -39,10 +45,12 @@ next = [
 list=[];
 dates=[];
 correctPosition=true;
+tripPlace:TripPlace=new TripPlace();
 schedule:Schedule=new Schedule();
 notifier: NotifierService;
+placeToAdd:Place=new Place();
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, 
-    private tripService:TripService, private scheduleService:ScheduleService, public dialog: MatDialog,
+    private tripService:TripService, private placeService:PlaceService, private scheduleService:ScheduleService, public dialog: MatDialog,
     notifierService: NotifierService) { 
         this.notifier = notifierService;
     this.form = this.fb.group({
@@ -62,6 +70,7 @@ notifier: NotifierService;
             for (let i=0; i<this.trip.duration; i++){
                 this.allDays.push([]);
                 let firstDay:Date=new Date(this.trip.schedule.start);
+                console.log(firstDay);
                 firstDay.setDate(firstDay.getDate()+i);
                 this.allDates.push(firstDay);
                 //this.dates.push(this.trip.schedule.start.getDate() );
@@ -118,10 +127,16 @@ dropn(event: CdkDragDrop<string[]>) {
 
 openDial(item)
 {
-    
+   this.places.forEach(element => {
+       if (element.name==item)
+       this.placeToAdd=element;
+   });
+    this.tripPlace.trip=this.trip;
+    this.tripPlace.place=this.placeToAdd;
+    console.log(this.tripPlace);
     const dialogRef = this.dialog.open(HourDialogComponent, {
       width: '600px',
-      data: {}
+      data: this.tripPlace
     });
 
     dialogRef.afterClosed().subscribe(result => {

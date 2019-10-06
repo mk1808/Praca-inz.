@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { PositionInSchedule } from 'src/app/shared/models/classes';
+import { ScheduleService } from 'src/app/shared/services/schedule.service';
 
 
 @Component({
@@ -10,8 +12,9 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class HourDialogComponent implements OnInit {
   form: FormGroup;
-  constructor(   private formBuilder: FormBuilder,
-    private dialogRef: MatDialogRef<HourDialogComponent>) { }
+  position:PositionInSchedule=new PositionInSchedule();
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, 
+  private formBuilder: FormBuilder, private scheduleService:ScheduleService) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -19,9 +22,12 @@ export class HourDialogComponent implements OnInit {
       hourEnd:'',
       
     })
+    console.log(this.data);
   }
 
   addHour(){
+
+    ///this.position.startDay
 
   }
 

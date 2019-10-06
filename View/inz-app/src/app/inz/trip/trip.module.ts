@@ -17,12 +17,14 @@ import { AddPlaceToTripDialogComponent } from './add-place-to-trip-dialog/add-pl
 import { AddPlaceComponent } from '../place/add-place/add-place.component'
 import { AlertModule } from 'ngx-foundation';
 import { MatBadgeModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [TripComponent, PhotosOnHoverComponent,
     TripListComponent, NewTripComponent, AddScheduleComponent, ScheduleComponent, HourDialogComponent,
     AddPlaceToTripDialogComponent],
   imports: [
+  
     CommonModule,
     TripRoutingModule,
     DragDropModule,
