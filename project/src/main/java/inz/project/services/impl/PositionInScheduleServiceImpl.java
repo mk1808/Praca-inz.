@@ -62,9 +62,8 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 	public Boolean isHourCorrect(Date open, Date close, Date start, Date end){
 		int f=start.compareTo(open);
 		int l=close.compareTo(end);
-		System.out.println(l);
-		System.out.println(f);
-		if (f>0&&l>0)
+	
+		if (f>=0&&l>=0)
 			    return true;
 			    else return false;
 		
