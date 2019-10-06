@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { AddPlaceToTripDialogComponent } from '../add-place-to-trip-dialog/add-place-to-trip-dialog.component';
 import { TripService } from 'src/app/shared/services/trip.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-new-trip',
@@ -26,7 +27,7 @@ export class NewTripComponent implements OnInit {
   status:boolean[]=[];
 
   constructor(private fb: FormBuilder, private placeService: PlaceService, private tripService: TripService,
-    private router: Router, private route: ActivatedRoute, public dialog: MatDialog) {
+    private router: Router, private route: ActivatedRoute, public dialog: MatDialog,  private cookie:CookieService) {
 
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -48,6 +49,7 @@ export class NewTripComponent implements OnInit {
       this.trip.region = this.form.controls.region.value;
       this.trip.duration = this.form.controls.duration.value;
       this.trip.description = this.form.controls.description.value;
+      this.trip.user = JSON.parse(this.cookie.get('user'));
       this.tripService.createTrip(this.trip).subscribe(x => {
         console.log(x);
         this.newTrip=x;
