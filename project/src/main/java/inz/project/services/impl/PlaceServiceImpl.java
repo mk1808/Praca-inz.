@@ -42,13 +42,13 @@ public class PlaceServiceImpl implements PlaceService{
 	@Override
 	public Place createPlace(Place place) {
 		OpeningHours hours = new OpeningHours(
-				place.getHours().getMon()==null?true:false,
-				place.getHours().getTue()==null?true:false,
-				place.getHours().getWed()==null?true:false,
-				place.getHours().getThu()==null?true:false,
-				place.getHours().getFri()==null?true:false,
-				place.getHours().getSat()==null?true:false,
-				place.getHours().getSun()==null?true:false,
+				place.getHours().getMon(),
+				place.getHours().getTue(),
+				place.getHours().getWed(),
+				place.getHours().getThu(),
+				place.getHours().getFri(),
+				place.getHours().getSat(),
+				place.getHours().getSun(),
 				place.getHours().getMonOpen(),
 				place.getHours().getMonClose(),
 				place.getHours().getTueOpen(),
