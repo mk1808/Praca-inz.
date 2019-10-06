@@ -35,5 +35,13 @@ public class PositionInScheduleController {
 	PositionInSchedule getByPositionInTrip(@PathVariable Long id) {
 		return positionInScheduleService.getPositionInScheduleByPositionInTrip(id);
 	}
+	
+	@GetMapping("/place/{idPlace}/trip/{idTrip}")
+	PositionInSchedule getByTripAndPlace(@PathVariable Long idPlace, @PathVariable Long idTrip) {
+		
+		return positionInScheduleService.getPositionInScheduleByTripAndPlace(idPlace, idTrip);
+	}
+	
+	
 
 }

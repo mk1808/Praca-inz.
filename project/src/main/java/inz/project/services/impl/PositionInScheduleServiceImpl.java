@@ -50,4 +50,11 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 		PositionInTrip position = this.positionInTripService.getPositionInTripById(id);
 		return this.positionInScheduleRepository.getPositionInScheduleByPositionInTrip(position);
 	}
+	
+	@Override
+	public PositionInSchedule getPositionInScheduleByTripAndPlace(Long idPlace, Long idTrip) {
+		PositionInTrip posInTrip = this.positionInTripService.getPositionInTripByTripAndPlace(idTrip, idPlace);
+		PositionInSchedule posInSchedule = this.getPositionInScheduleByPositionInTrip(posInTrip.getId());
+		return posInSchedule;
+	}
 }
