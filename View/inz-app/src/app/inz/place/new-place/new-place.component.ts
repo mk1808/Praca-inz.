@@ -18,6 +18,7 @@ newPlace: Place=new Place;
 user:User = new User;
 newPlaceId:number;
 openingHours:OpeningHours = new OpeningHours();
+week:boolean[]=[false,false,false,false,false,false,false];
 constructor(private fb: FormBuilder, private placeService: PlaceService,
   private router: Router, private route: ActivatedRoute,
    private dictionaryService: DictionaryService, private cookie:CookieService) { }
@@ -34,6 +35,13 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
       phone: ['', Validators.required],
       website: ['', Validators.required],
       description: [''],
+      mon:[],
+      tue:[],
+      wed:[],
+      thu:[],
+      fri:[],
+      sat:[],
+      sun:[]
     })
 
     this.dictionaryService.getCategories().subscribe(x => {

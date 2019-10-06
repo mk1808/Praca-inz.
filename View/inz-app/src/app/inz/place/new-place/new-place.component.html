@@ -45,13 +45,34 @@
         <label for="sign-in-form-password">Numer</label>
         <input type="text" formControlName="number" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
         
-        <div class="textCateogory down up">- Godziny otwarcia -</div>
+        <div class="textCateogory down up">- Dni i godziny otwarcia -</div>
+        <div class="row">
+          <div class="columns small-4 weekDays">
+            <div class="checkbox">
+              <mat-checkbox  formControlName="mon" [(ngModel)]="week[0]">Poniedziałek</mat-checkbox><br>
+            </div>
+          </div>
+         <div *ngIf="week[0]">
+          <div class="columns small-1 weekDays from">od</div>
+          <div class="columns small-2 weekDays">
+            <div class="singleInput">
+              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
+          </div>
+          <div class="columns small-1 weekDays from">do</div>
+          <div class="columns small-2 weekDays">
+            <div class="singleInput">
+              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
+          </div>
+          <div class="columns small-2"></div>
+          </div>
+        </div>
         <div class="row">
           <div class=" columns small-4 weekDays">
             <div class="checkbox">
-              <mat-checkbox>Poniedziałek</mat-checkbox><br>
+              <mat-checkbox  formControlName="tue"  [(ngModel)]="week[1]">Wtorek</mat-checkbox><br>
             </div>
           </div>
+          <div *ngIf="week[1]">
           <div class="columns small-1 weekDays from">od</div>
           <div class="columns small-2 weekDays">
             <div class="singleInput">
@@ -64,12 +85,14 @@
           </div>
           <div class="columns small-2"></div>
         </div>
+        </div>
         <div class="row">
           <div class=" columns small-4 weekDays">
             <div class="checkbox">
-              <mat-checkbox>Wtorek</mat-checkbox><br>
+              <mat-checkbox  formControlName="wed"  [(ngModel)]="week[2]">Środa</mat-checkbox><br>
             </div>
           </div>
+          <div *ngIf="week[2]">
           <div class="columns small-1 weekDays from">od</div>
           <div class="columns small-2 weekDays">
             <div class="singleInput">
@@ -82,30 +105,14 @@
           </div>
           <div class="columns small-2"></div>
         </div>
-        <div class="row">
-          <div class=" columns small-4 weekDays">
-            <div class="checkbox">
-              <mat-checkbox>Środa</mat-checkbox><br>
-            </div>
-          </div>
-          <div class="columns small-1 weekDays from">od</div>
-          <div class="columns small-2 weekDays">
-            <div class="singleInput">
-              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
-          </div>
-          <div class="columns small-1 weekDays from">do</div>
-          <div class="columns small-2 weekDays">
-            <div class="singleInput">
-              <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
-          </div>
-          <div class="columns small-2"></div>
         </div>
         <div class="row">
           <div class=" columns small-4 weekDays">
             <div class="checkbox">
-              <mat-checkbox>Czwartek</mat-checkbox><br>
+              <mat-checkbox  formControlName="thu"  [(ngModel)]="week[3]">Czwartek</mat-checkbox><br>
             </div>
           </div>
+          <div *ngIf="week[3]">
           <div class="columns small-1 weekDays from">od</div>
           <div class="columns small-2 weekDays">
             <div class="singleInput">
@@ -118,12 +125,14 @@
           </div>
           <div class="columns small-2"></div>
         </div>
+        </div>
         <div class="row">
           <div class=" columns small-4 weekDays">
             <div class="checkbox">
-              <mat-checkbox>Piątek</mat-checkbox><br>
+              <mat-checkbox  formControlName="fri"  [(ngModel)]="week[4]">Piątek</mat-checkbox><br>
             </div>
           </div>
+          <div *ngIf="week[4]">
           <div class="columns small-1 weekDays from">od</div>
           <div class="columns small-2 weekDays">
             <div class="singleInput">
@@ -136,12 +145,14 @@
           </div>
           <div class="columns small-2"></div>
         </div>
+        </div>
         <div class="row">
           <div class=" columns small-4 weekDays">
             <div class="checkbox">
-              <mat-checkbox>Sobota</mat-checkbox><br>
+              <mat-checkbox  formControlName="sat"  [(ngModel)]="week[5]">Sobota</mat-checkbox><br>
             </div>
           </div>
+          <div *ngIf="week[5]">
           <div class="columns small-1 weekDays from">od</div>
           <div class="columns small-2 weekDays">
             <div class="singleInput">
@@ -154,12 +165,14 @@
           </div>
           <div class="columns small-2"></div>
         </div>
+        </div>
         <div class="row">
           <div class=" columns small-4 weekDays">
             <div class="checkbox">
-              <mat-checkbox>Niedziela</mat-checkbox><br>
+              <mat-checkbox  formControlName="sun"  [(ngModel)]="week[6]">Niedziela</mat-checkbox><br>
             </div>
           </div>
+          <div *ngIf="week[6]">
           <div class="columns small-1 weekDays from">od</div>
           <div class="columns small-2 weekDays">
             <div class="singleInput">
@@ -171,6 +184,7 @@
               <input type="time" class="sign-in-form-password smallInput" autocomplete="off"></div>
           </div>
           <div class="columns small-2"></div>
+        </div>
         </div>
      
     
