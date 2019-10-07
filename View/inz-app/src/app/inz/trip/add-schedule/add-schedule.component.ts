@@ -107,7 +107,7 @@ drop(event: CdkDragDrop<string[]>, k:number) {
             event.previousIndex,
             event.currentIndex);
     }
-    console.log(k);
+    console.log(event.container.data);
     console.log(this.allDays);
 }
 
