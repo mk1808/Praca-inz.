@@ -49,6 +49,10 @@ tripPlace;
 schedule:Schedule=new Schedule();
 notifier: NotifierService;
 placeToAdd:Place=new Place();
+openHours:any[]=[];
+openHoursForDay:any[]=[];
+placeInitialized:boolean=false;
+tab:any[]=[];
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, 
     private tripService:TripService, private placeService:PlaceService, private scheduleService:ScheduleService, public dialog: MatDialog,
     notifierService: NotifierService) { 
@@ -83,13 +87,37 @@ placeToAdd:Place=new Place();
             this.tripService.getPlacesForTrip(this.id).subscribe(z=>{
                 this.places=z;
                 console.log(this.places);
+                this.placeInitialized=true;
                 this.places.forEach(position=>{
                     this.done.push(position.name);
+                    
+
             })
+
+            
+                let i=0;
+                this.places.forEach(position=>{
+                    this.openHoursForDay=[];
+                    this.openHoursForDay.push(position.name);
+                    this.openHoursForDay.push(position.hours.mon);
+                    this.openHoursForDay.push(position.hours.tue);
+                    this.openHoursForDay.push(position.hours.wed);
+                    this.openHoursForDay.push(position.hours.thu);
+                    this.openHoursForDay.push(position.hours.fri);
+                    this.openHoursForDay.push(position.hours.sat);
+                    this.openHoursForDay.push(position.hours.sun);
+               
+                    i++;
+                    this.openHours.push(this.openHoursForDay);
+                    
+        
+            })
+            console.log(this.openHours);
               })
             
            
         })
+
     
 })
 
@@ -108,10 +136,36 @@ drop(event: CdkDragDrop<string[]>, k:number) {
             event.currentIndex);
     }
     console.log(event.container.id);
+    console.log(this.openHours);
     if(event.container.id!="cdk-drop-list-2"){
-        //przeciagniety na jedno z miejc
-  console.log(this.allDates[k].getDay());
-       
+     
+        this.openHours.forEach(x=>{
+            console.log(x);
+        if(x[0]==event.container.data[0]){
+         //   console.log(x[0]);
+           // console.log(event.container.data[0]);
+      let onlyDays=[...x];
+      onlyDays.shift();
+      
+
+
+      
+             
+           // console.log(tab);
+            console.log(onlyDays);
+console.log(this.allDates[k].getDay());
+this.scheduleService.isCorrectDay(onlyDays,this.allDates[k].getDay()).subscribe(x=>{
+    this.correctPosition=x;
+    this.tab["openDay"]=x;
+    
+    this.tab[event.container.data[0]]=x;
+        console.log(this.tab);
+})
+
+       }
+       })
+        
+        //przeciagniety na jedno z miejc  
     }
    else console.log("notok") 
   //  console.log(event.previousContainer);

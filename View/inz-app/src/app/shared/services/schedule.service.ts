@@ -32,4 +32,10 @@ export class ScheduleService {
     '&close='+close+'&start='+start+'&end='+end)
 
   }
+  public isCorrectDay(days:boolean[], day:number): Observable<any>{
+   let newDays:string="";
+   newDays+="?day="+day;
+    days.forEach(x=>{newDays+="&openDays=";newDays+=x;}); 
+    return this.rest.get<any>('/api/positionInSchedule/day'+newDays);
+  }
 }
