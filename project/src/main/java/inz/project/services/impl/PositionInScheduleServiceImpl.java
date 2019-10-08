@@ -72,10 +72,7 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 	}
 	
 	@Override
-	public Boolean isDayCorrect(List<Date> openDays, Date day){
-		if(openDays.contains(day)) 
-			return true;
-		
-		else return false;
-		}
+	public Boolean isDayCorrect(List<Boolean> openDays, int day){
+		return openDays.get(day);
+	}
 }

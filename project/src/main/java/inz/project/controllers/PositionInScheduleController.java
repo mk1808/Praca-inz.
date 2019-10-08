@@ -55,11 +55,12 @@ public class PositionInScheduleController {
 	 return this.positionInScheduleService.isHourCorrect(open, close, start, end);
 	}
 
-	@GetMapping
-	Boolean isDayCorrect(
-			@RequestParam(value ="openDays") @DateTimeFormat(pattern = "HH:mm") List<Date> openDays,
-			@RequestParam(value ="day") @DateTimeFormat(pattern = "HH:mm") Date day) {
+	@GetMapping("/day")
+	 Boolean isDayCorrect(
+			@RequestParam(value ="openDays")  List<Boolean> openDays,
+			@RequestParam(value ="day") int day) {
 	
+		
 	 return this.positionInScheduleService.isDayCorrect(openDays, day);
 	}
 
