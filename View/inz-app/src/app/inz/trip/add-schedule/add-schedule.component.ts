@@ -190,12 +190,12 @@ dropn(event: CdkDragDrop<string[]>) {
 
 openDial(item, dayDate)
 {
-    let i11 = this.allDays[0][0];
+  /*  let i11 = this.allDays[0][0];
     let i12345=this.allDays[0][1];
     let imiejsce=this.allDays[0][2];
     this.allDays[0][2]=i11;
     this.allDays[0][1]=i12345;
-    this.allDays[0][0]=imiejsce;
+    this.allDays[0][0]=imiejsce;*/
 
    this.places.forEach(element => {
        if (element.name==item)
