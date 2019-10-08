@@ -107,8 +107,15 @@ drop(event: CdkDragDrop<string[]>, k:number) {
             event.previousIndex,
             event.currentIndex);
     }
-    console.log(event.container.data);
-    console.log(this.allDays);
+    console.log(event.container.id);
+    if(event.container.id!="cdk-drop-list-2"){
+        //przeciagniety na jedno z miejc
+  console.log(this.allDates[k].getDay());
+       
+    }
+   else console.log("notok") 
+  //  console.log(event.previousContainer);
+  
 }
 
 dropn(event: CdkDragDrop<string[]>) {
