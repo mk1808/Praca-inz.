@@ -45,7 +45,7 @@ public class PositionInScheduleController {
 		return positionInScheduleService.getPositionInScheduleByTripAndPlace(idPlace, idTrip);
 	}
 	
-	@GetMapping 
+	@GetMapping
 	Boolean isHourCorrect(
 			@RequestParam(value ="open") @DateTimeFormat(pattern = "HH:mm") Date open,
 			@RequestParam(value ="close") @DateTimeFormat(pattern = "HH:mm") Date close,
@@ -53,6 +53,14 @@ public class PositionInScheduleController {
 			@RequestParam(value ="end") @DateTimeFormat(pattern = "HH:mm") Date end) {
 	
 	 return this.positionInScheduleService.isHourCorrect(open, close, start, end);
+	}
+
+	@GetMapping
+	Boolean isDayCorrect(
+			@RequestParam(value ="openDays") @DateTimeFormat(pattern = "HH:mm") List<Date> openDays,
+			@RequestParam(value ="day") @DateTimeFormat(pattern = "HH:mm") Date day) {
+	
+	 return this.positionInScheduleService.isDayCorrect(openDays, day);
 	}
 
 }

@@ -2,6 +2,7 @@ package inz.project.services.impl;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,6 +59,7 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 		PositionInSchedule posInSchedule = this.getPositionInScheduleByPositionInTrip(posInTrip.getId());
 		return posInSchedule;
 	}
+
 	@Override
 	public Boolean isHourCorrect(Date open, Date close, Date start, Date end){
 		int f=start.compareTo(open);
@@ -68,4 +70,12 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 			    else return false;
 		
 	}
+	
+	@Override
+	public Boolean isDayCorrect(List<Date> openDays, Date day){
+		if(openDays.contains(day)) 
+			return true;
+		
+		else return false;
+		}
 }
