@@ -35,9 +35,13 @@
           <div class="example-box" *ngFor="let item of next" (click)="openDial(item, allDates[k])"cdkDrag matTooltip="{{item}}  
          pn-pt 10-18
          so 10-15">
-         <span matBadge="{{tab[item]?'':'d'}}" matBadgeOverlap="false" > {{item}}<br>
+         <span matBadge="{{tab[item]=='c'?'':tab[item]}}" matBadgeOverlap="false" > 
+           
+          {{item}}<br>
      
            <span class="setTime">{{tabScheduleHours[item]}}</span>
+      
+      
          </span>
            </div>
         </div>

@@ -159,7 +159,7 @@ this.scheduleService.isCorrectDay(onlyDays,this.allDates[k].getDay()).subscribe(
     this.correctPosition=x;
     this.tab["openDay"]=x;
     
-    this.tab[event.container.data[0]]=x;
+    this.tab[event.container.data[0]]=x?'c':'d';
         console.log(this.tab);
 })
 console.log(this.allDays);
@@ -213,7 +213,9 @@ openDial(item, dayDate)
       console.log(result);
       
       this.tabScheduleHours[result[0].name]=result[1].startTime+' - '+result[1].endTime;
-
+    // console.log(result[2]);
+      this.tabScheduleHours[result[0].name+'H']=result[2];
+      this.tab[result[0].name]=result[2]?'c':'h';
       console.log(this.tabScheduleHours);
     });
   
