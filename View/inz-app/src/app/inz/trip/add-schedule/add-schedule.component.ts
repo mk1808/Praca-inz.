@@ -210,7 +210,7 @@ openDial(item, dayDate)
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      console.log(result); 
       
       this.tabScheduleHours[result[0].name]=result[1].startTime+' - '+result[1].endTime;
     // console.log(result[2]);
