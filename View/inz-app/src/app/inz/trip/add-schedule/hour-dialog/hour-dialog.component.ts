@@ -21,12 +21,15 @@ export class HourDialogComponent implements OnInit {
   close;
   dayOpen:boolean;
   hourCorrect:boolean;
+  newPosition:PositionInSchedule=new PositionInSchedule();
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, 
-  private formBuilder: FormBuilder, private scheduleService:ScheduleService) {
+  private formBuilder: FormBuilder, private scheduleService:ScheduleService,
+  public dialogRef: MatDialogRef<HourDialogComponent>) {
     const{trip,place,day}=this.data; 
   this.trip=trip;
   this.place=place;
   this.day=day;
+  
   }
 
   ngOnInit() {
@@ -46,7 +49,10 @@ export class HourDialogComponent implements OnInit {
   addHour() {
     this.scheduleService.updatePositionInSchedule(this.position).subscribe(x => {
       console.log(x);
+      this.newPosition=x;
+        this.dialogRef.close([this.place,this.newPosition] );
     })
+  
   }
 
   isCorrect() {

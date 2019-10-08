@@ -53,6 +53,7 @@ openHours:any[]=[];
 openHoursForDay:any[]=[];
 placeInitialized:boolean=false;
 tab:any[]=[];
+tabScheduleHours:any[]=[];
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, 
     private tripService:TripService, private placeService:PlaceService, private scheduleService:ScheduleService, public dialog: MatDialog,
     notifierService: NotifierService) { 
@@ -135,7 +136,7 @@ drop(event: CdkDragDrop<string[]>, k:number) {
             event.previousIndex,
             event.currentIndex);
     }
-    console.log(event.container.id);
+    console.log(event.container.data);
     console.log(this.openHours);
     if(event.container.id!="cdk-drop-list-2"){
      
@@ -161,6 +162,7 @@ this.scheduleService.isCorrectDay(onlyDays,this.allDates[k].getDay()).subscribe(
     this.tab[event.container.data[0]]=x;
         console.log(this.tab);
 })
+console.log(this.allDays);
 
        }
        })
@@ -188,6 +190,13 @@ dropn(event: CdkDragDrop<string[]>) {
 
 openDial(item, dayDate)
 {
+    let i11 = this.allDays[0][0];
+    let i12345=this.allDays[0][1];
+    let imiejsce=this.allDays[0][2];
+    this.allDays[0][2]=i11;
+    this.allDays[0][1]=i12345;
+    this.allDays[0][0]=imiejsce;
+
    this.places.forEach(element => {
        if (element.name==item)
        this.placeToAdd=element;
@@ -201,8 +210,11 @@ openDial(item, dayDate)
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log(result);
       
+      this.tabScheduleHours[result[0].name]=result[1].startTime+' - '+result[1].endTime;
+
+      console.log(this.tabScheduleHours);
     });
   
     
