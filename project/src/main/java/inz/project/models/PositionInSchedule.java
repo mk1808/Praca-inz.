@@ -20,8 +20,10 @@ import lombok.Data;
 public class PositionInSchedule {
 	@Id @GeneratedValue private Long id;
 	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date startDay;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date endDay;
 	
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
