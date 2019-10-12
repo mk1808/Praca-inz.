@@ -2,6 +2,7 @@ package inz.project.services.impl;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -70,6 +71,7 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 			posInSchedule.add(this.positionInScheduleRepository.getPositionInScheduleByPositionInTrip(pos));
 			
 		}
+		posInSchedule.sort(Comparator.comparing(PositionInSchedule::getStartDay));
 		return posInSchedule;
 	}
 	
