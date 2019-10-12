@@ -34,7 +34,7 @@ const routes: Routes = [
 
         {
 
-                path: "schedule",
+                path: "schedule/:id",
                 component: ScheduleComponent
 
         }]

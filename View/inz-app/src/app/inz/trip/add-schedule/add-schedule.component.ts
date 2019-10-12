@@ -260,4 +260,8 @@ onCreate(){
 
     
 }
+
+onConfirm(){
+    this.router.navigate(['/trip/schedule', this.id]);
+}
 }
