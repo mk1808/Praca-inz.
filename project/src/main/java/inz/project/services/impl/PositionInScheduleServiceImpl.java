@@ -98,6 +98,10 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 				previous = pos.getStartDay();
 			}
 		}
+		for(List<PositionInSchedule> list:table) {
+			list.sort(Comparator.comparing(PositionInSchedule::getStartTime));
+		}
+		
 		return table;
 	}
 	

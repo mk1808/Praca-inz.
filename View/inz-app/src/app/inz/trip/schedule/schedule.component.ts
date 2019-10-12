@@ -27,7 +27,13 @@ export class ScheduleComponent implements OnInit {
      //   this.positions=this.trip.
       //  console.log(this.schedule);
       });
-      this.scheduleService.getPositionsForScheduleByTrip(this.id).subscribe(x=>{
+     /* this.scheduleService.getPositionsForScheduleByTrip(this.id).subscribe(x=>{
+        this.positions=x;
+       
+        console.log(this.positions);
+      })*/
+
+      this.scheduleService.getPositionsForScheduleByTripSorted(this.id).subscribe(x=>{
         this.positions=x;
         console.log(this.positions);
       })
