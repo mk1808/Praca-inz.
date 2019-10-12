@@ -1,5 +1,6 @@
 package inz.project.services.impl;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -59,6 +60,20 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 		PositionInSchedule posInSchedule = this.getPositionInScheduleByPositionInTrip(posInTrip.getId());
 		return posInSchedule;
 	}
+	
+	@Override
+	public List<PositionInSchedule> getPositionsInScheduleForTrip(Long id) {
+		List<PositionInTrip> posInTrip = this.positionInTripService.getAllPositionsByTripId(id);
+		List<PositionInSchedule> posInSchedule=new ArrayList<PositionInSchedule>();
+		for(PositionInTrip pos:posInTrip )
+		{
+			posInSchedule.add(this.positionInScheduleRepository.getPositionInScheduleByPositionInTrip(pos));
+			
+		}
+		return posInSchedule;
+	}
+	
+	
 
 	@Override
 	public Boolean isHourCorrect(Date open, Date close, Date start, Date end){

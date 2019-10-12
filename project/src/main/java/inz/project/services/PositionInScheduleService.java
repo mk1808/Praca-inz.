@@ -15,6 +15,7 @@ public interface PositionInScheduleService {
 	PositionInSchedule updatePositionInSchedule(PositionInSchedule position);
 	PositionInSchedule getPositionInScheduleByPositionInTrip(Long id);
 	PositionInSchedule getPositionInScheduleByTripAndPlace(Long idPlace, Long idTrip);
+	List<PositionInSchedule> getPositionsInScheduleForTrip(Long id);
 	Boolean isHourCorrect(Date open, Date close, Date start, Date end);
 	Boolean isDayCorrect(List<Boolean> openDays, int day);
 }

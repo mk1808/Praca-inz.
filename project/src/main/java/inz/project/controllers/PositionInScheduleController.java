@@ -63,5 +63,11 @@ public class PositionInScheduleController {
 		
 	 return this.positionInScheduleService.isDayCorrect(openDays, day);
 	}
+	
+	
+	@GetMapping("/trip/{id}")
+	 List<PositionInSchedule> getForTrip(@PathVariable Long id) {
+	 return this.positionInScheduleService.getPositionsInScheduleForTrip(id);
+	}
 
 }
