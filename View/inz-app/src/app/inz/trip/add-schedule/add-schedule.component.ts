@@ -66,12 +66,13 @@ position:PositionInSchedule;
   }
 
   ngOnInit() {
-    this.notifier.notify( 'default', 'Obiekt może nie być otwarty w tym dniu.' );
+   // this.notifier.notify( 'default', 'Obiekt może nie być otwarty w tym dniu.' );
     this.route.params.subscribe(x => {
         this.id = x['id'];
         this.tripService.getTrip(this.id).subscribe(y=>{
             this.trip=y;
             this.done=[];
+            console.log(this.trip);
           //  let firstDay:Date=new Date(this.trip.schedule.start);
             for (let i=0; i<this.trip.duration; i++){
                 this.allDays.push([]);
