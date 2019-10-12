@@ -69,5 +69,10 @@ public class PositionInScheduleController {
 	 List<PositionInSchedule> getForTrip(@PathVariable Long id) {
 	 return this.positionInScheduleService.getPositionsInScheduleForTrip(id);
 	}
+	
+	@GetMapping("/trip/sorted/{id}")
+	 List<List<PositionInSchedule>> getForTripSorted(@PathVariable Long id) {
+	 return this.positionInScheduleService.getPosForTripSorted(id);
+	}
 
 }

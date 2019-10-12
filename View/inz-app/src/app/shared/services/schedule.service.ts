@@ -43,4 +43,8 @@ export class ScheduleService {
     return this.rest.get<any>('/api/positionInSchedule/trip/'+tripId);
   }
 
+  public getPositionsForScheduleByTripSorted(tripId:number): Observable<any> {
+    return this.rest.get<any>('/api/positionInSchedule/trip/sorted/'+tripId);
+  }
+
 }

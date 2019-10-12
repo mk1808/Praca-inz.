@@ -72,8 +72,44 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 			
 		}
 		posInSchedule.sort(Comparator.comparing(PositionInSchedule::getStartDay));
+		
 		return posInSchedule;
 	}
+	
+	@Override
+	public List<List<PositionInSchedule>> getPositionsInScheduleSorted(List<PositionInSchedule> posInSchedule) {
+		Date previous=posInSchedule.get(0).getStartDay();
+		List<List<PositionInSchedule>> table=new ArrayList<List<PositionInSchedule>>();
+		Long duration = posInSchedule.get(0).getPositionInTrip().getTrip().getDuration();
+		for(int j=0; j<duration; j++) {
+			List<PositionInSchedule> add = new ArrayList<PositionInSchedule>();
+			table.add(add);
+		}
+		int i =0;
+		for (PositionInSchedule pos:posInSchedule) {
+			
+			if(pos.getStartDay().compareTo(previous)==0){
+				table.get(i).add(pos);
+				previous = pos.getStartDay();
+			}
+			else {
+				i=i+1;
+				table.get(i).add(pos);
+				previous = pos.getStartDay();
+			}
+		}
+		return table;
+	}
+	
+	@Override
+	public List<List<PositionInSchedule>> getPosForTripSorted(Long id){
+		List<PositionInSchedule> posInSchedule = this.getPositionsInScheduleForTrip(id);
+		List<List<PositionInSchedule>> table = this.getPositionsInScheduleSorted(posInSchedule);
+		return table;
+	}
+	
+	
+	
 	
 	
 
