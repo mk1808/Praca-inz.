@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import inz.project.models.Place;
 import inz.project.models.PositionInSchedule;
 import inz.project.models.PositionInTrip;
+import inz.project.models.Schedule;
 import inz.project.models.Trip;
 import inz.project.repositories.PositionInTripRepository;
 import inz.project.services.PositionInTripService;
@@ -22,13 +23,20 @@ public class PositionInTripServiceImpl implements PositionInTripService{
 	@Autowired PositionInTripRepository positionInTripRepository;
 	@Autowired TripServiceImpl tripService;
 	@Autowired PlaceServiceImpl placeService;
+	@Autowired ScheduleServiceImpl scheduleService;
 	
 	@Override
 	public PositionInTrip createPositionInTrip(PositionInTrip positionInTrip) {
 		PositionInSchedule positionSchedule = new PositionInSchedule();
 		PositionInTrip positionTrip = this.positionInTripRepository.save(positionInTrip);
 		positionSchedule.setPositionInTrip(positionTrip);
-		this.positionInScheduleService.createPositionInSchedule(positionSchedule);
+		PositionInSchedule newPosition = this.positionInScheduleService.createPositionInSchedule(positionSchedule);
+		
+	/*	Schedule schedule = positionInTrip.getTrip().getSchedule();
+		List<PositionInSchedule> oldPosition = schedule.getPositionsInSchedule();
+		oldPosition.add(newPosition);
+		schedule.setPositionsInSchedule(oldPosition);
+		this.scheduleService.updateSchedule(schedule.getId(), schedule);*/
 		return positionTrip;
 	}
 	
@@ -46,6 +54,13 @@ public class PositionInTripServiceImpl implements PositionInTripService{
 			places.add(pos.getPlace());
 		}
 		return places;
+	}
+	
+	@Override
+	public List<PositionInTrip> getAllPositionsByTripId(Long id){
+		Trip trip = this.tripService.getTripById(id);
+		List<PositionInTrip>positions = this.positionInTripRepository.getPositionInTripByTrip(trip);
+		return positions;
 	}
 	
 	@Override
