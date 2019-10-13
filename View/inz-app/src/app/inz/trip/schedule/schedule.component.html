@@ -1,11 +1,14 @@
 <div class="container">
-  <h2 class="headingStyle">Grafik wycieczki xyz</h2>
+  <h2 class="headingStyle">Grafik wycieczki {{trip.name}}</h2>
 
 
   <div class="timeline">
     <div *ngFor="let tab of positions; let i=index">
       <div class="anotherDay">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dzień {{i+1}}
+      </div>
+      <div *ngIf="tab.length<1" class="noPlaces">
+        Na ten dzień nie zaplanowano zwiedzania
       </div>
 
       <div class="timeline-item" *ngFor="let position of tab; let k=index">
@@ -72,7 +75,7 @@
     </div>
  
 -->
-
+<!--
     <div class="anotherDay">
 
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dzień 2
@@ -98,7 +101,7 @@
         <p class="timeline-content-date">MUZEUM NARODOWE</p>
         <p> <span class="timeline-content-month">12:00</span></p>
       </div>
-    </div>
+    </div>-->
 
   </div>
 
