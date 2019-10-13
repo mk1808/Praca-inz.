@@ -47,4 +47,8 @@ export class ScheduleService {
     return this.rest.get<any>('/api/positionInSchedule/trip/sorted/'+tripId);
   }
 
+  public getDifferenceBetweenDays(start, end): Observable<any> {
+    return this.rest.get<any>('/api/positionInSchedule/difference?start='+start+'&end='+end);
+  }
+
 }

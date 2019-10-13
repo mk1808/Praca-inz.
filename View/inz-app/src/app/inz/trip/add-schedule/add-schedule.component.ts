@@ -22,7 +22,7 @@ export class TripPlace{
 
 export class AddScheduleComponent implements OnInit {
 form: FormGroup;
-fillingForm: boolean = false;
+fillingForm: boolean = true;
 days:number;
 dayCount=false;
 id:number;
@@ -244,8 +244,15 @@ countDays(){
         this.dayCount=true;
         let startDate = new Date(this.form.controls.start.value);
         let endDate = new Date(this.form.controls.end.value);
-        console.log(startDate);
-        this.days = Number(endDate.getDate())-Number(startDate.getDate());
+        let start:string;
+        let end:string;
+        start =  startDate.getDate()+'-'+Number(startDate.getMonth()+1)+'-'+startDate.getFullYear();
+        end = endDate.getDate()+'-'+Number(endDate.getMonth()+1)+'-'+endDate.getFullYear();
+       // console.log(startDate);
+        this.scheduleService.getDifferenceBetweenDays(start, end).subscribe(x=>{
+            this.days=x;
+        })
+      //  this.days = Number(endDate.getDate())-Number(startDate.getDate());
         console.log(this.days);
     }
 }
