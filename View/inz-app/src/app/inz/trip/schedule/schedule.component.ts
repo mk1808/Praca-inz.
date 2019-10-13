@@ -15,6 +15,7 @@ export class ScheduleComponent implements OnInit {
   schedule:Schedule = new Schedule();
   positions:PositionInSchedule[][]=[];
   allPositions:PositionInSchedule[][]=[];
+  positionsWODay:PositionInSchedule[]=[];
   constructor(private router: Router, private route: ActivatedRoute, private tripService: TripService,
     private scheduleService: ScheduleService) { }
 
@@ -41,6 +42,8 @@ export class ScheduleComponent implements OnInit {
             this.positions.push(x);
           }
         })*/
+
+        this.positionsWODay=this.allPositions.pop();
         this.positions=this.allPositions;
         console.log(this.positions);
         

@@ -22,7 +22,7 @@ export class TripPlace{
 
 export class AddScheduleComponent implements OnInit {
 form: FormGroup;
-fillingForm: boolean = true;
+fillingForm: boolean = false;
 days:number;
 dayCount=false;
 id:number;
