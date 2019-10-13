@@ -10,6 +10,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -210,6 +211,14 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 		String sDate1 = sdf.format(date1);
 		String sDate2 = sdf.format(date2);
 		return sDate1.equals(sDate2);
+	}
+	
+	public Long countDays(Date start, Date end) {
+			TimeUnit unit = TimeUnit.DAYS; 
+		    long diffInMillies = end.getTime() - start.getTime();
+		    Long time = unit.convert(diffInMillies,unit)/1000/86400;
+		    return time+1;
+		
 	}
 	
 	@Override

@@ -74,5 +74,14 @@ public class PositionInScheduleController {
 	 List<List<PositionInSchedule>> getForTripSorted(@PathVariable Long id) {
 	 return this.positionInScheduleService.getPosForTripSorted(id);
 	}
+	
+	@GetMapping("/difference")
+	 Long getDifferenceBetweenDays(		
+			 @RequestParam(value ="start") @DateTimeFormat(pattern = "dd-MM-yyyy") Date start,
+			@RequestParam(value ="end") @DateTimeFormat(pattern = "dd-MM-yyyy") Date end) {
+	 return this.positionInScheduleService.countDays(start, end);
+	}
+	
+	
 
 }
