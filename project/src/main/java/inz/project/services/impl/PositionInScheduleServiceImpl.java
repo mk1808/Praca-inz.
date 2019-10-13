@@ -10,6 +10,8 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -132,8 +134,26 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 			}
 		}*/
 		for (List<PositionInSchedule> list : table) {
-			list.sort(Comparator.comparing(PositionInSchedule::getStartTime));
-		}
+			List<PositionInSchedule> posWOTime = list.stream().filter(p->p.getStartTime()==null).collect(Collectors.toList());
+			List<PositionInSchedule> posWTime = list.stream().filter(p->p.getStartTime()!=null).collect(Collectors.toList());
+		
+			/*	if(!list.isEmpty()) {
+			int i=0;
+			for (PositionInSchedule position:list) {
+				if(position.getStartTime()==null) {
+					posWOTime.add(position);
+					wholeList.remove(i);
+				}
+				i++;
+			}
+			*/
+			
+			posWTime.sort(Comparator.comparing(PositionInSchedule::getStartTime));
+			list.clear();
+			list.addAll(posWTime);
+			list.addAll(posWOTime);
+			}
+		
 
 		return table;
 	}
