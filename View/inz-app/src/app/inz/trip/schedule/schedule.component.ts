@@ -13,7 +13,8 @@ export class ScheduleComponent implements OnInit {
   id: number;
   trip: Trip = new Trip();
   schedule:Schedule = new Schedule();
-  positions:PositionInSchedule[]=[];
+  positions:PositionInSchedule[][]=[];
+  allPositions:PositionInSchedule[][]=[];
   constructor(private router: Router, private route: ActivatedRoute, private tripService: TripService,
     private scheduleService: ScheduleService) { }
 
@@ -34,8 +35,15 @@ export class ScheduleComponent implements OnInit {
       })*/
 
       this.scheduleService.getPositionsForScheduleByTripSorted(this.id).subscribe(x=>{
-        this.positions=x;
+        this.allPositions=x;
+      /*  this.allPositions.forEach(x=>{
+          if(x.length>0){
+            this.positions.push(x);
+          }
+        })*/
+        this.positions=this.allPositions;
         console.log(this.positions);
+        
       })
 
     })
