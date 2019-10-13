@@ -76,7 +76,10 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 			posInSchedule.add(this.positionInScheduleRepository.getPositionInScheduleByPositionInTrip(pos));
 
 		}
+		List<PositionInSchedule> posWOTDay = posInSchedule.stream().filter(p->p.getStartDay()==null).collect(Collectors.toList()); 
+		posInSchedule = posInSchedule.stream().filter(p->p.getStartDay()!=null).collect(Collectors.toList());
 		posInSchedule.sort(Comparator.comparing(PositionInSchedule::getStartDay));
+		posInSchedule.addAll(posWOTDay);
 
 		return posInSchedule;
 	}
@@ -100,6 +103,9 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 			dates.add(newDate);
 			//System.out.println(newDate);
 		}
+		List<PositionInSchedule> posWOTDay = posInSchedule.stream().filter(p->p.getStartDay()==null).collect(Collectors.toList()); 
+		posInSchedule = posInSchedule.stream().filter(p->p.getStartDay()!=null).collect(Collectors.toList());
+		 
 		int dateNo=0;
 		for (PositionInSchedule pos : posInSchedule) {
 			dateNo=0;
@@ -146,13 +152,14 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 				}
 				i++;
 			}
-			*/
+			*/	
 			
 			posWTime.sort(Comparator.comparing(PositionInSchedule::getStartTime));
 			list.clear();
 			list.addAll(posWTime);
 			list.addAll(posWOTime);
 			}
+		table.add(posWOTDay);
 		
 
 		return table;
