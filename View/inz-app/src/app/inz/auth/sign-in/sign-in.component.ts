@@ -41,6 +41,7 @@ export class SignInComponent implements OnInit {
       this.user = x.user;
       console.log(x);
       console.log(this.token);
+      this.auth.changeStatus(true);
       this.auth.saveCookie("token", this.token);
       this.auth.saveCookie("user", JSON.stringify(this.user));
       this.router.navigate(['/trip/all']);

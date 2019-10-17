@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { RestService } from './rest.service';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { User } from '../models/classes';
 
 
@@ -10,6 +10,8 @@ import { User } from '../models/classes';
   providedIn: 'root'
 })
 export class AuthService {
+  private statusSource = new BehaviorSubject<boolean>(false);
+  currentStatus = this.statusSource.asObservable();
 
   constructor(private http: HttpClient, private cookie: CookieService, private rest:RestService) { }
   public logIn(user: User): Observable<any> {
@@ -35,5 +37,9 @@ export class AuthService {
 
   public saveCookie(token:string, name:string){
     this.cookie.set(token, name, 0.5, "/");
+  }
+
+  public changeStatus(status:boolean){
+    this.statusSource.next(status);
   }
 }
