@@ -23,6 +23,9 @@ import { CookieService } from 'ngx-cookie-service';
 import {AutocompleteLibModule, AutocompleteComponent} from 'angular-ng-autocomplete';
 import { NotifierModule } from 'angular-notifier';
 import { MatBadgeModule } from '@angular/material';
+
+import { AngularOpenlayersModule } from "ngx-openlayers";
+import { ImageUploadModule } from "angular2-image-upload";
 /*
 @Injectable({
   providedIn: 'root'
@@ -67,6 +70,8 @@ import { MatBadgeModule } from '@angular/material';
     AutocompleteLibModule,
     MatBadgeModule,
    MatCheckboxModule,
+   AngularOpenlayersModule,
+   ImageUploadModule.forRoot(),
     NotifierModule.withConfig(
      { position: {
  
@@ -87,6 +92,7 @@ import { MatBadgeModule } from '@angular/material';
     
     
   ],
+  
   providers: [ CookieService ],
   bootstrap: [AppComponent]
 })
