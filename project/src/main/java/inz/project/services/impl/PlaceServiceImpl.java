@@ -2,12 +2,14 @@ package inz.project.services.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
 import inz.project.models.OpeningHours;
 import inz.project.models.Place;
 import inz.project.models.PlaceCategory;
+import inz.project.models.PositionInSchedule;
 import inz.project.models.Trip;
 import inz.project.models.User;
 import inz.project.repositories.OpeningHoursRepository;
@@ -122,6 +124,31 @@ public class PlaceServiceImpl implements PlaceService{
 	public List<Place> getPlacesByUser(Long id){
 		User user = userService.getUserById(id);
 		return this.placeRepository.getPlacesByUser(user);
+	}
+	
+	public List<String> createHours(Long id){
+		Place place=this.getPlaceById(id);
+		List<String> hours = new ArrayList<String>();
+		for(int i=0; i<7; i++) {
+			hours.add(null);
+		}
+		if(place.getHours().getMon()) hours.set(0, place.getHours().getMonOpen().toString()+ 
+				'-'+place.getHours().getMonClose().toString() );
+		if(place.getHours().getTue()) hours.set(1, place.getHours().getTueOpen().toString()+ 
+				'-'+place.getHours().getTueClose().toString() );
+		if(place.getHours().getWed()) hours.set(2, place.getHours().getWedOpen().toString()+ 
+				'-'+place.getHours().getWedClose().toString() );
+		if(place.getHours().getThu()) hours.set(3, place.getHours().getThuOpen().toString()+ 
+				'-'+place.getHours().getThuClose().toString() );
+		if(place.getHours().getFri()) hours.set(4, place.getHours().getFriOpen().toString()+ 
+				'-'+place.getHours().getFriClose().toString() );
+		if(place.getHours().getSat()) hours.set(5, place.getHours().getSatOpen().toString()+ 
+				'-'+place.getHours().getSatClose().toString() );
+		if(place.getHours().getSun()) hours.set(6, place.getHours().getSunOpen().toString()+ 
+				'-'+place.getHours().getSunClose().toString() );
+		//List<String> newHours = hours.stream().filter(h->h==hours.get(0).) 
+		return hours;
+		//		List<PositionInSchedule> posWOTime = list.stream().filter(p->p.getStartTime()==null).collect(Collectors.toList());
 	}
 }
 	

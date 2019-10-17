@@ -21,6 +21,17 @@ place:Place;
   mapType = 'roadmap';
   logged:boolean=true;
   position:PositionInTrip = new PositionInTrip();
+  hours:[][];
+  singleDay={start:null, end:null};
+  allDays:any[]=[{start:null, end:null},{start:null, end:null},{start:null, end:null},{start:null, end:null}
+  ,{start:null, end:null},{start:null, end:null},{start:null, end:null}];
+  allDaysSorted:any[]=[{start:null, end:null, ids:[]}, {start:null, end:null, ids:[]}, {start:null, end:null, ids:[]},
+  {start:null, end:null, ids:[]}, {start:null, end:null, ids:[]}, {start:null, end:null, ids:[]}, {start:null, end:null, ids:[]}]
+  allDaysString:string[]=[null, null, null, null, null, null,null];
+  daysGroups:any[]=[{hours:null, start:null, end:null}, {hours:null, start:null, end:null}, {hours:null, start:null, end:null},
+    {hours:null, start:null, end:null},{hours:null, start:null, end:null},{hours:null, start:null, end:null},
+    {hours:null, start:null, end:null}]
+  daysOfWeek:string[]=["Pon", "Wt", "Śr", "Czw", "Pt", "So", "Ndz"]
   constructor( private router: Router, private route: ActivatedRoute, private placeService:PlaceService, public dialog: MatDialog){}
   ngOnInit(): void {
     this.route.params.subscribe(x => {
@@ -30,6 +41,127 @@ place:Place;
     this.placeService.getPlace(this.id).subscribe(x=>{
         this.place=x;
         console.log(this.place);
+        
+          if(this.place.hours.mon) 
+         {  this.allDaysString[0]=(this.place.hours.monOpen+' - '+ this.place.hours.monClose);
+            this.allDays[0].start=this.place.hours.monOpen;
+            this.allDays[0].end=this.place.hours.monClose;
+          }
+        
+          if(this.place.hours.tue) 
+          {this.allDaysString[1]=(this.place.hours.tueOpen+' - '+ this.place.hours.tueClose);
+            this.allDays[1].start=this.place.hours.tueOpen;
+            this.allDays[1].end=this.place.hours.tueClose;
+          }
+          
+          if(this.place.hours.wed) 
+          {this.allDaysString[2]=(this.place.hours.wedOpen+' - '+ this.place.hours.wedClose);
+            this.allDays[2].start=this.place.hours.wedOpen;
+            this.allDays[2].end=this.place.hours.wedClose;
+          }
+     
+          if(this.place.hours.thu) 
+          {this.allDaysString[3]=(this.place.hours.thuOpen+' - '+ this.place.hours.thuClose);
+            this.allDays[3].start=this.place.hours.thuOpen;
+            this.allDays[3].end=this.place.hours.thuClose;
+          }
+        
+          if(this.place.hours.fri) 
+          {this.allDaysString[4]=(this.place.hours.friOpen+' - '+ this.place.hours.friClose);
+            this.allDays[4].start=this.place.hours.friOpen;
+            this.allDays[4].end=this.place.hours.friClose;
+          }
+   
+          if(this.place.hours.sat) 
+         {this.allDaysString[5]=(this.place.hours.satOpen+' - '+ this.place.hours.satClose);
+            this.allDays[5].start=this.place.hours.satOpen;
+            this.allDays[5].end=this.place.hours.satClose;
+          }
+
+          if(this.place.hours.sun) 
+           {this.allDaysString[6]=(this.place.hours.sunOpen+' - '+ this.place.hours.sunClose);
+            this.allDays[6].start=this.place.hours.sunOpen;
+            this.allDays[6].end=this.place.hours.sunClose;
+          }
+  
+          console.log(this.allDaysString);
+        this.allDaysString.forEach(x=>{
+
+        })
+        let i=0;
+      /*  do{
+          let start = this.allDaysString[i];
+
+        }while(1)*/
+        let start = this.allDaysString[0];
+        let tab:[]=[];
+        let j=-1;
+        let repeated:boolean=false;
+        let length;
+        for (let i=0; i<7; i++){
+          if(this.allDaysString[i]!=null){
+            this.allDaysSorted.forEach(x=>{
+              if(x.start==this.allDaysString[i]){
+                x.ids.push(this.daysOfWeek[i]);
+                 
+                repeated=true;
+                
+              }
+            })
+            if(!repeated){
+              j++; 
+              this.allDaysSorted[j].start=this.allDaysString[i];
+              this.allDaysSorted[j].ids.push(this.daysOfWeek[i]);
+            }
+
+            
+          }
+         
+          let start = this.allDaysString[i];
+        }
+        console.log(this.allDaysSorted);
+
+        let index=0;
+        let mult=false;
+        let k=0;
+        this.allDaysSorted[0].ids="Pn"
+        for(k=1; k<7; k++){
+          if(this.allDaysString[k]==this.allDaysString[k-1])
+          {
+            mult=true;
+          }
+          else{
+            if(mult){
+              this.allDaysSorted[index].ids+='-'+this.daysOfWeek[k-1];
+              this.allDaysSorted[index].start=this.allDaysString[k-1]==null?"nieczynne":this.allDaysString[k-1];
+            }else{
+              this.allDaysSorted[index].start=this.allDaysString[k-1]==null?"nieczynne":this.allDaysString[k-1];
+            }
+            index++;
+            this.allDaysSorted[index].ids=this.daysOfWeek[k];
+         mult=false;
+          }
+        }
+        if(mult){
+          this.allDaysSorted[index].ids+='-'+this.daysOfWeek[k-1];
+          this.allDaysSorted[index].start=this.allDaysString[k-1]==null?"nieczynne":this.allDaysString[k-1];
+        }else{
+          this.allDaysSorted[index].start=this.allDaysString[k-1]==null?"nieczynne":this.allDaysString[k-1];
+        }
+
+        console.log(this.allDaysSorted);
+
+
+
+        
+    /*    this.allDaysSorted.forEach(x=>{
+          if(x.ids.length>1){
+
+          x.ids.forEach(element => {
+            if(element==x.ids){}
+          });}
+        })
+       // console.log(this. );*/
     })
 
 

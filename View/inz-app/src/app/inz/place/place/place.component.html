@@ -55,9 +55,8 @@
               <div class="columns small-9 heading">
                 <h5 class="colHeader">Godziny otwarcia</h5>
                 <div class="addressStyle">
-                  <h6>Pon-Pt 10-18</h6>
-                  <h6>So 11-18</h6>
-                  <h6>Ndz 11-15</h6>
+                  <h6 *ngFor="let day of allDaysSorted">{{day.ids}} {{day.start}}</h6>
+                  
                 </div>
               </div>
             </div>
