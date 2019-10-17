@@ -1,5 +1,7 @@
 package inz.project.services;
 
-public interface ImageService {
+import inz.project.models.Image;
 
+public interface ImageService {
+	Image createImage(Image image);
 }
