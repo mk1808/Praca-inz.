@@ -11,6 +11,7 @@ import { AddPlaceComponent } from './add-place/add-place.component';
 import { MatDialogModule, MatSelectModule, MatFormFieldModule, MatAutocompleteModule, MatChipsModule, MatCheckboxModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import { ImageUploadModule } from 'angular2-image-upload';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
     MatAutocompleteModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ImageUploadModule
   ], 
   entryComponents: [
 

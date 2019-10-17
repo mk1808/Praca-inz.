@@ -199,6 +199,45 @@ textarea {
     padding-right: 0;
 }
 
-.up{
+ .up{
   margin-bottom:20px;
 }
+
+
+
+////////////////fiel
+
+::ng-deep .img-ul{
+  margin-top: 21px;
+  margin-bottom: 20px;
+}
+::ng-deep .img-ul-clear {
+  // background-color: red;
+   display: none!important;
+ }
+ 
+ ::ng-deep .img-ul-button {
+   border-radius: 30px;
+     /* border: 1px solid #fff; */
+     color: #fff;
+     background-color: #662d91!important;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     width: 20%;
+     padding: 1rem;
+   //  transition: all ease .4s;
+     text-align: center;
+     line-height: 16px;
+ }
+ 
+ ::ng-deep .img-ul-button span {
+  font-size: 16px;
+ }
+ ::ng-deep .img-ul-clear{
+   background-color: transparent!important;
+ }
+ 
+ ::ng-deep .img-ul-drag-box-msg {
+   font-weight: 500!important;
+ }
+ 

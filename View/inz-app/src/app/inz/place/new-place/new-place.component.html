@@ -202,6 +202,10 @@
         <label for="sign-in-form-password">Opis</label>
         <textarea  formControlName="description" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"> </textarea></div>
       
+        <image-upload url=""  [extensions]="['jpeg','png']" buttonCaption="Wybierz zdjęcia"
+        dropBoxMessage="Przeciągnij tutaj" ></image-upload>
+        
+
       <button type="submit" class="sign-in-form-button signIn" (click)="create()">Utwórz
 
       </button>
