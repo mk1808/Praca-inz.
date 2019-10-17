@@ -45,3 +45,10 @@ $menu-underline-from-center-border-thickness: 0.165rem;
   outline:none!important;
 
 }
+
+::ng-deep .cdk-overlay-pane 
+{   margin-top: 22px;}
+
+button{
+  cursor:pointer;
+}

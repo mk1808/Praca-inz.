@@ -14,6 +14,7 @@ status:boolean;
     this.auth.currentStatus.subscribe(status=>{
       this.status=status;
       console.log(this.status);
+      this.status=true;
     })
 
 

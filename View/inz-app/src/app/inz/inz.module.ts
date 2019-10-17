@@ -15,6 +15,7 @@ import { FlipModule } from 'ngx-flip';
 import { NgxGalleryModule } from 'ngx-gallery';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     NgxGalleryModule,
     FormsModule,
     ReactiveFormsModule,
+    MatMenuModule,
     
     MatTooltipModule
 

@@ -5,9 +5,45 @@
     <li routerLink="/place" routerLinkActive="appNavItemActive"><a class="underline-from-center">Atrakcje</a></li>
     <li><a class="underline-from-center">Hotele</a></li>
     <li routerLink="/trip" routerLinkActive="appNavItemActive"><a class="underline-from-center">Wycieczki</a></li>
-    <li routerLink="/auth/signin" routerLinkActive="appNavItemActive"><a class="underline-from-center">Logowanie</a>
+    <li routerLink="/auth/signin" routerLinkActive="appNavItemActive" *ngIf="status==false"><a
+        class="underline-from-center">Logowanie</a>
     </li>
-    <li routerLink="/auth/signup" routerLinkActive="appNavItemActive"><a class="underline-from-center">Rejestracja</a>
+    <li routerLink="/auth/signup" routerLinkActive="appNavItemActive" *ngIf="status==false"><a
+        class="underline-from-center">Rejestracja</a>
     </li>
+    <li routerLink="/auth/signup" routerLinkActive="appNavItemActive" *ngIf="status"><a
+        class="underline-from-center">Panel użytkownika</a>
+    </li>
+    <li routerLink="/auth/signup" routerLinkActive="appNavItemActive" *ngIf="status"><a class="underline-from-center">
+        Moje konto
+      </a>
+    </li>
+    <li  routerLinkActive="appNavItemActive" *ngIf="status"><a class="underline-from-center">
+        Wyloguj
+      </a>
+    </li>
+
+    <!--
+    <li routerLink="/auth/signup" routerLinkActive="appNavItemActive" *ngIf="status"><a class="underline-from-center">
+      Menu 
+      <button mat-button [matMenuTriggerFor]="menu">
+<a href="https://www.flaticon.com/authors/freepik"> </a>
+      </button>
+        <mat-menu #menu="matMenu"  >
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+        </mat-menu>  
+        
+       </a>
+       </li>
+
+    <li>
+        <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+        </mat-menu>
+    </li>
+    -->
   </ul>
 </nav>
