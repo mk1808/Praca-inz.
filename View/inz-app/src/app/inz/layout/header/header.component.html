@@ -18,7 +18,7 @@
         Moje konto
       </a>
     </li>
-    <li  routerLinkActive="appNavItemActive" *ngIf="status"><a class="underline-from-center">
+    <li (click)="onLogOut()" routerLinkActive="appNavItemActive" *ngIf="status"><a class="underline-from-center">
         Wyloguj
       </a>
     </li>
