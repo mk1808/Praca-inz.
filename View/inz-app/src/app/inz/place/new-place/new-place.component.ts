@@ -19,6 +19,8 @@ user:User = new User;
 newPlaceId:number;
 openingHours:OpeningHours = new OpeningHours();
 week:boolean[]=[false,false,false,false,false,false,false];
+file:any;
+image:any;
 constructor(private fb: FormBuilder, private placeService: PlaceService,
   private router: Router, private route: ActivatedRoute,
    private dictionaryService: DictionaryService, private cookie:CookieService) { }
@@ -56,6 +58,7 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
       friClose:[null],
       satClose:[null],
       sunClose:[null],
+      image:[]
       
     })
 
@@ -98,6 +101,7 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
     this.openingHours.sunOpen=this.form.controls.sunOpen.value;
     this.openingHours.sunClose=this.form.controls.sunClose.value;
     this.newPlace.hours=this.openingHours;
+    console.log(this.form.controls.image.value);
     
 
 this.user = JSON.parse(this.cookie.get('user'));
@@ -110,6 +114,26 @@ console.log(this.newPlace);
       this.router.navigate(['/place/details/' + this.newPlaceId]);
     })
 
+  }
+
+  onUploadFinished(event){
+    let img=event.file;
+    console.log(img);
+    this.readImage(img);
+
+  }
+
+  readImage(inputValue: any){
+    this.file = inputValue;
+    this.form.controls.image.setValue("");
+    let myReader: FileReader = new FileReader();
+  
+    myReader.onloadend = (e) => {
+      this.image = myReader.result;
+     // this.imageControl=''; 
+     console.log(this.image);
+    }
+    myReader.readAsDataURL(this.file);
   }
 
 }
