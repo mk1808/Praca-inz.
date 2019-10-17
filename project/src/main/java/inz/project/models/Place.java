@@ -54,7 +54,6 @@ public class Place {
 	
 
 	@OneToMany(cascade=CascadeType.ALL)
-
 	private List<Image> image;
 	
 	public Place() {}

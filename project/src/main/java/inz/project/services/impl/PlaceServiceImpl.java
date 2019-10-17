@@ -69,6 +69,7 @@ public class PlaceServiceImpl implements PlaceService{
 		
 		OpeningHours newHours = this.openingHoursRepository.save(hours);
 		place.setHours(newHours);
+		//place.getImage()
 		return this.placeRepository.save(place);
 	}
 	
