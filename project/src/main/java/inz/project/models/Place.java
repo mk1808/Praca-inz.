@@ -1,5 +1,8 @@
 package inz.project.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -7,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -49,18 +53,15 @@ public class Place {
 	*/
 	
 
-	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinTable(name = "images_place", 
-      joinColumns = @JoinColumn(name = "place_id"), 
-      inverseJoinColumns = @JoinColumn(name = "image_id"))
-	@NotNull 
-	private Image image;
+	@OneToMany(cascade=CascadeType.ALL)
+
+	private List<Image> image;
 	
 	public Place() {}
 	public Place(Long id,@NotNull String name, 	@NotNull PlaceCategory category, String description, 	
 			@NotNull Country country, String region, String city,
 			String street, String number,  String phoneNumber, 
-			String website, @NotNull String status, User user, OpeningHours hours, Image image ) {
+			String website, @NotNull String status, User user, OpeningHours hours, List<Image>  image ) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -170,6 +171,13 @@ public class Place {
 	public void setHours(OpeningHours hours) {
 		this.hours = hours;
 	}
+	public List<Image>  getImage() {
+		return image;
+	}
+	public void setImage(List<Image>  image) {
+		this.image = image;
+	}
+	
 	
 	
 }
