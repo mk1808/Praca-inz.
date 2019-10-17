@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 status:boolean;
-  constructor(private auth:AuthService, private router: Router) { }
+  constructor(private auth:AuthService, private router: Router, private cookie:CookieService) { }
 
   ngOnInit() {
     this.auth.currentStatus.subscribe(status=>{
@@ -22,8 +23,9 @@ status:boolean;
   }
 
   onLogOut(){
+    this.cookie.deleteAll('*');
+    this.router.navigate(['/']);
     this.auth.changeStatus(false);
-    this.router.navigate(['/'])
   }
 
 }
