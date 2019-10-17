@@ -27,6 +27,7 @@ export class Place{
     website:string;
     user:User;
     hours:OpeningHours;
+    image:Image[];
 }
 
 export class Trip{
@@ -88,4 +89,9 @@ export class OpeningHours{
 	satClose:string;
 	sunOpen:string;
 	sunClose:string;
+}
+
+export class Image{
+   id;
+    image:string;
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Place, User, OpeningHours } from 'src/app/shared/models/classes';
+import { Place, User, OpeningHours, Image } from 'src/app/shared/models/classes';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PlaceService } from 'src/app/shared/services/place.service';
 import { DictionaryService } from 'src/app/shared/services/dictionary.service';
@@ -21,11 +21,13 @@ openingHours:OpeningHours = new OpeningHours();
 week:boolean[]=[false,false,false,false,false,false,false];
 file:any;
 image:any;
+imgObj:Image = new Image();
 constructor(private fb: FormBuilder, private placeService: PlaceService,
   private router: Router, private route: ActivatedRoute,
    private dictionaryService: DictionaryService, private cookie:CookieService) { }
 
   ngOnInit() {
+    this.newPlace.image=[];
     this.form = this.fb.group({
       name: ['', Validators.required],
       category: ['', Validators.required],
@@ -57,8 +59,7 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
       thuClose:[null],
       friClose:[null],
       satClose:[null],
-      sunClose:[null],
-      image:[]
+      sunClose:[null]
       
     })
 
@@ -101,7 +102,11 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
     this.openingHours.sunOpen=this.form.controls.sunOpen.value;
     this.openingHours.sunClose=this.form.controls.sunClose.value;
     this.newPlace.hours=this.openingHours;
-    console.log(this.form.controls.image.value);
+   
+    this.imgObj.image=this.image;
+    console.log(this.imgObj);
+    this.newPlace.image.push(this.imgObj);
+    
     
 
 this.user = JSON.parse(this.cookie.get('user'));
@@ -125,7 +130,7 @@ console.log(this.newPlace);
 
   readImage(inputValue: any){
     this.file = inputValue;
-    this.form.controls.image.setValue("");
+  //  this.form.controls.image.setValue("");
     let myReader: FileReader = new FileReader();
   
     myReader.onloadend = (e) => {
