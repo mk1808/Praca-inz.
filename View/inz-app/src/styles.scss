@@ -16,6 +16,16 @@ margin-right: 20px;
 font-family: 'Work Sans', sans-serif;
 min-height: 500px;
 }
+
+.containerFull{
+
+font-family: 'Work Sans', sans-serif;
+min-height: 840px;
+}
+
+.cont{
+  font-family: 'Work Sans', sans-serif;
+}
 @include foundation-grid;
 
 body{

@@ -176,7 +176,7 @@ place:Place;
 
       this.galleryOptions = [
           {
-              width: '750px',
+              width: '800px',
               height: '420px',
               thumbnailsColumns: 4,
               imageAnimation: NgxGalleryAnimation.Slide

@@ -118,18 +118,19 @@ h3 {
 
 .mapPos{
   margin-bottom:40px;
-  width:1480px;
+  width:1400px;
   height: 300px;
   margin-left: 20px;
   margin-right: 20px;
   margin-top:20px;
+  margin:0 auto;
 }
 
 .gallery{
   
   background-color: white;
   padding: 7px;
-  border-radius: 10px;
+
 }
  
 .firstHeader{
@@ -283,6 +284,10 @@ h3 {
     background-color: #4c216d;
   }
 
+  .photo.bck{
+    min-height: 420px;
+  }
+
   .screen{
     height: 800px;
   }
@@ -299,7 +304,7 @@ h3 {
     background-size: cover;
   }
 
-  ::ng-deep .row .full{
+  ::ng-deep .row {
    max-width: 1000rem !important;
   }
 
@@ -332,6 +337,7 @@ h3 {
   .infoCard{
     margin-right: 160px;
     margin-left: 160px;
+    margin-bottom: 60px;
    
   }
 
@@ -357,3 +363,22 @@ h3 {
     padding-bottom: 3px;
 }
   
+.rectangle{
+  background-color: #4c216d;  
+    background-image: linear-gradient(to right, #9174a7, #4c216d);
+    height:460px; 
+    position:relative;
+    top: -19px;
+    left: -49px;    
+    width:750px; z-index: -1;
+}
+
+.mapCard{
+
+  margin-left: 10px;
+    margin-right: 10px;
+}
+
+ .mapInfo{
+  margin-left:10px!important;
+}
