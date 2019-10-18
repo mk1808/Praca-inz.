@@ -16,9 +16,9 @@ id:number;
 place:Place;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
-  latitude = 50.026783;
+ /* latitude = 50.026783;
   longitude = 21.984447; 
-  mapType = 'roadmap';
+  mapType = 'roadmap';*/
   logged:boolean=true;
   position:PositionInTrip = new PositionInTrip();
   hours:[][];

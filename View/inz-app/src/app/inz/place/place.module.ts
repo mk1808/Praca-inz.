@@ -22,9 +22,9 @@ import { ImageUploadModule } from 'angular2-image-upload';
     NgxGalleryModule,
     StarRatingModule,
     MatDialogModule,
-    AgmCoreModule.forRoot({
+    /*AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBsLVzxs5lP8tAr0ErPMYOhBORJ-OoT0Ts'
-    }),
+    }),*/
     NgxEqualizerModule,
     ReactiveFormsModule,
     MatChipsModule,
