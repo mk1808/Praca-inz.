@@ -270,18 +270,25 @@ dropBoxMessage="Przeciągnij tutaj" ></image-upload>
 <br>
 
 <br>
-
 <div id="map" class="map">
-    <div id="popup" >
-
-        <div (click)="tooltip.toggle()" mat-raised-button #tooltip="matTooltip"
-        matTooltip="Info about the action"
-        matTooltipPosition="above"
-       >
-  <!--  <div *ngIf="visible" style="background-color: #fff;width:50px;height: 50px;"></div>-->
+  <div id="popup">
+    <div (click)="tooltip.toggle()" mat-raised-button #tooltip="matTooltip" matTooltip="Info about the action"
+      matTooltipPosition="above">
+      <!--  <div *ngIf="visible" style="background-color: #fff;width:50px;height: 50px;"></div>-->
     </div>
-    </div>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
 <!--
 <aol-map class="map" [width]="'1000px'" [height]="'300'">
     <aol-view [zoom]="2">
