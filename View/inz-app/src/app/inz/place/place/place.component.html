@@ -105,7 +105,17 @@
   </div>
 
 </div>
-<div class="mapPos">
+
+<div id="map" class="mapPos">
+  <div class="mapText">
+  <h4>  Mapa </h4>
+  </div>
+    <div id="popup">
+        <div (click)="tooltip.toggle()" mat-raised-button #tooltip="matTooltip" matTooltip="Info about the action"
+          matTooltipPosition="above">
+          <!--  <div *ngIf="visible" style="background-color: #fff;width:50px;height: 50px;"></div>-->
+        </div>
+      </div>
   <!--
   <agm-map class="map" [latitude]='latitude' [longitude]='longitude' [mapTypeId]='mapType'>
   </agm-map>-->

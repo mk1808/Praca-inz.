@@ -3,7 +3,7 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
 import { Router, ActivatedRoute } from '@angular/router';
 import { PlaceService } from 'src/app/shared/services/place.service';
 import { Place, PositionInTrip } from 'src/app/shared/models/classes';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatTooltip } from '@angular/material';
 import { AddPlaceComponent } from '../add-place/add-place.component';
 
 @Component({
@@ -32,6 +32,12 @@ place:Place;
     {hours:null, start:null, end:null},{hours:null, start:null, end:null},{hours:null, start:null, end:null},
     {hours:null, start:null, end:null}]
   daysOfWeek:string[]=["Pon", "Wt", "Śr", "Czw", "Pt", "So", "Ndz"]
+  ///map
+  ol: any;
+  map:any;
+  @ViewChild('tooltip') tooltip:MatTooltip;
+  visible:boolean=false;
+  
   constructor( private router: Router, private route: ActivatedRoute, private placeService:PlaceService, public dialog: MatDialog){}
   ngOnInit(): void {
     this.route.params.subscribe(x => {
@@ -220,6 +226,76 @@ place:Place;
       }  
 
       ];
+
+
+      /////////map
+
+      var iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.fromLonLat([ 22.0025522,50.0333997 ])),
+        name: 'Null Island'
+      });
+      
+      var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon({
+          size:[100,120],
+          anchor: [14, 38],
+          anchorXUnits: 'pixels',
+          anchorYUnits: 'pixels',
+          src: 'assets/placeholder2.png',
+        })
+      });
+      
+      iconFeature.setStyle(iconStyle);
+      
+      var vectorSource = new ol.source.Vector({
+        features: [iconFeature]
+      });
+      
+      var vectorLayer = new ol.layer.Vector({
+        source: vectorSource
+      });
+      
+      var element:any = document.getElementById('popup');
+      
+      var popup = new ol.Overlay({
+        element: element,
+        positioning: 'bottom-center',
+        stopEvent: false,
+        offset: [0, -50]
+      });
+ 
+    this.map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          }),vectorLayer
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([21, 51.5]),
+          zoom: 8
+        })
+      });   
+      this.map.addOverlay(popup);
+    
+     this.map.on('click', (evt) =>{
+        var feature =this.map.forEachFeatureAtPixel(evt.pixel,
+          function(feature) {
+            return feature;
+          });
+        if (feature) {
+          var coordinates = feature.getGeometry().getCoordinates();
+          console.log(coordinates)
+          popup.setPosition(coordinates);
+          this.visible=!this.visible;
+          this.tooltip.toggle();
+        } else {
+            this.tooltip.hide();
+        }
+      });
+   
+   
+
   }
 
   onAdd(){

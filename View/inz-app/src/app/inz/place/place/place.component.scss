@@ -111,6 +111,11 @@ h3 {
 
 .mapPos{
   margin-bottom:40px;
+  width:1480px;
+  height: 300px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top:20px;
 }
 
 .gallery{
@@ -247,4 +252,12 @@ h3 {
 
   ::ng-deep  .ngx-gallery-icon{
     z-index: 1000!important;
+  }
+
+  ////mapa
+  .mapText{
+    padding-left: 12px;
+    padding-bottom: 3px;
+    background-color: #4c216d;
+    color: white;
   }
