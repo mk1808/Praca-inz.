@@ -176,8 +176,8 @@ place:Place;
 
       this.galleryOptions = [
           {
-              width: '600px',
-              height: '400px',
+              width: '750px',
+              height: '420px',
               thumbnailsColumns: 4,
               imageAnimation: NgxGalleryAnimation.Slide
           },
@@ -194,7 +194,7 @@ place:Place;
           // max-width 400
           {
               breakpoint: 400,
-              preview: false
+              preview: true
           }
       ];
 

@@ -12,6 +12,8 @@ import { MatDialogModule, MatSelectModule, MatFormFieldModule, MatAutocompleteMo
 import { ReactiveFormsModule } from '@angular/forms';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { ImageUploadModule } from 'angular2-image-upload';
+import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { ImageUploadModule } from 'angular2-image-upload';
     MatSelectModule,
     MatCheckboxModule,
     ImageUploadModule, 
-    MatTooltipModule
+    MatTooltipModule,
+    MatCardModule,
+    MatDividerModule 
   ], 
   entryComponents: [
 

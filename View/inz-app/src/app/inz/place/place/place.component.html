@@ -23,11 +23,14 @@
  
   </div>
   <div class="row myRow">
-    <div class="columns small-6">
+    <div class="columns small-8">
       <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="gallery"></ngx-gallery>
     </div>
-    <div class="columns small-6 smallContainer">
+    
+    <div class="columns small-4 smallContainer">
+        <mat-card class="card">
       <h4>Informacje</h4>
+      <mat-divider></mat-divider>
       <div class="content">
         <div class="row">
           <div class="columns myHighlight small-6 ">
@@ -101,7 +104,9 @@
 
         </div>
       </div>
-    </div>
+   
+    </mat-card>
+  </div>
   </div>
 
 </div>
