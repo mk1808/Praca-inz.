@@ -7,6 +7,9 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
     styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
+     ol: any;
+     map:any;
+
     keyword = 'name';
   data = [
      {
@@ -115,6 +118,29 @@ export class TestComponent implements OnInit {
 
     ngOnInit(): void {
 
+        this.map = new ol.Map({
+            target: 'map',
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              })
+            ],
+            view: new ol.View({
+              center: ol.proj.fromLonLat([21, 52]),
+              zoom: 8
+            })
+          });   
+
+          this.map.on('click', function (args) {
+            console.log(args.coordinate);
+            var lonlat = ol.proj.transform(args.coordinate, 'EPSG:3857', 'EPSG:4326');
+            console.log(lonlat);
+            
+            var lon = lonlat[0];
+            var lat = lonlat[1];
+            alert(`lat: ${lat} long: ${lon}`);
+          });
+          
         this.galleryOptions = [
             {
                 width: '600px',
