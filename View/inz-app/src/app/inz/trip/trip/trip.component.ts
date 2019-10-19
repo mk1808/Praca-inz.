@@ -49,29 +49,33 @@ tableContent:any[] = [
     this.places=x;
     console.log(this.places);
 
-
+    var iconStyle = new ol.style.Style({
+      image: new ol.style.Icon({
+        size:[100,120],
+        anchor: [14, 38],
+        anchorXUnits: 'pixels',
+        anchorYUnits: 'pixels',
+        src: 'assets/placeholder2.png',
+      })
+    });
     
+    let tabPlace=[];
       /////////map
-
-      var iconFeature = new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.fromLonLat([ 22.0025522,50.0333997 ])),
-        name: 'Null Island'
+  this.places.forEach(x=>{
+    let iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.fromLonLat([ x.longitude,x.latitude ])),
+        place: x
       });
-      
-      var iconStyle = new ol.style.Style({
-        image: new ol.style.Icon({
-          size:[100,120],
-          anchor: [14, 38],
-          anchorXUnits: 'pixels',
-          anchorYUnits: 'pixels',
-          src: 'assets/placeholder2.png',
-        })
-      });
-      
       iconFeature.setStyle(iconStyle);
+      tabPlace.push(iconFeature);
+  })
+      
+      
+    
+     
       
       var vectorSource = new ol.source.Vector({
-        features: [iconFeature]
+        features: tabPlace
       });
       
       var vectorLayer = new ol.layer.Vector({
@@ -111,6 +115,8 @@ tableContent:any[] = [
           console.log(coordinates)
           popup.setPosition(coordinates);
           this.visible=!this.visible;
+         console.log(feature);
+         this.tooltip.message=feature.get("place").name;
           this.tooltip.toggle();
         } else {
             this.tooltip.hide();
