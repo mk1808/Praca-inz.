@@ -28,6 +28,8 @@ export class Place{
     user:User;
     hours:OpeningHours;
     image:Image[];
+    latitude;
+    longitude;
 }
 
 export class Trip{

@@ -169,10 +169,11 @@
   
 </div>
 
+<div  >
+<div class="infoLabel mapInfo" >Lokalizacja</div>
 
-<div class="infoLabel mapInfo">Lokalizacja</div>
 <mat-card class="mapCard">
-  <div id="map" class="mapPos row">
+  <div  id="map" class="mapPos row">
     <div id="popup">
       <div (click)="tooltip.toggle()" mat-raised-button #tooltip="matTooltip" matTooltip="Info about the action"
         matTooltipPosition="above">
@@ -183,7 +184,7 @@
     <agm-map class="map" [latitude]='latitude' [longitude]='longitude' [mapTypeId]='mapType'>
     </agm-map>-->
   </div>
-</mat-card>
+</mat-card></div>
 <!--
 <div class="container">
  
