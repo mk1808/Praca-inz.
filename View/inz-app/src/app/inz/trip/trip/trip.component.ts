@@ -21,9 +21,9 @@ tableContent:any[] = [
 ];
   constructor(private componentsService:ComponentsService, private router: Router, private route: ActivatedRoute,
     private tripService: TripService) { }
-  latitude = 50.026783;
+ /* latitude = 50.026783;
   longitude = 21.984447; 
-  mapType = 'roadmap';
+  mapType = 'roadmap';*/
   id:number;
   trip:Trip;
   places:Place[]=[];

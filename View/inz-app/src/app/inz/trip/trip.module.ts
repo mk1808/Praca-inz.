@@ -33,10 +33,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatBadgeModule,
     AlertModule.forRoot(),
-    AgmCoreModule.forRoot({
+   /* AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBsLVzxs5lP8tAr0ErPMYOhBORJ-OoT0Ts'
 
-    })
+    })*/
   ],
   entryComponents: [
     HourDialogComponent,
