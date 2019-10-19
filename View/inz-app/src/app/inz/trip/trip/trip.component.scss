@@ -91,7 +91,9 @@ tr:hover td {
 
 .photo{
   height: 300px!important;
-  border: 5px solid #662d91;
+  border: 10px solid #662d91;
+  width:100%;
+
 }
 
 thead tr{
@@ -366,4 +368,8 @@ mat-card{
   padding-right: 7px;
   padding-top: 3px;
   padding-bottom: 3px;
+}
+
+.second{
+  margin-top:40px;
 }
