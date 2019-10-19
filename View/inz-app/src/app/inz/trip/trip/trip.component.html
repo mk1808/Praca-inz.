@@ -44,7 +44,7 @@
 </div>
 
 
-<div class="containerFull full second">
+<div class="cont full second">
   <div claee="row">
     <div class="columns large-6 align-center screen ">
         <div *ngIf="!hover; else photoContainer" >
@@ -80,6 +80,17 @@
     </div>
   </div>
 </div>
+
+<div class="infoLabel mapInfo">Lokalizacja</div>
+<mat-card class="mapCard">
+  <div id="map" class="mapPos row">
+    <div id="popup">
+      <div (click)="tooltip.toggle()" mat-raised-button #tooltip="matTooltip" matTooltip="Info about the action"
+        matTooltipPosition="above">
+      </div>
+    </div>
+  </div>
+</mat-card>
 
 <div class="container">
   <div class="holy-grail-grid">
