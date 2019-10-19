@@ -18,6 +18,7 @@ import { AddPlaceComponent } from '../place/add-place/add-place.component'
 import { AlertModule } from 'ngx-foundation';
 import { MatBadgeModule, MatCardModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import { StarRatingModule } from 'angular-star-rating';
 
 @NgModule({
   declarations: [TripComponent, PhotosOnHoverComponent,
@@ -33,7 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatBadgeModule,
     AlertModule.forRoot(),
-    MatCardModule
+    MatCardModule,
+    StarRatingModule
    /* AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBsLVzxs5lP8tAr0ErPMYOhBORJ-OoT0Ts'
 

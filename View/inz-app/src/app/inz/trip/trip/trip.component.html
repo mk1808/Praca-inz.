@@ -1,3 +1,39 @@
+<div class="containerFull full ">
+  <div claee="row">
+    <div class="columns large-6 align-center screen ">
+      <div class="row iconS align-start">
+          <div class="columns large-2"></div>
+        <div class="columns large-2">
+        <img src="assets/map.svg"  height="90px" width="90px">
+      </div>
+      <div class="columns large-4">
+        <h3 class="mainName">{{trip.name}} </h3>
+        
+        <star-rating id="ratingStar" [starType]="'svg'" [rating]="4.5" [disabled]="true" [showHalfStars]="true"
+          size="large"></star-rating>
+        
+      </div>
+      </div>
+
+      <div class="row">
+        <div class="columns large-12 bigBtn">
+          <span class="button success add-button" (click)="onAdd()" *ngIf="logged">
+            <i class="material-icons add-icon">
+              add_circle
+            </i>
+            <span class="btnText"> Dodaj do wycieczki
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="columns large-6 photoN screen ">a
+      <div class="background"></div>
+    </div>
+  </div>
+</div>
+
+
 <div class="container">
   <div class="holy-grail-grid">
     <div class="holy-grail-header">

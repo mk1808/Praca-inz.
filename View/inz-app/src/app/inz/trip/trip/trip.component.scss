@@ -279,3 +279,40 @@ thead th{
 ::ng-deep .row {
   max-width: 1000rem !important;
  }
+
+
+ ///podzial
+
+ .screen{
+  height: 800px;
+}
+
+.iconS{
+  margin-top: 200px;
+    margin-left: 40px;
+
+}
+
+.mainName{
+  margin-left: 6px;
+}
+
+.photoN{
+  background-color: #4c216d;
+}
+
+.photo.bck{
+  min-height: 420px;
+}
+
+.background {
+    
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Louvre_Palace_Courtyard_and_Pyramids.jpg/800px-Louvre_Palace_Courtyard_and_Pyramids.jpg");
+
+  height: 100%; 
+
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
