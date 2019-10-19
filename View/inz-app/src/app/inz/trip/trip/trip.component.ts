@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ComponentsService } from 'src/app/shared/services/components.service';
 import { TripService } from 'src/app/shared/services/trip.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Trip, Place } from 'src/app/shared/models/classes';
+import { MatTooltip } from '@angular/material';
 
 @Component({
   selector: 'app-trip',
@@ -11,6 +12,13 @@ import { Trip, Place } from 'src/app/shared/models/classes';
 })
 export class TripComponent implements OnInit {
 hover=false;
+
+ ///map
+ ol: any;
+ map:any;
+ @ViewChild('tooltip') tooltip:MatTooltip;
+ visible:boolean=false;
+ 
 
 tableContent:any[] = [
   {id: 1, name: "Muzeum Narodowe", location:"Warszawa", photo:"https://rosenthalblog.files.wordpress.com/2019/02/muzeum-narodowe.jpg"},
@@ -41,6 +49,77 @@ tableContent:any[] = [
     this.places=x;
     console.log(this.places);
   })
+
+
+  
+      /////////map
+
+      var iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.fromLonLat([ 22.0025522,50.0333997 ])),
+        name: 'Null Island'
+      });
+      
+      var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon({
+          size:[100,120],
+          anchor: [14, 38],
+          anchorXUnits: 'pixels',
+          anchorYUnits: 'pixels',
+          src: 'assets/placeholder2.png',
+        })
+      });
+      
+      iconFeature.setStyle(iconStyle);
+      
+      var vectorSource = new ol.source.Vector({
+        features: [iconFeature]
+      });
+      
+      var vectorLayer = new ol.layer.Vector({
+        source: vectorSource
+      });
+      
+      var element:any = document.getElementById('popup');
+      
+      var popup = new ol.Overlay({
+        element: element,
+        positioning: 'bottom-center',
+        stopEvent: false,
+        offset: [0, -50]
+      });
+ 
+    this.map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          }),vectorLayer
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([21, 51.5]),
+          zoom: 8
+        })
+      });   
+      this.map.addOverlay(popup);
+    
+     this.map.on('click', (evt) =>{
+        var feature =this.map.forEachFeatureAtPixel(evt.pixel,
+          function(feature) {
+            return feature;
+          });
+        if (feature) {
+          var coordinates = feature.getGeometry().getCoordinates();
+          console.log(coordinates)
+          popup.setPosition(coordinates);
+          this.visible=!this.visible;
+          this.tooltip.toggle();
+        } else {
+            this.tooltip.hide();
+        }
+      });
+   
+   
+
   }
 
 onHover(i){

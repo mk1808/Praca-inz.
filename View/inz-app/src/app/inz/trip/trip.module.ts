@@ -16,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddPlaceToTripDialogComponent } from './add-place-to-trip-dialog/add-place-to-trip-dialog.component';
 import { AddPlaceComponent } from '../place/add-place/add-place.component'
 import { AlertModule } from 'ngx-foundation';
-import { MatBadgeModule } from '@angular/material';
+import { MatBadgeModule, MatCardModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -33,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatBadgeModule,
     AlertModule.forRoot(),
+    MatCardModule
    /* AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBsLVzxs5lP8tAr0ErPMYOhBORJ-OoT0Ts'
 
