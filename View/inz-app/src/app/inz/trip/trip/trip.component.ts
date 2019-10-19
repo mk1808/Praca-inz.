@@ -48,10 +48,9 @@ tableContent:any[] = [
   this.tripService.getPlacesForTrip(this.id).subscribe(x=>{
     this.places=x;
     console.log(this.places);
-  })
 
 
-  
+    
       /////////map
 
       var iconFeature = new ol.Feature({
@@ -118,6 +117,10 @@ tableContent:any[] = [
         }
       });
    
+  })
+
+
+  
    
 
   }
