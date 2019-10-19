@@ -56,11 +56,15 @@ public class Place {
 	@OneToMany(cascade=CascadeType.ALL)
 	private List<Image> image;
 	
+	private Double longitude;
+	private Double latitude;
+	
 	public Place() {}
 	public Place(Long id,@NotNull String name, 	@NotNull PlaceCategory category, String description, 	
 			@NotNull Country country, String region, String city,
 			String street, String number,  String phoneNumber, 
-			String website, @NotNull String status, User user, OpeningHours hours, List<Image>  image ) {
+			String website, @NotNull String status, User user, OpeningHours hours, List<Image>  image,
+			Double longitude, Double latitude) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -77,6 +81,8 @@ public class Place {
 		this.user=user;
 		this.hours=hours;
 		this.image=image;
+		this.longitude=longitude;
+		this.latitude=latitude;
 
 	}
 	
@@ -175,6 +181,18 @@ public class Place {
 	}
 	public void setImage(List<Image>  image) {
 		this.image = image;
+	}
+	public Double getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+	public Double getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
 	}
 	
 	
