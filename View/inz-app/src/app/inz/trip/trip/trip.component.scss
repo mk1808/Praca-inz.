@@ -321,7 +321,7 @@ thead th{
 
 .tripInfo{
   margin-top:30px;
-  margin-left:55px;
+  margin-left:10px;
 }
 
 ::ng-deep .mat-chip-list-wrapper{
@@ -342,3 +342,10 @@ color: white !important;
 background-color: #662d91 !important;
     border-radius: 11px;
     padding: 3px;}
+
+mat-card{
+  width: 601px;
+  margin-left: 49px;
+  height: 246px;
+  margin-top: 70px;
+}
