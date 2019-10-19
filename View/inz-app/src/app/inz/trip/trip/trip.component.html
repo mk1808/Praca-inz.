@@ -14,18 +14,25 @@
         
       </div>
       </div>
-
+      
+      
       <div class="row">
-        <div class="columns large-12 bigBtn">
-          <span class="button success add-button" (click)="onAdd()" *ngIf="logged">
-            <i class="material-icons add-icon">
-              add_circle
-            </i>
-            <span class="btnText"> Dodaj do wycieczki
-            </span>
-          </span>
-        </div>
+      <div class="columns small-10 smallContainer border tripInfo">
+        <h4><span class="tripHeader">Państwo:</span> {{trip.country}}</h4>
+        <h4><span class="tripHeader">Region:</span> {{trip.region}}</h4>
+        <h4><span class="tripHeader">Czas trwania:</span> {{trip.duration}} dni</h4>
+    
+        <h4><span class="tripHeader">Tagi: </span> <span class="singleTag">#weekend #miasto #zwiedzanie </span></h4>
+      
+         
+    
+        <h4 class="description"><span class="tripHeader"> Opis: </span> {{trip.description}}
+        </h4> 
+
       </div>
+</div>
+
+      
     </div>
     <div class="columns large-6 photoN screen ">a
       <div class="background"></div>

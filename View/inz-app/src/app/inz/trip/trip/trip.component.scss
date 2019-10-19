@@ -288,7 +288,7 @@ thead th{
 }
 
 .iconS{
-  margin-top: 200px;
+  margin-top: 160px;
     margin-left: 40px;
 
 }
@@ -316,3 +316,29 @@ thead th{
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+//dla wycieczki
+
+.tripInfo{
+  margin-top:30px;
+  margin-left:55px;
+}
+
+::ng-deep .mat-chip-list-wrapper{
+ 
+  margin: 0!important;
+  margin-left: 50px!important;
+  margin-top:10px!important;
+}
+
+mat-chip{
+ 
+  color:white!important;
+  background-color: #662d91!important;
+}
+.singleTag{
+font-size: 16px;
+color: white !important;
+background-color: #662d91 !important;
+    border-radius: 11px;
+    padding: 3px;}
