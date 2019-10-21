@@ -16,6 +16,10 @@ export class ScheduleComponent implements OnInit {
   positions:PositionInSchedule[][]=[];
   allPositions:PositionInSchedule[][]=[];
   positionsWODay:PositionInSchedule[]=[];
+  allDaysSortedFinal: any[] = [{ start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] },
+  { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }];
+ 
+
   constructor(private router: Router, private route: ActivatedRoute, private tripService: TripService,
     private scheduleService: ScheduleService) { }
 

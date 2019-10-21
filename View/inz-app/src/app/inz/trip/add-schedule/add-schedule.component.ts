@@ -55,6 +55,10 @@ placeInitialized:boolean=false;
 tab:any[]=[];
 tabScheduleHours:any[]=[];
 position:PositionInSchedule;
+allDaysSortedFinal: any[] = [{ start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] },
+{ start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }];
+
+
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, 
     private tripService:TripService, private placeService:PlaceService, private scheduleService:ScheduleService, public dialog: MatDialog,
     notifierService: NotifierService) { 
