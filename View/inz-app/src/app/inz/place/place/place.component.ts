@@ -5,6 +5,7 @@ import { PlaceService } from 'src/app/shared/services/place.service';
 import { Place, PositionInTrip } from 'src/app/shared/models/classes';
 import { MatDialog, MatTooltip } from '@angular/material';
 import { AddPlaceComponent } from '../add-place/add-place.component';
+import { ComponentsService } from 'src/app/shared/services/components.service';
 
 @Component({
   selector: 'app-place',
@@ -32,6 +33,9 @@ export class PlaceComponent implements OnInit {
   { hours: null, start: null, end: null }, { hours: null, start: null, end: null }, { hours: null, start: null, end: null },
   { hours: null, start: null, end: null }]
   daysOfWeek: string[] = ["Pon", "Wt", "Śr", "Czw", "Pt", "So", "Ndz"]
+  allDaysSortedFinal: any[] = [{ start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] },
+  { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }];
+ 
 
   ///map
   ol: any;
@@ -41,7 +45,8 @@ export class PlaceComponent implements OnInit {
   latitude;
   initialized = true;
   @ViewChild('tooltip') tooltip: MatTooltip;
-  constructor(private router: Router, private route: ActivatedRoute, private placeService: PlaceService, public dialog: MatDialog) { }
+  constructor(private router: Router, private route: ActivatedRoute, private placeService: PlaceService,
+    private componentsService:ComponentsService, public dialog: MatDialog) { }
   ngOnInit(): void {
     this.route.params.subscribe(x => {
       this.id = x['id'];
@@ -56,6 +61,11 @@ export class PlaceComponent implements OnInit {
 
       console.log(this.longitude);
       console.log(this.latitude);
+
+     this.allDaysSortedFinal= this.componentsService.getHoursForDays(this.place.hours);
+     console.log(this.allDaysSortedFinal);
+
+/*
 
       if (this.place.hours.mon) {
       this.allDaysString[0] = (this.place.hours.monOpen + ' - ' + this.place.hours.monClose);
@@ -102,10 +112,6 @@ export class PlaceComponent implements OnInit {
       console.log(this.allDaysString);
      
       let i = 0;
-      /*  do{
-          let start = this.allDaysString[i];
-
-        }while(1)*/
       let start = this.allDaysString[0];
       let tab: [] = [];
       let j = -1;
@@ -162,6 +168,7 @@ export class PlaceComponent implements OnInit {
       }
 
       console.log(this.allDaysSorted);
+      */
 
       /////////map
 

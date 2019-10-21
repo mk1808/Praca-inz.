@@ -74,10 +74,6 @@ public eventEmitter = this.eventSource.asObservable();
       }
 
       let i = 0;
-      /*  do{
-          let start = allDaysString[i];
-
-        }while(1)*/
       let start = allDaysString[0];
       let tab: [] = [];
       let j = -1;
@@ -104,7 +100,7 @@ public eventEmitter = this.eventSource.asObservable();
 
         let start = allDaysString[i];
       }
-      console.log(allDaysSorted);
+  
 
       let index = 0;
       let mult = false;
