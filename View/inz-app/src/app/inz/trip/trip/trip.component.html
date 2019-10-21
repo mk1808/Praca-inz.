@@ -46,7 +46,7 @@
 
 <div class="cont full second">
   <div claee="row">
-    <div class="columns large-6 align-center screen ">
+    <div class="columns large-6 align-center ">
         <div *ngIf="!hover; else photoContainer" >
             <img class="photo" 
              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Warszawa-Zamek_Kr%C3%B3lewski.jpg/1024px-Warszawa-Zamek_Kr%C3%B3lewski.jpg"
@@ -58,7 +58,10 @@
             </div>
           </ng-template>
     </div>
-    <div class="columns large-6 align-center screen ">
+    <div class="columns narrow" >
+      <div class=" rectangle" ></div>
+    </div>
+    <div class="columns large-6 align-center ">
         <table class="table table-striped table-hover">
             <thead>
               <tr>
@@ -79,8 +82,9 @@
           </table>
     </div>
   </div>
+  <div class="clear"></div>
 </div>
-
+<!--
 <div class="infoLabel mapInfo">Lokalizacja</div>
 <mat-card class="mapCard">
   <div id="map" class="mapPos row">
@@ -91,7 +95,8 @@
     </div>
   </div>
 </mat-card>
-
+-->
+<!--
 <div class="container">
   <div class="holy-grail-grid">
     <div class="holy-grail-header">
@@ -131,7 +136,7 @@
                 <td data-label="Hero Title">{{place.city}}</td>
               </tr>
             </tbody>
-          </table>
+          </table>-->
        
     <!--   <table class="table table-hover">
         <thead>
@@ -162,7 +167,7 @@
           </tr>
         </tbody>
       </table>
-      -->
+     
       </div>
         <div *ngIf="!hover; else photoContainer" >
           <img class="photo" 
@@ -179,8 +184,8 @@
 
     </div>
   </div>
-</div>
-
+</div> -->
+<!--
 <div class="infoLabel mapInfo">Lokalizacja</div>
 <mat-card class="mapCard">
   <div id="map" class="mapPos row">
@@ -193,7 +198,7 @@
 </mat-card>
 
 
-
+-->
 <!--
 <div class="map">
     <agm-map style="width:100%; height:250px;" [latitude]='latitude' [longitude]='longitude' 

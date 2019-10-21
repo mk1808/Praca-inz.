@@ -91,7 +91,7 @@ tr:hover td {
 
 .photo{
   height: 300px!important;
-  border: 10px solid #662d91;
+ // border: 10px solid #662d91;
   width:100%;
 
 }
@@ -372,4 +372,26 @@ mat-card{
 
 .second{
   margin-top:40px;
+  margin-bottom: 40px;
+}
+
+.rectangle{
+  background-color: #4c216d;  
+    background-image: linear-gradient(to right, #9174a7, #4c216d);
+    height: 303px;
+    position: relative;
+    top: 24px;
+    left: -760px;
+    width: 756px;
+    z-index: -1;
+}
+
+.narrow{
+  width:0px;
+  overflow: visible;
+  padding: 0;
+}
+
+.clear{
+  clear: both;
 }
