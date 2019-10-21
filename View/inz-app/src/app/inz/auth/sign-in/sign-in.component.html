@@ -1,10 +1,15 @@
+<div class="bodyImg">
 <div class="container">
-    <h2 class="headingStyle">Logowanie</h2>
+    
 
 
 
     <form [formGroup]="loginForm">
-        <div class="sign-in-form">
+        <div class="columns narrow" >
+            <div class=" rectangle" ></div>
+          </div>
+      <div class="sign-in-form">
+          <h2 class="headingStyle">Logowanie</h2>
           <div class="singleInput">
           <label for="sign-in-form-username">Login</label>
           <input type="text" class="sign-in-form-username" id="sign-in-form-username" autocomplete="off"
@@ -24,4 +29,5 @@
       <button class="sign-in-form-button signUp" (click)="onSignUp()">Zarejestruj</button>
     </div>
 
+</div>
 </div>

@@ -24,7 +24,7 @@
 
 .sign-in-form {
     padding: 1rem 1.5em;
-    border-radius: .5rem;
+   // border-radius: .5rem;
     //background-color: white;
     width: 53%;
     margin:0 auto;
@@ -114,5 +114,28 @@
 
 button{
   cursor:pointer;
+
+}
+
+.rectangle{
+  background-color: #4c216d;  
+    background-image: linear-gradient(to right, #9174a7, #4c216d);
+    height: 303px;
+    position: relative;
+    top: 24px;
+    left: -760px;
+    width: 756px;
+    z-index: -1;
+}
+
+.narrow{
+  width:0px;
+  overflow: visible;
+  padding: 0;
+}
+
+.bodyImg{
+  background-image:
+  url("https://c.pxhere.com/photos/a6/21/4k_wallpaper_adventure_daylight_glacier_HD_wallpaper_high_lake_landscape-1548857.jpg!d");
 
 }
