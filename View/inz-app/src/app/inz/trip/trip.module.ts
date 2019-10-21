@@ -16,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddPlaceToTripDialogComponent } from './add-place-to-trip-dialog/add-place-to-trip-dialog.component';
 import { AddPlaceComponent } from '../place/add-place/add-place.component'
 import { AlertModule } from 'ngx-foundation';
-import { MatBadgeModule, MatCardModule, MatChipsModule } from '@angular/material';
+import { MatBadgeModule, MatCardModule, MatChipsModule, MatSelectModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { StarRatingModule } from 'angular-star-rating';
 
@@ -36,7 +36,8 @@ import { StarRatingModule } from 'angular-star-rating';
     AlertModule.forRoot(),
     MatCardModule,
     StarRatingModule,
-    MatChipsModule
+    MatChipsModule,
+    MatSelectModule
    /* AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBsLVzxs5lP8tAr0ErPMYOhBORJ-OoT0Ts'
 

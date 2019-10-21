@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material';
 import { AddPlaceToTripDialogComponent } from '../add-place-to-trip-dialog/add-place-to-trip-dialog.component';
 import { TripService } from 'src/app/shared/services/trip.service';
 import { CookieService } from 'ngx-cookie-service';
+import { DictionaryService } from 'src/app/shared/services/dictionary.service';
 
 @Component({
   selector: 'app-new-trip',
@@ -25,13 +26,15 @@ export class NewTripComponent implements OnInit {
   addButtonIcon: string = "add_circle";
   position:PositionInTrip = new PositionInTrip();
   status:boolean[]=[];
+  countries:any[]=[];
 
   constructor(private fb: FormBuilder, private placeService: PlaceService, private tripService: TripService,
+    private dictionaryService:DictionaryService,
     private router: Router, private route: ActivatedRoute, public dialog: MatDialog,  private cookie:CookieService) {
 
     this.form = this.fb.group({
       name: ['', Validators.required],
-      country: ['', Validators.required],
+      country: ['Polska', Validators.required],
       region: ['', Validators.required],
       duration: ['', Validators.required],
       description: [''],
@@ -39,6 +42,9 @@ export class NewTripComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dictionaryService.getCountries().subscribe(y=>{
+      this.countries = y;
+    })
 
   }
   onCreate() {
