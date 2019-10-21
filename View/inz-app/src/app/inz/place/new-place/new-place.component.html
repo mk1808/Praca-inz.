@@ -29,9 +29,19 @@
       <div class="textCateogory up">- Adres -</div>
 
       <div class="singleInput">
+          <label for="sign-in-form-password">Kraj</label>
+          <mat-select class="searchTerm sign-in-form-username selectInput" placeholder="Wybierz kraj"
+            formControlName="country">
+            <mat-option *ngFor="let country of countries" [value]="country">
+              {{country}}
+            </mat-option>
+          </mat-select>
+        </div>
+<!--
+      <div class="singleInput">
         <label for="sign-in-form-password">Państwo</label>
         <input type="text"  formControlName="country" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
-
+-->
       <div class="singleInput">
         <label for="sign-in-form-password">Region</label>
         <input type="text"  formControlName="region" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>

@@ -13,6 +13,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class NewPlaceComponent implements OnInit {
 categories:any[]=[];
+countries:any[]=[];
 form: FormGroup;
 newPlace: Place=new Place;
 user:User = new User;
@@ -31,7 +32,7 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
     this.form = this.fb.group({
       name: ['', Validators.required],
       category: ['', Validators.required],
-      country: ['', Validators.required],
+      country: ['Polska', Validators.required],
       region: ['', Validators.required],
       city: ['', Validators.required],
       street: ['', Validators.required],
@@ -66,6 +67,10 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
     this.dictionaryService.getCategories().subscribe(x => {
       this.categories = x;
       console.log(this.categories);
+    })
+
+    this.dictionaryService.getCountries().subscribe(y=>{
+      this.countries = y;
     })
   }
 
