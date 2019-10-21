@@ -345,12 +345,12 @@ background-color: #662d91 !important;
     border-radius: 11px;
     padding: 3px;}
 
-mat-card{
+ mat-card.smallCard{
   width: 601px;
   margin-left: 49px;
   height: 246px;
-
 }
+
 
 .infoLabel{
   margin-top:63px;
@@ -394,4 +394,42 @@ mat-card{
 
 .clear{
   clear: both;
+}
+
+.infoLabel2{
+  margin-left: 160px;
+  font-size: 24px;
+  width: fit-content;
+  background-color: #fff;
+  border-radius: 4px;
+  /* box-shadow: 1px 1px 1px 3px; */
+  border-top: 1px solid #e7e7e7;
+  border-left: 1px solid #e7e7e7;
+  border-right: 1px solid #e7e7e7;
+  border-bottom: 1px dashed #e7e7e7;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.mapInfo2{
+  margin-left:10px!important;
+}
+
+
+.mapCard2{
+
+  margin-left: 10px;
+    margin-right: 10px;
+}
+
+.mapPos2{
+  margin-bottom:40px;
+  width:1400px;
+  height: 300px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top:20px;
+  margin:0 auto;
 }
