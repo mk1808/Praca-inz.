@@ -41,6 +41,21 @@
           <label for="sign-in-form-username">Wiek</label>
           <input type="number" class="sign-in-form-username" id="sign-in-form-username" formControlName="age"> 
         </div>
+
+
+        <!--new select-->
+        <div class="singleInput">
+          <label for="sign-in-form-password">Kraj</label>
+          <mat-select class="searchTerm sign-in-form-username selectInput" placeholder="Wybierz kraj"
+            formControlName="country">
+            <mat-option *ngFor="let country of countries2" [value]="country">
+              {{country}}
+            </mat-option>
+          </mat-select>
+        </div>
+
+
+<!--
         <div class="singleInput">
           <label for="sign-in-form-password">Kraj</label>
           <select class="sign-in-form-password" id="sign-in-form-password" formControlName="country">
@@ -50,7 +65,7 @@
                 {{country}}</option>
 
           </select>
-        </div>
+        </div>-->
         <div class="singleInput">
           <label for="sign-in-form-username">Miasto</label>
           <input type="text" class="sign-in-form-username" id="sign-in-form-username" formControlName="city">

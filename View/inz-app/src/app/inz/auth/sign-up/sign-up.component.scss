@@ -48,15 +48,18 @@
     width:50%;
   }
   
-  .sign-in-form input {
+  .sign-in-form input,
+  .sign-in-form mat-select {
     background-color: rgb(160, 155, 155)!important;
   }
   
-  .sign-in-form input:-webkit-autofill {
+  .sign-in-form input:-webkit-autofill,
+  .sign-in-form mat-select:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 100px rgb(160, 155, 155) inset;
   }
   
-  .sign-in-form input:focus {
+  .sign-in-form input:focus,
+  .sign-in-form mat-select:focus {
     opacity: .9;
     color: #334049;
   }
@@ -164,3 +167,13 @@ button{
 .submit{
   margin-top:0px;
 }
+
+///form
+.selectInput{
+  height: 2.4375rem;
+    padding-bottom: 0px!important;
+    padding-top: 7px;
+    padding-left: 10px;
+    font-family: "Work Sans", sans-serif !important;
+}
+
