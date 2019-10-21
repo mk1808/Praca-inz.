@@ -100,9 +100,7 @@ export class PlaceComponent implements OnInit {
       }
 
       console.log(this.allDaysString);
-      this.allDaysString.forEach(x => {
-
-      })
+     
       let i = 0;
       /*  do{
           let start = this.allDaysString[i];

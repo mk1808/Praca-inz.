@@ -22,11 +22,14 @@ public eventEmitter = this.eventSource.asObservable();
     return this.placeTableItem;
   }
 
-  public getHoursForDays(hours:OpeningHours):Observable<any>{
+  public getHoursForDays(hours:OpeningHours){
    let allDaysString: string[] = [null, null, null, null, null, null, null];
    let allDays: any[] = [{ start: null, end: null }, { start: null, end: null }, { start: null, end: null }, { start: null, end: null }
     , { start: null, end: null }, { start: null, end: null }, { start: null, end: null }];
- 
+   let allDaysSorted: any[] = [{ start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] },
+    { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }]
+   let daysOfWeek: string[] = ["Pon", "Wt", "Śr", "Czw", "Pt", "So", "Ndz"]
+
   
     if (hours.mon) {
       allDaysString[0] = (hours.monOpen + ' - ' + hours.monClose);
@@ -70,9 +73,67 @@ public eventEmitter = this.eventSource.asObservable();
         allDays[6].end = hours.sunClose;
       }
 
+      let i = 0;
+      /*  do{
+          let start = allDaysString[i];
+
+        }while(1)*/
+      let start = allDaysString[0];
+      let tab: [] = [];
+      let j = -1;
+      let repeated: boolean = false;
+      let length;
+      for (let i = 0; i < 7; i++) {
+        if (allDaysString[i] != null) {
+          allDaysSorted.forEach(x => {
+            if (x.start == allDaysString[i]) {
+              x.ids.push(daysOfWeek[i]);
+
+              repeated = true;
+
+            }
+          })
+          if (!repeated) {
+            j++;
+            allDaysSorted[j].start = allDaysString[i];
+            allDaysSorted[j].ids.push(daysOfWeek[i]);
+          }
+
+
+        }
+
+        let start = allDaysString[i];
+      }
+      console.log(allDaysSorted);
+
+      let index = 0;
+      let mult = false;
+      let k = 0;
+      allDaysSorted[0].ids = "Pn"
+      for (k = 1; k < 7; k++) {
+        if (allDaysString[k] == allDaysString[k - 1]) {
+          mult = true;
+        }
+        else {
+          if (mult) {
+            allDaysSorted[index].ids += '-' + daysOfWeek[k - 1];
+            allDaysSorted[index].start = allDaysString[k - 1] == null ? "nieczynne" : allDaysString[k - 1];
+          } else {
+            allDaysSorted[index].start = allDaysString[k - 1] == null ? "nieczynne" : allDaysString[k - 1];
+          }
+          index++;
+          allDaysSorted[index].ids = daysOfWeek[k];
+          mult = false;
+        }
+      }
+      if (mult) {
+        allDaysSorted[index].ids += '-' + daysOfWeek[k - 1];
+        allDaysSorted[index].start = allDaysString[k - 1] == null ? "nieczynne" : allDaysString[k - 1];
+      } else {
+        allDaysSorted[index].start = allDaysString[k - 1] == null ? "nieczynne" : allDaysString[k - 1];
+      }
     
-    
-    return this.placeTableItem;
+    return allDaysSorted;
   }
 
 }
