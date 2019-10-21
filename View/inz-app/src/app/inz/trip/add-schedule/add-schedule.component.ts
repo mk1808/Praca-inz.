@@ -9,6 +9,7 @@ import { Trip, Schedule, Place, PositionInSchedule } from 'src/app/shared/models
 import { ScheduleService } from 'src/app/shared/services/schedule.service';
 import { NotifierService } from 'angular-notifier';
 import { PlaceService } from 'src/app/shared/services/place.service';
+import { ComponentsService } from 'src/app/shared/services/components.service';
 
 export class TripPlace{
     trip:Trip;
@@ -53,6 +54,7 @@ openHours:any[]=[];
 openHoursForDay:any[]=[];
 placeInitialized:boolean=false;
 tab:any[]=[];
+tabOpeningHours:any[]=[];
 tabScheduleHours:any[]=[];
 position:PositionInSchedule;
 allDaysSortedFinal: any[] = [{ start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] },
@@ -60,7 +62,8 @@ allDaysSortedFinal: any[] = [{ start: null, end: null, ids: [] }, { start: null,
 
 
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, 
-    private tripService:TripService, private placeService:PlaceService, private scheduleService:ScheduleService, public dialog: MatDialog,
+    private tripService:TripService, private placeService:PlaceService, private scheduleService:ScheduleService,
+    private componentService:ComponentsService, public dialog: MatDialog,
     notifierService: NotifierService) { 
         this.notifier = notifierService;
     this.form = this.fb.group({
@@ -101,6 +104,10 @@ allDaysSortedFinal: any[] = [{ start: null, end: null, ids: [] }, { start: null,
 
             })
 
+            this.places.forEach(position=>{
+                this.tabOpeningHours[position.name]=this.componentService.getHoursForDays(position.hours);
+            })
+            console.log(this.tabOpeningHours);
             
                 let i=0;
                 this.places.forEach(position=>{
