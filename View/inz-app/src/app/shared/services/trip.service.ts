@@ -29,7 +29,7 @@ public getPlacesForTrip(id:number): Observable<Place[]> {
 
 public getRegionsFiltered(region:string): Observable<String[]> {
 
-  return this.rest.get('/api/trips/filter' + '?region=' + region);
+  return this.rest.get('/api/trips/filter' + '?region=' + region, true);
 }
 
 public getTripsByDuration(from:number, to:number): Observable<String[]> {
@@ -41,7 +41,7 @@ public getTripsByDuration(from:number, to:number): Observable<String[]> {
 public getTripsFiltered(from:number, to:number,region:string, tags:String[] ): Observable<Trip[]> {
   let allTags = '&tags=' + tags.map(m => m).join('&tags=');
   return this.rest.get('/api/trips/all-filters' + '?from=' + from + "&to=" + to +
-  "&region=" + region + allTags);
+  "&region=" + region + allTags, true);
 }
 
 public getTripsByUser(id:number): Observable<Trip[]> {

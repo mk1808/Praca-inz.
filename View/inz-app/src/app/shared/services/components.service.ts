@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { OpeningHours } from '../models/classes';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ComponentsService {
-
+  busyRequestCount = 0;
 private placeTableItem;
-
 private eventSource=  new Subject<any>();
 public eventEmitter = this.eventSource.asObservable();
-  constructor() { }
+
+
+  constructor(private spinner: NgxSpinnerService) { }
 
   public setTableItem(item){
     this.eventSource.next(item);
@@ -163,5 +165,18 @@ public eventEmitter = this.eventSource.asObservable();
       case "Inne":newCategory="OTHER"; break;
     }
     return newCategory;
+  }
+
+  public busy() {
+    this.busyRequestCount++;
+    this.spinner.show();
+  }
+
+  public idle() {
+    this.busyRequestCount--;
+    if (this.busyRequestCount <= 0) {
+      this.busyRequestCount = 0;
+      this.spinner.hide();
+    }
   }
 }
