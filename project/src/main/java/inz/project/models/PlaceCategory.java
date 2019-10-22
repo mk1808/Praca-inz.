@@ -7,6 +7,9 @@ public enum PlaceCategory {
 	PARK("Park"), 
 	MONUMENT("Pomnik"),
 	BUILDING("Budynek"),
+	AMUSEMENT_PARK("Park rozrywki"),
+	RESTAURANT("Restauracja"),
+	CLUB("Klub"),
 	OTHER("Inne");
 
 	String name;

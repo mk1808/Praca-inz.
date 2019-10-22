@@ -132,4 +132,20 @@ public eventEmitter = this.eventSource.asObservable();
     return allDaysSorted;
   }
 
+  public getIconForPlace(place:string){
+    let photo="";
+    switch(place){
+      case "MUSEUM":photo="assets/museum.svg";break;
+      case "ART_GALLERY":photo="assets/gallery.svg";break;
+      case "PARK":photo="assets/park.svg";break;
+      case "MONUMENT":photo="assets/statue.svg";break;
+      case "BUILDING":photo="assets/monument.svg";break;
+      case "AMUSEMENT_PARK":photo="assets/ferris-wheel.svg";break;
+      case "RESTAURANT":photo="assets/breakfast.svg";break;
+      case "CLUB":photo="assets/disco-ball.svg";break;
+      case "OTHER":photo="assets/camera.svg";break;
+    }
+    return photo;
+
+  }
 }
