@@ -89,11 +89,12 @@ export class NewTripComponent implements OnInit {
       this.fillingForm = false;
       this.placeService.getPlacesByRegCat(this.form.controls.region.value, "").subscribe(x => {
         this.places = x;
+
         this.places.forEach(x=>{
           this.status.push(true);
         })
         console.log(this.places);
-
+        if (this.places.length<1)this.router.navigate(['/all-places']);
       })
     }
   }
