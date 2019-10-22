@@ -2,6 +2,8 @@
 .container{
     margin-left: 20px;
   margin-right: 20px;
+  padding-bottom:25px;
+  padding-top:25px;
   }
   
   .headingStyle{
@@ -24,7 +26,7 @@
 
 .sign-in-form {
     padding: 1rem 1.5em;
-   // border-radius: .5rem;
+    border-radius: .5rem;
     //background-color: white;
     width: 53%;
     margin:0 auto;
@@ -136,6 +138,20 @@ button{
 
 .bodyImg{
   background-image:
-  url("https://c.pxhere.com/photos/a6/21/4k_wallpaper_adventure_daylight_glacier_HD_wallpaper_high_lake_landscape-1548857.jpg!d");
+ // url("https://c.pxhere.com/photos/a6/21/4k_wallpaper_adventure_daylight_glacier_HD_wallpaper_high_lake_landscape-1548857.jpg!d");
+// url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Dallas_In_Purple_%28142084641%29.jpeg/1920px-Dallas_In_Purple_%28142084641%29.jpeg"); 
+url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Purple_night_%28Unsplash%29.jpg/1200px-Purple_night_%28Unsplash%29.jpg"); 
+background-repeat: round;
+ 
 
+
+  background-size: cover;
+ /* display: block;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  height: 800px;
+  left: 0;
+
+  right: 0;
+  z-index: 0;*/
 }
