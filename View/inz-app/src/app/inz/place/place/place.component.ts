@@ -44,6 +44,7 @@ export class PlaceComponent implements OnInit {
   longitude;
   latitude;
   initialized = true;
+  photo="";
   @ViewChild('tooltip') tooltip: MatTooltip;
   constructor(private router: Router, private route: ActivatedRoute, private placeService: PlaceService,
     private componentsService:ComponentsService, public dialog: MatDialog) { }
@@ -62,6 +63,7 @@ export class PlaceComponent implements OnInit {
       console.log(this.longitude);
       console.log(this.latitude);
 
+      this.photo=this.componentsService.getIconForPlace(this.place.category);
      this.allDaysSortedFinal= this.componentsService.getHoursForDays(this.place.hours);
      console.log(this.allDaysSortedFinal);
 
