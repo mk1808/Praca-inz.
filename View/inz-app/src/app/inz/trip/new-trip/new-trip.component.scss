@@ -351,3 +351,44 @@ button.moreBtn{
     padding-left: 10px;
     font-family: "Work Sans", sans-serif !important;
 }
+
+.country{
+margin: 0 0 1rem;
+}
+
+.tagInput{
+  width:100%;
+}
+
+.tagInput label{
+  font-weight: 500;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline{
+  height: 0!important;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline:focus{
+  height: 0!important;
+}
+
+::ng-deep .mat-form-field-infix{
+  border-top:0px;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple, 
+.mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+  height: 0;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0px;
+}
+
+::ng-deep .mat-primary .mat-pseudo-checkbox-checked, .mat-primary .mat-pseudo-checkbox-indeterminate{
+  background: #4c216d;
+}
+
+::ng-deep .mat-option-text{
+  color:black;
+}

@@ -8,8 +8,8 @@
         <input type="text" formControlName="name" class="sign-in-form-username" id="sign-in-form-username"
           autocomplete="off"></div>
 
-          <div class="singleInput">
-              <label for="sign-in-form-password">Kraj</label>
+          <div class="singleInput country">
+              <label for="sign-in-form-username">Kraj</label>
               <mat-select class="searchTerm sign-in-form-username selectInput" placeholder="Wybierz kraj"
                 formControlName="country">
                 <mat-option *ngFor="let country of countries" [value]="country">
@@ -17,6 +17,15 @@
                 </mat-option>
               </mat-select>
             </div>
+
+            <div class="singleInput country">
+                <mat-form-field class="tagInput">
+                    <label for="sign-in-form-password">Tagi</label>
+                    <mat-select formControlName="tags" multiple  class="searchTerm sign-in-form-username selectInput">
+                      <mat-option *ngFor="let topping of filteredTags" [value]="topping">{{topping}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
 <!--
       <div class="singleInput">
         <label for="sign-in-form-password">Państwo</label>

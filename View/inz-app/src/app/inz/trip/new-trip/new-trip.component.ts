@@ -27,6 +27,7 @@ export class NewTripComponent implements OnInit {
   position:PositionInTrip = new PositionInTrip();
   status:boolean[]=[];
   countries:any[]=[];
+  filteredTags:any[]=[];
 
   constructor(private fb: FormBuilder, private placeService: PlaceService, private tripService: TripService,
     private dictionaryService:DictionaryService,
@@ -38,12 +39,19 @@ export class NewTripComponent implements OnInit {
       region: ['', Validators.required],
       duration: ['', Validators.required],
       description: [''],
+      tags: ['']
     })
   }
 
   ngOnInit() {
     this.dictionaryService.getCountries().subscribe(y=>{
       this.countries = y;
+    })
+
+    this.dictionaryService.getTags().subscribe(x => {
+      this.filteredTags = x;
+      console.log(this.filteredTags);
+
     })
 
   }
