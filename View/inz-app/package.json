@@ -47,6 +47,7 @@
     "ngx-page-scroll": "^6.0.2",
     "ngx-page-scroll-core": "^6.0.2",
     "ngx-pretty-checkbox": "^1.1.0",
+    "ngx-spinner": "^8.0.3",
     "ol": "^6.0.1",
     "pretty-checkbox": "^3.0.3",
     "rxjs": "~6.3.3",

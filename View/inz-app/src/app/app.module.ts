@@ -26,6 +26,7 @@ import { MatBadgeModule } from '@angular/material';
 
 import { AngularOpenlayersModule } from "ngx-openlayers";
 import { ImageUploadModule } from "angular2-image-upload";
+import { NgxSpinnerModule } from "ngx-spinner";
 /*
 @Injectable({
   providedIn: 'root'
@@ -72,6 +73,7 @@ import { ImageUploadModule } from "angular2-image-upload";
    MatCheckboxModule,
    AngularOpenlayersModule,
    ImageUploadModule.forRoot(),
+   NgxSpinnerModule,
     NotifierModule.withConfig(
      { position: {
  
