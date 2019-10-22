@@ -1,9 +1,10 @@
 /////
 .container{
-    margin-left: 20px;
-  margin-right: 20px;
-  }
-  
+  margin-left: 20px;
+margin-right: 20px;
+padding-bottom:25px;
+padding-top:25px;
+}
   .headingStyle{
     margin-top: 20px;
     text-align: center;
@@ -177,3 +178,9 @@ button{
     font-family: "Work Sans", sans-serif !important;
 }
 
+.bodyImg{
+  background-image:
+  url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Purple_night_%28Unsplash%29.jpg/1200px-Purple_night_%28Unsplash%29.jpg"); 
+  background-repeat: round;
+  background-size: cover;
+}
