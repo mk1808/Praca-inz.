@@ -38,7 +38,9 @@ body{
 body,H1,.h1,h2,h3,h4,h5,h6{
   font-family: 'Work Sans', sans-serif!important;
 }
-
+.cdk-overlay-pane{
+  margin-top:0px!important;
+}
 
 
 /* Override colors by using scss variables */
