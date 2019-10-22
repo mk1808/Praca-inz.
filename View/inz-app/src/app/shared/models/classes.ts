@@ -45,6 +45,7 @@ export class Trip{
     duration:number;
     schedule:Schedule;
     positionsInTrip:PositionInTrip[];
+    tags:[];
 }
 
 export class Schedule{

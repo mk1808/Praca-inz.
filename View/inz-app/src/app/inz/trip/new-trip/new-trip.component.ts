@@ -56,13 +56,31 @@ export class NewTripComponent implements OnInit {
 
   }
   onCreate() {
+    let tags=this.form.controls.tags.value;
+    let i=0;
+    tags.forEach(el=>{
+      let pos=el.indexOf(" ");
+      if(pos!=-1){
+        let words:string[]=[];
+        words = el.split(" ");
+        console.log(words)
+        words[1]= words[1].charAt(0).toUpperCase() + words[1].slice(1);
+        tags[i]=words[0]+words[1];
+        console.log(tags[i]);
 
+      }
+      i++;
+      console.log();
+
+    })
+//console.log(tags)
     if (this.form.controls.region.value != "" && this.form.controls.region.value != null) {
       this.trip.name = this.form.controls.name.value;
       this.trip.country = this.form.controls.country.value;
       this.trip.region = this.form.controls.region.value;
       this.trip.duration = this.form.controls.duration.value;
       this.trip.description = this.form.controls.description.value;
+      this.trip.tags=tags;
       this.trip.user = JSON.parse(this.cookie.get('user'));
       this.tripService.createTrip(this.trip).subscribe(x => {
         console.log(x);
