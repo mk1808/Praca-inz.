@@ -2,12 +2,12 @@ package inz.project.models;
 
 public enum PlaceCategory {
 
-	MUSEUM("MUSEUM"), 
-	ART_GALLERY("ART_GALLERY"), 
-	PARK("PARK"), 
-	MONUMENT("MONUMENT"),
-	BUILDING("BUILDING"),
-	OTHER("OTHER");
+	MUSEUM("Muzeum"), 
+	ART_GALLERY("Galeria sztuki"), 
+	PARK("Park"), 
+	MONUMENT("Pomnik"),
+	BUILDING("Budynek"),
+	OTHER("Inne");
 
 	String name;
 
