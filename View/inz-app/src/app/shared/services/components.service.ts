@@ -148,4 +148,20 @@ public eventEmitter = this.eventSource.asObservable();
     return photo;
 
   }
+
+  public changeCategoriesToSend(category:string){
+    let newCategory="";
+    switch(category){
+      case "Muzeum":newCategory="MUSEUM"; break;
+      case "Galeria sztuki":newCategory="ART_GALLERY"; break;
+      case "Park":newCategory="PARK"; break;
+      case "Pomnik":newCategory="MONUMENT"; break;
+      case "Budynek":newCategory="BUILDING"; break;
+      case "Park rozrywki":newCategory="AMUSEMENT_PARK"; break;
+      case "Restauracja":newCategory="RESTAURANT"; break;
+      case "Klub":newCategory="CLUB"; break;
+      case "Inne":newCategory="OTHER"; break;
+    }
+    return newCategory;
+  }
 }
