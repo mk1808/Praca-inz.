@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PlaceService } from 'src/app/shared/services/place.service';
 import { DictionaryService } from 'src/app/shared/services/dictionary.service';
 import { CookieService } from 'ngx-cookie-service';
+import { ComponentsService } from 'src/app/shared/services/components.service';
 
 @Component({
   selector: 'app-new-place',
@@ -24,6 +25,7 @@ file:any;
 image:any;
 imgObj:Image = new Image();
 constructor(private fb: FormBuilder, private placeService: PlaceService,
+  private componentService:ComponentsService,
   private router: Router, private route: ActivatedRoute,
    private dictionaryService: DictionaryService, private cookie:CookieService) { }
 
@@ -60,7 +62,9 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
       thuClose:[null],
       friClose:[null],
       satClose:[null],
-      sunClose:[null]
+      sunClose:[null],
+      latitude:[''],
+      longitude:['']
       
     })
 
@@ -75,8 +79,9 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
   }
 
   create(){
+    let category=this.componentService.changeCategoriesToSend(this.form.controls.category.value);
     this.newPlace.name=this.form.controls.name.value;
-    this.newPlace.category=this.form.controls.category.value;
+    this.newPlace.category=category;
     this.newPlace.country=this.form.controls.country.value;
     this.newPlace.region=this.form.controls.region.value;
     this.newPlace.city=this.form.controls.city.value;
@@ -111,7 +116,8 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
     this.imgObj.image=this.image;
     console.log(this.imgObj);
     this.newPlace.image.push(this.imgObj);
-    
+    this.newPlace.latitude=this.form.controls.latitude.value;
+    this.newPlace.longitude=this.form.controls.longitude.value;
     
 
 this.user = JSON.parse(this.cookie.get('user'));
