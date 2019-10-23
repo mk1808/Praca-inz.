@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Place, User, OpeningHours, Image } from 'src/app/shared/models/classes';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,6 +13,11 @@ import { ComponentsService } from 'src/app/shared/services/components.service';
   styleUrls: ['./new-place.component.scss']
 })
 export class NewPlaceComponent implements OnInit {
+  ngAfterViewInit(): void {
+    this.res = this.targetElement;
+    this.componentService.heightObj=this.res;
+    console.log(this.res.nativeElement.offsetHeight);this.checkHeight()
+  }
 categories:any[]=[];
 countries:any[]=[];
 form: FormGroup;
@@ -24,12 +29,15 @@ week:boolean[]=[false,false,false,false,false,false,false];
 file:any;
 image:any;
 imgObj:Image = new Image();
+res:any;
+@ViewChild('doc') targetElement: any; 
 constructor(private fb: FormBuilder, private placeService: PlaceService,
   private componentService:ComponentsService,
   private router: Router, private route: ActivatedRoute,
    private dictionaryService: DictionaryService, private cookie:CookieService) { }
 
   ngOnInit() {
+    this.componentService.heightObj=this.res;
     this.newPlace.image=[];
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -71,13 +79,21 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
     this.dictionaryService.getCategories().subscribe(x => {
       this.categories = x;
       console.log(this.categories);
+      this.checkHeight();
     })
 
     this.dictionaryService.getCountries().subscribe(y=>{
       this.countries = y;
+      this.checkHeight();
     })
   }
 
+  checkHeight(){
+    setTimeout(()=>{
+      this.componentService.paralaxEventSource.next(this.res.nativeElement.offsetHeight);
+    }, 2);
+  }
+  
   create(){
     let category=this.componentService.changeCategoriesToSend(this.form.controls.category.value);
     this.newPlace.name=this.form.controls.name.value;

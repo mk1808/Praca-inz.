@@ -14,6 +14,7 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { ImageUploadModule } from 'angular2-image-upload';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
+import { SharedModule } from 'src/app/shared/shared/shared.module';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {MatDividerModule} from '@angular/material/divider';
     ImageUploadModule, 
     MatTooltipModule,
     MatCardModule,
-    MatDividerModule 
+    MatDividerModule,
+    SharedModule
   ], 
   entryComponents: [
 
