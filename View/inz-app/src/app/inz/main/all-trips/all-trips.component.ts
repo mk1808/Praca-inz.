@@ -129,6 +129,7 @@ export class AllTripsComponent implements OnInit {
     tags = this.chosenTags;
     region = this.form.controls.region.value;
     if(from!=null||to!=null||tags!=[]||region!=""){
+      this.first=false;
     this.tripService.getTripsFiltered(from, to, region, tags).subscribe(x=>{
       this.trips=x;
       console.log(x);

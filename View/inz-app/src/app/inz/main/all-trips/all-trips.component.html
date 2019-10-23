@@ -1,5 +1,5 @@
 <div class="container">
-  <h4 class="headingStyle">Przeszukiwanie obiektów</h4>
+  <h4 class="headingStyle">Przeszukiwanie wycieczek</h4>
   <form [formGroup]="form" *ngIf="initialized">
     <div class="row whereGo">
       <div class="wrap">
@@ -74,7 +74,8 @@
     </div>
   </form>
 
-  <h2 class="type-sidelines"><span>Co można zobaczyć w: x</span></h2>
+  <h2 class="type-sidelines" *ngIf="first"><span>Ostatnio dodane wycieczki</span></h2>
+<h2 class="type-sidelines" *ngIf="first==false"><span>Wyniki wyszukiwania </span></h2>
 
   <div class="row">
     <div *ngFor="let trip of trips; let i = index;">
@@ -100,7 +101,7 @@
       </div>
     </div>
   </div>
-
+<!--
   <button class="button moreBtn button-rounded-hover">Zobacz więcej miejsc
 
-  </button>
+  </button>-->
