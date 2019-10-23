@@ -38,9 +38,9 @@
               </mat-option>
             </mat-select>
   
-            <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto2"
+            <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto3"
               formControlName="region">
-            <mat-autocomplete #auto2="matAutocomplete">
+            <mat-autocomplete #auto3="matAutocomplete">
               <mat-option *ngFor="let region of filteredRegions" [value]="region">
   
                 <span>{{region}}</span>
@@ -98,7 +98,7 @@
         <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto2"
           formControlName="region">
         <mat-autocomplete #auto2="matAutocomplete">
-          <mat-option *ngFor="let region of filteredRegions" [value]="region">
+          <mat-option *ngFor="let region of filteredRegionsTrip" [value]="region">
             <span>{{region}}</span>
           </mat-option>
         </mat-autocomplete>
