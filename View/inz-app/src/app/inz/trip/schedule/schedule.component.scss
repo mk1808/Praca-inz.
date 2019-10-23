@@ -55,20 +55,21 @@
   }
   
   .timeline .timeline-item .timeline-icon {
-    background: #662d91;
+    background: #bab6b6;
     border-radius: 50%;
-    height: 50px;
+    height: 60px;
     left: 50%;
-    margin-left: -23px;
+    margin-left: -27px;
     overflow: hidden;
     position: absolute;
     top: 0;
-    width: 50px;
+    width: 60px;
+    border: 2px dotted #662d91;
   }
   
   .timeline .timeline-item .timeline-icon img,
   .timeline .timeline-item .timeline-icon svg {
-    left: 14px;
+    left: 12px;
     position: relative;
     top: 11px;
   }
