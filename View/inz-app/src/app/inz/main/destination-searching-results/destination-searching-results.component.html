@@ -42,6 +42,31 @@
     </form>
 <h2 class="type-sidelines"><span>Miejsca w regionie</span></h2>
 
+<div class="row" *ngIf="initialized">
+    <div *ngFor="let place of places; let i = index;">
+      <div class="small-2 large-4 columns">
+        <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+          <div class="flip-card-inner">
+            <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
+                background-size: cover;">
+              <span>{{place.name}}<br>
+                Kategoria: {{place.category}} <br>
+                Ocena: 4.5/5
+  
+              </span>
+  
+            </div>
+            <div class="flip-card-inner-back">
+              <h3 class="flip-card-inner-back-title">{{place.name}}</h3>
+              <p class="flip-card-inner-back-text">{{place.description}}</p>
+              <a [href]="'/place/details/'+places[i].id" class="button success">Zobacz</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--
 <div class="row">
   <div class="small-2 large-4 columns">
     <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
@@ -65,6 +90,7 @@
     </div>
   </div>
 </div>
+-->
 
 <button class="button moreBtn button-rounded-hover">Zobacz więcej wycieczek
 
@@ -122,6 +148,7 @@
 
 <h2 class="type-sidelines"><span>Propozycje wycieczek do regionu</span></h2>
 
+<!--
 <div class="row">
   <div class="small-2 large-4 columns">
     <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
@@ -155,7 +182,33 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
+
+<div class="row">
+    <div *ngFor="let trip of trips; let i = index;">
+      <div class="small-2 large-4 columns">
+        <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+          <div class="flip-card-inner">
+            <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
+                background-size: cover;">
+              <span>{{trip.name}}<br>
+
+                Ocena: 4.5/5
+
+              </span>
+
+            </div>
+            <div class="flip-card-inner-back">
+              <h3 class="flip-card-inner-back-title">{{trip.name}}</h3>
+              <p class="flip-card-inner-back-text">{{trip.description}}</p>
+              <a [href]="'/trip/details/'+trips[i].id" class="button success">Zobacz</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <button class="button moreBtn button-rounded-hover">Zobacz więcej wycieczek
