@@ -21,7 +21,7 @@ export class ScheduleComponent implements OnInit {
   places:Place[]=[];
   allDaysSortedFinal: any[] = [{ start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] },
   { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }];
- 
+ icons:[]=[];
 
   constructor(private router: Router, private route: ActivatedRoute, private tripService: TripService,
     private scheduleService: ScheduleService,  private componentService:ComponentsService) { }
@@ -40,7 +40,9 @@ export class ScheduleComponent implements OnInit {
       this.places=z;
       this.places.forEach(position=>{
         this.tabOpeningHours[position.name]=this.componentService.getHoursForDays(position.hours);
+        this.icons[position.name]=this.componentService.getIconForPlace(position.category);
     })
+    console.log(this.icons);
     console.log(this.tabOpeningHours);
     })    
         
