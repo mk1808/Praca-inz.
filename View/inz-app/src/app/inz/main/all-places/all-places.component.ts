@@ -23,6 +23,8 @@ export class AllPlacesComponent implements OnInit {
   initialized: boolean = false;
   form: FormGroup;
   categories: String[];
+  first=true;
+
 
   constructor(private router: Router, private route: ActivatedRoute, private placeService: PlaceService,
     private dictionaryService: DictionaryService, private fb: FormBuilder) {
@@ -72,7 +74,18 @@ export class AllPlacesComponent implements OnInit {
     this.placeService.getPlaces().subscribe(x => {
       this.places = x;
       console.log(this.places);
-
+      this.places.sort((a,b)=>(a.id>b.id?1:-1));
+   
+      if(this.first){
+        let placesFirst:Place[]=[];
+        placesFirst= [...this.places].reverse();
+        console.log(placesFirst);
+        this.places=[];
+        for (let i=0; i<9; i++){
+          this.places.push(placesFirst[i]);
+        }
+      console.log(this.places);
+      }
     })
 
     this.dictionaryService.getCategories().subscribe(x => {
