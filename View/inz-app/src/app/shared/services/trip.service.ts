@@ -38,7 +38,7 @@ public getTripsByDuration(from:number, to:number): Observable<String[]> {
 }
 
 
-public getTripsFiltered(from:number, to:number,region:string, tags:String[] ): Observable<Trip[]> {
+public getTripsFiltered(from, to,region:string, tags:String[] ): Observable<Trip[]> {
   let allTags = '&tags=' + tags.map(m => m).join('&tags=');
   return this.rest.get('/api/trips/all-filters' + '?from=' + from + "&to=" + to +
   "&region=" + region + allTags, true);

@@ -6,6 +6,7 @@ import { DictionaryService } from 'src/app/shared/services/dictionary.service';
 import { TripService } from 'src/app/shared/services/trip.service';
 import { MatChipInputEvent, MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-destination-searching-results',
@@ -16,6 +17,7 @@ export class DestinationSearchingResultsComponent implements OnInit {
   form: FormGroup;
   formTrip: FormGroup;
   initialized=false;
+  region;
   filteredPlaces: Place[];
   filteredRegions: String[];
   filteredRegionsTrip: String[];
@@ -24,6 +26,9 @@ export class DestinationSearchingResultsComponent implements OnInit {
   categories: String[];
   places: Place[];
   trips: Trip[];
+  first=true;
+  placeFirst=true;
+  tripFirst=true;
 
   visible = true;
   selectable = true;
@@ -34,7 +39,8 @@ export class DestinationSearchingResultsComponent implements OnInit {
   @ViewChild('fruitInput') fruitInput: ElementRef<HTMLInputElement>;
   @ViewChild('autoT') matAutocomplete: MatAutocomplete;
   constructor( private fb: FormBuilder, private placeService: PlaceService, 
-    private tripService: TripService, private dictionaryService: DictionaryService) { }
+    private tripService: TripService, private dictionaryService: DictionaryService,
+    private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -49,6 +55,27 @@ export class DestinationSearchingResultsComponent implements OnInit {
       tags: [""],
       region: [""]
     });
+
+    this.route.params.subscribe(x => {
+      this.region = x['region'];
+      console.log(this.region)
+      if(this.first){
+        this.placeService.getPlacesByRegCat(this.region, "").subscribe(a => {
+          this.places = a;
+          console.log(this.places);
+  
+        })
+
+        this.tripService.getTripsFiltered("", "", this.region, []).subscribe(x=>{
+          this.trips=x;
+          console.log(x);
+     
+        })
+
+        
+      }
+    })
+    
     this.initialized = true;
 
     
@@ -144,6 +171,8 @@ export class DestinationSearchingResultsComponent implements OnInit {
     console.log(category);
     console.log(region);
     if ((category != null) || (region != null)) {
+      this.first=false;
+      this.placeFirst=false;
     
 
       this.placeService.getPlacesByRegCat(region, category).subscribe(x => {
@@ -157,7 +186,8 @@ export class DestinationSearchingResultsComponent implements OnInit {
   onSearchName() {
     
     if (this.form.controls.name.value != "" && this.form.controls.name.value != null) {
-   
+      this.first=false;
+      this.placeFirst=false;
       this.places = [...this.filteredPlaces];
     }
   }
@@ -170,6 +200,8 @@ export class DestinationSearchingResultsComponent implements OnInit {
     tags = this.chosenTags;
     region = this.formTrip.controls.region.value;
     if(from!=null||to!=null||tags!=[]||region!=""){
+      this.first=false
+      this.tripFirst=false;
     this.tripService.getTripsFiltered(from, to, region, tags).subscribe(x=>{
       this.trips=x;
       console.log(x);
@@ -177,6 +209,8 @@ export class DestinationSearchingResultsComponent implements OnInit {
     })}
     
   }
+
+
 }
 
 

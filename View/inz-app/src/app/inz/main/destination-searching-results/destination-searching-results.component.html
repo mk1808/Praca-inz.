@@ -40,7 +40,9 @@
         </div>
       </div>
     </form>
-<h2 class="type-sidelines"><span>Miejsca w regionie</span></h2>
+
+<h2 *ngIf="placeFirst" class="type-sidelines"><span>Miejsca w regionie</span></h2>
+<h2 *ngIf="placeFirst==false" class="type-sidelines"><span>Wyniki wyszukiwania miejsc</span></h2>
 
 <div class="row" *ngIf="initialized">
     <div *ngFor="let place of places; let i = index;">
@@ -92,7 +94,7 @@
 </div>
 -->
 
-<button class="button moreBtn button-rounded-hover">Zobacz więcej wycieczek
+<button class="button moreBtn button-rounded-hover">Poznaj więcej miejsc
 
 </button>
 
@@ -146,7 +148,8 @@
   </div>
 </form>
 
-<h2 class="type-sidelines"><span>Propozycje wycieczek do regionu</span></h2>
+<h2 *ngIf="tripFirst" class="type-sidelines"><span>Propozycje wycieczek do regionu</span></h2>
+<h2 *ngIf="tripFirst==false" class="type-sidelines"><span>Wyniki wyszukiwania wycieczek</span></h2>
 
 <!--
 <div class="row">
