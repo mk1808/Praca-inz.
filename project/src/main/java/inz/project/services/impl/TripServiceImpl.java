@@ -6,16 +6,20 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import inz.project.services.TripService;
 import inz.project.models.Place;
 import inz.project.models.PlaceCategory;
+import inz.project.models.PositionInSchedule;
+import inz.project.models.PositionInTrip;
 import inz.project.models.Schedule;
 import inz.project.models.Trip;
 import inz.project.models.TripTag;
 import inz.project.models.User;
+import inz.project.repositories.PositionInTripRepository;
 import inz.project.repositories.TripRepository;
 
 @Service
@@ -26,6 +30,9 @@ public class TripServiceImpl implements TripService {
 	@Autowired TripRepository tripRepository;
 	@Autowired UserServiceImpl userService;
 	@Autowired ScheduleServiceImpl scheduleService;
+	@Autowired PositionInTripRepository positionInTripRepository;
+
+	@Autowired PlaceServiceImpl placeService;
 	
 	@Override
 	public Trip createTrip(Trip trip) {
@@ -131,6 +138,17 @@ public class TripServiceImpl implements TripService {
 		Trip updated = this.tripRepository.save(fromBase);
 		return updated;
 	}
+	
+
+	@Override
+	public List<Trip> getTripsByPlaceIncluded(Long id){
+		Place place = this.placeService.getPlaceById(id);
+		List <PositionInTrip> positions = this.positionInTripRepository.getPositionInTripByPlace(place);
+return positions.stream().map(PositionInTrip::getTrip).collect(Collectors.toList());
+	
+	}
+	
+	
 	
 	
 }

@@ -57,6 +57,10 @@ public addPlaceToTrip(position: PositionInTrip): Observable<PositionInTrip> {
   return this.rest.post('/api/positionInTrip', position);
 }
 
+public getTripsByPlace(id:number): Observable<Trip[]> {
+
+  return this.rest.get('/api/trips?place=' + id);
+}
 
 
 }
