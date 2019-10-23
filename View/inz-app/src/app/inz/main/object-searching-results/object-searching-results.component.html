@@ -1,3 +1,220 @@
-<p>
-  object-searching-results works!
-</p>
+<div class="container">
+    <h4 class="headingStyle">Przeszukiwanie obiektów</h4>
+    <form [formGroup]="form" *ngIf="initialized">
+        <div class="row whereGo">
+          <div class="wrap">
+            <div class="search">
+              <input type="text" class="searchTerm" placeholder="Wpisz nazwę" [matAutocomplete]="auto"
+                formControlName="name">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let place of filteredPlaces" [value]="place.name">
+    
+                  <span>{{place.name}}</span>
+                  <!--       <small>Population: {{state.population}}</small>-->
+                </mat-option>
+              </mat-autocomplete>
+              <button (click)="onSearchName()" type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+              </button>
+              <div class="or">lub</div>
+    
+              <mat-select class="searchTerm" placeholder="Wybierz kategorię" formControlName="category">
+                <mat-option *ngFor="let category of categories" [value]="category">
+                  {{category}}
+                </mat-option>
+              </mat-select>
+    
+              <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto3"
+                formControlName="region">
+              <mat-autocomplete #auto3="matAutocomplete">
+                <mat-option *ngFor="let region of filteredRegions" [value]="region">
+    
+                  <span>{{region}}</span>
+                  <!--       <small>Population: {{state.population}}</small>-->
+                </mat-option>
+              </mat-autocomplete>
+              <button (click)="onSearch()" type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+  
+  <h2 *ngIf="placeFirst" class="type-sidelines"><span>Miejsca w regionie</span></h2>
+  <h2 *ngIf="placeFirst==false" class="type-sidelines"><span>Wyniki wyszukiwania miejsc</span></h2>
+  
+  <div class="row" *ngIf="initialized">
+      <div *ngFor="let place of places; let i = index;">
+        <div class="small-2 large-4 columns">
+          <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+            <div class="flip-card-inner">
+              <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
+                  background-size: cover;">
+                <span>{{place.name}}<br>
+                  Kategoria: {{place.category}} <br>
+                  Ocena: 4.5/5
+    
+                </span>
+    
+              </div>
+              <div class="flip-card-inner-back">
+                <h3 class="flip-card-inner-back-title">{{place.name}}</h3>
+                <p class="flip-card-inner-back-text">{{place.description}}</p>
+                <a [href]="'/place/details/'+places[i].id" class="button success">Zobacz</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!--
+  <div class="row">
+    <div class="small-2 large-4 columns">
+      <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+        <div class="flip-card-inner">
+          <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
+                background-size: cover;">
+            <span>Rynek w Zamościu<br>
+              Kategoria: x <br>
+              Ocena: 4.5/5
+  
+            </span> 
+        
+          </div>
+          <div class="flip-card-inner-back">
+            <h3 class="flip-card-inner-back-title">Rynek w Zamościu</h3>
+            <p class="flip-card-inner-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo
+              doloremque accusantium, repellendus ex debitis molestias, recusandae dignissimos delectus.</p>
+            <a href="#" class="button success">Zobacz</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+  
+  <button class="button moreBtn button-rounded-hover">Poznaj więcej miejsc
+  
+  </button>
+  
+  <h2 class="type-sidelines"><span>
+    <img src="assets/map.svg" height="70px" width="70px">
+  </span></h2>
+  <h4 class="headingStyle">Przeszukiwanie wycieczek</h4>
+  <form [formGroup]="formTrip" *ngIf="initialized">
+    <div class="row whereGo">
+      <div class="wrap">
+        <div class="search">
+          
+            <input #fruitInput type="text" class="searchTerm" placeholder="Wybierz tagi" [matAutocomplete]="autoT"
+            formControlName="tags" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+         
+          <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto6"
+            formControlName="region">
+            <mat-autocomplete #auto6="matAutocomplete">
+            <mat-option *ngFor="let region of filteredRegionsTrip" [value]="region">
+              <span>{{region}}</span>
+            </mat-option>
+          </mat-autocomplete>
+  
+        
+          <mat-autocomplete #autoT="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let tag of filteredTags" [value]="tag">
+              <span>{{tag}}</span>
+            </mat-option>
+          </mat-autocomplete>
+  
+  
+  
+          <input type="number" min="1" class="searchTerm" placeholder="Min. ilość dni" formControlName="durationFrom">
+          <input type="number" min="1" class="searchTerm" placeholder="Max. ilość dni" formControlName="durationTo">
+          <button (click)="onSearchTrip()" type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+          </button>
+  
+  
+        </div>
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip *ngFor="let tag of chosenTags" [selectable]="selectable" [removable]="removable"
+            (removed)="remove(tag)">
+            {{tag}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+  
+        </mat-chip-list>
+      </div>
+    </div>
+  </form>
+  
+  <h2 *ngIf="tripFirst" class="type-sidelines"><span>Propozycje wycieczek do regionu</span></h2>
+  <h2 *ngIf="tripFirst==false" class="type-sidelines"><span>Wyniki wyszukiwania wycieczek</span></h2>
+  
+  <!--
+  <div class="row">
+    <div class="small-2 large-4 columns">
+      <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+        <div class="flip-card-inner">
+          <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
+                background-size: cover;">
+            <span>Weekend w Zamościu<br>
+              
+              Długość trwania: 2 dni <br>
+              Ocena: 4.5/5<br>
+   
+            </span> 
+        
+          </div>
+          <div class="flip-card-inner-back">
+            <h3 class="flip-card-inner-back-title">Weekend w Zamościu</h3>
+            <p class="flip-card-inner-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <span class="tags">
+         
+              <mat-chip-list class="chips" aria-label="Fish selection">
+                <mat-chip>#weekend</mat-chip>
+                <mat-chip>#miasto</mat-chip> <br>
+                
+                <mat-chip>#zwiedzanie</mat-chip>
+                
+                <mat-chip>#zabytki</mat-chip>
+              </mat-chip-list>
+    </span>
+            <a href="#" class="button success goBtn">Zobacz</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>-->
+  
+  <div class="row">
+      <div *ngFor="let trip of trips; let i = index;">
+        <div class="small-2 large-4 columns">
+          <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+            <div class="flip-card-inner">
+              <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
+                  background-size: cover;">
+                <span>{{trip.name}}<br>
+  
+                  Ocena: 4.5/5
+  
+                </span>
+  
+              </div>
+              <div class="flip-card-inner-back">
+                <h3 class="flip-card-inner-back-title">{{trip.name}}</h3>
+                <p class="flip-card-inner-back-text">{{trip.description}}</p>
+                <a [href]="'/trip/details/'+trips[i].id" class="button success">Zobacz</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  
+  <button class="button moreBtn button-rounded-hover">Zobacz więcej wycieczek
+  
+  </button>
+  
