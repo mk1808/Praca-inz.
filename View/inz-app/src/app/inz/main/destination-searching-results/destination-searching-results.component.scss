@@ -435,15 +435,6 @@ mat-chip{
   
   }
 
-mat-chip{
- 
-  color:white!important;
-  background-color: #662d91!important;
-}
-:deep{
-.mat-chip-list{
-  display: block!important;
-}}
 
 ////////////////////autocomplete
 
@@ -543,15 +534,7 @@ mat-chip{
   
   }
 
-mat-chip{
- 
-  color:white!important;
-  background-color: #662d91!important;
-}
-:deep{
-.mat-chip-list{
-  display: block!important;
-}}
+
 
 ////////////////////autocomplete
 
@@ -587,6 +570,10 @@ mat-chip{
   margin-left: 5px;
   margin-right: 5px;}
 
+////trips
+input.mat-chip-input{
+  margin:0;
+}
 
 
 

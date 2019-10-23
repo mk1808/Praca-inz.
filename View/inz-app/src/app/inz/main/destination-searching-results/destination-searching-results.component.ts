@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class DestinationSearchingResultsComponent implements OnInit {
   form: FormGroup;
+  formTrip: FormGroup;
   initialized=false;
   constructor( private fb: FormBuilder) { }
 
@@ -15,6 +16,13 @@ export class DestinationSearchingResultsComponent implements OnInit {
     this.form = this.fb.group({
       name: [null],
       category: [""],
+      region: [""]
+    });
+    
+    this.formTrip = this.fb.group({
+      durationFrom: [""],
+      durationTo: [""],
+      tags: [""],
       region: [""]
     });
     this.initialized = true;
