@@ -168,3 +168,22 @@
     padding-left: 640px!important;
     margin-top:20px;
 }
+
+.hoverTimelineItem{
+  .address{
+    height: 0px;
+    transition-duration: 300ms;
+    overflow: hidden;
+  }
+
+}
+.hoverTimelineItem:hover .address{
+    height: 1.5em;
+}
+.hoverTimelineItem:hover p{
+  font-size: 20px !important;
+}
+.hoverTimelineItem p{
+  transition-duration: 300ms;
+
+}
