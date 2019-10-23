@@ -28,6 +28,7 @@ export class AllTripsComponent implements OnInit {
   removable = true;
   addOnBlur = true;
   separatorKeysCodes: number[] = [ENTER, COMMA];
+  first=true;
 
   @ViewChild('fruitInput') fruitInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
@@ -104,6 +105,18 @@ export class AllTripsComponent implements OnInit {
   ngOnInit() {
     this.tripService.getTrips().subscribe(x => {
       this.trips = x;
+      this.trips.sort((a,b)=>(a.id>b.id?1:-1));
+
+      if(this.first){
+        let tripsFirst:Trip[]=[];
+        tripsFirst= [...this.trips].reverse();
+        console.log(tripsFirst);
+        this.trips=[];
+        for (let i=0; i<9; i++){
+          if(tripsFirst[i]!=null) this.trips.push(tripsFirst[i]);
+        }
+    
+      }
       console.log(this.trips);
     })
   }
