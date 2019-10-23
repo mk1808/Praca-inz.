@@ -13,7 +13,10 @@ export class AuthService {
   private statusSource = new BehaviorSubject<boolean>(false);
   currentStatus = this.statusSource.asObservable();
 
-  constructor(private http: HttpClient, private cookie: CookieService, private rest:RestService) { }
+  constructor(private http: HttpClient, private cookie: CookieService, private rest:RestService) {
+    if(this.cookie.get('token'))
+    this.changeStatus(true);
+   }
   public logIn(user: User): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -38,6 +41,8 @@ export class AuthService {
   public saveCookie(token:string, name:string){
     this.cookie.set(token, name, 0.5, "/");
   }
+
+  
 
   public changeStatus(status:boolean){
     this.statusSource.next(status);
