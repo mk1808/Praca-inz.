@@ -4,20 +4,6 @@
       <div class="row whereGo">
         <div class="wrap">
           <div class="search">
-  
-            <!--
-          <mat-form-field class="example-full-width">
-              <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
-              <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
-              
-                  <span>{{state.name}}</span> |
-                  <small>Population: {{state.population}}</small>
-                </mat-option>
-              </mat-autocomplete>
-            </mat-form-field>
-  -->
-  
             <input type="text" class="searchTerm" placeholder="Wpisz nazwę" [matAutocomplete]="auto"
               formControlName="name">
             <mat-autocomplete #auto="matAutocomplete">
@@ -92,19 +78,21 @@
   <div class="row whereGo">
     <div class="wrap">
       <div class="search">
-        <input #fruitInput type="text" class="searchTerm" placeholder="Wybierz tagi" [matAutocomplete]="auto"
+        
+          <input #fruitInput type="text" class="searchTerm" placeholder="Wybierz tagi" [matAutocomplete]="autoT"
           formControlName="tags" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
           [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
-        <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto2"
+       
+        <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto6"
           formControlName="region">
-        <mat-autocomplete #auto2="matAutocomplete">
+          <mat-autocomplete #auto6="matAutocomplete">
           <mat-option *ngFor="let region of filteredRegionsTrip" [value]="region">
             <span>{{region}}</span>
           </mat-option>
         </mat-autocomplete>
 
-
-        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      
+        <mat-autocomplete #autoT="matAutocomplete" (optionSelected)="selected($event)">
           <mat-option *ngFor="let tag of filteredTags" [value]="tag">
             <span>{{tag}}</span>
           </mat-option>
@@ -114,7 +102,7 @@
 
         <input type="number" min="1" class="searchTerm" placeholder="Min. ilość dni" formControlName="durationFrom">
         <input type="number" min="1" class="searchTerm" placeholder="Max. ilość dni" formControlName="durationTo">
-        <button (click)="onSearch()" type="submit" class="searchButton">
+        <button (click)="onSearchTrip()" type="submit" class="searchButton">
           <i class="fa fa-search"></i>
         </button>
 

@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PlaceService } from 'src/app/shared/services/place.service';
-import { Place } from 'src/app/shared/models/classes';
+import { Place, Trip } from 'src/app/shared/models/classes';
 import { DictionaryService } from 'src/app/shared/services/dictionary.service';
 import { TripService } from 'src/app/shared/services/trip.service';
 import { MatChipInputEvent, MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material';
+import { ENTER, COMMA } from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'app-destination-searching-results',
@@ -21,9 +22,17 @@ export class DestinationSearchingResultsComponent implements OnInit {
   filteredTags: String[];
   chosenTags:String[]=[];
   categories: String[];
+  places: Place[];
+  trips: Trip[];
+
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  separatorKeysCodes: number[] = [ENTER, COMMA];
 
   @ViewChild('fruitInput') fruitInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto') matAutocomplete: MatAutocomplete;
+  @ViewChild('autoT') matAutocomplete: MatAutocomplete;
   constructor( private fb: FormBuilder, private placeService: PlaceService, 
     private tripService: TripService, private dictionaryService: DictionaryService) { }
 
@@ -106,7 +115,7 @@ export class DestinationSearchingResultsComponent implements OnInit {
         input.value = '';
       }
 
-      this.form.controls.tags.setValue(null);
+      this.formTrip.controls.tags.setValue(null);
     }
   }
 
@@ -121,8 +130,52 @@ export class DestinationSearchingResultsComponent implements OnInit {
   selected(event: MatAutocompleteSelectedEvent): void {
     this.chosenTags.push(event.option.viewValue);
     this.fruitInput.nativeElement.value = '';
-    this.form.controls.tags.setValue(null);
+    this.formTrip.controls.tags.setValue(null);
 
+  }
+
+
+  
+  onSearch() {
+  
+
+    let region = this.form.controls.region.value;
+    let category = this.form.controls.category.value;
+    console.log(category);
+    console.log(region);
+    if ((category != null) || (region != null)) {
+    
+
+      this.placeService.getPlacesByRegCat(region, category).subscribe(x => {
+        this.places = x;
+        console.log(this.places);
+
+      })
+    } else console.log("aaa");
+  }
+
+  onSearchName() {
+    
+    if (this.form.controls.name.value != "" && this.form.controls.name.value != null) {
+   
+      this.places = [...this.filteredPlaces];
+    }
+  }
+
+  onSearchTrip(){
+    console.log(this.chosenTags);
+    let from, to, tags:any[], region;
+    from = this.formTrip.controls.durationFrom.value;
+    to = this.formTrip.controls.durationTo.value;
+    tags = this.chosenTags;
+    region = this.formTrip.controls.region.value;
+    if(from!=null||to!=null||tags!=[]||region!=""){
+    this.tripService.getTripsFiltered(from, to, region, tags).subscribe(x=>{
+      this.trips=x;
+      console.log(x);
+ 
+    })}
+    
   }
 }
 
