@@ -1,20 +1,60 @@
 <div class="container">
   <h4 class="headingStyle">Przeszukiwanie obiektów</h4>
-<div class="row whereGo">
-  <div class="wrap">
-    <div class="search">
-      <input type="text" class="searchTerm" placeholder="Wpisz szukaną frazę">
-      <input type="text" class="searchTerm" placeholder="Wybierz kategorię">
-      <input type="text" class="searchTerm" placeholder="Sortuj według:">
-      <button (click)="onSearch()" type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-      </button>
-    </div>
-
-  </div>
-</div>
-
-<h2 class="type-sidelines"><span>Co można zobaczyć w: x</span></h2>
+  <form [formGroup]="form" *ngIf="initialized">
+      <div class="row whereGo">
+        <div class="wrap">
+          <div class="search">
+  
+            <!--
+          <mat-form-field class="example-full-width">
+              <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+              
+                  <span>{{state.name}}</span> |
+                  <small>Population: {{state.population}}</small>
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+  -->
+  
+            <input type="text" class="searchTerm" placeholder="Wpisz nazwę" [matAutocomplete]="auto"
+              formControlName="name">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let place of filteredPlaces" [value]="place.name">
+  
+                <span>{{place.name}}</span>
+                <!--       <small>Population: {{state.population}}</small>-->
+              </mat-option>
+            </mat-autocomplete>
+            <button (click)="onSearchName()" type="submit" class="searchButton">
+              <i class="fa fa-search"></i>
+            </button>
+            <div class="or">lub</div>
+  
+            <mat-select class="searchTerm" placeholder="Wybierz kategorię" formControlName="category">
+              <mat-option *ngFor="let category of categories" [value]="category">
+                {{category}}
+              </mat-option>
+            </mat-select>
+  
+            <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto2"
+              formControlName="region">
+            <mat-autocomplete #auto2="matAutocomplete">
+              <mat-option *ngFor="let region of filteredRegions" [value]="region">
+  
+                <span>{{region}}</span>
+                <!--       <small>Population: {{state.population}}</small>-->
+              </mat-option>
+            </mat-autocomplete>
+            <button (click)="onSearch()" type="submit" class="searchButton">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+<h2 class="type-sidelines"><span>Miejsca w regionie</span></h2>
 
 <div class="row">
   <div class="small-2 large-4 columns">
@@ -63,7 +103,7 @@
   </div>
 </div>
 
-<h2 class="type-sidelines"><span>Propozycje wycieczek do: x</span></h2>
+<h2 class="type-sidelines"><span>Propozycje wycieczek do regionu</span></h2>
 
 <div class="row">
   <div class="small-2 large-4 columns">

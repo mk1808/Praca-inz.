@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-destination-searching-results',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./destination-searching-results.component.scss']
 })
 export class DestinationSearchingResultsComponent implements OnInit {
-
-  constructor() { }
+  form: FormGroup;
+  initialized=false;
+  constructor( private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.form = this.fb.group({
+      name: [null],
+      category: [""],
+      region: [""]
+    });
+    this.initialized = true;
   }
 
 }
