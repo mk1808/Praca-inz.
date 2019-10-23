@@ -19,6 +19,11 @@ import { AlertModule } from 'ngx-foundation';
 import { MatBadgeModule, MatCardModule, MatChipsModule, MatSelectModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { StarRatingModule } from 'angular-star-rating';
+import { NgxParallaxScrollModule } from 'ngx-parallax-scroll';
+import { StarsComponent } from 'src/app/shared/stars/stars.component';
+import { AppModule } from 'src/app/app.module';
+import { SharedModule } from 'src/app/shared/shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [TripComponent, PhotosOnHoverComponent,
@@ -37,7 +42,9 @@ import { StarRatingModule } from 'angular-star-rating';
     MatCardModule,
     StarRatingModule,
     MatChipsModule,
-    MatSelectModule
+    MatSelectModule,
+    NgxParallaxScrollModule,
+    SharedModule
    /* AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBsLVzxs5lP8tAr0ErPMYOhBORJ-OoT0Ts'
 

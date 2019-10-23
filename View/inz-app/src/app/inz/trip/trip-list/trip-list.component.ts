@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { TripService } from 'src/app/shared/services/trip.service';
@@ -10,16 +10,25 @@ import { PlaceService } from 'src/app/shared/services/place.service';
   templateUrl: './trip-list.component.html',
   styleUrls: ['./trip-list.component.scss']
 })
-export class TripListComponent implements OnInit {
+export class TripListComponent implements OnInit, AfterViewInit {
+  ngAfterViewInit(): void {
+    this.res = this.targetElement;
+    console.log(this.res.nativeElement.offsetHeight);
+  }
   hover = false;
   myTrips: Trip[]=[];
   myPlaces: Place[]=[];
   user: User;
-  
+  res:any;
+  @ViewChild('doc') targetElement: any; 
   constructor(private router: Router, private route: ActivatedRoute, private cookie: CookieService,
-    private tripService: TripService, private placeService:PlaceService) { }
-
+    private tripService: TripService, private placeService:PlaceService) { 
+   
+    }
+  
   ngOnInit() {
+   
+    
     if (this.cookie.get('user') == "") {
       this.router.navigate(['/']);
 
@@ -33,7 +42,7 @@ export class TripListComponent implements OnInit {
         this.myPlaces=x;
         console.log(this.myPlaces);
       })
-
+      
 
     }
 
@@ -41,7 +50,8 @@ export class TripListComponent implements OnInit {
   }
 
   onTrip(id){
-    this.router.navigate(['/trip/details/'+id]);
+    console.log(this.res.nativeElement.offsetHeight)
+    //this.router.navigate(['/trip/details/'+id]);
   }
 
   onNewTrip(){
