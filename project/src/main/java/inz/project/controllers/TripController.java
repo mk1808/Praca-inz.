@@ -103,7 +103,7 @@ public class TripController {
 		return trips;
 	}
 	
-	@GetMapping
+	@GetMapping("place")
 	List<Trip> getTripsByDuration (@RequestParam(value ="place") Long id) 
 	{
 		List<Trip> trips = this.tripService.getTripsByPlaceIncluded(id);

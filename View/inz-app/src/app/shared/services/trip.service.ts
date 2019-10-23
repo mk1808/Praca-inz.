@@ -59,7 +59,7 @@ public addPlaceToTrip(position: PositionInTrip): Observable<PositionInTrip> {
 
 public getTripsByPlace(id:number): Observable<Trip[]> {
 
-  return this.rest.get('/api/trips?place=' + id);
+  return this.rest.get('/api/trips/place?place=' + id);
 }
 
 
