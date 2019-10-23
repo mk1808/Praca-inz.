@@ -29,11 +29,11 @@ export class MainComponent implements OnInit {
   chosenReg:any;
   
   groups: any[] = [{
-    category: 'Places',
+    category: 'Miejsca',
     values: []
   },
   {
-    category: 'Regions',
+    category: 'Regiony',
     values: []
   },
 ]
