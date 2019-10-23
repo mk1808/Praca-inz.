@@ -54,10 +54,10 @@
       </div>
     </div>
   </form>
-</div>
 
-<h2 class="type-sidelines"><span>Co można zobaczyć w: x</span></h2>
 
+<h2 class="type-sidelines" *ngIf="first"><span>Ostatnio dodane miejsca</span></h2>
+<h2 class="type-sidelines" *ngIf="first==false"><span>Wyniki wyszukiwania </span></h2>
 <div class="row" *ngIf="initialized">
   <div *ngFor="let place of places; let i = index;">
     <div class="small-2 large-4 columns">
@@ -86,3 +86,4 @@
 <button class="button moreBtn button-rounded-hover">Zobacz więcej miejsc
 
 </button>
+</div>

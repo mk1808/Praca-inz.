@@ -24,6 +24,10 @@ export class AllPlacesComponent implements OnInit {
   form: FormGroup;
   categories: String[];
   first=true;
+  name=true;
+  placeName="";
+  placeRef="";
+  placeCat="";  
 
 
   constructor(private router: Router, private route: ActivatedRoute, private placeService: PlaceService,
@@ -86,6 +90,7 @@ export class AllPlacesComponent implements OnInit {
         }
       console.log(this.places);
       }
+  //    this.first=false;
     })
 
     this.dictionaryService.getCategories().subscribe(x => {
@@ -96,11 +101,14 @@ export class AllPlacesComponent implements OnInit {
   }
 
   onSearch() {
+  
+
     let region = this.form.controls.region.value;
     let category = this.form.controls.category.value;
     console.log(category);
     console.log(region);
     if ((category != null) || (region != null)) {
+      this.first=false;
 
       this.placeService.getPlacesByRegCat(region, category).subscribe(x => {
         this.places = x;
@@ -111,8 +119,10 @@ export class AllPlacesComponent implements OnInit {
   }
 
   onSearchName() {
+    
     if (this.form.controls.name.value != "" && this.form.controls.name.value != null) {
-      this.places = this.filteredPlaces;
+      this.first=false;
+      this.places = [...this.filteredPlaces];
     }
   }
 
