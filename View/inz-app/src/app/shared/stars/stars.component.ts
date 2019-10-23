@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, AfterViewChecked } from '@angular/core';
 import { IParallaxScrollConfig } from 'ngx-parallax-scroll';
 import { ParallaxConf } from './paralax-config';
+import { ComponentsService } from '../services/components.service';
 
 interface Star {
   img: string;
@@ -20,11 +21,14 @@ interface Position {
 
 
 export class StarsComponent implements OnInit{
+
+
+  initialized=false;
   private LOGO = ("../../../assets/plane.png");
   private minStarsCount: number = 10;
   private maxStarsCount: number = 20;
-
-  hejt = document;
+  heightObj;
+  
 
   stars: Array<Star> = [];
   ngParallaxConf: IParallaxScrollConfig = {
@@ -34,8 +38,12 @@ export class StarsComponent implements OnInit{
     parallaxTimingFunction: 'ease-in',
     parallaxThrottleTime: 80
   };  
-  constructor() {
-    console.log(this.hejt.documentElement.scrollHeight)
+  constructor(private componentsService:ComponentsService) {
+    componentsService.paralaxEventEmitter.subscribe(x=>{
+      this.heightObj=x;
+      this.initialized=false
+      setTimeout(()=>{this.initialized=true}, 2);
+    })
    }
 
   ngOnInit() {
@@ -55,7 +63,7 @@ export class StarsComponent implements OnInit{
 
   
   generatePosition(): Position {
-    let left = this.mathRandom(20)+(this.mathRandom(2)>1?0:80)
+    let left = this.mathRandom(20)+(Math.random()>0.5?0:80)
     console.log(left)
     return {
       left: `${left}%`,

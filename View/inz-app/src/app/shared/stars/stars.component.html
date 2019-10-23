@@ -1,7 +1,7 @@
 <!--<ngx-parallax-scroll [config]="ngParallaxConf">
     <img src="assets/camera.svg" height="20px" width="20px" class="parallax-img" alt="parallax-img">
   </ngx-parallax-scroll>-->
-  <div class="galaxy"[ngStyle]="{'height.px':1854 }">
+  <div class="galaxy" *ngIf="initialized" [ngStyle]="{'height.px':heightObj }">
 <!--
       <button class="galaxy__generate" (click)="onGalaxyGenerate()">Generate galaxy</button>
     -->

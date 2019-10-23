@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { OpeningHours } from '../models/classes';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { element } from '@angular/core/src/render3';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,9 @@ export class ComponentsService {
 private placeTableItem;
 private eventSource=  new Subject<any>();
 public eventEmitter = this.eventSource.asObservable();
+public paralaxEventSource=  new Subject<any>();
+public  paralaxEventEmitter = this.paralaxEventSource.asObservable();
+public heightObj;
 
 
   constructor(private spinner: NgxSpinnerService) { }

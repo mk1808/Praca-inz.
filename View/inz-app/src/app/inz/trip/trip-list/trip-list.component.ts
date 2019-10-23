@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { TripService } from 'src/app/shared/services/trip.service';
 import { Trip, User, Place } from 'src/app/shared/models/classes';
 import { PlaceService } from 'src/app/shared/services/place.service';
+import { ComponentsService } from 'src/app/shared/services/components.service';
 
 @Component({
   selector: 'app-trip-list',
@@ -13,7 +14,8 @@ import { PlaceService } from 'src/app/shared/services/place.service';
 export class TripListComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.res = this.targetElement;
-    console.log(this.res.nativeElement.offsetHeight);
+    this.componentService.heightObj=this.res;
+    console.log(this.res.nativeElement.offsetHeight);this.checkHeight()
   }
   hover = false;
   myTrips: Trip[]=[];
@@ -22,13 +24,13 @@ export class TripListComponent implements OnInit, AfterViewInit {
   res:any;
   @ViewChild('doc') targetElement: any; 
   constructor(private router: Router, private route: ActivatedRoute, private cookie: CookieService,
-    private tripService: TripService, private placeService:PlaceService) { 
+    private tripService: TripService, private placeService:PlaceService, private componentService:ComponentsService) { 
    
     }
   
   ngOnInit() {
    
-    
+    this.componentService.heightObj=this.res;
     if (this.cookie.get('user') == "") {
       this.router.navigate(['/']);
 
@@ -37,10 +39,12 @@ export class TripListComponent implements OnInit, AfterViewInit {
       this.tripService.getTripsByUser(this.user.id).subscribe(x => {
         this.myTrips = x;
         console.log(this.myTrips);
+        this.checkHeight() 
       })
       this.placeService.getPlacesByUser(this.user.id).subscribe(x=>{
         this.myPlaces=x;
         console.log(this.myPlaces);
+        this.checkHeight()
       })
       
 
@@ -48,10 +52,16 @@ export class TripListComponent implements OnInit, AfterViewInit {
 
 
   }
-
+  
+  checkHeight(){
+    setTimeout(()=>{
+      this.componentService.paralaxEventSource.next(this.res.nativeElement.offsetHeight);
+    }, 2);
+  }
+  
   onTrip(id){
     console.log(this.res.nativeElement.offsetHeight)
-    //this.router.navigate(['/trip/details/'+id]);
+    this.router.navigate(['/trip/details/'+id]);
   }
 
   onNewTrip(){
