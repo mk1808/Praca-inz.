@@ -149,28 +149,31 @@ allDaysSortedFinal: any[] = [{ start: null, end: null, ids: [] }, { start: null,
                 event.previousIndex,
                 event.currentIndex);
         }
-        console.log(event.container.data);
+        console.log(event);
         console.log(this.openHours);
-        if (event.container.id != "cdk-drop-list-2") {
+        if (event.container.id != "cdk-drop-list-0") {
 
             this.openHours.forEach(x => {
                 console.log(x);
-                if (x[0] == event.container.data[0]) {
+                console.log(event.container.data[event.currentIndex])
+                if (x[0] == event.container.data[event.currentIndex]) {
                     let onlyDays = [...x];
                     onlyDays.shift();
                     this.scheduleService.isCorrectDay(onlyDays, this.allDates[k].getDay()).subscribe(x => {
                         this.correctPosition = x;
                         this.tab["openDay"] = x;
-                        this.tab[event.container.data[0]] = x ? 'c' : 'd';
+                        this.tab[event.container.data[event.currentIndex]] = x ? 'c' : 'd';
                         console.log(this.tab);
                     })
                    
                    let currentPlace;
                    this.places.forEach(x=>{
-                       if (x.name==event.container.data[0]){
+                       if (x.name==event.container.data[event.currentIndex]){
                             currentPlace=x;
+                          
                        }
                    });
+                   console.log(currentPlace);
                    console.log(this.allDates[k]);
                     this.scheduleService.getPositionInSchedule(currentPlace.id, this.trip.id).subscribe(x=>{
                         this.position=x;
@@ -181,15 +184,18 @@ allDaysSortedFinal: any[] = [{ start: null, end: null, ids: [] }, { start: null,
                        console.log(day);
                         let wholeDate=day+'-'+month+'-'+this.allDates[k].getFullYear();
 
-                        this.position.startDay=wholeDate;
+                       
+
                         this.position.endDay=wholeDate;
+                        this.position.startDay=this.position.endDay;
                         console.log(wholeDate);
+                        console.log(this.position);
+                        this.scheduleService.updatePositionInSchedule(this.position).subscribe(x => {
+                            console.log(x);
+                            
+                          })
                       })
-                      console.log(this.position);
-                    this.scheduleService.updatePositionInSchedule(this.position).subscribe(x => {
-                        console.log(x);
-                        
-                      })
+                  
                 }
             })
 
