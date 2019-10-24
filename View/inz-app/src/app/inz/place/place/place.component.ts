@@ -240,6 +240,7 @@ export class PlaceComponent implements OnInit {
           popup.setPosition(coordinates);
           this.visible = !this.visible;
           this.tooltip.toggle();
+          this.tooltip.message=this.place.name;
         } else {
           this.tooltip.hide();
         }
