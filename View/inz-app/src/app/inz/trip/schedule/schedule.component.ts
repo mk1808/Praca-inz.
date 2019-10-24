@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TripService } from 'src/app/shared/services/trip.service';
 import { Trip, Schedule, PositionInSchedule, Place } from 'src/app/shared/models/classes';
@@ -11,6 +11,11 @@ import { ComponentsService } from 'src/app/shared/services/components.service';
   styleUrls: ['./schedule.component.scss']
 })
 export class ScheduleComponent implements OnInit {
+  ngAfterViewInit(): void {
+    this.res = this.targetElement;
+    this.componentService.heightObj=this.res;
+    console.log(this.res.nativeElement.offsetHeight);this.checkHeight()
+  }
   id: number;
   trip: Trip = new Trip();
   schedule:Schedule = new Schedule();
@@ -22,17 +27,19 @@ export class ScheduleComponent implements OnInit {
   allDaysSortedFinal: any[] = [{ start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] },
   { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }];
  icons:[]=[];
-
+ res:any;
+ @ViewChild('doc') targetElement: any;
   constructor(private router: Router, private route: ActivatedRoute, private tripService: TripService,
     private scheduleService: ScheduleService,  private componentService:ComponentsService) { }
 
   ngOnInit() {
-
+    this.componentService.heightObj=this.res;
     this.route.params.subscribe(x => {
       this.id = x['id'];
       this.tripService.getTrip(this.id).subscribe(y => {
         this.trip = y;
         this.schedule=this.trip.schedule;
+        this.checkHeight();
        });
       
 
@@ -41,6 +48,7 @@ export class ScheduleComponent implements OnInit {
       this.places.forEach(position=>{
         this.tabOpeningHours[position.name]=this.componentService.getHoursForDays(position.hours);
         this.icons[position.name]=this.componentService.getIconForPlace(position.category);
+        this.checkHeight();
     })
     console.log(this.icons);
     console.log(this.tabOpeningHours);
@@ -67,11 +75,18 @@ export class ScheduleComponent implements OnInit {
         this.positionsWODay=this.allPositions.pop();
         this.positions=this.allPositions;
         console.log(this.positions);
+        this.checkHeight();
         
       })
 
     })
   }
+  checkHeight(){
+    setTimeout(()=>{
+      this.componentService.paralaxEventSource.next(this.res.nativeElement.offsetHeight);
+    }, 2);
+  }
+
 
 
 }

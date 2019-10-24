@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PlaceService } from 'src/app/shared/services/place.service';
 import { Place, Trip, PositionInTrip } from 'src/app/shared/models/classes';
@@ -8,6 +8,7 @@ import { AddPlaceToTripDialogComponent } from '../add-place-to-trip-dialog/add-p
 import { TripService } from 'src/app/shared/services/trip.service';
 import { CookieService } from 'ngx-cookie-service';
 import { DictionaryService } from 'src/app/shared/services/dictionary.service';
+import { ComponentsService } from 'src/app/shared/services/components.service';
 
 @Component({
   selector: 'app-new-trip',
@@ -15,6 +16,11 @@ import { DictionaryService } from 'src/app/shared/services/dictionary.service';
   styleUrls: ['./new-trip.component.scss']
 })
 export class NewTripComponent implements OnInit {
+  ngAfterViewInit(): void {
+    this.res = this.targetElement;
+    this.componentService.heightObj=this.res;
+    console.log(this.res.nativeElement.offsetHeight);this.checkHeight()
+  }
   form: FormGroup;
   fillingForm: boolean = true;
   choosePlaces: boolean = false;
@@ -28,10 +34,13 @@ export class NewTripComponent implements OnInit {
   status:boolean[]=[];
   countries:any[]=[];
   filteredTags:any[]=[];
+  res:any;
+@ViewChild('doc') targetElement: any;
 
   constructor(private fb: FormBuilder, private placeService: PlaceService, private tripService: TripService,
-    private dictionaryService:DictionaryService,
-    private router: Router, private route: ActivatedRoute, public dialog: MatDialog,  private cookie:CookieService) {
+    private dictionaryService:DictionaryService, private componentService:ComponentsService,
+    private router: Router, private route: ActivatedRoute, public dialog: MatDialog, 
+     private cookie:CookieService) {
 
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -44,16 +53,25 @@ export class NewTripComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.componentService.heightObj=this.res;
     this.dictionaryService.getCountries().subscribe(y=>{
       this.countries = y;
+      this.checkHeight();
     })
 
     this.dictionaryService.getTags().subscribe(x => {
       this.filteredTags = x;
       console.log(this.filteredTags);
+      this.checkHeight();
 
     })
 
+  }
+
+  checkHeight(){
+    setTimeout(()=>{
+      this.componentService.paralaxEventSource.next(this.res.nativeElement.offsetHeight);
+    }, 2);
   }
   onCreate() {
     let tags=this.form.controls.tags.value;
