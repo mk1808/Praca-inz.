@@ -53,6 +53,7 @@ export class Schedule{
     start:Date;
     end:Date;
     positionsInSchedule:PositionInSchedule[];
+    scheduleExists;
 }
 
 export class PositionInTrip{

@@ -20,6 +20,7 @@ export class TripListComponent implements OnInit, AfterViewInit {
   hover = false;
   myTrips: Trip[]=[];
   myPlaces: Place[]=[];
+  placesFromTrip:Place[]=[];
   user: User;
   res:any;
   @ViewChild('doc') targetElement: any; 
@@ -41,6 +42,14 @@ export class TripListComponent implements OnInit, AfterViewInit {
         console.log(this.myTrips);
         this.checkHeight() 
       })
+/*
+      this.tripService.getPlacesForTrip(this.id).subscribe(x=>{
+        this.placesFromTrip=x;
+        this.placesFromTrip.forEach(el=>{
+   
+        })
+      });*/
+
       this.placeService.getPlacesByUser(this.user.id).subscribe(x=>{
         this.myPlaces=x;
         console.log(this.myPlaces);
@@ -78,5 +87,15 @@ export class TripListComponent implements OnInit, AfterViewInit {
 
   onCreateSchedule(id:number){
     this.router.navigate(['/trip/new-schedule', id]);
+  }
+
+onCheckSchedule(id){
+  this.router.navigate(['/trip/schedule', id]);
+}
+
+  hasPositions(trip:Trip){
+    trip.positionsInTrip.forEach(element => {
+      
+    });
   }
 }
