@@ -28,17 +28,22 @@ public class Schedule {
 	
 	@OneToMany
     private List <PositionInSchedule> positionsInSchedule;
+	
+	private Boolean scheduleExists;
 
 	public Schedule() {
+		
 		super();
+		this.scheduleExists=false;
 	}
 
-	public Schedule(Long id, Date start, Date end, List<PositionInSchedule> positionsInSchedule) {
+	public Schedule(Long id, Date start, Date end, List<PositionInSchedule> positionsInSchedule, Boolean scheduleExists) {
 		super();
 		this.id = id;
 		this.start = start;
 		this.end = end;
 		this.positionsInSchedule = positionsInSchedule;
+		this.scheduleExists=scheduleExists;
 	}
 
 	public Long getId() {
@@ -71,6 +76,14 @@ public class Schedule {
 
 	public void setPositionsInSchedule(List<PositionInSchedule> positionsInSchedule) {
 		this.positionsInSchedule = positionsInSchedule;
+	}
+
+	public Boolean getScheduleExists() {
+		return scheduleExists;
+	}
+
+	public void setScheduleExists(Boolean exists) {
+		this.scheduleExists = exists;
 	}
 	
 	
