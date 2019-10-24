@@ -2,16 +2,16 @@
   <ul class="menu align-center">
     <li routerLink="" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="appNavItemActive"><a
         class="underline-from-center">Strona główna</a></li>
-    <li routerLink="/place" routerLinkActive="appNavItemActive"><a class="underline-from-center">Atrakcje</a></li>
-    <li><a class="underline-from-center">Hotele</a></li>
-    <li routerLink="/trip" routerLinkActive="appNavItemActive"><a class="underline-from-center">Wycieczki</a></li>
+    <li routerLink="/all-places" routerLinkActive="appNavItemActive"><a class="underline-from-center">Atrakcje</a></li>
+   <!-- <li><a class="underline-from-center">Hotele</a></li>-->
+    <li routerLink="/all-trips" routerLinkActive="appNavItemActive"><a class="underline-from-center">Wycieczki</a></li>
     <li routerLink="/auth/signin" routerLinkActive="appNavItemActive" *ngIf="status==false"><a
         class="underline-from-center">Logowanie</a>
     </li>
     <li routerLink="/auth/signup" routerLinkActive="appNavItemActive" *ngIf="status==false"><a
         class="underline-from-center">Rejestracja</a>
     </li>
-    <li routerLink="/auth/signup" routerLinkActive="appNavItemActive" *ngIf="status"><a
+    <li routerLink="/trip/all" routerLinkActive="appNavItemActive" *ngIf="status"><a
         class="underline-from-center">Panel użytkownika</a>
     </li>
     <li routerLink="/auth/signup" routerLinkActive="appNavItemActive" *ngIf="status"><a class="underline-from-center">
