@@ -41,7 +41,7 @@
         </div>
       </form>
   
-  <h2 *ngIf="placeFirst" class="type-sidelines"><span>Miejsca w regionie</span></h2>
+  <h2 *ngIf="placeFirst" class="type-sidelines"><span>Wyniki wyszukiwania</span></h2>
   <h2 *ngIf="placeFirst==false" class="type-sidelines"><span>Wyniki wyszukiwania miejsc</span></h2>
   
   <div class="row" *ngIf="initialized">
@@ -49,8 +49,9 @@
         <div class="small-2 large-4 columns">
           <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
             <div class="flip-card-inner">
-              <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
-                  background-size: cover;">
+              <div class="flip-card-inner-front" 
+              [ngStyle]="{ 'background': 'url('+(place.status=='new'? 'https://live.staticflickr.com/8652/27620992483_a37104d94b_b.jpg':place.status)+')', 'background-size': 'cover' }"
+                  >
                 <span>{{place.name}}<br>
                   Kategoria: {{place.category}} <br>
                   Ocena: 4.5/5
@@ -148,7 +149,7 @@
     </div>
   </form>
   
-  <h2 *ngIf="tripFirst" class="type-sidelines"><span>Propozycje wycieczek do regionu</span></h2>
+  <h2 *ngIf="tripFirst" class="type-sidelines"><span>Wycieczki powiązane z miejscem</span></h2>
   <h2 *ngIf="tripFirst==false" class="type-sidelines"><span>Wyniki wyszukiwania wycieczek</span></h2>
   
   <!--
@@ -192,7 +193,7 @@
         <div class="small-2 large-4 columns">
           <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
             <div class="flip-card-inner">
-              <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
+              <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Toru%C5%84_Stare_Miasto_panorama_zima.jpg/1024px-Toru%C5%84_Stare_Miasto_panorama_zima.jpg);
                   background-size: cover;">
                 <span>{{trip.name}}<br>
   
