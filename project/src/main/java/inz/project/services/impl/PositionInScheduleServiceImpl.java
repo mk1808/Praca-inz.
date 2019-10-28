@@ -22,6 +22,7 @@ import inz.project.models.PositionInTrip;
 import inz.project.models.Schedule;
 import inz.project.models.Trip;
 import inz.project.repositories.PositionInScheduleRepository;
+import inz.project.repositories.ScheduleRepository;
 import inz.project.services.PositionInScheduleService;
 
 @Service
@@ -31,6 +32,7 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 	PositionInScheduleRepository positionInScheduleRepository;
 	@Autowired
 	PositionInTripServiceImpl positionInTripService;
+	@Autowired ScheduleRepository scheduleRepository;
 
 	@Override
 	public PositionInSchedule createPositionInSchedule(PositionInSchedule positionInSchedule) {
@@ -47,11 +49,17 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 	@Override
 	public PositionInSchedule updatePositionInSchedule(PositionInSchedule position) {
 
+		
 		PositionInSchedule updated = this.getPositionInSchedule(position.getId());
+		Schedule schedule=updated.getPositionInTrip().getTrip().getSchedule();
+		
+		schedule.setScheduleExists(true);
+		this.scheduleRepository.save(schedule);
 		updated.setStartDay(position.getStartDay());
 		updated.setStartTime(position.getStartTime());
 		updated.setEndDay(position.getEndDay());
 		updated.setEndTime(position.getEndTime());
+	
 
 		return this.positionInScheduleRepository.save(updated);
 	}

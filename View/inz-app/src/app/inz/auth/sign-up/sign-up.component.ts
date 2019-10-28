@@ -21,7 +21,7 @@ registerForm: FormGroup = this.fb.group({
   passwordRepeat: ['', Validators.required],
   sex: [''],
   age: [''],
-  country: [''],
+  country: ['Polska'],
   city: ['']
 }, 
 );  

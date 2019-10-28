@@ -24,12 +24,12 @@ public getPlace(id:number): Observable<Place> {
 
 public getPlacesFiltered(place:string): Observable<Place[]> {
 
-  return this.rest.get('/api/places/filter' + '?name=' + place);
+  return this.rest.get('/api/places/filter' + '?name=' + place, true);
 }
 
 public getRegionsFiltered(region:string): Observable<String[]> {
 
-  return this.rest.get('/api/places/filter2' + '?region=' + region);
+  return this.rest.get('/api/places/filter2' + '?region=' + region, true);
 }
 
 public getPlacesByRegCat(region:string, category:string): Observable<Place[]> {

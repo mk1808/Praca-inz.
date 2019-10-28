@@ -12,17 +12,17 @@ export class DictionaryService {
 
   public getCategories(): Observable<String[]> {
    
-    return this.rest.get<String[]>('/api/categories');
+    return this.rest.get<String[]>('/api/categories', true);
   }
 
   public getCountries(): Observable<String[]> {
    
-    return this.rest.get<String[]>('/api/countries');
+    return this.rest.get<String[]>('/api/countries', true);
   }
 
   public getTags(): Observable<String[]> {
    
-    return this.rest.get<String[]>('/api/tags');
+    return this.rest.get<String[]>('/api/tags',true);
   }
 
 

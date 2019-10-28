@@ -1,3 +1,191 @@
+<div class="containerFull full ">
+  <div claee="row">
+    <div class="columns large-6 align-center screen ">
+      <div class="row iconS align-start">
+          <div class="columns large-2"></div>
+        <div class="columns large-2">
+        <img src={{photo}}  height="90px" width="90px">
+      </div>
+      <div class="columns large-4">
+        <h3 class="mainName">{{place.name}} </h3>
+        
+        <star-rating id="ratingStar" [starType]="'svg'" [rating]="4.5" [disabled]="true" [showHalfStars]="true"
+          size="large"></star-rating>
+        
+      </div>
+      </div>
+
+      <div class="row">
+        <div class="columns large-12 bigBtn">
+          <span class="button success add-button" (click)="onAdd()" *ngIf="logged">
+            <i class="material-icons add-icon">
+              add_circle
+            </i>
+            <span class="btnText"> Dodaj do wycieczki
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="columns large-6 photo screen ">a
+      <div class="background"></div>
+    </div>
+  </div>
+</div>
+ <!--
+<div class="cont full strips row align-justify">
+
+    <div class="columns myHighlight small-4 ">
+        <div class="row">
+          <div class="columns small-2 ">
+            <img src="assets/pin.svg" height="20px" width="20px">
+          </div>
+          <div class="columns small-9 heading leftCol">
+            <h5 class="colHeader">Adres</h5>
+            <div class="addressStyle">
+              <h6>ul. {{place.street}} {{place.number}}</h6>
+              <h6>{{place.city}}</h6>
+              <h6>{{place.country}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns myHighlight small-4">
+          <div class="row">
+            <div class="columns small-2 ">
+              <img src="assets/clock.svg" height="20px" width="20px">
+            </div>
+            <div class="columns small-9 heading">
+              <h5 class="colHeader">Godziny otwarcia</h5>
+              <div class="addressStyle">
+                <h6 *ngFor="let day of allDaysSorted">{{day.ids}} {{day.start}}</h6>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="columns small-4 panel myHighlight oneCell " >
+            <div class="row contactRow">
+              <div class="columns small-3 ">
+                <img src="assets/contact.svg" height="20px" width="20px">
+              </div>
+              <div class="columns small-6 heading leftCol contactRow">
+                <h5 class="colHeader">Kontakt</h5>
+                <div class="addressStyle">
+                  <h6>{{place.website}}</h6>
+               
+                  <h6>{{place.phoneNumber}}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+         <div class="columns small-3 panel myHighlight " equalize>
+              <div class="row contactRow">
+                <div class="columns small-2 ">
+                  <img src="assets/question.svg" height="20px" width="20px">
+                </div>
+                <div class="columns small-7 heading  contactRow">
+                  <h5 class="colHeader">Opis</h5>
+                  <div class="addressStyle">
+                    <h6 class="description">{{place.description}}
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+</div>-->
+<div class="infoLabel">Informacje</div>
+<mat-card class="infoCard">
+<div class="cont full strip row align-justify">
+<div class="columns myHighlight small-4 ">
+    <div class="row">
+      <div class="columns small-2 ">
+        <img src="assets/pin.svg" height="20px" width="20px">
+      </div>
+      <div class="columns small-9 heading leftCol">
+        <h5 class="colHeader">Adres</h5>
+        <div class="addressStyle">
+          <h6>ul. {{place.street}} {{place.number}}</h6>
+          <h6>{{place.city}}</h6>
+          <h6>{{place.country}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns myHighlight small-4">
+      <div class="row">
+        <div class="columns small-2 ">
+          <img src="assets/clock.svg" height="20px" width="20px">
+        </div>
+        <div class="columns small-9 heading">
+          <h5 class="colHeader">Godziny otwarcia</h5>
+          <div class="addressStyle">
+            <h6 *ngFor="let day of allDaysSortedFinal">{{day.ids}} {{day.start}}</h6>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns small-4 panel myHighlight oneCell " >
+        <div class="row contactRow">
+          <div class="columns small-3 ">
+            <img src="assets/contact.svg" height="20px" width="20px">
+          </div>
+          <div class="columns small-6 heading leftCol contactRow">
+            <h5 class="colHeader">Kontakt</h5>
+            <div class="addressStyle">
+              <h6>{{place.website}}</h6>
+           
+              <h6>{{place.phoneNumber}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--  <div class="columns small-3 panel myHighlight " equalize>
+          <div class="row contactRow">
+            <div class="columns small-2 ">
+              <img src="assets/question.svg" height="20px" width="20px">
+            </div>
+            <div class="columns small-7 heading  contactRow">
+              <h5 class="colHeader">Opis</h5>
+              <div class="addressStyle">
+                <h6 class="description">{{place.description}}
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>-->
+    
+</div>
+</mat-card> 
+<div class="row"> 
+<div class="columns small-6 " >
+    <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="gallery"></ngx-gallery>
+  </div>
+  
+    
+    <div class="columns small-6 rectangle" ></div>
+  
+</div>
+
+<div  >
+<div class="infoLabel mapInfo" >Lokalizacja</div>
+
+<mat-card class="mapCard">
+  <div  id="map" class="mapPos row">
+    <div id="popup">
+      <div (click)="tooltip.toggle()" mat-raised-button #tooltip="matTooltip" matTooltip=""
+        matTooltipPosition="above">
+        <!--  <div *ngIf="visible" style="background-color: #fff;width:50px;height: 50px;"></div>-->
+      </div>
+    </div>
+    <!--
+    <agm-map class="map" [latitude]='latitude' [longitude]='longitude' [mapTypeId]='mapType'>
+    </agm-map>-->
+  </div>
+</mat-card></div>
+<!--
 <div class="container">
  
       <div class="row firstHeader myRow first">
@@ -64,6 +252,8 @@
               </div>
             </div>
           </div>
+
+          
         </div>
 
 
@@ -118,14 +308,12 @@
     <div id="popup">
         <div (click)="tooltip.toggle()" mat-raised-button #tooltip="matTooltip" matTooltip="Info about the action"
           matTooltipPosition="above">
-          <!--  <div *ngIf="visible" style="background-color: #fff;width:50px;height: 50px;"></div>-->
+       
         </div>
       </div>
-  <!--
-  <agm-map class="map" [latitude]='latitude' [longitude]='longitude' [mapTypeId]='mapType'>
-  </agm-map>-->
+ 
 </div>
-
+//COMMENTS
 <div class="row">
   <div class="comment-section-container">
     <h3>Komentarze</h3>
@@ -162,7 +350,7 @@
     </div>
   </div>
 
-</div>
+</div>-->
 
 <!--
 <div class="row equalizer" equalizer>

@@ -11,14 +11,14 @@ import { MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./add-place.component.scss']
 })
 export class AddPlaceComponent implements OnInit {
-user:User=new User;
-myTrips:Trip[]=[];
-initialized:boolean=true;
-mouseOver:boolean=false;
-chosenTrip:Trip=new Trip();
-place:Place = new Place();
-positionInTrip:PositionInTrip = new PositionInTrip();
-before=true;
+  user: User = new User;
+  myTrips: Trip[] = [];
+  initialized: boolean = true;
+  mouseOver: boolean = false;
+  chosenTrip: Trip = new Trip();
+  place: Place = new Place();
+  positionInTrip: PositionInTrip = new PositionInTrip();
+  before = true;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private router: Router, private route: ActivatedRoute, private cookie: CookieService,
     private tripService: TripService) { }
 
@@ -36,22 +36,24 @@ before=true;
     }
   }
 
-  onHover(i){
-    this.mouseOver=true;
+  onHover(i) {
+    this.mouseOver = true;
   }
 
-  onAdd(i){
+  onAdd(i) {
 
-    this.tripService.getTrip(this.myTrips[i].id).subscribe(x=>{
-      this.chosenTrip=x;  console.log(this.chosenTrip);
-    console.log(this.data);
+    this.tripService.getTrip(this.myTrips[i].id).subscribe(x => {
+      this.chosenTrip = x; console.log(this.chosenTrip);
+      console.log(this.data);
+      this.positionInTrip.place = this.data;
+      this.positionInTrip.trip = this.chosenTrip;
+
+      this.tripService.addPlaceToTrip(this.positionInTrip).subscribe(x => {
+        console.log(x);
+        this.before = false;
+      }
+      )
     })
-  this.positionInTrip.place=this.data;
-  this.positionInTrip.trip=this.chosenTrip;
- this.tripService.addPlaceToTrip(this.positionInTrip).subscribe(x=>{
-    console.log(x);
-    this.before=false;
-   }
- )
+
   }
 }

@@ -2,6 +2,8 @@
 .container{
     margin-left: 20px;
   margin-right: 20px;
+  padding-bottom:25px;
+  padding-top:25px;
   }
   
   .headingStyle{
@@ -115,4 +117,41 @@
 button{
   cursor:pointer;
 
+}
+
+.rectangle{
+  background-color: #4c216d;  
+    background-image: linear-gradient(to right, #9174a7, #4c216d);
+    height: 303px;
+    position: relative;
+    top: 24px;
+    left: -760px;
+    width: 756px;
+    z-index: -1;
+}
+
+.narrow{
+  width:0px;
+  overflow: visible;
+  padding: 0;
+}
+
+.bodyImg{
+  background-image:
+ // url("https://c.pxhere.com/photos/a6/21/4k_wallpaper_adventure_daylight_glacier_HD_wallpaper_high_lake_landscape-1548857.jpg!d");
+// url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Dallas_In_Purple_%28142084641%29.jpeg/1920px-Dallas_In_Purple_%28142084641%29.jpeg"); 
+url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Purple_night_%28Unsplash%29.jpg/1200px-Purple_night_%28Unsplash%29.jpg"); 
+background-repeat: round;
+ 
+
+
+  background-size: cover;
+ /* display: block;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  height: 800px;
+  left: 0;
+
+  right: 0;
+  z-index: 0;*/
 }

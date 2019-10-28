@@ -26,6 +26,11 @@ import { MatBadgeModule } from '@angular/material';
 
 import { AngularOpenlayersModule } from "ngx-openlayers";
 import { ImageUploadModule } from "angular2-image-upload";
+import { NgxSpinnerModule } from "ngx-spinner";
+import { StarsComponent } from './shared/stars/stars.component';
+import { NgxParallaxScrollModule } from 'ngx-parallax-scroll';
+import { SharedModule } from './shared/shared/shared.module';
+
 /*
 @Injectable({
   providedIn: 'root'
@@ -38,8 +43,9 @@ import { ImageUploadModule } from "angular2-image-upload";
   ],
   imports: [
     //RouterModule,
-    BrowserModule,
-    BrowserAnimationsModule,
+ //   BrowserModule,
+   BrowserAnimationsModule,
+ //SharedModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -72,6 +78,8 @@ import { ImageUploadModule } from "angular2-image-upload";
    MatCheckboxModule,
    AngularOpenlayersModule,
    ImageUploadModule.forRoot(),
+   NgxSpinnerModule,
+   NgxParallaxScrollModule,
     NotifierModule.withConfig(
      { position: {
  
@@ -94,6 +102,9 @@ import { ImageUploadModule } from "angular2-image-upload";
   ],
   
   providers: [ CookieService ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[
+    
+  ]
 })
 export class AppModule { }

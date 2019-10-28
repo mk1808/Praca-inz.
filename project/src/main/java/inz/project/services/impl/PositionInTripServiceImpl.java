@@ -27,6 +27,10 @@ public class PositionInTripServiceImpl implements PositionInTripService{
 	
 	@Override
 	public PositionInTrip createPositionInTrip(PositionInTrip positionInTrip) {
+		Place place = this.placeService.getPlaceById(positionInTrip.getPlace().getId());
+		Trip trip = this.tripService.getTripById(positionInTrip.getTrip().getId());
+		positionInTrip.setPlace(place);
+		positionInTrip.setTrip(trip);
 		PositionInSchedule positionSchedule = new PositionInSchedule();
 		PositionInTrip positionTrip = this.positionInTripRepository.save(positionInTrip);
 		positionSchedule.setPositionInTrip(positionTrip);

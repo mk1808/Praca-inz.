@@ -1,5 +1,5 @@
 <div class="container">
-  <h4 class="headingStyle">Przeszukiwanie obiektów</h4>
+  <h4 class="headingStyle">Przeszukiwanie wycieczek</h4>
   <form [formGroup]="form" *ngIf="initialized">
     <div class="row whereGo">
       <div class="wrap">
@@ -74,15 +74,17 @@
     </div>
   </form>
 
-  <h2 class="type-sidelines"><span>Co można zobaczyć w: x</span></h2>
+  <h2 class="type-sidelines" *ngIf="first"><span>Ostatnio dodane wycieczki</span></h2>
+<h2 class="type-sidelines" *ngIf="first==false"><span>Wyniki wyszukiwania </span></h2>
 
   <div class="row">
     <div *ngFor="let trip of trips; let i = index;">
       <div class="small-2 large-4 columns">
         <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
           <div class="flip-card-inner">
-            <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
+            <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Toru%C5%84_Stare_Miasto_panorama_zima.jpg/1024px-Toru%C5%84_Stare_Miasto_panorama_zima.jpg);
                 background-size: cover;">
+                
               <span>{{trip.name}}<br>
 
                 Ocena: 4.5/5
@@ -100,7 +102,7 @@
       </div>
     </div>
   </div>
-
+<!--
   <button class="button moreBtn button-rounded-hover">Zobacz więcej miejsc
 
-  </button>
+  </button>-->

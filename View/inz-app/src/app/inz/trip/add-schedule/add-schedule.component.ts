@@ -9,6 +9,7 @@ import { Trip, Schedule, Place, PositionInSchedule } from 'src/app/shared/models
 import { ScheduleService } from 'src/app/shared/services/schedule.service';
 import { NotifierService } from 'angular-notifier';
 import { PlaceService } from 'src/app/shared/services/place.service';
+import { ComponentsService } from 'src/app/shared/services/components.service';
 
 export class TripPlace{
     trip:Trip;
@@ -22,7 +23,7 @@ export class TripPlace{
 
 export class AddScheduleComponent implements OnInit {
 form: FormGroup;
-fillingForm: boolean = false;
+fillingForm: boolean = true;
 days:number;
 dayCount=false;
 id:number;
@@ -53,10 +54,16 @@ openHours:any[]=[];
 openHoursForDay:any[]=[];
 placeInitialized:boolean=false;
 tab:any[]=[];
+tabOpeningHours:any[]=[];
 tabScheduleHours:any[]=[];
 position:PositionInSchedule;
+allDaysSortedFinal: any[] = [{ start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] },
+{ start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }];
+
+
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, 
-    private tripService:TripService, private placeService:PlaceService, private scheduleService:ScheduleService, public dialog: MatDialog,
+    private tripService:TripService, private placeService:PlaceService, private scheduleService:ScheduleService,
+    private componentService:ComponentsService, public dialog: MatDialog,
     notifierService: NotifierService) { 
         this.notifier = notifierService;
     this.form = this.fb.group({
@@ -97,6 +104,10 @@ position:PositionInSchedule;
 
             })
 
+            this.places.forEach(position=>{
+                this.tabOpeningHours[position.name]=this.componentService.getHoursForDays(position.hours);
+            })
+            console.log(this.tabOpeningHours);
             
                 let i=0;
                 this.places.forEach(position=>{
@@ -138,28 +149,31 @@ position:PositionInSchedule;
                 event.previousIndex,
                 event.currentIndex);
         }
-        console.log(event.container.data);
+        console.log(event);
         console.log(this.openHours);
-        if (event.container.id != "cdk-drop-list-2") {
+        if (event.container.id != "cdk-drop-list-0") {
 
             this.openHours.forEach(x => {
                 console.log(x);
-                if (x[0] == event.container.data[0]) {
+                console.log(event.container.data[event.currentIndex])
+                if (x[0] == event.container.data[event.currentIndex]) {
                     let onlyDays = [...x];
                     onlyDays.shift();
                     this.scheduleService.isCorrectDay(onlyDays, this.allDates[k].getDay()).subscribe(x => {
                         this.correctPosition = x;
                         this.tab["openDay"] = x;
-                        this.tab[event.container.data[0]] = x ? 'c' : 'd';
+                        this.tab[event.container.data[event.currentIndex]] = x ? 'c' : 'd';
                         console.log(this.tab);
                     })
                    
                    let currentPlace;
                    this.places.forEach(x=>{
-                       if (x.name==event.container.data[0]){
+                       if (x.name==event.container.data[event.currentIndex]){
                             currentPlace=x;
+                          
                        }
                    });
+                   console.log(currentPlace);
                    console.log(this.allDates[k]);
                     this.scheduleService.getPositionInSchedule(currentPlace.id, this.trip.id).subscribe(x=>{
                         this.position=x;
@@ -170,15 +184,18 @@ position:PositionInSchedule;
                        console.log(day);
                         let wholeDate=day+'-'+month+'-'+this.allDates[k].getFullYear();
 
-                        this.position.startDay=wholeDate;
+                       
+
                         this.position.endDay=wholeDate;
+                        this.position.startDay=this.position.endDay;
                         console.log(wholeDate);
+                        console.log(this.position);
+                        this.scheduleService.updatePositionInSchedule(this.position).subscribe(x => {
+                            console.log(x);
+                            
+                          })
                       })
-                      console.log(this.position);
-                    this.scheduleService.updatePositionInSchedule(this.position).subscribe(x => {
-                        console.log(x);
-                        
-                      })
+                  
                 }
             })
 

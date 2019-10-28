@@ -1,4 +1,6 @@
-<div class="container">
+<app-stars></app-stars>
+
+<div class="container" #doc>
 
   <div class="holy-grail-header">
     <div class="row myRow">
@@ -39,10 +41,12 @@
             <td data-label="Hero Title">{{trip.positionsInTrip.length}}</td>
             <td data-label="Hero Title">Tak</td>
             <td data-label="Hero Title">
-              <div *ngIf="trip.schedule.positionsInSchedule.length!=0; else addSchedule">
-                <i class="material-icons">
-                  done
-                </i>Dodany</div>
+              <div *ngIf="trip.schedule.scheduleExists; else addSchedule">
+                  <span class="button success add-button" (click)="onCheckSchedule(trip.id)">
+                   
+                        <span> Zobacz
+                        </span>
+                      </span></div>
               <ng-template #addSchedule>
                 <span class="button success add-button" (click)="onCreateSchedule(trip.id)">
                 <!--  <i class="material-icons add-icon">
