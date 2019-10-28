@@ -88,6 +88,12 @@ h3 {
   margin-top: 7px;
 }
 
+.iconS{
+  margin-top: 200px;
+    margin-left: 40px;
+
+}
+
 .colHeader{
   font-weight: 600;
 }
@@ -112,18 +118,19 @@ h3 {
 
 .mapPos{
   margin-bottom:40px;
-  width:1480px;
+  width:1400px;
   height: 300px;
   margin-left: 20px;
   margin-right: 20px;
   margin-top:20px;
+  margin:0 auto;
 }
 
 .gallery{
   
   background-color: white;
   padding: 7px;
-  border-radius: 10px;
+
 }
  
 .firstHeader{
@@ -143,7 +150,10 @@ h3 {
 
 
 .add-button{
-  padding-top: 2px;
+  padding-top: 10px;
+  height: 56px;
+    width: 275px;
+
 }
 
 
@@ -267,3 +277,108 @@ h3 {
   .card{
     width:600px;
   }
+
+  //other
+
+  .photo{
+    background-color: #4c216d;
+  }
+
+  .photo.bck{
+    min-height: 420px;
+  }
+
+  .screen{
+    height: 800px;
+  }
+
+  .background {
+    
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/56/Wroc%C5%82aw_Dworzec_G%C5%82%C3%B3wny.jpg");
+  
+    height: 100%; 
+  
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  ::ng-deep .row {
+   max-width: 1000rem !important;
+  }
+
+  .mainName{
+    margin-left: 6px;
+  }
+
+  .bigBtn{
+    text-align: center;
+    margin-top: 47px;
+  }
+
+  .btnText{
+    font-size:19px;
+  }
+  .strips{
+    margin-top: 30px;
+    background-color: #d1cece;
+    height: 218px;
+    padding-top:20px;
+  }
+
+  .strip{
+    margin-top: 30px;
+
+    height: 218px;
+    padding-top:20px;
+  }
+
+  .infoCard{
+    margin-right: 160px;
+    margin-left: 160px;
+    margin-bottom: 60px;
+   
+  }
+
+  .columns.myHighlight{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .infoLabel{
+    margin-left: 160px;
+    font-size: 24px;
+    width: fit-content;
+    background-color: #fff;
+    border-radius: 4px;
+    /* box-shadow: 1px 1px 1px 3px; */
+    border-top: 1px solid #e7e7e7;
+    border-left: 1px solid #e7e7e7;
+    border-right: 1px solid #e7e7e7;
+    border-bottom: 1px dashed #e7e7e7;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+  
+.rectangle{
+  background-color: #4c216d;  
+    background-image: linear-gradient(to right, #9174a7, #4c216d);
+    height:460px; 
+    position:relative;
+    top: -19px;
+    left: -49px;    
+    width:750px; z-index: -1;
+}
+
+.mapCard{
+
+  margin-left: 10px;
+    margin-right: 10px;
+}
+
+ .mapInfo{
+  margin-left:10px!important;
+}

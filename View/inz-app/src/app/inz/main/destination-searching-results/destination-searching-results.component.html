@@ -1,21 +1,74 @@
 <div class="container">
   <h4 class="headingStyle">Przeszukiwanie obiektów</h4>
-<div class="row whereGo">
-  <div class="wrap">
-    <div class="search">
-      <input type="text" class="searchTerm" placeholder="Wpisz szukaną frazę">
-      <input type="text" class="searchTerm" placeholder="Wybierz kategorię">
-      <input type="text" class="searchTerm" placeholder="Sortuj według:">
-      <button (click)="onSearch()" type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-      </button>
+  <form [formGroup]="form" *ngIf="initialized">
+      <div class="row whereGo">
+        <div class="wrap">
+          <div class="search">
+            <input type="text" class="searchTerm" placeholder="Wpisz nazwę" [matAutocomplete]="auto"
+              formControlName="name">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let place of filteredPlaces" [value]="place.name">
+  
+                <span>{{place.name}}</span>
+                <!--       <small>Population: {{state.population}}</small>-->
+              </mat-option>
+            </mat-autocomplete>
+            <button (click)="onSearchName()" type="submit" class="searchButton">
+              <i class="fa fa-search"></i>
+            </button>
+            <div class="or">lub</div>
+  
+            <mat-select class="searchTerm" placeholder="Wybierz kategorię" formControlName="category">
+              <mat-option *ngFor="let category of categories" [value]="category">
+                {{category}}
+              </mat-option>
+            </mat-select>
+  
+            <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto3"
+              formControlName="region">
+            <mat-autocomplete #auto3="matAutocomplete">
+              <mat-option *ngFor="let region of filteredRegions" [value]="region">
+  
+                <span>{{region}}</span>
+                <!--       <small>Population: {{state.population}}</small>-->
+              </mat-option>
+            </mat-autocomplete>
+            <button (click)="onSearch()" type="submit" class="searchButton">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+<h2 *ngIf="placeFirst" class="type-sidelines"><span>Miejsca w regionie</span></h2>
+<h2 *ngIf="placeFirst==false" class="type-sidelines"><span>Wyniki wyszukiwania miejsc</span></h2>
+
+<div class="row" *ngIf="initialized">
+    <div *ngFor="let place of places; let i = index;">
+      <div class="small-2 large-4 columns">
+        <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+          <div class="flip-card-inner">
+            <div class="flip-card-inner-front" 
+            [ngStyle]="{ 'background': 'url('+(place.status=='new'? 'https://live.staticflickr.com/8652/27620992483_a37104d94b_b.jpg':place.status)+')', 'background-size': 'cover' }">
+              <span>{{place.name}}<br>
+                Kategoria: {{place.category}} <br>
+                Ocena: 4.5/5
+  
+              </span>
+  
+            </div>
+            <div class="flip-card-inner-back">
+              <h3 class="flip-card-inner-back-title">{{place.name}}</h3>
+              <p class="flip-card-inner-back-text">{{place.description}}</p>
+              <a [href]="'/place/details/'+places[i].id" class="button success">Zobacz</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
   </div>
-</div>
-
-<h2 class="type-sidelines"><span>Co można zobaczyć w: x</span></h2>
-
+<!--
 <div class="row">
   <div class="small-2 large-4 columns">
     <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
@@ -39,8 +92,9 @@
     </div>
   </div>
 </div>
+-->
 
-<button class="button moreBtn button-rounded-hover">Zobacz więcej wycieczek
+<button class="button moreBtn button-rounded-hover">Poznaj więcej miejsc
 
 </button>
 
@@ -48,23 +102,56 @@
   <img src="assets/map.svg" height="70px" width="70px">
 </span></h2>
 <h4 class="headingStyle">Przeszukiwanie wycieczek</h4>
-<div class="row whereGo">
-  <div class="wrap tripWrap">
-    <div class="search">
-      <input type="text" class="searchTerm" placeholder="Wpisz szukaną frazę">
-      <input type="text" class="searchTerm" placeholder="Wybierz z dostępnych tagów">
-      <input type="text" class="searchTerm" placeholder="Wybierz długość wycieczki">
-      <input type="text" class="searchTerm" placeholder="Sortuj według:">
-      <button (click)="onSearch()" type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-      </button>
+<form [formGroup]="formTrip" *ngIf="initialized">
+  <div class="row whereGo">
+    <div class="wrap">
+      <div class="search">
+        
+          <input #fruitInput type="text" class="searchTerm" placeholder="Wybierz tagi" [matAutocomplete]="autoT"
+          formControlName="tags" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+       
+        <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto6"
+          formControlName="region">
+          <mat-autocomplete #auto6="matAutocomplete">
+          <mat-option *ngFor="let region of filteredRegionsTrip" [value]="region">
+            <span>{{region}}</span>
+          </mat-option>
+        </mat-autocomplete>
+
+      
+        <mat-autocomplete #autoT="matAutocomplete" (optionSelected)="selected($event)">
+          <mat-option *ngFor="let tag of filteredTags" [value]="tag">
+            <span>{{tag}}</span>
+          </mat-option>
+        </mat-autocomplete>
+
+
+
+        <input type="number" min="1" class="searchTerm" placeholder="Min. ilość dni" formControlName="durationFrom">
+        <input type="number" min="1" class="searchTerm" placeholder="Max. ilość dni" formControlName="durationTo">
+        <button (click)="onSearchTrip()" type="submit" class="searchButton">
+          <i class="fa fa-search"></i>
+        </button>
+
+
+      </div>
+      <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip *ngFor="let tag of chosenTags" [selectable]="selectable" [removable]="removable"
+          (removed)="remove(tag)">
+          {{tag}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+
+      </mat-chip-list>
     </div>
-
   </div>
-</div>
+</form>
 
-<h2 class="type-sidelines"><span>Propozycje wycieczek do: x</span></h2>
+<h2 *ngIf="tripFirst" class="type-sidelines"><span>Propozycje wycieczek do regionu</span></h2>
+<h2 *ngIf="tripFirst==false" class="type-sidelines"><span>Wyniki wyszukiwania wycieczek</span></h2>
 
+<!--
 <div class="row">
   <div class="small-2 large-4 columns">
     <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
@@ -98,7 +185,33 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
+
+<div class="row">
+    <div *ngFor="let trip of trips; let i = index;">
+      <div class="small-2 large-4 columns">
+        <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+          <div class="flip-card-inner">
+            <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Toru%C5%84_Stare_Miasto_panorama_zima.jpg/1024px-Toru%C5%84_Stare_Miasto_panorama_zima.jpg);
+                background-size: cover;">
+              <span>{{trip.name}}<br>
+
+                Ocena: 4.5/5
+
+              </span>
+
+            </div>
+            <div class="flip-card-inner-back">
+              <h3 class="flip-card-inner-back-title">{{trip.name}}</h3>
+              <p class="flip-card-inner-back-text">{{trip.description}}</p>
+              <a [href]="'/trip/details/'+trips[i].id" class="button success">Zobacz</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <button class="button moreBtn button-rounded-hover">Zobacz więcej wycieczek

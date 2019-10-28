@@ -12,4 +12,5 @@ public interface PositionInTripRepository extends JpaRepository<PositionInTrip, 
 
 	List<PositionInTrip> getPositionInTripByTrip(Trip trip);
 	PositionInTrip getPositionInTripByTripAndPlace(Trip trip, Place place);
+	List<PositionInTrip> getPositionInTripByPlace(Place place);
 }

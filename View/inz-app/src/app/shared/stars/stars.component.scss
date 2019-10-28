@@ -1,0 +1,39 @@
+.galaxy__parallax {
+	position: absolute;
+	opacity: 0.5;
+}
+
+.galaxy{
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.galaxy__parallax--figure {
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.galaxy__generate {
+  position: fixed;
+	background-color: #fff;
+	border: 1px solid #fff;
+	color: #333;
+	font-size: 16px;
+	padding: 10px 20px;
+	cursor: pointer;
+	border-radius: 50px;
+	margin: 10px;
+	transition: background-color 0.2s, color 0.15s;
+	outline: none;
+}
+
+.galaxy__generate:hover {
+	background-color: #ff695d;
+	border-color: transparent;
+	color: #fff;
+}

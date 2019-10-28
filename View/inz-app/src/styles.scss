@@ -14,20 +14,33 @@
   margin-left: 20px;
 margin-right: 20px;
 font-family: 'Work Sans', sans-serif;
-min-height: 500px;
+min-height: 520px;
+}
+
+.containerFull{
+
+font-family: 'Work Sans', sans-serif;
+min-height: 840px;
+}
+
+.cont{
+  font-family: 'Work Sans', sans-serif;
 }
 @include foundation-grid;
 
 body{
   background-color: #F7F9F9;
   color: #334049;
-
+  //background-image:
+  // url("https://c.pxhere.com/photos/a6/21/4k_wallpaper_adventure_daylight_glacier_HD_wallpaper_high_lake_landscape-1548857.jpg!d");
 }
 
 body,H1,.h1,h2,h3,h4,h5,h6{
   font-family: 'Work Sans', sans-serif!important;
 }
-
+.cdk-overlay-pane{
+  margin-top:0px!important;
+}
 
 
 /* Override colors by using scss variables */

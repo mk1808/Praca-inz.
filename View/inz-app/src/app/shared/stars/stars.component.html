@@ -1,0 +1,21 @@
+<!--<ngx-parallax-scroll [config]="ngParallaxConf">
+    <img src="assets/camera.svg" height="20px" width="20px" class="parallax-img" alt="parallax-img">
+  </ngx-parallax-scroll>-->
+  <div class="galaxy" *ngIf="initialized" [ngStyle]="{'height.px':heightObj }">
+<!--
+      <button class="galaxy__generate" (click)="onGalaxyGenerate()">Generate galaxy</button>
+    -->
+      
+    
+      <div class="galaxy__parallax"
+           *ngFor="let star of stars; let i = index"
+           
+           [ngStyle]="{ 'left': star.position.left, 'top': star.position.top }">
+    
+        <img [src]="star.img"
+             class="galaxy__img"
+             [alt]="'star-' + i"
+             ngxParallaxScroll
+             [config]="star.conf">
+      </div>
+    </div>

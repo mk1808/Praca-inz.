@@ -54,17 +54,22 @@
       </div>
     </div>
   </form>
-</div>
 
-<h2 class="type-sidelines"><span>Co można zobaczyć w: x</span></h2>
 
+<h2 class="type-sidelines" *ngIf="first"><span>Ostatnio dodane miejsca</span></h2>
+<h2 class="type-sidelines" *ngIf="first==false"><span>Wyniki wyszukiwania </span></h2>
 <div class="row" *ngIf="initialized">
   <div *ngFor="let place of places; let i = index;">
     <div class="small-2 large-4 columns">
       <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
         <div class="flip-card-inner">
-          <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
-              background-size: cover;">
+          <!--<div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
+              background-size: cover;">-->
+              <div class="flip-card-inner-front" 
+              
+               [ngStyle]="{ 'background': 'url('+(place.status=='new'? 'https://live.staticflickr.com/8652/27620992483_a37104d94b_b.jpg':place.status)+')', 'background-size': 'cover' }"
+              >
+
             <span>{{place.name}}<br>
               Kategoria: {{place.category}} <br>
               Ocena: 4.5/5
@@ -82,7 +87,8 @@
     </div>
   </div>
 </div>
-
+<!--
 <button class="button moreBtn button-rounded-hover">Zobacz więcej miejsc
 
-</button>
+</button>-->
+</div>

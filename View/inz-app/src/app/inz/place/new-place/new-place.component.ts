@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Place, User, OpeningHours, Image } from 'src/app/shared/models/classes';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PlaceService } from 'src/app/shared/services/place.service';
 import { DictionaryService } from 'src/app/shared/services/dictionary.service';
 import { CookieService } from 'ngx-cookie-service';
+import { ComponentsService } from 'src/app/shared/services/components.service';
 
 @Component({
   selector: 'app-new-place',
@@ -12,7 +13,13 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./new-place.component.scss']
 })
 export class NewPlaceComponent implements OnInit {
+  ngAfterViewInit(): void {
+    this.res = this.targetElement;
+    this.componentService.heightObj=this.res;
+    console.log(this.res.nativeElement.offsetHeight);this.checkHeight()
+  }
 categories:any[]=[];
+countries:any[]=[];
 form: FormGroup;
 newPlace: Place=new Place;
 user:User = new User;
@@ -22,16 +29,20 @@ week:boolean[]=[false,false,false,false,false,false,false];
 file:any;
 image:any;
 imgObj:Image = new Image();
+res:any;
+@ViewChild('doc') targetElement: any; 
 constructor(private fb: FormBuilder, private placeService: PlaceService,
+  private componentService:ComponentsService,
   private router: Router, private route: ActivatedRoute,
    private dictionaryService: DictionaryService, private cookie:CookieService) { }
 
   ngOnInit() {
+    this.componentService.heightObj=this.res;
     this.newPlace.image=[];
     this.form = this.fb.group({
       name: ['', Validators.required],
       category: ['', Validators.required],
-      country: ['', Validators.required],
+      country: ['Polska', Validators.required],
       region: ['', Validators.required],
       city: ['', Validators.required],
       street: ['', Validators.required],
@@ -59,19 +70,34 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
       thuClose:[null],
       friClose:[null],
       satClose:[null],
-      sunClose:[null]
+      sunClose:[null],
+      latitude:[''],
+      longitude:['']
       
     })
 
     this.dictionaryService.getCategories().subscribe(x => {
       this.categories = x;
       console.log(this.categories);
+      this.checkHeight();
+    })
+
+    this.dictionaryService.getCountries().subscribe(y=>{
+      this.countries = y;
+      this.checkHeight();
     })
   }
 
+  checkHeight(){
+    setTimeout(()=>{
+      this.componentService.paralaxEventSource.next(this.res.nativeElement.offsetHeight);
+    }, 2);
+  }
+  
   create(){
+    let category=this.componentService.changeCategoriesToSend(this.form.controls.category.value);
     this.newPlace.name=this.form.controls.name.value;
-    this.newPlace.category=this.form.controls.category.value;
+    this.newPlace.category=category;
     this.newPlace.country=this.form.controls.country.value;
     this.newPlace.region=this.form.controls.region.value;
     this.newPlace.city=this.form.controls.city.value;
@@ -106,7 +132,8 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
     this.imgObj.image=this.image;
     console.log(this.imgObj);
     this.newPlace.image.push(this.imgObj);
-    
+    this.newPlace.latitude=this.form.controls.latitude.value;
+    this.newPlace.longitude=this.form.controls.longitude.value;
     
 
 this.user = JSON.parse(this.cookie.get('user'));

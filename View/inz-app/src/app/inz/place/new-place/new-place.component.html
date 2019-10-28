@@ -1,4 +1,5 @@
-<div class="container">
+<app-stars></app-stars>
+<div class="container"  #doc>
   <h2 class="headingStyle">Tworzenie nowego miejsca</h2>
 
   <form  [formGroup]="form">
@@ -28,10 +29,22 @@
       </div>
       <div class="textCateogory up">- Adres -</div>
 
+      <div class="singleInput country">
+          <label for="sign-in-form-password">Kraj</label>
+          <mat-select class="searchTerm sign-in-form-username selectInput" placeholder="Wybierz kraj"
+            formControlName="country">
+            <mat-option *ngFor="let country of countries" [value]="country">
+              {{country}}
+            </mat-option>
+          </mat-select>
+        </div>
+
+       
+<!--
       <div class="singleInput">
         <label for="sign-in-form-password">Państwo</label>
         <input type="text"  formControlName="country" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
-
+-->
       <div class="singleInput">
         <label for="sign-in-form-password">Region</label>
         <input type="text"  formControlName="region" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
@@ -44,7 +57,16 @@
       <div class="singleInput">
         <label for="sign-in-form-password">Numer</label>
         <input type="text" formControlName="number" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
-        
+       <!---->
+        <div class="singleInput">
+          <label for="sign-in-form-password">Szerokość geograficzna</label>
+          <input type="number" step="0.000001"formControlName="latitude" class="sign-in-form-password" id="sign-in-form-password"
+            autocomplete="off"></div>
+        <div class="singleInput">
+          <label for="sign-in-form-password">Długość geograficzna</label>
+          <input type="number" step="0.000001" formControlName="longitude" class="sign-in-form-password" id="sign-in-form-password"
+            autocomplete="off"></div>
+        <!---->
         <div class="textCateogory down up">- Dni i godziny otwarcia -</div>
         <div class="row">
           <div class="columns small-4 weekDays">

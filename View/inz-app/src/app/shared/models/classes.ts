@@ -28,6 +28,8 @@ export class Place{
     user:User;
     hours:OpeningHours;
     image:Image[];
+    latitude;
+    longitude;
 }
 
 export class Trip{
@@ -43,6 +45,7 @@ export class Trip{
     duration:number;
     schedule:Schedule;
     positionsInTrip:PositionInTrip[];
+    tags:[];
 }
 
 export class Schedule{
@@ -50,6 +53,7 @@ export class Schedule{
     start:Date;
     end:Date;
     positionsInSchedule:PositionInSchedule[];
+    scheduleExists;
 }
 
 export class PositionInTrip{

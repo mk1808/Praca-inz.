@@ -3,6 +3,7 @@ package inz.project.services;
 import java.util.List;
 import java.util.Set;
 
+import inz.project.models.Place;
 import inz.project.models.Trip;
 import inz.project.models.TripTag;
 
@@ -17,4 +18,5 @@ public interface TripService {
 	List<Trip> getTripsByDuration(Long from, Long to);
 	List<Trip> findTripByRegTagDur(String region, Set<TripTag> tag, Long durationFrom, Long durationTo);
 	Trip updateTrip(Trip trip);
+	List<Trip> getTripsByPlaceIncluded(Long id);
 }

@@ -1,25 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { TripService } from 'src/app/shared/services/trip.service';
 import { Trip, User, Place } from 'src/app/shared/models/classes';
 import { PlaceService } from 'src/app/shared/services/place.service';
+import { ComponentsService } from 'src/app/shared/services/components.service';
 
 @Component({
   selector: 'app-trip-list',
   templateUrl: './trip-list.component.html',
   styleUrls: ['./trip-list.component.scss']
 })
-export class TripListComponent implements OnInit {
+export class TripListComponent implements OnInit, AfterViewInit {
+  ngAfterViewInit(): void {
+    this.res = this.targetElement;
+    this.componentService.heightObj=this.res;
+    console.log(this.res.nativeElement.offsetHeight);this.checkHeight()
+  }
   hover = false;
   myTrips: Trip[]=[];
   myPlaces: Place[]=[];
+  placesFromTrip:Place[]=[];
   user: User;
-  
+  res:any;
+  @ViewChild('doc') targetElement: any; 
   constructor(private router: Router, private route: ActivatedRoute, private cookie: CookieService,
-    private tripService: TripService, private placeService:PlaceService) { }
-
+    private tripService: TripService, private placeService:PlaceService, private componentService:ComponentsService) { 
+   
+    }
+  
   ngOnInit() {
+   
+    this.componentService.heightObj=this.res;
     if (this.cookie.get('user') == "") {
       this.router.navigate(['/']);
 
@@ -28,19 +40,36 @@ export class TripListComponent implements OnInit {
       this.tripService.getTripsByUser(this.user.id).subscribe(x => {
         this.myTrips = x;
         console.log(this.myTrips);
+        this.checkHeight() 
       })
+/*
+      this.tripService.getPlacesForTrip(this.id).subscribe(x=>{
+        this.placesFromTrip=x;
+        this.placesFromTrip.forEach(el=>{
+   
+        })
+      });*/
+
       this.placeService.getPlacesByUser(this.user.id).subscribe(x=>{
         this.myPlaces=x;
         console.log(this.myPlaces);
+        this.checkHeight()
       })
-
+      
 
     }
 
 
   }
-
+  
+  checkHeight(){
+    setTimeout(()=>{
+      this.componentService.paralaxEventSource.next(this.res.nativeElement.offsetHeight);
+    }, 2);
+  }
+  
   onTrip(id){
+    console.log(this.res.nativeElement.offsetHeight)
     this.router.navigate(['/trip/details/'+id]);
   }
 
@@ -58,5 +87,15 @@ export class TripListComponent implements OnInit {
 
   onCreateSchedule(id:number){
     this.router.navigate(['/trip/new-schedule', id]);
+  }
+
+onCheckSchedule(id){
+  this.router.navigate(['/trip/schedule', id]);
+}
+
+  hasPositions(trip:Trip){
+    trip.positionsInTrip.forEach(element => {
+      
+    });
   }
 }
