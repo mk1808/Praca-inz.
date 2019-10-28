@@ -6,4 +6,5 @@ import inz.project.models.WishList;
 
 public interface WishListRepository extends JpaRepository<WishList, Long> {
 
+
 }
