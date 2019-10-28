@@ -1,5 +1,10 @@
 package inz.project.services;
 
-public interface WishListService {
+import inz.project.models.WishList;
 
+public interface WishListService {
+	
+	WishList createWishList(WishList list);
+	void deleteWishList(Long id);
+	
 }
