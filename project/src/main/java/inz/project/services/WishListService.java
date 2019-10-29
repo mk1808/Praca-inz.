@@ -10,4 +10,5 @@ public interface WishListService {
 	WishList createWishList(WishList list);
 	void deleteWishList(Long id);
 	List<WishList> getWishListByUser(Long id);
+	List<WishList> getWishListByUserAndTrip(Long idUser, Long idTrip);
 }
