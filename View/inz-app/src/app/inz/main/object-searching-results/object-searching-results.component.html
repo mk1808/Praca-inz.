@@ -193,8 +193,9 @@
         <div class="small-2 large-4 columns">
           <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
             <div class="flip-card-inner">
-              <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Toru%C5%84_Stare_Miasto_panorama_zima.jpg/1024px-Toru%C5%84_Stare_Miasto_panorama_zima.jpg);
-                  background-size: cover;">
+                <div class="flip-card-inner-front"
+                [ngStyle]="{'background-image': 'url('+trip.image+')'}"
+                style="background-size: cover;">
                 <span>{{trip.name}}<br>
   
                   Ocena: 4.5/5
