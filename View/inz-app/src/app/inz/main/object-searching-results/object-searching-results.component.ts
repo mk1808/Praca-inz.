@@ -172,6 +172,8 @@ export class ObjectSearchingResultsComponent implements OnInit {
     console.log(category);
     console.log(region);
     if ((category != null) || (region != null)) {
+      category=this.componentService.changeCategoriesToSend(category);
+     
       this.first=false;
       this.placeFirst=false;
     
