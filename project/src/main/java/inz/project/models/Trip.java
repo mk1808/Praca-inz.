@@ -41,6 +41,7 @@ public class Trip {
 	@NotNull private String region;
 	private String description;
 	private Long duration;
+	private String image;
 	
 	@OneToMany(cascade=CascadeType.ALL)
     private List <PositionInTrip> positionsInTrip;
@@ -60,7 +61,7 @@ public class Trip {
 
 	public Trip(Long id, @NotNull String name, User user, @NotNull Country country, @NotNull String region,
 			String description, Long duration, List<PositionInTrip> positionsInTrip, Hotel hotel, 
-			Schedule schedule, Set<TripTag> tags) {
+			Schedule schedule, Set<TripTag> tags, String image) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -73,6 +74,7 @@ public class Trip {
 		this.hotel=hotel;
 		this.schedule=schedule;
 		this.tags=tags;
+		this.image=image;
 	
 	}
 	
@@ -149,6 +151,16 @@ public class Trip {
 	public void setTags(Set<TripTag> tags) {
 		this.tags = tags;
 	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
+	
 
 	
 }
