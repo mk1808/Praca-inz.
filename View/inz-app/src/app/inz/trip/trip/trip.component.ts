@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ComponentsService } from 'src/app/shared/services/components.service';
 import { TripService } from 'src/app/shared/services/trip.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Trip, Place, User } from 'src/app/shared/models/classes';
+import { Trip, Place, User, WishList } from 'src/app/shared/models/classes';
 import { MatTooltip } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -41,6 +41,7 @@ tableContent:any[] = [
   resp:any[]=[];
   logged=false;
   inFavourities=false;
+  wishlist:WishList=new WishList;
   ngOnInit() {
     this.hover=false;
     this.route.params.subscribe(x => {
@@ -163,6 +164,16 @@ onHover(i){
 
 onFav(){
   this.inFavourities=!this.inFavourities;
+  this.wishlist.trip=this.trip;
+  this.wishlist.user=this.user;
+  if(this.inFavourities){
+    
+    this.tripService.addTripToWishList(this.wishlist).subscribe(x=>{
+      console.log(x);
+    })
+  }else{
+
+  }
   console.log(this.inFavourities);
 }
 }
