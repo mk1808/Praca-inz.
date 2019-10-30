@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { RestService } from './rest.service';
 import { Observable } from 'rxjs';
-import { Trip, Place, PositionInTrip } from '../models/classes';
+import { Trip, Place, PositionInTrip, WishList } from '../models/classes';
 
 @Injectable({
   providedIn: 'root'
@@ -65,6 +65,14 @@ public getTripsByPlace(id:number): Observable<Trip[]> {
 public getWishListStatusForUserAndTrip(user:number, trip:number): Observable<any> {
 
   return this.rest.get('/api/wishlists?user='+user+'&trip='+trip);
+}
+
+public addTripToWishList(wishList:WishList): Observable<any> {
+  return this.rest.post('/api/wishlists', wishList);
+}
+
+public deleteTripFromWishList(id:number): Observable<any> {
+  return this.rest.delete('/api/wishlists/'+id);
 }
 
 }
