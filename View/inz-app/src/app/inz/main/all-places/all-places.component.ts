@@ -90,6 +90,10 @@ export class AllPlacesComponent implements OnInit {
           this.places.push(placesFirst[i]);
         }
       console.log(this.places);
+      this.places.forEach(element => {
+        element.category=this.componentService.changeCategoriesToDisplay(element.category);
+          
+        });
       }
   //    this.first=false;
     })
@@ -114,6 +118,10 @@ export class AllPlacesComponent implements OnInit {
 
       this.placeService.getPlacesByRegCat(region, category).subscribe(x => {
         this.places = x;
+        this.places.forEach(element => {
+          element.category=this.componentService.changeCategoriesToDisplay(element.category);
+            
+          });
         console.log(this.places);
 
       })
@@ -125,6 +133,10 @@ export class AllPlacesComponent implements OnInit {
     if (this.form.controls.name.value != "" && this.form.controls.name.value != null) {
       this.first=false;
       this.places = [...this.filteredPlaces];
+      this.places.forEach(element => {
+        element.category=this.componentService.changeCategoriesToDisplay(element.category);
+          
+        });
     }
   }
 
