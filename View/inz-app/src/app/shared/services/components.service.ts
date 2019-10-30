@@ -171,6 +171,23 @@ public heightObj;
     return newCategory;
   }
 
+  
+  public changeCategoriesToDisplay(category:string){
+    let newCategory="";
+    switch(category){
+      case "MUSEUM":newCategory="Muzeum"; break;
+      case "ART_GALLERY":newCategory="Galeria sztuki"; break;
+      case "PARK":newCategory="Park"; break;
+      case "MONUMENT":newCategory="Pomnik"; break;
+      case "BUILDING":newCategory="Budynek"; break;
+      case "AMUSEMENT_PARK":newCategory="Park rozrywki"; break;
+      case "RESTAURANT":newCategory="Restauracja"; break;
+      case "CLUB":newCategory="Klub"; break;
+      case "OTHER":newCategory="Inne"; break;
+    }
+    return newCategory;
+  }
+
   public busy() {
     this.busyRequestCount++;
     this.spinner.show();
