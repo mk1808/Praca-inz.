@@ -338,12 +338,15 @@ mat-chip{
   color:white!important;
   background-color: #662d91!important;
 }
+
 .singleTag{
-font-size: 16px;
-color: white !important;
-background-color: #662d91 !important;
-    border-radius: 11px;
-    padding: 3px;}
+  margin-left: 3px;
+  font-size: 16px;
+  color: white !important;
+  background-color: #662d91 !important;
+  border-radius: 11px;
+  padding: 3px;
+}
 
  mat-card.smallCard{
   width: 601px;

@@ -23,15 +23,6 @@
               </i>
           </div>
 
-
-          <div class="flexbox">
-
-              <div class="fav-btn">
-                <span href=""  class="favme dashicons dashicons-heart"></span>
-              </div>
-              
-            </div>
-
         </div>
         </div>
 
@@ -41,14 +32,16 @@
       <div class="row">
           <div class="infoLabel">Informacje</div>
         <mat-card  class="smallCard">
-      <div class="columns small-10 smallContainer border tripInfo">
+      <div class="columns small-11 smallContainer border tripInfo">
         <h4><span class="tripHeader">Państwo:</span> {{trip.country}}</h4>
         <h4><span class="tripHeader">Region:</span> {{trip.region}}</h4>
         <h4><span class="tripHeader">Czas trwania:</span> {{trip.duration}} dni</h4>
     
-        <h4><span class="tripHeader">Tagi: </span> <span class="singleTag">#weekend #miasto #zwiedzanie </span></h4>
+        <h4><span class="tripHeader">Tagi: </span>
+          <!-- <span class="singleTag">#weekend #miasto #zwiedzanie </span></h4>-->
       
-         
+        <span *ngFor="let tag of trip.tags" class="singleTag">#{{tag}} </span></h4>
+      
     
         <h4 class="description"><span class="tripHeader"> Opis: </span> {{trip.description}}
         </h4> 
