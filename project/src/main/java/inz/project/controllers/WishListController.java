@@ -25,7 +25,7 @@ public class WishListController {
 	
 	@DeleteMapping ("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	void deletePlace(@PathVariable Long id) {
+	void deleteTrip(@PathVariable Long id) {
 		this.wishListService.deleteWishList(id);
 	}
 	
