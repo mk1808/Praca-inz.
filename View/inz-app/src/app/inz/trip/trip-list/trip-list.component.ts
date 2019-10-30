@@ -20,6 +20,7 @@ export class TripListComponent implements OnInit, AfterViewInit {
   hover = false;
   myTrips: Trip[]=[];
   myPlaces: Place[]=[];
+  myFavTrips:Trip[]=[];
   placesFromTrip:Place[]=[];
   user: User;
   res:any;
@@ -56,7 +57,13 @@ export class TripListComponent implements OnInit, AfterViewInit {
         this.checkHeight()
       })
       
-
+      this.tripService.getWishListsForUser(this.user.id).subscribe(x=>{
+       console.log(x);
+        x.forEach(element => {
+         this.myFavTrips.push(element.trip); 
+        });
+        
+      })
     }
 
 
