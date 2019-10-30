@@ -42,6 +42,7 @@ tableContent:any[] = [
   logged=false;
   inFavourities=false;
   wishlist:WishList=new WishList;
+  currentWishlist:WishList=new WishList;
   ngOnInit() {
     this.hover=false;
     this.route.params.subscribe(x => {
@@ -59,7 +60,8 @@ if(this.logged){
     console.log(this.resp);
     if(this.resp.length>0){
       this.inFavourities=true;
-
+      this.currentWishlist=this.resp[0];
+      
     }
       })
 }
@@ -167,12 +169,14 @@ onFav(){
   this.wishlist.trip=this.trip;
   this.wishlist.user=this.user;
   if(this.inFavourities){
-    
     this.tripService.addTripToWishList(this.wishlist).subscribe(x=>{
       console.log(x);
+      this.currentWishlist=x;
     })
   }else{
-
+    this.tripService.deleteTripFromWishList(this.currentWishlist.id).subscribe(y=>{
+      console.log(y);
+    })
   }
   console.log(this.inFavourities);
 }
