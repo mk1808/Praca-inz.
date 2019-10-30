@@ -5,6 +5,7 @@ import { PlaceService } from 'src/app/shared/services/place.service';
 import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { DictionaryService } from 'src/app/shared/services/dictionary.service';
+import { ComponentsService } from 'src/app/shared/services/components.service';
 
 @Component({
   selector: 'app-all-places',
@@ -31,7 +32,7 @@ export class AllPlacesComponent implements OnInit {
 
 
   constructor(private router: Router, private route: ActivatedRoute, private placeService: PlaceService,
-    private dictionaryService: DictionaryService, private fb: FormBuilder) {
+    private dictionaryService: DictionaryService, private componentService:ComponentsService, private fb: FormBuilder) {
 
     this.form = this.fb.group({
       name: [null],
@@ -108,6 +109,7 @@ export class AllPlacesComponent implements OnInit {
     console.log(category);
     console.log(region);
     if ((category != null) || (region != null)) {
+      category=this.componentService.changeCategoriesToSend(category);
       this.first=false;
 
       this.placeService.getPlacesByRegCat(region, category).subscribe(x => {
