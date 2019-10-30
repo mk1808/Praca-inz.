@@ -62,5 +62,9 @@ public getTripsByPlace(id:number): Observable<Trip[]> {
   return this.rest.get('/api/trips/place?place=' + id);
 }
 
+public getWishListStatusForUserAndTrip(user:number, trip:number): Observable<any> {
+
+  return this.rest.get('/api/wishlists?user='+user+'&trip='+trip);
+}
 
 }

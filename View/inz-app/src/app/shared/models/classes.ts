@@ -99,3 +99,9 @@ export class Image{
    id;
     image:string;
 }
+
+export class WishList{
+    id;
+    user:User;
+    trip:Trip;
+}
