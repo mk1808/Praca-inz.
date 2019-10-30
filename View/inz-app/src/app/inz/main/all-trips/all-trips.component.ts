@@ -9,6 +9,7 @@ import { map, startWith } from 'rxjs/operators';
 import { DictionaryService } from 'src/app/shared/services/dictionary.service';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { MatChipInputEvent, MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material';
+import { ComponentsService } from 'src/app/shared/services/components.service';
 
 @Component({
   selector: 'app-all-trips',
@@ -21,7 +22,7 @@ export class AllTripsComponent implements OnInit {
   trips: Trip[];
   initialized = false;
   filteredTags: String[];
-  chosenTags:String[]=[];
+  chosenTags:string[]=[];
   filteredRegions: String[];
   visible = true;
   selectable = true;
@@ -33,7 +34,7 @@ export class AllTripsComponent implements OnInit {
   @ViewChild('fruitInput') fruitInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
   constructor(private router: Router, private route: ActivatedRoute, private tripService: TripService,
-    private dictionaryService: DictionaryService, private fb: FormBuilder) {
+    private dictionaryService: DictionaryService, private componentService:ComponentsService, private fb: FormBuilder) {
 
     this.form = this.fb.group({
       durationFrom: [""],
@@ -123,10 +124,12 @@ export class AllTripsComponent implements OnInit {
 
   onSearch(){
     console.log(this.chosenTags);
+
     let from, to, tags:any[], region;
+    tags=[...this.chosenTags];
     from = this.form.controls.durationFrom.value;
     to = this.form.controls.durationTo.value;
-    tags = this.chosenTags;
+    tags = this.componentService.changeTagsToSend(tags);
     region = this.form.controls.region.value;
     if(from!=null||to!=null||tags!=[]||region!=""){
       this.first=false;
