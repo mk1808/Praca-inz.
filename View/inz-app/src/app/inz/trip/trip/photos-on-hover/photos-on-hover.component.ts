@@ -16,7 +16,7 @@ photo;
     
     this.componentsService.eventEmitter.subscribe(x=>{
       console.log(x);
-      this.photo=x.photo;
+      this.photo=x;
 
     })
 

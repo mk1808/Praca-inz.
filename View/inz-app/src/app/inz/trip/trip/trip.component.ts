@@ -44,6 +44,7 @@ tableContent:any[] = [
   wishlist:WishList=new WishList;
   currentWishlist:WishList=new WishList;
   initialized=false;
+  photoTab:any[]=[];
   ngOnInit() {
     this.hover=false;
     this.route.params.subscribe(x => {
@@ -76,7 +77,9 @@ if(this.logged){
   this.tripService.getPlacesForTrip(this.id).subscribe(x=>{
     this.places=x;
     console.log(this.places);
-
+    this.places.forEach(z=>{
+      this.photoTab.push(z.image[0].image);
+    })
     this.initialized=true;
     var iconStyle = new ol.style.Style({
       image: new ol.style.Icon({
@@ -161,7 +164,7 @@ if(this.logged){
 
 onHover(i){
   this.hover=true;
-  let item=this.tableContent[i];
+  let item=this.photoTab[i];
   this.componentsService.setTableItem(item);
 }
 
