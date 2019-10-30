@@ -78,65 +78,67 @@ allDaysSortedFinal: any[] = [{ start: null, end: null, ids: [] }, { start: null,
         this.id = x['id'];
         this.tripService.getTrip(this.id).subscribe(y=>{
             this.trip=y;
-            this.done=[];
-            console.log(this.trip);
-          //  let firstDay:Date=new Date(this.trip.schedule.start);
-            for (let i=0; i<this.trip.duration; i++){
-                this.allDays.push([]);
-                let firstDay:Date=new Date(this.trip.schedule.start);
-                console.log(firstDay);
-                firstDay.setDate(firstDay.getDate()+i);
-                this.allDates.push(firstDay);
-                //this.dates.push(this.trip.schedule.start.getDate() );
-            }
-            
-            
-            console.log(this.allDates);
-            console.log(this.trip);
-            console.log(this.allDays);
-            this.tripService.getPlacesForTrip(this.id).subscribe(z=>{
-                this.places=z;
-                console.log(this.places);
-                this.placeInitialized=true;
-                this.places.forEach(position=>{
-                    this.done.push(position.name);
-                    
-
-            })
-
-            this.places.forEach(position=>{
-                this.tabOpeningHours[position.name]=this.componentService.getHoursForDays(position.hours);
-            })
-            console.log(this.tabOpeningHours);
-            
-                let i=0;
-                this.places.forEach(position=>{
-                    this.openHoursForDay=[];
-                    this.openHoursForDay.push(position.name);
-                    this.openHoursForDay.push(position.hours.mon);
-                    this.openHoursForDay.push(position.hours.tue);
-                    this.openHoursForDay.push(position.hours.wed);
-                    this.openHoursForDay.push(position.hours.thu);
-                    this.openHoursForDay.push(position.hours.fri);
-                    this.openHoursForDay.push(position.hours.sat);
-                    this.openHoursForDay.push(position.hours.sun);
-               
-                    i++;
-                    this.openHours.push(this.openHoursForDay);
-                    
-        
-            })
-            console.log(this.openHours);
               })
             
            
         })
 
+      }
+
+  onInitSchedule(){
+    this.done=[];
+    console.log(this.trip);
+  //  let firstDay:Date=new Date(this.trip.schedule.start);
+    for (let i=0; i<this.trip.duration; i++){
+        this.allDays.push([]);
+        let firstDay:Date=new Date(this.trip.schedule.start);
+        console.log(firstDay);
+        firstDay.setDate(firstDay.getDate()+i);
+        this.allDates.push(firstDay);
+        //this.dates.push(this.trip.schedule.start.getDate() );
+    }
     
-})
+    
+    console.log(this.allDates);
+    console.log(this.trip);
+    console.log(this.allDays);
+    this.tripService.getPlacesForTrip(this.id).subscribe(z=>{
+        this.places=z;
+        console.log(this.places);
+        this.placeInitialized=true;
+        this.places.forEach(position=>{
+            this.done.push(position.name);
+            
 
+    })
+
+    this.places.forEach(position=>{
+        this.tabOpeningHours[position.name]=this.componentService.getHoursForDays(position.hours);
+    })
+    console.log(this.tabOpeningHours);
+    
+        let i=0;
+        this.places.forEach(position=>{
+            this.openHoursForDay=[];
+            this.openHoursForDay.push(position.name);
+            this.openHoursForDay.push(position.hours.mon);
+            this.openHoursForDay.push(position.hours.tue);
+            this.openHoursForDay.push(position.hours.wed);
+            this.openHoursForDay.push(position.hours.thu);
+            this.openHoursForDay.push(position.hours.fri);
+            this.openHoursForDay.push(position.hours.sat);
+            this.openHoursForDay.push(position.hours.sun);
+       
+            i++;
+            this.openHours.push(this.openHoursForDay);
+            
+
+    })
+    console.log(this.openHours);
+      })
+    
+   
   }
-
 
 
 
@@ -281,6 +283,7 @@ onCreate(){
     this.schedule.end=this.form.controls.end.value;
     this.scheduleService.updateSchedule(this.schedule).subscribe(x=>{
         console.log(x);
+        this.onInitSchedule(); 
     })
 
     
