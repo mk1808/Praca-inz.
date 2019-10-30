@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import inz.project.models.Trip;
 import inz.project.models.User;
@@ -13,6 +14,7 @@ import inz.project.repositories.UserRepository;
 import inz.project.repositories.WishListRepository;
 import inz.project.services.WishListService;
 
+@Service
 public class WishListServiceImpl implements WishListService{
 	
 	@Autowired WishListRepository wishListRepository;
