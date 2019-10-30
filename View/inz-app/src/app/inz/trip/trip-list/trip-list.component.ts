@@ -52,17 +52,25 @@ export class TripListComponent implements OnInit, AfterViewInit {
       });*/
 
       this.placeService.getPlacesByUser(this.user.id).subscribe(x=>{
+        
         this.myPlaces=x;
+        let i=0;
+        this.myPlaces.forEach(x=>{
+          this.myPlaces[i].category=this.componentService.changeCategoriesToDisplay(this.myPlaces[i].category);
+          i++;
+        })
         console.log(this.myPlaces);
         this.checkHeight()
       })
       
       this.tripService.getWishListsForUser(this.user.id).subscribe(x=>{
        console.log(x);
+
         x.forEach(element => {
          this.myFavTrips.push(element.trip); 
+     
         });
-        
+        this.checkHeight()
       })
     }
 
