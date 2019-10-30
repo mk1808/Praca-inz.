@@ -1,7 +1,7 @@
 <div class="containerFull full ">
   <div claee="row">
     <div class="columns large-6 align-center screen ">
-      <div class="row iconS align-start">
+      <div class="row iconS align-start" *ngIf="initialized">
           <div class="columns large-2"></div>
         <div class="columns large-2">
         <img src={{photo}}  height="90px" width="90px">
@@ -96,11 +96,11 @@
         
 </div>-->
 <div class="infoLabel">Informacje</div>
-<mat-card class="infoCard">
+<mat-card class="infoCard" *ngIf="initialized">
 <div class="cont full strip row align-justify">
 <div class="columns myHighlight small-4 ">
     <div class="row">
-      <div class="columns small-2 ">
+      <div class="columns small-2 " >
         <img src="assets/pin.svg" height="20px" width="20px">
       </div>
       <div class="columns small-9 heading leftCol">
@@ -159,7 +159,7 @@
     
 </div>
 </mat-card> 
-<div class="row"> 
+<div class="row" *ngIf="initialized"> 
 <div class="columns small-6 " >
     <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="gallery"></ngx-gallery>
   </div>
@@ -169,7 +169,7 @@
   
 </div>
 
-<div  >
+<div  *ngIf="initialized">
 <div class="infoLabel mapInfo" >Lokalizacja</div>
 
 <mat-card class="mapCard">

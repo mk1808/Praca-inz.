@@ -43,7 +43,7 @@ export class PlaceComponent implements OnInit {
   visible: boolean = false;
   longitude;
   latitude;
-  initialized = true;
+  initialized = false;
   photo="";
   @ViewChild('tooltip') tooltip: MatTooltip;
   constructor(private router: Router, private route: ActivatedRoute, private placeService: PlaceService,
@@ -66,6 +66,7 @@ export class PlaceComponent implements OnInit {
       this.photo=this.componentsService.getIconForPlace(this.place.category);
      this.allDaysSortedFinal= this.componentsService.getHoursForDays(this.place.hours);
      console.log(this.allDaysSortedFinal);
+     this.initialized=true;
 
 /*
 

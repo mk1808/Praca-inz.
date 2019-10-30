@@ -43,6 +43,7 @@ tableContent:any[] = [
   inFavourities=false;
   wishlist:WishList=new WishList;
   currentWishlist:WishList=new WishList;
+  initialized=false;
   ngOnInit() {
     this.hover=false;
     this.route.params.subscribe(x => {
@@ -76,6 +77,7 @@ if(this.logged){
     this.places=x;
     console.log(this.places);
 
+    this.initialized=true;
     var iconStyle = new ol.style.Style({
       image: new ol.style.Icon({
         size:[100,120],
@@ -85,7 +87,6 @@ if(this.logged){
         src: 'assets/placeholder2.png',
       })
     });
-    
     let tabPlace=[];
       /////////map
   this.places.forEach(x=>{
