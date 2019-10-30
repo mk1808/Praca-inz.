@@ -68,11 +68,16 @@ public getWishListStatusForUserAndTrip(user:number, trip:number): Observable<any
 }
 
 public addTripToWishList(wishList:WishList): Observable<any> {
-  return this.rest.post('/api/wishlists', wishList);
+  return this.rest.post('/api/wishlists', wishList, true);
 }
 
 public deleteTripFromWishList(id:number): Observable<any> {
-  return this.rest.delete('/api/wishlists/'+id);
+  return this.rest.delete('/api/wishlists/'+id, true);
 }
+
+public getWishListsForUser(user): Observable<any> {
+  return this.rest.get('/api/wishlists/user/'+user);
+}
+
 
 }

@@ -106,4 +106,47 @@
 
   </button>
 
+
+  <div class="holy-grail-header">
+
+
+      <h2 class="type-sidelines"><span>Wycieczki dodane do ulubionych</span></h2>
+    </div>
+  
+    <div class="row secondRow">
+      <div class="columns small-12 noPadding ">
+        <table class="table table-striped table-hover">
+          <thead>
+              <tr>
+                  <th class="id">Numer</th>
+                  <th class="name">Nazwa</th>
+                  <th class="place">Państwo</th>
+                  <th class="place">Region</th>
+                  <th class="place">Czas trwania</th>
+                  <th class="place">Ilość miejsc</th>
+                </tr>
+  
+          </thead>
+          <tbody>
+            <tr class="active tableRow" *ngFor="let wTrip of myFavTrips, let t=index" (click)="onTrip(trip.id)">
+              <td data-label="First Name">{{t+1}}</td>
+              <td data-label="Last Name">{{wTrip.name}}</td>
+              <td data-label="Hero Title">{{wTrip.country}} </td>
+              <td data-label="Hero Title">{{wTrip.region}}</td>
+              <td data-label="Hero Title">{{wTrip.duration}}</td>
+              <td data-label="Hero Title">{{wTrip.positionsInTrip.length}}</td>
+          
+            </tr>
+  
+          </tbody>
+        </table>
+      </div>
+    </div>
+ <!--   <button class="button moreBtn button-rounded-hover" (click)="onNewPlace()">
+      <img src="assets/add.svg" height="30px" width="30px">
+      Dodaj nowe miejsce
+  
+    </button>
+  --> 
+
 </div>
