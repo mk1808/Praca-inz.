@@ -6,7 +6,7 @@
         <div class="columns large-2">
           <img src="assets/map.svg" height="90px" width="90px">
         </div>
-        <div class="columns large-6">
+        <div class="columns large-6" *ngIf="initialized">
           <h3 class="mainName">{{trip.name}} </h3>
           <div class="row">
             <div class="columns large-7">
@@ -29,7 +29,7 @@
       </div>
       
       
-      <div class="row">
+      <div class="row" *ngIf="initialized">
           <div class="infoLabel">Informacje</div>
         <mat-card  class="smallCard">
       <div class="columns small-11 smallContainer border tripInfo">
@@ -59,7 +59,7 @@
 </div>
 
 
-<div class="cont full second">
+<div class="cont full second" *ngIf="initialized">
   <div claee="row">
     <div class="columns large-6 align-center ">
         <div *ngIf="!hover; else photoContainer" >
@@ -101,7 +101,7 @@
 </div>
 
 <div class="infoLabel2 mapInfo2">Lokalizacja</div>
-<mat-card class="mapCard2">
+<mat-card class="mapCard2" *ngIf="initialized">
   <div id="map" class="mapPos2 row">
     <div id="popup">
       <div (click)="tooltip.toggle()" mat-raised-button #tooltip="matTooltip" matTooltip="Info about the action"
