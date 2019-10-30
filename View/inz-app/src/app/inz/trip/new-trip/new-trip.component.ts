@@ -75,7 +75,16 @@ export class NewTripComponent implements OnInit {
   }
   onCreate() {
     let tags=this.form.controls.tags.value;
-    let i=0;
+    console.log(tags);
+    if(tags){
+    tags=this.componentService.changeTagsToSend(tags);
+  }
+  else {
+    tags=[];
+  }
+  
+
+   /* let i=0;
     tags.forEach(el=>{
       let pos=el.indexOf(" ");
       if(pos!=-1){
@@ -90,7 +99,7 @@ export class NewTripComponent implements OnInit {
       i++;
       console.log();
 
-    })
+    })*/
 //console.log(tags)
     if (this.form.controls.region.value != "" && this.form.controls.region.value != null) {
       this.trip.name = this.form.controls.name.value;
