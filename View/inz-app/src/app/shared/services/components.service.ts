@@ -188,6 +188,26 @@ public heightObj;
     return newCategory;
   }
 
+  
+  public changeTagsToSend(tags:string[]){
+    let i=0;
+    tags.forEach(el=>{
+      let pos=el.indexOf(" ");
+      if(pos!=-1){
+        let words:string[]=[];
+        words = el.split(" ");
+        console.log(words)
+        words[1]= words[1].charAt(0).toUpperCase() + words[1].slice(1);
+        tags[i]=words[0]+words[1];
+        console.log(tags[i]);
+
+      }
+      i++;
+      console.log();
+
+    })
+    return tags;
+  }
   public busy() {
     this.busyRequestCount++;
     this.spinner.show();
