@@ -46,6 +46,7 @@ export class Trip{
     schedule:Schedule;
     positionsInTrip:PositionInTrip[];
     tags:[];
+    image:string;
 }
 
 export class Schedule{

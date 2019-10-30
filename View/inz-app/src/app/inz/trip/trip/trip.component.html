@@ -52,8 +52,8 @@
 
       
     </div>
-    <div class="columns large-6 photoN screen ">a
-      <div class="background"></div>
+    <div class="columns large-6 photoN screen " *ngIf="initialized">a
+      <div class="background" [ngStyle]="{'background-image': 'url('+trip.image+')'}"></div>
     </div>
   </div>
 </div>
