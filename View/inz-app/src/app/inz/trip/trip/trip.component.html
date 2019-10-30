@@ -14,10 +14,24 @@
             size="large"></star-rating>
 </div>
           <div class="columns large-2">
-            <i class="material-icons" (click)="onFav()">
+            <i *ngIf="!inFavourities" class="material-icons favme"   (click)="onFav()">
               favorite_border
             </i>
+
+            <i *ngIf="inFavourities" class="material-icons favme active"   (click)="onFav()">
+                favorite
+              </i>
           </div>
+
+
+          <div class="flexbox">
+
+              <div class="fav-btn">
+                <span href=""  class="favme dashicons dashicons-heart"></span>
+              </div>
+              
+            </div>
+
         </div>
         </div>
 

@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ComponentsService } from 'src/app/shared/services/components.service';
 import { TripService } from 'src/app/shared/services/trip.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Trip, Place } from 'src/app/shared/models/classes';
+import { Trip, Place, User } from 'src/app/shared/models/classes';
 import { MatTooltip } from '@angular/material';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-trip',
@@ -27,7 +28,8 @@ tableContent:any[] = [
   {id: 4, name: "Muzeum Fryderyka Chopina", location:"Warszawa", photo:"https://ocs-pl.oktawave.com/v1/AUTH_f9dd5582-c0b6-4b27-a573-ecf06cf3ef09/tropter-www/uploads/images/72/20/c3d07d4d4b89d695216730eb8d6fadcc4deb/muzeum_fryderykachopina_000_medium.jpeg?t=20181211080851"},
   {id: 5, name: "Pałac Kultury i Nauki", location:"Warszawa", photo:"https://images.pexels.com/photos/77382/palac-kultury-palace-culture-pkin-kinoteka-77382.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}, 
 ];
-  constructor(private componentsService:ComponentsService, private router: Router, private route: ActivatedRoute,
+  constructor(private componentsService:ComponentsService, private cookie:CookieService, 
+    private router: Router, private route: ActivatedRoute,
     private tripService: TripService) { }
  /* latitude = 50.026783;
   longitude = 21.984447; 
@@ -35,11 +37,33 @@ tableContent:any[] = [
   id:number;
   trip:Trip;
   places:Place[]=[];
+  user:User;
+  resp:any[]=[];
+  logged=false;
+  inFavourities=false;
   ngOnInit() {
     this.hover=false;
     this.route.params.subscribe(x => {
       this.id = x['id'];
   console.log(this.id)})
+
+    if (this.cookie.get('user') == "") {
+    } else {
+      this.logged=true;
+      this.user = JSON.parse(this.cookie.get('user'));
+    }
+if(this.logged){
+  this.tripService.getWishListStatusForUserAndTrip(this.user.id, this.id).subscribe(x=>{
+    this.resp=x;
+    console.log(this.resp);
+    if(this.resp.length>0){
+      this.inFavourities=true;
+
+    }
+      })
+}
+  
+
 
   this.tripService.getTrip(this.id).subscribe(x=>{
       this.trip=x;
@@ -135,5 +159,10 @@ onHover(i){
   this.hover=true;
   let item=this.tableContent[i];
   this.componentsService.setTableItem(item);
+}
+
+onFav(){
+  this.inFavourities=!this.inFavourities;
+  console.log(this.inFavourities);
 }
 }
