@@ -128,7 +128,7 @@
   
           </thead>
           <tbody>
-            <tr class="active tableRow" *ngFor="let wTrip of myFavTrips, let t=index" (click)="onTrip(trip.id)">
+            <tr class="active tableRow" *ngFor="let wTrip of myFavTrips, let t=index" (click)="onTrip(wTrip.id)">
               <td data-label="First Name">{{t+1}}</td>
               <td data-label="Last Name">{{wTrip.name}}</td>
               <td data-label="Hero Title">{{wTrip.country}} </td>
