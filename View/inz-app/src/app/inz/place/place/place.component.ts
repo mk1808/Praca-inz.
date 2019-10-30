@@ -35,7 +35,7 @@ export class PlaceComponent implements OnInit {
   daysOfWeek: string[] = ["Pon", "Wt", "Śr", "Czw", "Pt", "So", "Ndz"]
   allDaysSortedFinal: any[] = [{ start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] },
   { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }];
- 
+
 
   ///map
   ol: any;
@@ -44,10 +44,10 @@ export class PlaceComponent implements OnInit {
   longitude;
   latitude;
   initialized = false;
-  photo="";
+  photo = "";
   @ViewChild('tooltip') tooltip: MatTooltip;
   constructor(private router: Router, private route: ActivatedRoute, private placeService: PlaceService,
-    private componentsService:ComponentsService, public dialog: MatDialog) { }
+    private componentsService: ComponentsService, public dialog: MatDialog) { }
   ngOnInit(): void {
     this.route.params.subscribe(x => {
       this.id = x['id'];
@@ -63,123 +63,18 @@ export class PlaceComponent implements OnInit {
       console.log(this.longitude);
       console.log(this.latitude);
 
-      this.photo=this.componentsService.getIconForPlace(this.place.category);
-     this.allDaysSortedFinal= this.componentsService.getHoursForDays(this.place.hours);
-     console.log(this.allDaysSortedFinal);
-     this.initialized=true;
+      this.photo = this.componentsService.getIconForPlace(this.place.category);
+      this.allDaysSortedFinal = this.componentsService.getHoursForDays(this.place.hours);
+      console.log(this.allDaysSortedFinal);
 
-/*
-
-      if (this.place.hours.mon) {
-      this.allDaysString[0] = (this.place.hours.monOpen + ' - ' + this.place.hours.monClose);
-        this.allDays[0].start = this.place.hours.monOpen;
-        this.allDays[0].end = this.place.hours.monClose;
-      }
-
-      if (this.place.hours.tue) {
-      this.allDaysString[1] = (this.place.hours.tueOpen + ' - ' + this.place.hours.tueClose);
-        this.allDays[1].start = this.place.hours.tueOpen;
-        this.allDays[1].end = this.place.hours.tueClose;
-      }
-
-      if (this.place.hours.wed) {
-      this.allDaysString[2] = (this.place.hours.wedOpen + ' - ' + this.place.hours.wedClose);
-        this.allDays[2].start = this.place.hours.wedOpen;
-        this.allDays[2].end = this.place.hours.wedClose;
-      }
-
-      if (this.place.hours.thu) {
-      this.allDaysString[3] = (this.place.hours.thuOpen + ' - ' + this.place.hours.thuClose);
-        this.allDays[3].start = this.place.hours.thuOpen;
-        this.allDays[3].end = this.place.hours.thuClose;
-      }
-
-      if (this.place.hours.fri) {
-      this.allDaysString[4] = (this.place.hours.friOpen + ' - ' + this.place.hours.friClose);
-        this.allDays[4].start = this.place.hours.friOpen;
-        this.allDays[4].end = this.place.hours.friClose;
-      }
-
-      if (this.place.hours.sat) {
-      this.allDaysString[5] = (this.place.hours.satOpen + ' - ' + this.place.hours.satClose);
-        this.allDays[5].start = this.place.hours.satOpen;
-        this.allDays[5].end = this.place.hours.satClose;
-      }
-
-      if (this.place.hours.sun) {
-      this.allDaysString[6] = (this.place.hours.sunOpen + ' - ' + this.place.hours.sunClose);
-        this.allDays[6].start = this.place.hours.sunOpen;
-        this.allDays[6].end = this.place.hours.sunClose;
-      }
-
-      console.log(this.allDaysString);
-     
-      let i = 0;
-      let start = this.allDaysString[0];
-      let tab: [] = [];
-      let j = -1;
-      let repeated: boolean = false;
-      let length;
-      for (let i = 0; i < 7; i++) {
-        if (this.allDaysString[i] != null) {
-          this.allDaysSorted.forEach(x => {
-            if (x.start == this.allDaysString[i]) {
-              x.ids.push(this.daysOfWeek[i]);
-
-              repeated = true;
-
-            }
-          })
-          if (!repeated) {
-            j++;
-            this.allDaysSorted[j].start = this.allDaysString[i];
-            this.allDaysSorted[j].ids.push(this.daysOfWeek[i]);
-          }
-
-
-        }
-
-        let start = this.allDaysString[i];
-      }
-      console.log(this.allDaysSorted);
-
-      let index = 0;
-      let mult = false;
-      let k = 0;
-      this.allDaysSorted[0].ids = "Pn"
-      for (k = 1; k < 7; k++) {
-        if (this.allDaysString[k] == this.allDaysString[k - 1]) {
-          mult = true;
-        }
-        else {
-          if (mult) {
-            this.allDaysSorted[index].ids += '-' + this.daysOfWeek[k - 1];
-            this.allDaysSorted[index].start = this.allDaysString[k - 1] == null ? "nieczynne" : this.allDaysString[k - 1];
-          } else {
-            this.allDaysSorted[index].start = this.allDaysString[k - 1] == null ? "nieczynne" : this.allDaysString[k - 1];
-          }
-          index++;
-          this.allDaysSorted[index].ids = this.daysOfWeek[k];
-          mult = false;
-        }
-      }
-      if (mult) {
-        this.allDaysSorted[index].ids += '-' + this.daysOfWeek[k - 1];
-        this.allDaysSorted[index].start = this.allDaysString[k - 1] == null ? "nieczynne" : this.allDaysString[k - 1];
-      } else {
-        this.allDaysSorted[index].start = this.allDaysString[k - 1] == null ? "nieczynne" : this.allDaysString[k - 1];
-      }
-
-      console.log(this.allDaysSorted);
-      */
 
       /////////map
 
       var iconFeature = new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.fromLonLat([ this.longitude, this.latitude  ])),
+        geometry: new ol.geom.Point(ol.proj.fromLonLat([this.longitude, this.latitude])),
 
         //  22.0025522, 50.0333997
-      
+
         //this.longitude, this.latitude
 
         //   22.0025522,50.0333997 
@@ -223,7 +118,7 @@ export class PlaceComponent implements OnInit {
           }), vectorLayer
         ],
         view: new ol.View({
-          center: ol.proj.fromLonLat([this.longitude,this.latitude]),
+          center: ol.proj.fromLonLat([this.longitude, this.latitude]),
           zoom: 11
         })
       });
@@ -241,7 +136,7 @@ export class PlaceComponent implements OnInit {
           popup.setPosition(coordinates);
           this.visible = !this.visible;
           this.tooltip.toggle();
-          this.tooltip.message=this.place.name;
+          this.tooltip.message = this.place.name;
         } else {
           this.tooltip.hide();
         }
@@ -249,14 +144,32 @@ export class PlaceComponent implements OnInit {
 
 
 
-      /*    this.allDaysSorted.forEach(x=>{
-            if(x.ids.length>1){
-  
-            x.ids.forEach(element => {
-              if(element==x.ids){}
-            });}
-          })
-         // console.log(this. );*/
+
+
+      this.galleryImages = [
+        {
+          small: this.place.image[0].image,
+          medium: this.place.image[0].image,
+          big: this.place.image[0].image
+        },
+        {
+          small: this.place.image[1].image,
+          medium: this.place.image[1].image,
+          big: this.place.image[1].image
+        },
+        {
+          small: this.place.image[2].image,
+          medium: this.place.image[2].image,
+          big: this.place.image[2].image
+        },
+        {
+          small: this.place.image[3].image,
+          medium: this.place.image[3].image,
+          big: this.place.image[3].image
+        }
+      ]
+
+      this.initialized = true;
     })
 
     //   this.initialized=true;
@@ -287,36 +200,54 @@ export class PlaceComponent implements OnInit {
       }
     ];
 
-    this.galleryImages = [
-      {
-        small: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Louvre_Palace_Courtyard_and_Pyramids.jpg/800px-Louvre_Palace_Courtyard_and_Pyramids.jpg',
-        medium: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Louvre_Palace_Courtyard_and_Pyramids.jpg/800px-Louvre_Palace_Courtyard_and_Pyramids.jpg',
-        big: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Louvre_Palace_Courtyard_and_Pyramids.jpg/800px-Louvre_Palace_Courtyard_and_Pyramids.jpg'
-      },
-      {
-        small: 'https://media.fshoq.com/images/283/louvre-in-paris-during-the-night-283-medium.jpg',
-        medium: 'https://media.fshoq.com/images/283/louvre-in-paris-during-the-night-283-medium.jpg',
-        big: 'https://media.fshoq.com/images/283/louvre-in-paris-during-the-night-283-medium.jpg'
-      },
-      {
-        small: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Cour-carree-du-louvre-vers-louest.jpg/800px-Cour-carree-du-louvre-vers-louest.jpg',
-        medium: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Cour-carree-du-louvre-vers-louest.jpg/800px-Cour-carree-du-louvre-vers-louest.jpg',
-        big: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Cour-carree-du-louvre-vers-louest.jpg/800px-Cour-carree-du-louvre-vers-louest.jpg'
-      },
-      {
-        small: 'https://c.pxhere.com/photos/89/bb/picture_painting_picture_gallery_painter_artist_lonardo_da_vinci_works_of_art_image_frame-673590.jpg!d',
-        medium: 'https://c.pxhere.com/photos/89/bb/picture_painting_picture_gallery_painter_artist_lonardo_da_vinci_works_of_art_image_frame-673590.jpg!d',
-        big: 'https://c.pxhere.com/photos/89/bb/picture_painting_picture_gallery_painter_artist_lonardo_da_vinci_works_of_art_image_frame-673590.jpg!d'
-      },
-      {
-        small: 'https://storage.needpix.com/rsynced_images/paris-2373702_1280.jpg',
-        medium: 'https://storage.needpix.com/rsynced_images/paris-2373702_1280.jpg',
-        big: 'https://storage.needpix.com/rsynced_images/paris-2373702_1280.jpg'
-      }
+    let image1 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Louvre_Palace_Courtyard_and_Pyramids.jpg/800px-Louvre_Palace_Courtyard_and_Pyramids.jpg';
+    let image2 = 'https://media.fshoq.com/images/283/louvre-in-paris-during-the-night-283-medium.jpg';
+    let image3 = 'https://live.staticflickr.com/3836/32985920833_1d600c6f24_b.jpg';
+    let image4 = 'data:image/png;base64,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'
 
-    ];
-
-
+    image1 = image3;
+    image2 = image4;
+    /*
+  this.galleryImages = [
+        {
+          small: this.place.image[0],
+          medium: this.place.image[0],
+          big: this.place.image[0]
+        },
+        {
+          small: this.place.image[1],
+          medium: this.place.image[1],
+          big: this.place.image[1]
+        },
+        {
+          small: image2,
+          medium: image2,
+          big: image2
+        },
+        {
+          small: image2,
+          medium: image2,
+          big: image2
+        },
+      {
+          small: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Cour-carree-du-louvre-vers-louest.jpg/800px-Cour-carree-du-louvre-vers-louest.jpg',
+          medium: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Cour-carree-du-louvre-vers-louest.jpg/800px-Cour-carree-du-louvre-vers-louest.jpg',
+          big: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Cour-carree-du-louvre-vers-louest.jpg/800px-Cour-carree-du-louvre-vers-louest.jpg'
+        },
+        {
+          small: 'https://c.pxhere.com/photos/89/bb/picture_painting_picture_gallery_painter_artist_lonardo_da_vinci_works_of_art_image_frame-673590.jpg!d',
+          medium: 'https://c.pxhere.com/photos/89/bb/picture_painting_picture_gallery_painter_artist_lonardo_da_vinci_works_of_art_image_frame-673590.jpg!d',
+          big: 'https://c.pxhere.com/photos/89/bb/picture_painting_picture_gallery_painter_artist_lonardo_da_vinci_works_of_art_image_frame-673590.jpg!d'
+        },
+        {
+          small: 'https://storage.needpix.com/rsynced_images/paris-2373702_1280.jpg',
+          medium: 'https://storage.needpix.com/rsynced_images/paris-2373702_1280.jpg',
+          big: 'https://storage.needpix.com/rsynced_images/paris-2373702_1280.jpg'
+        }
+  
+      ];
+  
+  */
 
 
 
