@@ -7,6 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DictionaryService } from 'src/app/shared/services/dictionary.service';
 import { PlaceService } from 'src/app/shared/services/place.service';
 import { TripService } from 'src/app/shared/services/trip.service';
+import { ComponentsService } from 'src/app/shared/services/components.service';
 
 @Component({
   selector: 'app-object-searching-results',
@@ -40,6 +41,7 @@ export class ObjectSearchingResultsComponent implements OnInit {
   @ViewChild('autoT') matAutocomplete: MatAutocomplete;
   constructor( private fb: FormBuilder, private placeService: PlaceService, 
     private tripService: TripService, private dictionaryService: DictionaryService,
+    private componentService:ComponentsService, 
     private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -194,9 +196,10 @@ export class ObjectSearchingResultsComponent implements OnInit {
   onSearchTrip(){
     console.log(this.chosenTags);
     let from, to, tags:any[], region;
+    tags=[...this.chosenTags];
     from = this.formTrip.controls.durationFrom.value;
     to = this.formTrip.controls.durationTo.value;
-    tags = this.chosenTags;
+    tags = this.componentService.changeTagsToSend(tags);
     region = this.formTrip.controls.region.value;
     if(from!=null||to!=null||tags!=[]||region!=""){
       this.first=false
