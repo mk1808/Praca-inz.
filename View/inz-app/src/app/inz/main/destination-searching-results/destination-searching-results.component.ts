@@ -64,6 +64,10 @@ export class DestinationSearchingResultsComponent implements OnInit {
       if(this.first){
         this.placeService.getPlacesByRegCat(this.region, "").subscribe(a => {
           this.places = a;
+          this.places.forEach(element => {
+          element.category=this.componentService.changeCategoriesToDisplay(element.category);
+            
+          });
           console.log(this.places);
   
         })
@@ -181,6 +185,10 @@ export class DestinationSearchingResultsComponent implements OnInit {
 
       this.placeService.getPlacesByRegCat(region, category).subscribe(x => {
         this.places = x;
+        this.places.forEach(element => {
+          element.category=this.componentService.changeCategoriesToDisplay(element.category);
+            
+          });
         console.log(this.places);
 
       })
@@ -193,6 +201,10 @@ export class DestinationSearchingResultsComponent implements OnInit {
       this.first=false;
       this.placeFirst=false;
       this.places = [...this.filteredPlaces];
+      this.places.forEach(element => {
+        element.category=this.componentService.changeCategoriesToDisplay(element.category);
+          
+        });
     }
   }
 

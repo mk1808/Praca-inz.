@@ -64,8 +64,11 @@ export class ObjectSearchingResultsComponent implements OnInit {
       if(this.first){
         this.placeService.getPlace(this.id).subscribe(y=>{
           this.places.push(y);
-        })
-
+          this.places[0].category=this.componentService.changeCategoriesToDisplay(this.places[0].category);
+              
+            });
+        
+       
         this.tripService.getTripsByPlace(this.id).subscribe(z=>{
           this.trips=z;
           console.log(this.trips)
@@ -180,6 +183,10 @@ export class ObjectSearchingResultsComponent implements OnInit {
 
       this.placeService.getPlacesByRegCat(region, category).subscribe(x => {
         this.places = x;
+        this.places.forEach(element => {
+          element.category=this.componentService.changeCategoriesToDisplay(element.category);
+            
+          });
         console.log(this.places);
 
       })
@@ -192,6 +199,10 @@ export class ObjectSearchingResultsComponent implements OnInit {
       this.first=false;
       this.placeFirst=false;
       this.places = [...this.filteredPlaces];
+      this.places.forEach(element => {
+        element.category=this.componentService.changeCategoriesToDisplay(element.category);
+          
+        });
     }
   }
 
