@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ComponentsService } from 'src/app/shared/services/components.service';
 import { TripService } from 'src/app/shared/services/trip.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -11,7 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './trip.component.html',
   styleUrls: ['./trip.component.scss']
 })
-export class TripComponent implements OnInit {
+export class TripComponent implements OnInit{
 hover=false;
 
  ///map
@@ -80,7 +80,7 @@ if(this.logged){
     this.places.forEach(z=>{
       this.photoTab.push(z.image[0].image);
     })
-    this.initialized=true;
+
     var iconStyle = new ol.style.Style({
       image: new ol.style.Icon({
         size:[100,120],
@@ -135,7 +135,9 @@ if(this.logged){
         })
       });   
       this.map.addOverlay(popup);
-    
+      console.log(this.map);  
+      this.initialized=true;
+    this.map.render();
      this.map.on('click', (evt) =>{
         var feature =this.map.forEachFeatureAtPixel(evt.pixel,
           function(feature) {
