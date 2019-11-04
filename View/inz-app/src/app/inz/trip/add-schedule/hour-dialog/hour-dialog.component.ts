@@ -21,6 +21,7 @@ export class HourDialogComponent implements OnInit {
   close;
   dayOpen:boolean;
   hourCorrect:boolean;
+  startDayOld;
   newPosition:PositionInSchedule=new PositionInSchedule();
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, 
   private formBuilder: FormBuilder, private scheduleService:ScheduleService,
@@ -40,6 +41,9 @@ export class HourDialogComponent implements OnInit {
     })
     this.scheduleService.getPositionInSchedule(this.place.id, this.trip.id).subscribe(x=>{
       this.position=x;
+      this.startDayOld=this.position.startDay;
+
+      console.log(this.position)
     })
     console.log(this.data);
      
@@ -47,6 +51,8 @@ export class HourDialogComponent implements OnInit {
   } 
 
   addHour() {
+    console.log(this.position)
+    this.position.startDay=this.startDayOld;
     this.scheduleService.updatePositionInSchedule(this.position).subscribe(x => {
       console.log(x);
       this.newPosition=x;

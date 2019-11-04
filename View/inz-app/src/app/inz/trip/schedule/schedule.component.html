@@ -1,9 +1,11 @@
 <!--<app-stars></app-stars>-->
-<div class="container"  #doc>
-  <h2 class="headingStyle">Grafik wycieczki {{trip.name}}</h2>
+
+<div class="container" [ngStyle]="{ 'margin-bottom': inTrip?'0px':'30px'}" 
+[ngStyle]="{'min-height':inTrip?'10px':'520px'}" #doc  >
+  <h2 class="headingStyle" *ngIf="!inTrip">Grafik wycieczki {{trip.name}}</h2>
 
 
-  <div class="timeline">
+  <div class="timeline" [ngStyle]="{ 'background-color': inTrip?'white':'#f7f9f9'}">
     <div *ngFor="let tab of positions; let i=index">
       <div class="anotherDay">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dzień {{i+1}}

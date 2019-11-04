@@ -16,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddPlaceToTripDialogComponent } from './add-place-to-trip-dialog/add-place-to-trip-dialog.component';
 import { AddPlaceComponent } from '../place/add-place/add-place.component'
 import { AlertModule } from 'ngx-foundation';
-import { MatBadgeModule, MatCardModule, MatChipsModule, MatSelectModule, MatDividerModule } from '@angular/material';
+import { MatBadgeModule, MatCardModule, MatChipsModule, MatSelectModule, MatDividerModule, MatExpansionModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { StarRatingModule } from 'angular-star-rating';
 import { NgxParallaxScrollModule } from 'ngx-parallax-scroll';
@@ -45,7 +45,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatSelectModule,
     NgxParallaxScrollModule,
     SharedModule,
-    MatDividerModule
+    MatDividerModule,
+    MatExpansionModule
    /* AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBsLVzxs5lP8tAr0ErPMYOhBORJ-OoT0Ts'
 

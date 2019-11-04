@@ -111,6 +111,27 @@
   </div>
 </mat-card>
 
+<div class="infoLabel2 mapInfo2 scheduleInfo" *ngIf="trip.schedule.scheduleExists">Grafik</div>
+<!--
+<mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Personal data
+        </mat-panel-title>
+        <mat-panel-description>
+          Type your name and age
+        </mat-panel-description>
+      
+      </mat-expansion-panel-header>
+  
+    
+    </mat-expansion-panel>
+    </mat-accordion>
+-->
+    <mat-card class="schedule" *ngIf="trip.schedule.scheduleExists">
+    <app-schedule [inTrip]="true"></app-schedule>
+  </mat-card>
 <!--
 <div class="container">
   <div class="holy-grail-grid">

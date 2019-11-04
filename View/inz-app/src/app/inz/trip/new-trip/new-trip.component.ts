@@ -109,6 +109,7 @@ export class NewTripComponent implements OnInit {
       this.trip.description = this.form.controls.description.value;
       this.trip.tags=tags;
       this.trip.user = JSON.parse(this.cookie.get('user'));
+      this.trip.image="https://glogowextra.pl/wp-content/uploads/2019/03/muzeum-wieza.jpg";
       this.tripService.createTrip(this.trip).subscribe(x => {
         console.log(x);
         this.newTrip=x;

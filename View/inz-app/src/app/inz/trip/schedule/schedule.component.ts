@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TripService } from 'src/app/shared/services/trip.service';
 import { Trip, Schedule, PositionInSchedule, Place } from 'src/app/shared/models/classes';
@@ -29,6 +29,7 @@ export class ScheduleComponent implements OnInit {
  icons:[]=[];
  res:any;
  @ViewChild('doc') targetElement: any;
+ @Input() inTrip: boolean=false;
   constructor(private router: Router, private route: ActivatedRoute, private tripService: TripService,
     private scheduleService: ScheduleService,  private componentService:ComponentsService) { }
 
