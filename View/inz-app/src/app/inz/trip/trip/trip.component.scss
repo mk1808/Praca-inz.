@@ -567,3 +567,27 @@ mat-chip{
 .favIcon{
   padding-left:0px;
 }
+
+.newRating{
+  padding-left: 24px;
+  padding-top: 4px;
+}
+
+.commentIcon{
+  font-size: 24px;
+    color: white;
+
+}
+
+.mat-raised-button{
+  box-shadow: none!important;
+}
+
+.mat-raised-button.mat-primary{
+
+border-radius: 0!important;
+font-family: inherit;
+color: white;
+background-color: #334049;
+background: #87689e;
+}
