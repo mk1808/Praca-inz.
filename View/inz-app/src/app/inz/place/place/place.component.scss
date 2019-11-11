@@ -383,3 +383,25 @@ h3 {
  .mapInfo{
   margin-left:10px!important;
 }
+
+
+.commentIcon{
+  font-size: 24px;
+    color: white;
+
+}
+
+.mat-raised-button{
+  box-shadow: none!important;
+}
+
+.mat-raised-button.mat-primary{
+
+border-radius: 0!important;
+font-family: inherit;
+color: white;
+background-color: #334049;
+background: #87689e;
+margin-left: 20px;
+margin-top: 13px;
+}

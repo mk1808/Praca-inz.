@@ -12,9 +12,14 @@
         <star-rating id="ratingStar" [starType]="'svg'" [rating]="4.5" [disabled]="true" [showHalfStars]="true"
           size="large"></star-rating>
         
+          <button mat-raised-button color="primary"> <i class="material-icons commentIcon">
+              comment
+            </i> Dodaj&nbsp;ocenę</button>
       </div>
+      
       </div>
 
+     
       <div class="row">
         <div class="columns large-12 bigBtn">
           <span class="button success add-button" (click)="onAdd()" *ngIf="logged">
@@ -26,6 +31,7 @@
           </span>
         </div>
       </div>
+
     </div>
     <div class="columns large-6 photo screen ">a
       <div class="background"></div>
