@@ -15,10 +15,11 @@ import { ImageUploadModule } from 'angular2-image-upload';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
+import { RateDialogComponent } from './place/rate-dialog/rate-dialog.component';
 
 
 @NgModule({
-  declarations: [PlaceComponent, NewPlaceComponent, AddPlaceComponent],
+  declarations: [PlaceComponent, NewPlaceComponent, AddPlaceComponent, RateDialogComponent],
   imports: [
     CommonModule,
     PlaceRoutingModule,
