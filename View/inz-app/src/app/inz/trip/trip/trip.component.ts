@@ -3,8 +3,9 @@ import { ComponentsService } from 'src/app/shared/services/components.service';
 import { TripService } from 'src/app/shared/services/trip.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Trip, Place, User, WishList } from 'src/app/shared/models/classes';
-import { MatTooltip } from '@angular/material';
+import { MatTooltip, MatDialog } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
+import { RateDialogComponent } from '../../place/place/rate-dialog/rate-dialog.component';
 
 @Component({
   selector: 'app-trip',
@@ -30,7 +31,7 @@ tableContent:any[] = [
 ];
   constructor(private componentsService:ComponentsService, private cookie:CookieService, 
     private router: Router, private route: ActivatedRoute,
-    private tripService: TripService) { }
+    private tripService: TripService, public dialog: MatDialog) { }
  /* latitude = 50.026783;
   longitude = 21.984447; 
   mapType = 'roadmap';*/
@@ -185,5 +186,18 @@ onFav(){
     })
   }
   console.log(this.inFavourities);
+}
+
+
+onRatePlace(){
+  const dialogRef = this.dialog.open(RateDialogComponent, {
+    width: '600px',
+    data: this.trip
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+
+  });
 }
 }

@@ -49,5 +49,7 @@ import { RateDialogComponent } from './place/rate-dialog/rate-dialog.component';
     AddPlaceComponent,
     RateDialogComponent
   ],
+  exports:[RateDialogComponent
+    ]
 })
 export class PlaceModule { }

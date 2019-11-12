@@ -24,6 +24,9 @@ import { StarsComponent } from 'src/app/shared/stars/stars.component';
 import { AppModule } from 'src/app/app.module';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RateDialogComponent } from '../place/place/rate-dialog/rate-dialog.component';
+import { PlaceModule } from '../place/place.module';
+
 
 @NgModule({
   declarations: [TripComponent, PhotosOnHoverComponent,
@@ -47,7 +50,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SharedModule,
     MatDividerModule,
     MatExpansionModule,
-    MatButtonModule
+    MatButtonModule,
+    PlaceModule
    /* AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBsLVzxs5lP8tAr0ErPMYOhBORJ-OoT0Ts'
 
@@ -55,7 +59,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   entryComponents: [
     HourDialogComponent,
-    AddPlaceToTripDialogComponent
+    AddPlaceToTripDialogComponent,
+    RateDialogComponent
   ],
 })
 export class TripModule { }
