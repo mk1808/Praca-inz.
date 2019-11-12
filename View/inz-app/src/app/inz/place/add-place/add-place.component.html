@@ -20,13 +20,20 @@
     </tbody>
   </table>
 </mat-dialog-content>
+<mat-dialog-actions class="actions">
+    <div class="columns small-9">
+        <button  type="submit" class="sign-in-form-button signIn smallButton cancel">Anuluj
+          </button>
+    </div>
+
+</mat-dialog-actions>
 </div>
 <div *ngIf="!before">
 
 <h1 mat-dialog-title>Potwierdzenie</h1>
   <mat-dialog-content *ngIf="initialized">
 
-    <h6>Obiekt {{data.name}} został dodany do Twojej wycieczki {{chosenTrip.name}}!</h6>
+    <h6 class="infoConfirm">Obiekt {{data.name}} został dodany do Twojej wycieczki {{chosenTrip.name}}!</h6>
 
 
   </mat-dialog-content>
@@ -34,12 +41,12 @@
   <mat-dialog-actions>
 
       <div class="columns small-9">
-          <button type="submit" class="sign-in-form-button signIn">Zobacz wycieczkę
+          <button  type="submit" class="sign-in-form-button signIn smallButton cancel">Zobacz wycieczkę
             </button>
       </div>
   
       <div class="columns small-3 ">
-        <button type="submit" class="sign-in-form-button signIn">Zamknij
+        <button type="submit" class="sign-in-form-button signIn smallButton ">Zamknij
         </button>
       </div>
     </mat-dialog-actions>
