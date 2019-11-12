@@ -100,8 +100,13 @@ button{
     margin-left:400px;
 }
 
-.cancel{
+.sign-in-form-button.cancel:hover{
     background-color: #cacaca;
+    border-color: #cacaca;
+}
+
+.sign-in-form-button.cancel {
+  background-color: #cacaca;
 }
 ///////
 .closed{
@@ -109,3 +114,14 @@ button{
     margin-bottom: 10px;
     font-size: 14px;
 }
+
+.mat-dialog-title{
+  font-weight: 600;
+  border-bottom: 1px solid gray;
+  }
+
+  .smallButton{
+    height: 15px;
+      padding-top: 11px;
+      padding-bottom: 30px;
+  }
