@@ -1,3 +1,21 @@
-<p>
-  rate-dialog works!
-</p>
+<div *ngIf="!before">
+
+    <h1 mat-dialog-title>Oceń wycieczkę</h1>
+      <mat-dialog-content *ngIf="initialized">
+    
+     
+      </mat-dialog-content>
+    
+      <mat-dialog-actions>
+    
+          <div class="columns small-9">
+              <button  type="submit" class="sign-in-form-button signIn smallButton cancel">Zatwierdź
+                </button>
+          </div>
+      
+          <div class="columns small-3 ">
+            <button type="submit" class="sign-in-form-button signIn smallButton ">Anuluj
+            </button>
+          </div>
+        </mat-dialog-actions>
+      </div>
