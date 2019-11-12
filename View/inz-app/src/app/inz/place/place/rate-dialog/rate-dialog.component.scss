@@ -144,3 +144,8 @@ border-bottom: 1px solid gray;
 .sign-in-form-button.cancel {
 background-color: #cacaca;
 }
+
+::ng-deep.rating{
+    outline: none;
+    margin-bottom: 20px;
+}
