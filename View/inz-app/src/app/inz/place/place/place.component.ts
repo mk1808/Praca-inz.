@@ -6,6 +6,7 @@ import { Place, PositionInTrip } from 'src/app/shared/models/classes';
 import { MatDialog, MatTooltip } from '@angular/material';
 import { AddPlaceComponent } from '../add-place/add-place.component';
 import { ComponentsService } from 'src/app/shared/services/components.service';
+import { RateDialogComponent } from './rate-dialog/rate-dialog.component';
 
 @Component({
   selector: 'app-place',
@@ -256,6 +257,18 @@ export class PlaceComponent implements OnInit {
   onAdd() {
 
     const dialogRef = this.dialog.open(AddPlaceComponent, {
+      width: '600px',
+      data: this.place
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+    });
+  }
+
+  onRatePlace(){
+    const dialogRef = this.dialog.open(RateDialogComponent, {
       width: '600px',
       data: this.place
     });
