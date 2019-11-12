@@ -270,7 +270,7 @@ export class PlaceComponent implements OnInit {
   onRatePlace(){
     const dialogRef = this.dialog.open(RateDialogComponent, {
       width: '600px',
-      data: this.place
+      data: {trip:null, place:this.place}
     });
 
     dialogRef.afterClosed().subscribe(result => {

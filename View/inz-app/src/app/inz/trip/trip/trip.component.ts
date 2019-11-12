@@ -192,7 +192,7 @@ onFav(){
 onRatePlace(){
   const dialogRef = this.dialog.open(RateDialogComponent, {
     width: '600px',
-    data: this.trip
+    data: {trip:this.trip, place:null}
   });
 
   dialogRef.afterClosed().subscribe(result => {

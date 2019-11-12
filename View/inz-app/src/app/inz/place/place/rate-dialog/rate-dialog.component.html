@@ -1,6 +1,6 @@
 <div *ngIf="!before">
 
-    <h1 mat-dialog-title>Oceń miejsce</h1>
+    <h1 mat-dialog-title *ngIf="initialized">Oceń {{data.place!=null?'miejsce':'wycieczkę'}}</h1>
       <mat-dialog-content>
           <star-rating class="stars" id="ratingStar" [starType]="'svg'"  [disabled]="false" [showHalfStars]="true"
           size="large"></star-rating>
