@@ -56,12 +56,14 @@ public class Trip {
 	@Column(name = "tag_id")
 	private Set<TripTag> tags;
 	
+	private Double mean=0.0;
+	
 	
 	public Trip() {}
 
 	public Trip(Long id, @NotNull String name, User user, @NotNull Country country, @NotNull String region,
 			String description, Long duration, List<PositionInTrip> positionsInTrip, Hotel hotel, 
-			Schedule schedule, Set<TripTag> tags, String image) {
+			Schedule schedule, Set<TripTag> tags, String image,  Double mean) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -75,6 +77,7 @@ public class Trip {
 		this.schedule=schedule;
 		this.tags=tags;
 		this.image=image;
+		this.mean=mean;
 	
 	}
 	
@@ -159,6 +162,16 @@ public class Trip {
 	public void setImage(String image) {
 		this.image = image;
 	}
+
+	public Double getMean() {
+		return mean;
+	}
+
+	public void setMean(Double mean) {
+		this.mean = mean;
+	}
+	
+	
 	
 	
 

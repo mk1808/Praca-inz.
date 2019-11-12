@@ -29,7 +29,8 @@ export class Place{
     hours:OpeningHours;
     image:Image[];
     latitude;
-    longitude;
+    longitude; 
+    mean:number;
 }
 
 export class Trip{
@@ -47,6 +48,7 @@ export class Trip{
     positionsInTrip:PositionInTrip[];
     tags:[];
     image:string;
+    mean:number;
 }
 
 export class Schedule{

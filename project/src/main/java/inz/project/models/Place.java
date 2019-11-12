@@ -59,12 +59,14 @@ public class Place {
 	private Double longitude;
 	private Double latitude;
 	
+	private Double mean=0.0;
+	
 	public Place() {}
 	public Place(Long id,@NotNull String name, 	@NotNull PlaceCategory category, String description, 	
 			@NotNull Country country, String region, String city,
 			String street, String number,  String phoneNumber, 
 			String website, @NotNull String status, User user, OpeningHours hours, List<Image>  image,
-			Double longitude, Double latitude) {
+			Double longitude, Double latitude, Double mean) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -83,6 +85,7 @@ public class Place {
 		this.image=image;
 		this.longitude=longitude;
 		this.latitude=latitude;
+		this.mean=mean;
 
 	}
 	
@@ -194,6 +197,13 @@ public class Place {
 	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
+	public Double getMean() {
+		return mean;
+	}
+	public void setMean(Double mean) {
+		this.mean = mean;
+	}
+	
 	
 	
 	
