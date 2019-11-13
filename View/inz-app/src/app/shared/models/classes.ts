@@ -108,3 +108,11 @@ export class WishList{
     user:User;
     trip:Trip;
 }
+
+export class Rating{
+    id;
+    user:User;
+    trip:Trip;
+    place:Place;
+    value;
+}

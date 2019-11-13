@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { RestService } from './rest.service';
 import { Observable } from 'rxjs';
-import { Place } from '../models/classes';
+import { Place, Rating } from '../models/classes';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +44,10 @@ public getPlacesByUser(id:number): Observable<Place[]> {
 
 public createPlace(place: Place): Observable<Place> {
   return this.rest.post('/api/places', place);
+}
+
+public createRating(rating: Rating): Observable<Rating> {
+  return this.rest.post('/api/rating', rating);
 }
 
 
