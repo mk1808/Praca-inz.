@@ -13,14 +13,32 @@ export class RateDialogComponent implements OnInit {
 initialized=false;
 rating:Rating= new Rating;
 form: FormGroup;
+oldRatingVal:number=5;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb:FormBuilder, private placeService:PlaceService) { }
 
   ngOnInit() {
     console.log(this.data);
     this.form = this.fb.group({
-      rating:['']
+      rating:[this.oldRatingVal.toString()]
     })
+   
+    if(this.data.place!=null){
+      this.placeService.getRatingByPlaceAndUser(this.data.place.id, this.data.user.id).subscribe(x=>{
+        this.oldRatingVal=x.value;
+        this.form.controls.rating.setValue(x.value);
+        console.log(x)
+      })
+    }
+    else{
+      this.placeService.getRatingByTripAndUser(this.data.trip.id, this.data.user.id).subscribe(x=>{
+        this.oldRatingVal=x.value;
+        this.form.controls.rating.setValue(x.value);
+        console.log(x)
+      })
+
+    }
     this.initialized=true;
+  
   }
 
   onConfirm(){

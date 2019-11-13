@@ -50,6 +50,16 @@ public createRating(rating: Rating): Observable<Rating> {
   return this.rest.post('/api/rating', rating);
 }
 
+public getRatingByTripAndUser(trip:number, user:number): Observable<Rating> {
+
+  return this.rest.get('/api/rating/trip'+'?trip='+trip+'&user='+user);
+}
+
+
+public getRatingByPlaceAndUser(place:number, user:number): Observable<Rating> {
+
+  return this.rest.get('/api/rating/place'+'?place='+place+'&user='+user);
+}
 
 
 }
