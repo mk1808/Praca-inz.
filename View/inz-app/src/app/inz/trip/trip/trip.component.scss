@@ -685,3 +685,28 @@ button.moreBtn{
           transform: translateX(0%);
   opacity: 0.25;
 }
+
+
+.delete{
+  font-size:17px;
+  color:white;
+
+}
+
+.success.deleteBtn{
+  margin:0;
+  padding: 0;
+  opacity: 0;
+  transition-duration: 200ms;
+}
+
+.tableRow .success.deleteBtn{
+  transition: opacity 200ms linear;
+}
+.tableRow:hover .success.deleteBtn{
+  opacity: 1;
+}
+
+.lastCol{
+  text-align: center;
+}

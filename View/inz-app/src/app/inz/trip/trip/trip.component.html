@@ -80,12 +80,13 @@
       <div class=" rectangle"></div>
     </div>
     <div class="columns large-6 align-center ">
-      <table class="table table-striped table-hover">
+      <table class="table table-striped table-hover" (mouseover)="onTable()" (mouseleave)="notOnTable()">
         <thead>
           <tr>
             <th class="id">Numer</th>
             <th class="name">Nazwa</th>
             <th class="place">Lokacja</th>
+            <th *ngIf="belongsToUser" class="place lastCol">Usuń</th>
           </tr>
         </thead>
         <tbody>
@@ -93,6 +94,14 @@
             <td data-label="First Name">{{i+1}}</td>
             <td data-label="Last Name">{{place.name}}</td>
             <td data-label="Hero Title">{{place.city}}</td>
+            <td *ngIf="belongsToUser" data-label="Hero Title"  class="lastCol">
+                <span (click)="onDelete(i)" class="button success deleteBtn"><span> 
+                    <i class="material-icons delete">
+                        close
+                        </i>
+                </span></span> 
+            
+            </td>
           </tr>
         </tbody>
       </table>

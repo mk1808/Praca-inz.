@@ -47,6 +47,7 @@ tableContent:any[] = [
   initialized=false;
   photoTab:any[]=[];
   belongsToUser=false;
+  tableHovered=false;
   ngOnInit() {
     this.hover=false;
     this.route.params.subscribe(x => {
@@ -181,6 +182,18 @@ onHover(i){
   this.hover=true;
   let item=this.photoTab[i];
   this.componentsService.setTableItem(item);
+  
+}
+
+onTable(){
+  this.tableHovered=true;
+}
+notOnTable(){
+this.tableHovered=false;
+}
+
+onDelete(id){
+console.log(id);
 }
 
 onFav(){
