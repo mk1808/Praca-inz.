@@ -16,7 +16,7 @@ public class Rating {
 
 	@Id @GeneratedValue private Long id; 
 	
-	@NotNull private Long value;
+	@NotNull private Double value;
 	
 	@ManyToOne
     private User user;
@@ -35,7 +35,7 @@ public class Rating {
 	
 	
 
-	public Rating(Long id, @NotNull Long value, User user, Place place, Trip trip) {
+	public Rating(Long id, @NotNull Double value, User user, Place place, Trip trip) {
 		super();
 		this.id = id;
 		this.value = value;
@@ -54,11 +54,11 @@ public class Rating {
 		this.id = id;
 	}
 
-	public Long getValue() {
+	public Double getValue() {
 		return value;
 	}
 
-	public void setValue(Long value) {
+	public void setValue(Double value) {
 		this.value = value;
 	}
 
