@@ -114,4 +114,8 @@ export class HourDialogComponent implements OnInit {
 
   }
 
+  cancelDialog(){
+    this.dialogRef.close();
+  }
+
 }

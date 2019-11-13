@@ -245,12 +245,12 @@ openDial(item, dayDate)
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result); 
-      
+      if(result){
       this.tabScheduleHours[result[0].name]=result[1].startTime+' - '+result[1].endTime;
-    // console.log(result[2]);
       this.tabScheduleHours[result[0].name+'H']=result[2];
       this.tab[result[0].name]=result[2]?'c':'h';
       console.log(this.tabScheduleHours);
+    }   
     });
   
     
