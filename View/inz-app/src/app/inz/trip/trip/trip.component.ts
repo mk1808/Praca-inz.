@@ -122,7 +122,13 @@ if(this.logged){
         stopEvent: false,
         offset: [0, -50]
       });
- 
+    let latPlace=52;
+    let lonPlace=21;
+    if(this.places[0]!=null)
+    {
+      latPlace=this.places[0].latitude;
+      lonPlace=this.places[0].longitude;
+    }
     this.map = new ol.Map({
         target: 'map',
         layers: [
@@ -131,8 +137,8 @@ if(this.logged){
           }),vectorLayer
         ],
         view: new ol.View({
-          center: ol.proj.fromLonLat([21, 51.5]),
-          zoom: 8
+          center: ol.proj.fromLonLat([lonPlace,latPlace]),
+          zoom: 7
         })
       });   
       this.map.addOverlay(popup);
