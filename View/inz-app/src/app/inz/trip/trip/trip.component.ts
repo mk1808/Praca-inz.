@@ -46,6 +46,7 @@ tableContent:any[] = [
   currentWishlist:WishList=new WishList;
   initialized=false;
   photoTab:any[]=[];
+  belongsToUser=false;
   ngOnInit() {
     this.hover=false;
     this.route.params.subscribe(x => {
@@ -58,6 +59,7 @@ tableContent:any[] = [
       this.user = JSON.parse(this.cookie.get('user'));
     }
 if(this.logged){
+ 
   this.tripService.getWishListStatusForUserAndTrip(this.user.id, this.id).subscribe(x=>{
     this.resp=x;
     console.log(this.resp);
@@ -80,6 +82,10 @@ if(this.logged){
     console.log(this.places);
     this.places.forEach(z=>{
       this.photoTab.push(z.image[0].image);
+    })
+
+    this.tripService.ifBelongs(this.trip.id, this.user.id).subscribe(x=>{
+      this.belongsToUser=x;
     })
 
     var iconStyle = new ol.style.Style({
@@ -205,5 +211,9 @@ onRatePlace(){
     console.log('The dialog was closed');
 
   });
+}
+
+addSchedule(){
+  this.router.navigate(['/trip/new-schedule', this.trip.id]);
 }
 }

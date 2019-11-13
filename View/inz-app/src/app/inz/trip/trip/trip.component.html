@@ -131,8 +131,9 @@
     </mat-accordion>
 -->
 
-<button *ngIf="!trip.schedule.scheduleExists" class="button moreBtn button-rounded-hover" (click)="onNewTrip()" >
-    <img src="assets/add.svg" height="30px" width="30px">
+<button *ngIf="!trip.schedule.scheduleExists&&belongsToUser" class="button moreBtn button-rounded-hover" 
+(click)="addSchedule()" >
+    
    Dodaj grafik
   </button>
 <mat-card class="schedule" *ngIf="trip.schedule.scheduleExists">

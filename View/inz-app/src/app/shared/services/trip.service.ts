@@ -79,5 +79,8 @@ public getWishListsForUser(user): Observable<any> {
   return this.rest.get('/api/wishlists/user/'+user);
 }
 
+public ifBelongs(trip, user):Observable<any>{
+  return this.rest.get('/api/trips/belongs?trip='+trip+'&user='+user);
+}
 
 }
