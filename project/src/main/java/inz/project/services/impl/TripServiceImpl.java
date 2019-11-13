@@ -148,6 +148,16 @@ return positions.stream().map(PositionInTrip::getTrip).collect(Collectors.toList
 	
 	}
 	
+	@Override
+	public Boolean ifBelongsToUser(Long trip, Long user) {
+		Trip tripObj = this.getTripById(trip);
+		if(tripObj.getUser().getId()==user) {
+			return true;
+		}
+		else return false;
+		
+	}
+	
 	
 	
 	

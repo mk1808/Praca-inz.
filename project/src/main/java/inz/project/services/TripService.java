@@ -19,4 +19,5 @@ public interface TripService {
 	List<Trip> findTripByRegTagDur(String region, Set<TripTag> tag, Long durationFrom, Long durationTo);
 	Trip updateTrip(Trip trip);
 	List<Trip> getTripsByPlaceIncluded(Long id);
+	Boolean ifBelongsToUser(Long trip, Long user); 
 }

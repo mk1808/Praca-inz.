@@ -111,6 +111,11 @@ public class TripController {
 	}
 	
 	
+	@GetMapping("/belongs")
+	Boolean ifBelongsToUser(@RequestParam(value ="trip") Long trip, 
+			@RequestParam(value ="user") Long user) 
+    {
+		return tripService.ifBelongsToUser(trip, user);
+    }
 	
-
 }
