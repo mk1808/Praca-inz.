@@ -2,11 +2,12 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PlaceService } from 'src/app/shared/services/place.service';
-import { Place, PositionInTrip } from 'src/app/shared/models/classes';
+import { Place, PositionInTrip, User } from 'src/app/shared/models/classes';
 import { MatDialog, MatTooltip } from '@angular/material';
 import { AddPlaceComponent } from '../add-place/add-place.component';
 import { ComponentsService } from 'src/app/shared/services/components.service';
 import { RateDialogComponent } from './rate-dialog/rate-dialog.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-place',
@@ -21,7 +22,7 @@ export class PlaceComponent implements OnInit {
   /* latitude = 50.026783;
    longitude = 21.984447; 
    mapType = 'roadmap';*/
-  logged: boolean = true;
+  logged: boolean = false;
   position: PositionInTrip = new PositionInTrip();
   hours: [][];
   singleDay = { start: null, end: null };
@@ -46,14 +47,22 @@ export class PlaceComponent implements OnInit {
   latitude;
   initialized = false;
   photo = "";
+  user:User=new User;
   @ViewChild('tooltip') tooltip: MatTooltip;
   constructor(private router: Router, private route: ActivatedRoute, private placeService: PlaceService,
-    private componentsService: ComponentsService, public dialog: MatDialog) { }
+    private componentsService: ComponentsService, private cookie:CookieService, public dialog: MatDialog) { }
   ngOnInit(): void {
     this.route.params.subscribe(x => {
       this.id = x['id'];
       console.log(this.id)
     })
+
+    if (this.cookie.get('user') == "") {
+    } else {
+      this.logged=true;
+      this.user = JSON.parse(this.cookie.get('user'));
+    }
+
 
     this.placeService.getPlace(this.id).subscribe(x => {
       this.place = x;
@@ -270,7 +279,7 @@ export class PlaceComponent implements OnInit {
   onRatePlace(){
     const dialogRef = this.dialog.open(RateDialogComponent, {
       width: '600px',
-      data: {trip:null, place:this.place}
+      data: {trip:null, place:this.place, user:this.user}
     });
 
     dialogRef.afterClosed().subscribe(result => {
