@@ -22,7 +22,7 @@
 </mat-dialog-content>
 <mat-dialog-actions class="actions">
     <div class="columns small-9">
-        <button  type="submit" class="sign-in-form-button signIn smallButton cancel">Anuluj
+        <button  (click)="cancel()" type="submit" class="sign-in-form-button signIn smallButton cancel">Anuluj
           </button>
     </div>
 
@@ -41,12 +41,12 @@
   <mat-dialog-actions>
 
       <div class="columns small-9">
-          <button  type="submit" class="sign-in-form-button signIn smallButton cancel">Zobacz wycieczkę
+          <button  (click)="checkTrip()" type="submit" class="sign-in-form-button signIn smallButton cancel">Zobacz wycieczkę
             </button>
       </div>
   
       <div class="columns small-3 ">
-        <button type="submit" class="sign-in-form-button signIn smallButton ">Zamknij
+        <button (click)="cancel()" type="submit" class="sign-in-form-button signIn smallButton ">Zamknij
         </button>
       </div>
     </mat-dialog-actions>

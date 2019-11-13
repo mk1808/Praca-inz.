@@ -3,7 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { TripService } from 'src/app/shared/services/trip.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User, Trip, Place, PositionInTrip, OpeningHours } from 'src/app/shared/models/classes';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-add-place',
@@ -20,7 +20,7 @@ export class AddPlaceComponent implements OnInit {
   positionInTrip: PositionInTrip = new PositionInTrip();
   before = true;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private router: Router, private route: ActivatedRoute, private cookie: CookieService,
-    private tripService: TripService) { }
+    private tripService: TripService,  public dialogRef: MatDialogRef<AddPlaceComponent>) { }
 
   ngOnInit() {
 
@@ -54,6 +54,17 @@ export class AddPlaceComponent implements OnInit {
       }
       )
     })
-
   }
+
+  
+  checkTrip(){
+    this.dialogRef.close();
+    this.router.navigate(['/trip/details/'+this.chosenTrip.id]);
+  }
+
+  cancel(){
+    this.dialogRef.close();
+  }
+
+ 
 }
