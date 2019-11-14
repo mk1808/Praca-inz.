@@ -83,4 +83,8 @@ public ifBelongs(trip, user):Observable<any>{
   return this.rest.get('/api/trips/belongs?trip='+trip+'&user='+user);
 }
 
+public deletePositionFromTrip(idPlace:number, idTrip:number): Observable<any> {
+  return this.rest.delete('/api/positionInTrip/'+idPlace+'/'+idTrip);
+}
+
 }

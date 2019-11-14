@@ -23,7 +23,11 @@ before=true;
   }
 
   deletePlace(){
-    this.before=false;
+ 
+    this.tripService.deletePositionFromTrip(this.data.place.id, this.data.trip.id).subscribe(x=>{
+      console.log(x);
+      this.before=false;
+    })
 
   }
 
