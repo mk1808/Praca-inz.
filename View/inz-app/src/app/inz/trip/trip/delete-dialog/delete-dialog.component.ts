@@ -35,4 +35,8 @@ before=true;
     this.dialogRef.close();
   }
 
+  closeAfterDeleted(){
+    this.dialogRef.close(true);
+  }
+
 }
