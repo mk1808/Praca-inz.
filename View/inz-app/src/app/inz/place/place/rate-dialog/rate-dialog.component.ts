@@ -13,7 +13,7 @@ export class RateDialogComponent implements OnInit {
 initialized=false;
 rating:Rating= new Rating;
 form: FormGroup;
-oldRatingVal:number=5;
+oldRatingVal:number=0;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb:FormBuilder, 
   private placeService:PlaceService,  public dialogRef: MatDialogRef<RateDialogComponent>) { }
 
@@ -25,16 +25,34 @@ oldRatingVal:number=5;
    
     if(this.data.place!=null){
       this.placeService.getRatingByPlaceAndUser(this.data.place.id, this.data.user.id).subscribe(x=>{
-        this.oldRatingVal=x.value;
-        this.form.controls.rating.setValue(x.value);
-        console.log(x)
+        console.log(x);
+        if(x)
+        {
+          this.oldRatingVal=x.value;
+          this.form.controls.rating.setValue(x.value);
+        }
+        else {
+          this.oldRatingVal=0;
+          this.form.controls.rating.setValue(0);
+        
+        }
+        
       })
     }
     else{
       this.placeService.getRatingByTripAndUser(this.data.trip.id, this.data.user.id).subscribe(x=>{
-        this.oldRatingVal=x.value;
-        this.form.controls.rating.setValue(x.value);
-        console.log(x)
+        
+        console.log(x);
+        if(x)
+        {
+          this.oldRatingVal=x.value;
+          this.form.controls.rating.setValue(x.value);
+        }
+        else {
+          this.oldRatingVal=0;
+          this.form.controls.rating.setValue(0);
+        
+        }
       })
 
     }
