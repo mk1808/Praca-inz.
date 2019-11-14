@@ -11,6 +11,9 @@ public interface RatingService {
 	Rating getRatingByTripAndUser(Long trip, Long user);
 	Rating getRatingByPlaceAndUser(Long place, Long user);
 	Rating createRating(Rating rating);
+	List<Rating> getRatingByTrip(Long trip);
+	List<Rating> getRatingByPlace(Long place);
+	
 	
 	
 }

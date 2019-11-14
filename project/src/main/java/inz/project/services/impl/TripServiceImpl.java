@@ -135,6 +135,7 @@ public class TripServiceImpl implements TripService {
 		fromBase.setName(trip.getName());
 		fromBase.setRegion(trip.getRegion());
 		fromBase.setTags(trip.getTags());
+		fromBase.setMean(trip.getMean());
 		Trip updated = this.tripRepository.save(fromBase);
 		return updated;
 	}

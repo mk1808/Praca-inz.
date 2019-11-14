@@ -13,4 +13,6 @@ public interface RatingRepository extends JpaRepository<Rating, Long>{
 
 	Rating getRatingByTripAndUser(Trip trip, User user);
 	Rating getRatingByPlaceAndUser(Place place, User user );
+	List<Rating> getRatingByTrip(Trip trip);
+	List<Rating> getRatingByPlace(Place place);
 }
