@@ -9,7 +9,7 @@
       <div class="columns large-4">
         <h3 class="mainName">{{place.name}} </h3>
         
-        <star-rating id="ratingStar" [starType]="'svg'" [rating]="4.5" [disabled]="true" [showHalfStars]="true"
+        <star-rating id="ratingStar" [starType]="'svg'" rating="{{place.mean}}" [disabled]="true" [showHalfStars]="true"
           size="large"></star-rating>
         
           <button mat-raised-button color="primary" (click)="onRatePlace()"> <i class="material-icons commentIcon">
