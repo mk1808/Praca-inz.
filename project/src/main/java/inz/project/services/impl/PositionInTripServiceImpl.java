@@ -75,11 +75,12 @@ public class PositionInTripServiceImpl implements PositionInTripService{
 	}
 	
 	@Override
-	public void deletePositionInTrip(Long id) {
+	public void deletePositionInTrip(Long idPlace, Long idTrip) {
+		PositionInTrip posInTrip = this.getPositionInTripByTripAndPlace(idTrip, idPlace);
 		PositionInSchedule posInSchedule = 
-				this.positionInScheduleService.getPositionInScheduleByPositionInTrip(id);
+				this.positionInScheduleService.getPositionInScheduleByPositionInTrip(posInTrip.getId());
 		this.positionInScheduleService.deletePositionInSchedule(posInSchedule.getId());
-		this.positionInTripRepository.deleteById(id);
+		this.positionInTripRepository.deleteById(posInTrip.getId());
 	}
 	
 	

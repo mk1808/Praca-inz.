@@ -46,10 +46,10 @@ public class PositionInTripController {
 		return positionInTripService.getPositionInTripByTripId(id);
 	}
 	
-	@DeleteMapping ("/{id}")
+	@DeleteMapping ("/{idPlace}/{idTrip}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	void deletePositionInTrip(@PathVariable Long id) {
-		this.positionInTripService.deletePositionInTrip(id);
+	void deletePositionInTrip(@PathVariable Long idPlace, @PathVariable Long idTrip) {
+		this.positionInTripService.deletePositionInTrip(idPlace, idTrip);
 	}
 
 	
