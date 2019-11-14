@@ -39,4 +39,6 @@ public class ScheduleServiceImpl implements ScheduleService{
 		this.tripService.updateTrip(trip);
 		return updated;
 	}
+	
+	
 }

@@ -3,6 +3,7 @@ package inz.project.controllers;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,6 +44,12 @@ public class PositionInTripController {
 	@GetMapping("/trip/{id}")
 	List<Place> getPositionInTripByTrip(@PathVariable Long id) {
 		return positionInTripService.getPositionInTripByTripId(id);
+	}
+	
+	@DeleteMapping ("/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	void deletePositionInTrip(@PathVariable Long id) {
+		this.positionInTripService.deletePositionInTrip(id);
 	}
 
 	

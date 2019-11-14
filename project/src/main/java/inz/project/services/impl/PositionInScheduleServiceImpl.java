@@ -245,4 +245,9 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 	public Boolean isDayCorrect(List<Boolean> openDays, int day) {
 		return openDays.get(day);
 	}
+	
+	@Override
+	public void deletePositionInSchedule(Long id) {
+		this.positionInScheduleRepository.deleteById(id);		
+	}
 }

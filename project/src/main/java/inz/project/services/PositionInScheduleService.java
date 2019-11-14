@@ -20,4 +20,5 @@ public interface PositionInScheduleService {
 	List<List<PositionInSchedule>> getPosForTripSorted(Long id);
 	Boolean isHourCorrect(Date open, Date close, Date start, Date end);
 	Boolean isDayCorrect(List<Boolean> openDays, int day);
+	void deletePositionInSchedule(Long id);
 }

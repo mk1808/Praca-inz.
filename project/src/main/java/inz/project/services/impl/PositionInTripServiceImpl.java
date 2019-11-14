@@ -74,6 +74,14 @@ public class PositionInTripServiceImpl implements PositionInTripService{
 		return this.positionInTripRepository.getPositionInTripByTripAndPlace(trip, place);
 	}
 	
+	@Override
+	public void deletePositionInTrip(Long id) {
+		PositionInSchedule posInSchedule = 
+				this.positionInScheduleService.getPositionInScheduleByPositionInTrip(id);
+		this.positionInScheduleService.deletePositionInSchedule(posInSchedule.getId());
+		this.positionInTripRepository.deleteById(id);
+	}
+	
 	
 	
 
