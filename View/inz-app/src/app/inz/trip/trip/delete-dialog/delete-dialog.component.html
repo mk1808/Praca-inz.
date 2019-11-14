@@ -1,3 +1,40 @@
-<p>
-  delete-dialog works!
-</p>
+<div *ngIf="before">
+    <h1 mat-dialog-title>Usuwanie miejsca z wycieczki</h1>
+    <mat-dialog-content *ngIf="initialized">
+      Czy na pewno usunąć miejsce {{data.place.name}} z wycieczki {{data.trip.name}}?
+    </mat-dialog-content>
+    <mat-dialog-actions class="actions">
+        <div class="columns small-9">
+            <button  (click)="cancel()" type="submit" class="sign-in-form-button signIn smallButton cancel">Anuluj
+              </button>
+        </div>
+        <div class="columns small-3 ">
+          <button (click)="cancel()" type="submit" class="sign-in-form-button signIn smallButton ">Usuń
+          </button>
+        </div>
+    
+    </mat-dialog-actions>
+    </div>
+    <div *ngIf="!before">
+    
+    <h1 mat-dialog-title>Potwierdzenie</h1>
+      <mat-dialog-content *ngIf="initialized">
+    
+        <h6 class="infoConfirm">Obiekt {{data.name}} został dodany do Twojej wycieczki {{chosenTrip.name}}!</h6>
+    
+    
+      </mat-dialog-content>
+    
+      <mat-dialog-actions>
+    
+          <div class="columns small-9">
+              <button  (click)="checkTrip()" type="submit" class="sign-in-form-button signIn smallButton cancel">Zobacz wycieczkę
+                </button>
+          </div>
+      
+          <div class="columns small-3 ">
+            <button (click)="cancel()" type="submit" class="sign-in-form-button signIn smallButton ">Zamknij
+            </button>
+          </div>
+        </mat-dialog-actions>
+      </div>

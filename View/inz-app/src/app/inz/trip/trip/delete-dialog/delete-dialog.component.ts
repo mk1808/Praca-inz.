@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { Router, ActivatedRoute } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { TripService } from 'src/app/shared/services/trip.service';
 
 @Component({
   selector: 'app-delete-dialog',
@@ -6,10 +10,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./delete-dialog.component.scss']
 })
 export class DeleteDialogComponent implements OnInit {
-
-  constructor() { }
+initialized=false;
+before=true;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private router: Router,
+   private route: ActivatedRoute, private cookie: CookieService,
+  private tripService: TripService,  public dialogRef: MatDialogRef<DeleteDialogComponent>) { }
 
   ngOnInit() {
+    console.log(this.data)
+    this.initialized=true;
+    
   }
 
 }

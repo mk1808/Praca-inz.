@@ -26,12 +26,14 @@ import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RateDialogComponent } from '../place/place/rate-dialog/rate-dialog.component';
 import { PlaceModule } from '../place/place.module';
+import { DeleteDialogComponent } from './trip/delete-dialog/delete-dialog.component';
 
 
 @NgModule({
   declarations: [TripComponent, PhotosOnHoverComponent,
     TripListComponent, NewTripComponent, AddScheduleComponent, ScheduleComponent, HourDialogComponent,
-    AddPlaceToTripDialogComponent],
+    AddPlaceToTripDialogComponent,
+    DeleteDialogComponent],
   imports: [
   
     CommonModule,
@@ -60,7 +62,8 @@ import { PlaceModule } from '../place/place.module';
   entryComponents: [
     HourDialogComponent,
     AddPlaceToTripDialogComponent,
-    RateDialogComponent
+    RateDialogComponent,
+    DeleteDialogComponent
   ],
 })
 export class TripModule { }
