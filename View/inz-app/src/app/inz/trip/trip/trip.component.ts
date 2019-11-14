@@ -220,6 +220,7 @@ onRatePlace(){
   });
 
   dialogRef.afterClosed().subscribe(result => {
+    this.ngOnInit();
     console.log('The dialog was closed');
 
   });
