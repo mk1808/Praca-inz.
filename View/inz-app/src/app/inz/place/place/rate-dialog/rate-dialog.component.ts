@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { Rating } from 'src/app/shared/models/classes';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { PlaceService } from 'src/app/shared/services/place.service';
@@ -14,7 +14,8 @@ initialized=false;
 rating:Rating= new Rating;
 form: FormGroup;
 oldRatingVal:number=5;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb:FormBuilder, private placeService:PlaceService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb:FormBuilder, 
+  private placeService:PlaceService,  public dialogRef: MatDialogRef<RateDialogComponent>) { }
 
   ngOnInit() {
     console.log(this.data);
@@ -49,8 +50,13 @@ oldRatingVal:number=5;
   console.log(this.rating);
     this.placeService.createRating(this.rating).subscribe(x=>{
       console.log(x)
+      this.dialogRef.close();
     })
     
+  }
+
+  cancel(){
+    this.dialogRef.close();
   }
 
 }
