@@ -6,6 +6,7 @@ import { Trip, Place, User, WishList } from 'src/app/shared/models/classes';
 import { MatTooltip, MatDialog } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
 import { RateDialogComponent } from '../../place/place/rate-dialog/rate-dialog.component';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-trip',
@@ -77,6 +78,9 @@ if(this.logged){
   this.tripService.getTrip(this.id).subscribe(x=>{
       this.trip=x;
       console.log(this.trip);
+      this.tripService.ifBelongs(this.trip.id, this.user.id).subscribe(x=>{
+        this.belongsToUser=x;
+      })
   });
   this.tripService.getPlacesForTrip(this.id).subscribe(x=>{
     this.places=x;
@@ -85,9 +89,7 @@ if(this.logged){
       this.photoTab.push(z.image[0].image);
     })
 
-    this.tripService.ifBelongs(this.trip.id, this.user.id).subscribe(x=>{
-      this.belongsToUser=x;
-    })
+  
 
     var iconStyle = new ol.style.Style({
       image: new ol.style.Icon({
@@ -192,9 +194,6 @@ notOnTable(){
 this.tableHovered=false;
 }
 
-onDelete(id){
-console.log(id);
-}
 
 onFav(){
   this.inFavourities=!this.inFavourities;
@@ -229,4 +228,18 @@ onRatePlace(){
 addSchedule(){
   this.router.navigate(['/trip/new-schedule', this.trip.id]);
 }
+
+
+onDelete(id){
+  console.log(id);
+  const dialogRef = this.dialog.open(DeleteDialogComponent, {
+    width: '600px',
+    data: {trip:this.trip, place:this.places[id]}
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+
+  });
+  }
 }
