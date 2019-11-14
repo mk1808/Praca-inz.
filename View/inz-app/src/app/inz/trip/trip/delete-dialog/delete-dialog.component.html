@@ -9,29 +9,26 @@
               </button>
         </div>
         <div class="columns small-3 ">
-          <button (click)="cancel()" type="submit" class="sign-in-form-button signIn smallButton ">Usuń
+          <button (click)="deletePlace()" type="submit" class="sign-in-form-button signIn smallButton ">Usuń
           </button>
         </div>
     
     </mat-dialog-actions>
     </div>
+
+
+
+
     <div *ngIf="!before">
-    
     <h1 mat-dialog-title>Potwierdzenie</h1>
       <mat-dialog-content *ngIf="initialized">
-    
-        <h6 class="infoConfirm">Obiekt {{data.name}} został dodany do Twojej wycieczki {{chosenTrip.name}}!</h6>
-    
-    
+        <h6 class="infoConfirm">
+          Obiekt {{data.place.name}} został usunięty z wycieczki.</h6>
       </mat-dialog-content>
-    
       <mat-dialog-actions>
-    
           <div class="columns small-9">
-              <button  (click)="checkTrip()" type="submit" class="sign-in-form-button signIn smallButton cancel">Zobacz wycieczkę
-                </button>
+            
           </div>
-      
           <div class="columns small-3 ">
             <button (click)="cancel()" type="submit" class="sign-in-form-button signIn smallButton ">Zamknij
             </button>

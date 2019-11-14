@@ -22,4 +22,13 @@ before=true;
     
   }
 
+  deletePlace(){
+    this.before=false;
+
+  }
+
+  cancel(){
+    this.dialogRef.close();
+  }
+
 }
