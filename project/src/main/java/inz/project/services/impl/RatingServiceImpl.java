@@ -51,6 +51,11 @@ public class RatingServiceImpl implements RatingService{
 				this.tripService.updateTrip(trip);
 			}
 			else {
+				List<Rating> allRatings = this.getRatingByTrip(rating.getTrip().getId());
+				Double sum=allRatings.stream().map(x->x.getValue()).mapToDouble(f->f.doubleValue()).sum();
+				Double newMeanTrip=(sum-newRating.getValue()+rating.getValue())/numberOfRatingsTrip;
+				trip.setMean(newMeanTrip);
+				this.tripService.updateTrip(trip);
 				newRating.setValue(rating.getValue());
 				saved = this.ratingRepository.save(newRating);
 			}
