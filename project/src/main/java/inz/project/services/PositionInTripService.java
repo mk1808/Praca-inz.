@@ -19,4 +19,6 @@ public interface PositionInTripService {
     PositionInTrip getPositionInTripByTripAndPlace(Long idTrip, Long idPlace);
     List<PositionInTrip> getAllPositionsByTripId(Long id);
     void deletePositionInTrip(Long idPlace, Long idTrip); 
+    Boolean isPlaceInTrip(Long idPlace, Long idTrip);
+		
 }

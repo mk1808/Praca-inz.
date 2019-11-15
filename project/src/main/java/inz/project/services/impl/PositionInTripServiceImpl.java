@@ -83,6 +83,16 @@ public class PositionInTripServiceImpl implements PositionInTripService{
 		this.positionInTripRepository.deleteById(posInTrip.getId());
 	}
 	
+	@Override
+	public Boolean isPlaceInTrip(Long idPlace, Long idTrip) {
+		Trip trip = this.tripService.getTripById(idTrip);
+		Place place = this.placeService.getPlaceById(idPlace);
+		PositionInTrip position= this.positionInTripRepository.getPositionInTripByTripAndPlace(trip, place);
+		if(position!=null) return true;
+		else return false;
+		
+	}
+	
 	
 	
 

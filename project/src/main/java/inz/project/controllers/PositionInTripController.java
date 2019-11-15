@@ -51,6 +51,12 @@ public class PositionInTripController {
 	void deletePositionInTrip(@PathVariable Long idPlace, @PathVariable Long idTrip) {
 		this.positionInTripService.deletePositionInTrip(idPlace, idTrip);
 	}
+	
+
+	@GetMapping("/isPlaceInTrip/{idPlace}/{idTrip}")
+	Boolean isPlaceInTrip(@PathVariable Long idPlace, @PathVariable Long idTrip) {
+		return positionInTripService.isPlaceInTrip(idPlace, idTrip);
+	}
 
 	
 }
