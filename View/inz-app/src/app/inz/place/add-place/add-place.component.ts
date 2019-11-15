@@ -76,5 +76,10 @@ console.log(this.data)
     this.dialogRef.close();
   }
 
+  back(){
+    this.before=true;
+    this.alreadyInTrip=false;
+  }
+
  
 }
