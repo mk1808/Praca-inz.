@@ -87,4 +87,8 @@ public deletePositionFromTrip(idPlace:number, idTrip:number): Observable<any> {
   return this.rest.delete('/api/positionInTrip/'+idPlace+'/'+idTrip);
 }
 
+public isPlaceInTrip(idPlace:number, idTrip:number): Observable<boolean> {
+  return this.rest.get('/api/positionInTrip/isPlaceInTrip/'+idPlace+'/'+idTrip);
+}
+
 }

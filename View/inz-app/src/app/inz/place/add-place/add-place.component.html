@@ -28,7 +28,7 @@
 
 </mat-dialog-actions>
 </div>
-<div *ngIf="!before">
+<div *ngIf="!before&&!alreadyInTrip">
 
 <h1 mat-dialog-title>Potwierdzenie</h1>
   <mat-dialog-content *ngIf="initialized">
@@ -51,3 +51,31 @@
       </div>
     </mat-dialog-actions>
   </div>
+
+  <div *ngIf="!before&&alreadyInTrip">
+
+      <h1 mat-dialog-title>Niepowodzenie</h1>
+        <mat-dialog-content *ngIf="initialized">
+      
+          <h6 class="infoConfirm">Obiekt {{data.name}} 
+            już znajduje się w tej wycieczce!</h6>
+      
+      
+        </mat-dialog-content>
+      
+        <mat-dialog-actions>
+      
+            <div class="columns small-7">
+                <button  (click)="checkTrip()" type="submit"
+                 class="sign-in-form-button signIn smallButton cancel">
+                 Anuluj
+                  </button>
+            </div>
+        
+            <div class="columns small-5 chooseOther ">
+              <button (click)="cancel()" type="submit"
+               class="sign-in-form-button signIn smallButton ">Wybierz inną
+              </button>
+            </div>
+          </mat-dialog-actions>
+        </div>

@@ -19,11 +19,12 @@ export class AddPlaceComponent implements OnInit {
   place: Place = new Place();
   positionInTrip: PositionInTrip = new PositionInTrip();
   before = true;
+  alreadyInTrip=false;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private router: Router, private route: ActivatedRoute, private cookie: CookieService,
     private tripService: TripService,  public dialogRef: MatDialogRef<AddPlaceComponent>) { }
 
   ngOnInit() {
-
+console.log(this.data)
     if (this.cookie.get('user') == "") {
       this.router.navigate(['/']);
 
@@ -41,19 +42,28 @@ export class AddPlaceComponent implements OnInit {
   }
 
   onAdd(i) {
-
-    this.tripService.getTrip(this.myTrips[i].id).subscribe(x => {
-      this.chosenTrip = x; console.log(this.chosenTrip);
-      console.log(this.data);
-      this.positionInTrip.place = this.data;
-      this.positionInTrip.trip = this.chosenTrip;
-
-      this.tripService.addPlaceToTrip(this.positionInTrip).subscribe(x => {
-        console.log(x);
-        this.before = false;
+    this.tripService.isPlaceInTrip(this.data.id, this.myTrips[i].id).subscribe(y=>{
+      if(y==false){
+        this.alreadyInTrip=false;
+        this.tripService.getTrip(this.myTrips[i].id).subscribe(x => {
+          this.chosenTrip = x; console.log(this.chosenTrip);
+          console.log(this.data);
+          this.positionInTrip.place = this.data;
+          this.positionInTrip.trip = this.chosenTrip;
+    
+          this.tripService.addPlaceToTrip(this.positionInTrip).subscribe(x => {
+            console.log(x);
+            this.before = false;
+          }
+          )
+        })
       }
-      )
+      else{
+        this.before=false;
+        this.alreadyInTrip=true;
+      }
     })
+    
   }
 
   
