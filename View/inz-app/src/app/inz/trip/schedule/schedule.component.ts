@@ -72,7 +72,7 @@ export class ScheduleComponent implements OnInit {
             this.positions.push(x);
           }
         })*/
-
+        console.log(this.allPositions)
         this.positionsWODay=this.allPositions.pop();
         this.positions=this.allPositions;
         console.log(this.positions);
