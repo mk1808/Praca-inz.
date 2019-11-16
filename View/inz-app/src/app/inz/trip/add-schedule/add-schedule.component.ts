@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material/dialog';
 import { HourDialogComponent } from './hour-dialog/hour-dialog.component';
@@ -61,7 +61,6 @@ export class AddScheduleComponent implements OnInit {
     positionsWODay:PositionInSchedule[]=[];
     allDaysSortedFinal: any[] = [{ start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] },
     { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }, { start: null, end: null, ids: [] }];
-
 
     constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute,
         private tripService: TripService, private placeService: PlaceService, private scheduleService: ScheduleService,

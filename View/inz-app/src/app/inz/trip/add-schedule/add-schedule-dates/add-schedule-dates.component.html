@@ -1,7 +1,7 @@
 <div class="container">
     <h2 class="headingStyle">Tworzenie grafiku wycieczki {{trip.name}}</h2>
     <form [formGroup]="form">
-      <div class="sign-in-form" *ngIf="fillingForm">
+      <div class="sign-in-form">
         <div class="singleInput">
           <label for="sign-in-form-username">Początek</label>
           <input type="date" formControlName="start" class="sign-in-form-username" id="sign-in-form-username"
@@ -18,7 +18,7 @@
         </div>
       </div>
   
-      <div class="sign-in-form" *ngIf="fillingForm">
+      <div class="sign-in-form">
         <button type="submit" class="sign-in-form-button signIn" (click)="onCreate()"> Zatwierdź
         </button>
       </div>
