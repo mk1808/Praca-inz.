@@ -33,7 +33,7 @@
     <div cdkDropListGroup>
       <div class="columns small-8 topMargin">
         <div *ngFor="let next of allDays; let k=index" class="example-container">
-          <h2>Dzień {{k+1}}. {{allDates[k].getDate()}}.{{allDates[k].getMonth()}}.{{allDates[k].getFullYear()}}</h2>
+          <h2>Dzień {{k+1}}. {{allDates[k].getDate()}}.{{allDates[k].getMonth()+1}}.{{allDates[k].getFullYear()}}</h2>
           <div cdkDropList cdkDropListOrientation="horizontal" #{{k}} [cdkDropListData]="next"
             class="example-list2 myList" (cdkDropListDropped)="drop($event, k)">
 
