@@ -5,6 +5,7 @@ import { TripListComponent } from './trip-list/trip-list.component';
 import { NewTripComponent } from './new-trip/new-trip.component';
 import { AddScheduleComponent } from './add-schedule/add-schedule.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { AddScheduleDatesComponent } from './add-schedule/add-schedule-dates/add-schedule-dates.component';
 
 const routes: Routes = [
         {
@@ -29,6 +30,12 @@ const routes: Routes = [
 
                 path: "new-schedule/:id",
                 component: AddScheduleComponent
+
+        },
+        {
+
+                path: "new-schedule-dates/:id",
+                component: AddScheduleDatesComponent
 
         },
 
