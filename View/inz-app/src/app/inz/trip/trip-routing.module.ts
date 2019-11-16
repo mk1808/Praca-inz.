@@ -5,7 +5,6 @@ import { TripListComponent } from './trip-list/trip-list.component';
 import { NewTripComponent } from './new-trip/new-trip.component';
 import { AddScheduleComponent } from './add-schedule/add-schedule.component';
 import { ScheduleComponent } from './schedule/schedule.component';
-import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
 
 const routes: Routes = [
         {
@@ -37,13 +36,6 @@ const routes: Routes = [
 
                 path: "schedule/:id",
                 component: ScheduleComponent
-
-        },
-
-        {
-
-                path: "edit-schedule/:id",
-                component: EditScheduleComponent
 
         }]
 

@@ -4,6 +4,8 @@
 @import '~foundation-sites/scss/foundation';
   @include foundation-everything;
 
+  @include foundation-grid;
+
 // Import Angular ngx-foundation Framework Added Styles
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
@@ -26,7 +28,7 @@ min-height: 840px;
 .cont{
   font-family: 'Work Sans', sans-serif;
 }
-@include foundation-grid;
+
 
 body{
   background-color: #F7F9F9;

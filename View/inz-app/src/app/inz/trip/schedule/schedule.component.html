@@ -139,17 +139,18 @@
 
   </div>
   <div  *ngIf = "!inTrip" class=" row buttons">
-  <div class="columns small-6 firstOption"  >
+  
       <button  (click)="back()" type="submit"
        class="sign-in-form-button signIn  cancel">
        Wróć
         </button>
-  </div>
-
-  <div class="columns small-6 chooseOther ">
+ 
     <button (click)="edit()" type="submit"
      class="sign-in-form-button signIn ">Edytuj grafik
     </button>
-  </div>
+      <button (click)="edit()" type="submit"
+       class="sign-in-form-button signIn ">Zmień daty wycieczki
+      </button>
+  
 </div>
 </div>

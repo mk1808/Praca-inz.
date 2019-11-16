@@ -195,7 +195,12 @@
 .buttons{
   margin-top: 42px;
   margin-bottom: 29px;
- 
+  text-align: center;
+ button{
+   margin-right: 5px;
+   margin-left:5px;
+   width:245px;
+ }
 }
 
 
@@ -269,3 +274,4 @@ text-align: left;
 .firstOption{
 text-align: right;
 }
+
