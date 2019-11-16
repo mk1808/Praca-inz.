@@ -122,7 +122,7 @@ export class AddScheduleComponent implements OnInit {
                 let allPositions=x;
                 console.log(x);
                 this.positionsWODay=allPositions.pop();
-                let positions= [...allPositions];
+                let positions:PositionInSchedule[][]= [...allPositions];
                 console.log(positions);
              
                this.positionsWODay.forEach(position => {
@@ -133,7 +133,7 @@ export class AddScheduleComponent implements OnInit {
                 let i=0;
                 positions.forEach(pos=>{
                     pos.forEach(p=>{
-                       this.allDays[i].push(p.id);
+                       this.allDays[i].push(p.positionInTrip.place.name);
                     })
                     i++;
                     
