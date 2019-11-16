@@ -208,7 +208,7 @@ export class AddScheduleComponent implements OnInit {
                     console.log(this.allDates[k]);
                     this.scheduleService.getPositionInSchedule(currentPlace.id, this.trip.id).subscribe(x => {
                         this.position = x;
-                        let day1 = this.allDates[k].getDate() + 1;
+                        let day1 = this.allDates[k].getDate();
                         let month1 = this.allDates[k].getMonth() + 1;
                         let day = day1 < 10 ? '0' + day1 : day1;
                         let month = month1 < 10 ? '0' + month1 : month1;
