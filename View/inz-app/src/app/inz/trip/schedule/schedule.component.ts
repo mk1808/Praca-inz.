@@ -88,6 +88,15 @@ export class ScheduleComponent implements OnInit {
     }, 2);
   }
 
+  back(){
+    this.router.navigate(['/trip/all']);
+  }
+
+  edit(){
+    this.router.navigate(['/trip/edit-schedule/'+this.id]);
+
+  }
+
 
 
 
