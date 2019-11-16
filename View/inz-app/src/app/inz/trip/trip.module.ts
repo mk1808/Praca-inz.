@@ -27,12 +27,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RateDialogComponent } from '../place/place/rate-dialog/rate-dialog.component';
 import { PlaceModule } from '../place/place.module';
 import { DeleteDialogComponent } from './trip/delete-dialog/delete-dialog.component';
+import { AddScheduleDatesComponent } from './add-schedule/add-schedule-dates/add-schedule-dates.component';
 
 @NgModule({
   declarations: [TripComponent, PhotosOnHoverComponent,
     TripListComponent, NewTripComponent, AddScheduleComponent, ScheduleComponent, HourDialogComponent,
     AddPlaceToTripDialogComponent,
-    DeleteDialogComponent],
+    DeleteDialogComponent,
+    AddScheduleDatesComponent],
   imports: [
   
     CommonModule,
