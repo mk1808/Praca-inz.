@@ -101,7 +101,7 @@ export class TripListComponent implements OnInit, AfterViewInit {
   }
 
   onCreateSchedule(id:number){
-    this.router.navigate(['/trip/new-schedule', id]);
+    this.router.navigate(['/trip/new-schedule-dates', id]);
   }
 
 onCheckSchedule(id){

@@ -72,6 +72,8 @@ onCreate() {
   this.schedule.end = this.form.controls.end.value;
   this.scheduleService.updateSchedule(this.schedule).subscribe(x => {
       console.log(x);
+      this.router.navigate(['/trip/new-schedule', this.id]);
+
   })
 
 

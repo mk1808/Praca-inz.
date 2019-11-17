@@ -93,10 +93,10 @@ export class ScheduleComponent implements OnInit {
   }
 
   edit(){
-    this.router.navigate(['/trip/new-schedule/'+this.id]);
+    this.router.navigate(['/trip/edit-schedule/'+this.id]);
   }
   editDates(){
-    this.router.navigate(['/trip/new-schedule-dates/'+this.id]);
+    this.router.navigate(['/trip/edit-schedule-dates/'+this.id]);
   }
 
 
