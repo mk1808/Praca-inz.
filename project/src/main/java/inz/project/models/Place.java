@@ -15,6 +15,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import lombok.Data;
 
 @Data
@@ -46,6 +49,7 @@ public class Place {
 	private String website;
 	@NotNull private String status;
 	@OneToOne
+	@NotFound(action=NotFoundAction.IGNORE)
 	private OpeningHours hours;
 	/*
 	@OneToMany(mappedBy="place")
