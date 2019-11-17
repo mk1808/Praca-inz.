@@ -231,7 +231,18 @@ export class AddScheduleComponent implements OnInit {
 console.log(this.allDays);
             //przeciagniety na jedno z miejc  
         }
-        else console.log("notok")
+        else {
+            console.log("notok");
+            this.position.startDay=null;
+            this.position.endDay=null;
+            this.position.startTime=null;
+            this.position.endTime=null;
+            this.scheduleService.updatePositionInSchedule(this.position).subscribe(x => {
+                console.log(x);
+
+            })
+
+        }
         //  console.log(event.previousContainer);
 
     }
