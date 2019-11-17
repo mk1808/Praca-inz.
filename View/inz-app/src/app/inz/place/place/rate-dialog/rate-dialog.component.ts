@@ -14,6 +14,8 @@ initialized=false;
 rating:Rating= new Rating;
 form: FormGroup;
 oldRatingVal:number=0;
+before=true;
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb:FormBuilder, 
   private placeService:PlaceService,  public dialogRef: MatDialogRef<RateDialogComponent>) { }
 
@@ -25,6 +27,7 @@ oldRatingVal:number=0;
    
     if(this.data.place!=null){
       this.placeService.getRatingByPlaceAndUser(this.data.place.id, this.data.user.id).subscribe(x=>{
+        this.initialized=true;
         console.log(x);
         if(x)
         {
@@ -41,7 +44,7 @@ oldRatingVal:number=0;
     }
     else{
       this.placeService.getRatingByTripAndUser(this.data.trip.id, this.data.user.id).subscribe(x=>{
-        
+        this.initialized=true;
         console.log(x);
         if(x)
         {

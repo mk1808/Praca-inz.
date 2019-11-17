@@ -27,6 +27,7 @@ export class MainComponent implements OnInit {
   form: FormGroup;
   chosen:any;
   chosenReg:any;
+  height;
   
   groups: any[] = [{
     category: 'Miejsca',
