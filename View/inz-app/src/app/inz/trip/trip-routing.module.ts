@@ -37,8 +37,18 @@ const routes: Routes = [
                 path: "new-schedule-dates/:id",
                 component: AddScheduleDatesComponent
 
-        },
+        },{
 
+                path: "edit-schedule/:id",
+                component: AddScheduleComponent
+
+        },
+        {
+
+                path: "edit-schedule-dates/:id",
+                component: AddScheduleDatesComponent
+
+        },
         {
 
                 path: "schedule/:id",

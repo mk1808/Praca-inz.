@@ -23,7 +23,7 @@ export class TripPlace {
 
 export class AddScheduleComponent implements OnInit {
     form: FormGroup;
-    fillingForm: boolean = true;
+    fillingForm: boolean = false;
     days: number;
     dayCount = false;
     id: number;
@@ -74,6 +74,7 @@ export class AddScheduleComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.editing=this.router.url.includes("edit");
         // this.notifier.notify( 'default', 'Obiekt może nie być otwarty w tym dniu.' );
         this.route.params.subscribe(x => {
             this.id = x['id'];
@@ -81,6 +82,7 @@ export class AddScheduleComponent implements OnInit {
             this.tripService.getTrip(this.id).subscribe(y => {
                 this.trip = y;
                 console.log(this.trip);
+                this.onInitSchedule();
 
             })
 
