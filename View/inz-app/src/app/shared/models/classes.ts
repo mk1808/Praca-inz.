@@ -31,6 +31,7 @@ export class Place{
     latitude;
     longitude; 
     mean:number;
+    checked:boolean;
 }
 
 export class Trip{

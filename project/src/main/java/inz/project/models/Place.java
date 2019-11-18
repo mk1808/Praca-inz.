@@ -64,13 +64,14 @@ public class Place {
 	private Double latitude;
 	
 	private Double mean=0.0;
+	private Boolean checked=false;
 	
 	public Place() {}
 	public Place(Long id,@NotNull String name, 	@NotNull PlaceCategory category, String description, 	
 			@NotNull Country country, String region, String city,
 			String street, String number,  String phoneNumber, 
 			String website, @NotNull String status, User user, OpeningHours hours, List<Image>  image,
-			Double longitude, Double latitude, Double mean) {
+			Double longitude, Double latitude, Double mean, Boolean checked) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -90,6 +91,7 @@ public class Place {
 		this.longitude=longitude;
 		this.latitude=latitude;
 		this.mean=mean;
+		this.checked=checked;
 
 	}
 	
@@ -207,6 +209,13 @@ public class Place {
 	public void setMean(Double mean) {
 		this.mean = mean;
 	}
+	public Boolean getChecked() {
+		return checked;
+	}
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
+	}
+	
 	
 	
 	
