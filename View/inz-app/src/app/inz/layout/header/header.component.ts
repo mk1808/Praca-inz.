@@ -10,6 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class HeaderComponent implements OnInit {
 status:boolean;
+isAdmin:boolean;
   constructor(private auth:AuthService, private router: Router, private cookie:CookieService) { }
 
   ngOnInit() {
@@ -17,7 +18,12 @@ status:boolean;
       this.status=status;
       console.log(this.status);
      // this.status=true;
+   this.auth.currentStatusAdmin.subscribe(adminStatus=>{
+     this.isAdmin=adminStatus;
+     console.log(this.isAdmin);
+   })
     })
+ 
 
 
   }
@@ -26,6 +32,8 @@ status:boolean;
     this.cookie.deleteAll('*');
     this.router.navigate(['/']);
     this.auth.changeStatus(false);
+    this.auth.changeStatusAdmin(false);
+
   }
 
 }

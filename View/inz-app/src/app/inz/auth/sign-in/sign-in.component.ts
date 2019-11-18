@@ -18,7 +18,7 @@ export class SignInComponent implements OnInit {
   token;
   user:User;
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
-    private auth: AuthService) {
+    private auth: AuthService, private cookie:CookieService) {
     this.loginForm = this.fb.group({
       login: ['', Validators.required],
       password: ['', Validators.required],
@@ -44,7 +44,11 @@ export class SignInComponent implements OnInit {
       this.auth.changeStatus(true);
       this.auth.saveCookie("token", this.token);
       this.auth.saveCookie("user", JSON.stringify(this.user));
+      if(x.user.role.id!=1)
+      this.auth.changeStatusAdmin(true);
       this.router.navigate(['/trip/all']);
+      let user=this.cookie.get("user");
+
     })
 
   }
