@@ -20,5 +20,6 @@ public interface PlaceService {
 	List<Place> getPlacesByUser(Long id);
 	void deletePlace(Long id);
 	List<Place> getUncheckedPlaces();
+	Place markPlaceAsChecked(Long id);
 	
 }

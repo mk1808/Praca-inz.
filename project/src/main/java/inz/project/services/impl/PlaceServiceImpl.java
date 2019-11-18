@@ -157,5 +157,13 @@ public class PlaceServiceImpl implements PlaceService{
 	public List<Place> getUncheckedPlaces(){
 		return this.placeRepository.findPlacesByChecked(false);
 	}
+	
+	@Override
+	public Place markPlaceAsChecked(Long id) {
+		Place place = this.getPlaceById(id);
+		place.setChecked(true);
+		return placeRepository.save(place);
+		
+	}
 }
 	

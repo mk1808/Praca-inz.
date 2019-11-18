@@ -110,6 +110,11 @@ public class PlaceController {
 		return placeService.getUncheckedPlaces();
 	}
 	
+	@PutMapping ("/checked/{id}")
+	Place markChecked(@PathVariable Long id) {
+		return placeService.markPlaceAsChecked(id);
+	}
+	
 	
 	
 }
