@@ -139,6 +139,7 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
 this.user = JSON.parse(this.cookie.get('user'));
 this.newPlace.user=this.user;
 this.newPlace.status="new";
+this.newPlace.checked=false;
 console.log(this.newPlace);
     this.placeService.createPlace(this.newPlace).subscribe(x=>{
       console.log(x);
