@@ -33,5 +33,6 @@ public interface PlaceRepository extends JpaRepository<Place, Long> {
     List<Place> getPlacesByRegionAndCategory(String region, PlaceCategory category);
     List<Place> getPlacesByUser(User user);
 	
+    List<Place> findPlacesByChecked(Boolean checked);
 
 }

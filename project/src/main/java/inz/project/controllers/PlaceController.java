@@ -105,6 +105,11 @@ public class PlaceController {
 		return placeService.getPlacesByUser(id);
 	}
 	
+	@GetMapping("/notchecked")
+	List<Place> getNotCheckedPlaces() {
+		return placeService.getUncheckedPlaces();
+	}
+	
 	
 	
 }

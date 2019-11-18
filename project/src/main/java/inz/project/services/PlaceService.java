@@ -19,5 +19,6 @@ public interface PlaceService {
 	Place updatePlace(Long id, Place place);
 	List<Place> getPlacesByUser(Long id);
 	void deletePlace(Long id);
+	List<Place> getUncheckedPlaces();
 	
 }

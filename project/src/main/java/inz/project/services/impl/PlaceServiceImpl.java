@@ -76,6 +76,7 @@ public class PlaceServiceImpl implements PlaceService{
 	@Override
 	public Place updatePlace(Long id, Place place) {
 		place.setId(id);
+		
 		return this.placeRepository.save(place);
 	}
 	
@@ -150,6 +151,11 @@ public class PlaceServiceImpl implements PlaceService{
 		//List<String> newHours = hours.stream().filter(h->h==hours.get(0).) 
 		return hours;
 		//		List<PositionInSchedule> posWOTime = list.stream().filter(p->p.getStartTime()==null).collect(Collectors.toList());
+	}
+	
+	@Override
+	public List<Place> getUncheckedPlaces(){
+		return this.placeRepository.findPlacesByChecked(false);
 	}
 }
 	
