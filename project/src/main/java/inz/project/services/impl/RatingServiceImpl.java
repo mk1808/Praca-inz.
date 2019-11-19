@@ -69,7 +69,7 @@ public class RatingServiceImpl implements RatingService{
 				saved = this.ratingRepository.save(rating);
 				Double newMeanPlace=(place.getMean()*numberOfRatingsPlace+rating.getValue())/(numberOfRatingsPlace+1);
 				place.setMean(newMeanPlace);
-				this.placeService.updatePlace(place.getId(),place);
+				this.placeService.updatePlace(place);
 			
 			}
 			else {
@@ -78,7 +78,7 @@ public class RatingServiceImpl implements RatingService{
 				Double newMeanPlace=(sum-newRating.getValue()+rating.getValue())/numberOfRatingsPlace;
 				newRating.setValue(rating.getValue());
 				place.setMean(newMeanPlace);
-				this.placeService.updatePlace(place.getId(),place);
+				this.placeService.updatePlace(place);
 				saved = this.ratingRepository.save(newRating);
 				
 			}

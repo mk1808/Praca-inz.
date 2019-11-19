@@ -74,8 +74,23 @@ public class PlaceServiceImpl implements PlaceService{
 	}
 	
 	@Override
-	public Place updatePlace(Long id, Place place) {
-		place.setId(id);
+	public Place updatePlace(Place place) {
+		Place oldPlace = this.getPlaceById(place.getId());
+		oldPlace.setCategory(place.getCategory());
+		oldPlace.setCity(place.getCity());
+		oldPlace.setChecked(place.getChecked());
+		oldPlace.setCountry(place.getCountry());
+		oldPlace.setDescription(place.getDescription());
+		OpeningHours newHours = this.openingHoursRepository.save(place.getHours());
+		oldPlace.setHours(newHours);
+		oldPlace.setLatitude(place.getLatitude());
+		oldPlace.setLongitude(place.getLongitude());
+		oldPlace.setName(place.getName());
+		oldPlace.setNumber(place.getNumber());
+		oldPlace.setPhoneNumber(place.getPhoneNumber());
+		oldPlace.setRegion(place.getRegion());
+		oldPlace.setStreet(place.getStreet());
+		oldPlace.setWebsite(place.getWebsite());
 		
 		return this.placeRepository.save(place);
 	}

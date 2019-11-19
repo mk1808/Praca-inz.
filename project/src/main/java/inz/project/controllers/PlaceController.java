@@ -89,9 +89,9 @@ public class PlaceController {
 		return placeService.createPlace(place);
 	}
 	
-	@PutMapping ("/{id}")
-	Place updatePlace(@PathVariable Long id, @RequestBody Place place) {
-		return placeService.updatePlace(id, place);
+	@PutMapping 
+	Place updatePlace(@RequestBody Place place) {
+		return placeService.updatePlace(place);
 	}
 	
 	@DeleteMapping ("/{id}")

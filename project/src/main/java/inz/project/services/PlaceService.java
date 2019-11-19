@@ -16,7 +16,7 @@ public interface PlaceService {
 	List<Place> findPlaceByRegCat(String region, PlaceCategory category);
 	List<Place> findPlaceByRegCatNam(String region, String name, PlaceCategory category );
 	Place createPlace(Place place);
-	Place updatePlace(Long id, Place place);
+	Place updatePlace( Place place);
 	List<Place> getPlacesByUser(Long id);
 	void deletePlace(Long id);
 	List<Place> getUncheckedPlaces();
