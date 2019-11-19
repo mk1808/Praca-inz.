@@ -1,7 +1,7 @@
 <app-stars></app-stars>
 <div class="container"  #doc >
   <h2 *ngIf="!editing" class="headingStyle">Tworzenie nowego miejsca</h2>
-  <h2 *ngIf="editing"class="headingStyle">Edycja miejsca {{editedPlace.name}}</h2>
+  <h2 *ngIf="editing&&editedPlace"class="headingStyle">Edycja miejsca {{editedPlace.name}}</h2>
 <div *ngIf="form">
   <form  [formGroup]="form">
     <div class="sign-in-form">

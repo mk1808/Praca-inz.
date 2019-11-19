@@ -67,5 +67,9 @@ public getUncheckedPlaces(): Observable<Place[]> {
   return this.rest.get('/api/places/notchecked');
 }
 
+public updatePlace(place:Place):Observable<Place>{
+  return this.rest.put('/api/places/',place )
+}
+
 
 }

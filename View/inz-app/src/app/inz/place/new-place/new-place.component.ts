@@ -49,6 +49,7 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
       this.editing=true;
       console.log(this.id);
       this.placeService.getPlace(this.id).subscribe(y=>{
+        console.log(y)
         this.editedPlace=y;
         this.form = this.fb.group({
           name: [this.editedPlace.name, Validators.required],
@@ -154,8 +155,8 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
       this.componentService.paralaxEventSource.next(this.res.nativeElement.offsetHeight);
     }, 2);
   }
-  
-  create(){
+
+  makePlaceObject(){
     let category=this.componentService.changeCategoriesToSend(this.form.controls.category.value);
     this.newPlace.name=this.form.controls.name.value;
     this.newPlace.category=category;
@@ -189,19 +190,59 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
     this.openingHours.sunOpen=this.form.controls.sunOpen.value;
     this.openingHours.sunClose=this.form.controls.sunClose.value;
     this.newPlace.hours=this.openingHours;
-   
     this.imgObj.image=this.image;
     console.log(this.imgObj);
     this.newPlace.image.push(this.imgObj);
     this.newPlace.latitude=this.form.controls.latitude.value;
     this.newPlace.longitude=this.form.controls.longitude.value;
-    
+    this.user = JSON.parse(this.cookie.get('user'));
+    this.newPlace.user=this.user;
+    this.newPlace.checked=false;
 
-this.user = JSON.parse(this.cookie.get('user'));
-this.newPlace.user=this.user;
-this.newPlace.status="new";
-this.newPlace.checked=false;
-console.log(this.newPlace);
+  }
+
+  makePlaceObjectEditing(){
+    let category=this.componentService.changeCategoriesToSend(this.form.controls.category.value);
+    this.editedPlace.name=this.form.controls.name.value;
+    this.editedPlace.category=category;
+    this.editedPlace.country=this.form.controls.country.value;
+    this.editedPlace.region=this.form.controls.region.value;
+    this.editedPlace.city=this.form.controls.city.value;
+    this.editedPlace.street=this.form.controls.street.value;
+    this.editedPlace.number=this.form.controls.number.value;
+    this.editedPlace.phoneNumber=this.form.controls.phone.value;
+    this.editedPlace.website=this.form.controls.website.value;
+    this.editedPlace.description=this.form.controls.description.value;
+    this.openingHours.mon=this.form.controls.mon.value;
+    this.openingHours.tue=this.form.controls.tue.value;
+    this.openingHours.wed=this.form.controls.wed.value;
+    this.openingHours.thu=this.form.controls.thu.value;
+    this.openingHours.fri=this.form.controls.fri.value;
+    this.openingHours.sat=this.form.controls.sat.value;
+    this.openingHours.sun=this.form.controls.sun.value;
+    this.openingHours.monOpen=this.form.controls.monOpen.value;
+    this.openingHours.monClose=this.form.controls.monClose.value;
+    this.openingHours.tueOpen=this.form.controls.tueOpen.value;
+    this.openingHours.tueClose=this.form.controls.tueClose.value;
+    this.openingHours.wedOpen=this.form.controls.wedOpen.value;
+    this.openingHours.wedClose=this.form.controls.wedClose.value;
+    this.openingHours.thuOpen=this.form.controls.thuOpen.value;
+    this.openingHours.thuClose=this.form.controls.thuClose.value;
+    this.openingHours.friOpen=this.form.controls.friOpen.value;
+    this.openingHours.friClose=this.form.controls.friClose.value;
+    this.openingHours.satOpen=this.form.controls.satOpen.value;
+    this.openingHours.satClose=this.form.controls.satClose.value;
+    this.openingHours.sunOpen=this.form.controls.sunOpen.value;
+    this.openingHours.sunClose=this.form.controls.sunClose.value;
+    this.editedPlace.hours=this.openingHours;
+    this.editedPlace.latitude=this.form.controls.latitude.value;
+    this.editedPlace.longitude=this.form.controls.longitude.value;
+    
+  }
+
+  create(){
+    this.makePlaceObject();
+    console.log(this.newPlace);
     this.placeService.createPlace(this.newPlace).subscribe(x=>{
       console.log(x);
       this.newPlaceId=x.id;
@@ -228,6 +269,19 @@ console.log(this.newPlace);
      console.log(this.image);
     }
     myReader.readAsDataURL(this.file);
+  }
+
+  edit(){
+    this.makePlaceObjectEditing();
+    console.log(this.newPlace);
+    this.newPlace.id=this.id;
+    this.placeService.updatePlace(this.editedPlace).subscribe(x=>{
+      console.log(x);
+      this.newPlaceId=x.id;
+      this.router.navigate(['/place/details/' + this.newPlaceId]);
+    })
+   
+
   }
 
 }
