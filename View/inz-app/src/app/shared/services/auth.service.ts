@@ -54,6 +54,9 @@ export class AuthService {
     this.cookie.set(token, name, 0.5, "/");
   }
 
+  public deleteCookie(token:string, name:string){
+    this.cookie.set(token, name, -0.5, "/");
+  }
   
 
   public changeStatus(status:boolean){

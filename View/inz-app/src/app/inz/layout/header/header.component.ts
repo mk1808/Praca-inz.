@@ -29,6 +29,10 @@ isAdmin:boolean;
   }
 
   onLogOut(){
+    
+    this.auth.deleteCookie('user',"asd");
+    this.cookie.delete('token');
+    this.auth.deleteCookie('token',"asd");
     this.cookie.deleteAll('*');
     this.router.navigate(['/']);
     this.auth.changeStatus(false);

@@ -12,7 +12,7 @@
         <star-rating id="ratingStar" [starType]="'svg'" rating="{{place.mean}}" [disabled]="true" [showHalfStars]="true"
           size="large"></star-rating>
         
-          <button mat-raised-button color="primary" (click)="onRatePlace()"> <i class="material-icons commentIcon">
+          <button *ngIf="!isAdmin" mat-raised-button color="primary" (click)="onRatePlace()"> <i class="material-icons commentIcon">
               comment
             </i> Dodaj&nbsp;ocenę</button>
       </div>
@@ -22,7 +22,7 @@
      
       <div class="row">
         <div class="columns large-12 bigBtn">
-          <span class="button success add-button" (click)="onAdd()" *ngIf="logged">
+          <span class="button success add-button" (click)="onAdd()" *ngIf="!isAdmin">
             <i class="material-icons add-icon">
               add_circle
             </i>
