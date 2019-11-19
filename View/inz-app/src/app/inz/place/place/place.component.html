@@ -29,9 +29,22 @@
             <span class="btnText"> Dodaj do wycieczki
             </span>
           </span>
+          <span class="button success add-button two" (click)="onEdit()" *ngIf="isAdmin">
+            <i class="material-icons add-icon">
+              edit
+            </i>
+            <span class="btnText"> Edytuj miejsce
+            </span>
+          </span>
+          <span class="button success add-button two" (click)="onConfirm()" *ngIf="isAdmin">
+            <i class="material-icons add-icon">
+                done_outline
+            </i>
+            <span class="btnText"> Zatwierdź
+            </span>
+          </span>
         </div>
       </div>
-
     </div>
     <div class="columns large-6 photo screen ">a
       <div class="background"></div>

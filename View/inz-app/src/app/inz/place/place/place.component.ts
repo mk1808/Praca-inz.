@@ -293,4 +293,12 @@ export class PlaceComponent implements OnInit {
     });
   }
 
+  onEdit(){
+
+  }
+
+  onConfirm(){
+    
+  }
+
 }
