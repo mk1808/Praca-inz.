@@ -1,7 +1,7 @@
 <app-stars></app-stars>
-<div class="container"  #doc>
+<div class="container"  #doc >
   <h2 class="headingStyle">Tworzenie nowego miejsca</h2>
-
+<div *ngIf="form">
   <form  [formGroup]="form">
     <div class="sign-in-form">
       <div class="singleInput">
@@ -234,4 +234,5 @@
       </button>
     </div>
   </form>
+  </div>
 </div>

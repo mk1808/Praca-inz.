@@ -31,6 +31,8 @@ image:any;
 imgObj:Image = new Image();
 res:any;
 id;
+editedPlace:Place;
+editing:boolean=false;
 @ViewChild('doc') targetElement: any; 
 constructor(private fb: FormBuilder, private placeService: PlaceService,
   private componentService:ComponentsService,
@@ -38,50 +40,101 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
    private dictionaryService: DictionaryService, private cookie:CookieService) { }
 
   ngOnInit() {
+    //this.form = this.fb.group({});
+    
     this.route.params.subscribe(x => {
-      if(x!=null)
+      console.log(x);
       this.id = x['id'];
-      console.log(this.id)
+      if(this.id){
+      this.editing=true;
+      console.log(this.id);
+      this.placeService.getPlace(this.id).subscribe(y=>{
+        this.editedPlace=y;
+        this.form = this.fb.group({
+          name: [this.editedPlace.name, Validators.required],
+          category: ['', Validators.required],
+          country: ['Polska', Validators.required],
+          region: [this.editedPlace.region, Validators.required],
+          city: [this.editedPlace.city, Validators.required],
+          street: [this.editedPlace.street, Validators.required],
+          number: [this.editedPlace.number, Validators.required],
+          phone: [this.editedPlace.phoneNumber, Validators.required],
+          website: [this.editedPlace.website, Validators.required],
+          description: [this.editedPlace.description],
+          mon:[false],
+          tue:[false],
+          wed:[false],
+          thu:[false],
+          fri:[false],
+          sat:[false],
+          sun:[false],
+          monOpen:[this.editedPlace.hours.monOpen],
+          tueOpen:[this.editedPlace.hours.tueOpen],
+          wedOpen:[this.editedPlace.hours.wedOpen],
+          thuOpen:[this.editedPlace.hours.thuOpen],
+          friOpen:[this.editedPlace.hours.friOpen],
+          satOpen:[this.editedPlace.hours.satOpen],
+          sunOpen:[this.editedPlace.hours.sunOpen],
+          monClose:[this.editedPlace.hours.monClose],
+          tueClose:[this.editedPlace.hours.tueClose],
+          wedClose:[this.editedPlace.hours.wedClose],
+          thuClose:[this.editedPlace.hours.thuClose],
+          friClose:[this.editedPlace.hours.friClose],
+          satClose:[this.editedPlace.hours.satClose],
+          sunClose:[this.editedPlace.hours.sunClose],
+          latitude:[this.editedPlace.latitude],
+          longitude:[this.editedPlace.longitude]
+          
+        })
+        this.week=[this.editedPlace.hours.mon, this.editedPlace.hours.tue, 
+          this.editedPlace.hours.wed,this.editedPlace.hours.thu,this.editedPlace.hours.fri,
+          this.editedPlace.hours.sat, this.editedPlace.hours.sun]
+        //this.form.controls.name.v
+      })
+      }
+      else{this.form = this.fb.group({
+        name: ['', Validators.required],
+        category: ['', Validators.required],
+        country: ['Polska', Validators.required],
+        region: ['', Validators.required],
+        city: ['', Validators.required],
+        street: ['', Validators.required],
+        number: ['', Validators.required],
+        phone: ['', Validators.required],
+        website: ['', Validators.required],
+        description: [''],
+        mon:[false],
+        tue:[false],
+        wed:[false],
+        thu:[false],
+        fri:[false],
+        sat:[false],
+        sun:[false],
+        monOpen:[null],
+        tueOpen:[null],
+        wedOpen:[null],
+        thuOpen:[null],
+        friOpen:[null],
+        satOpen:[null],
+        sunOpen:[null],
+        monClose:[null],
+        tueClose:[null],
+        wedClose:[null],
+        thuClose:[null],
+        friClose:[null],
+        satClose:[null],
+        sunClose:[null],
+        latitude:[''],
+        longitude:['']
+        
+      })}
     })
+    
 
     this.componentService.heightObj=this.res;
-    this.newPlace.image=[];
-    this.form = this.fb.group({
-      name: ['', Validators.required],
-      category: ['', Validators.required],
-      country: ['Polska', Validators.required],
-      region: ['', Validators.required],
-      city: ['', Validators.required],
-      street: ['', Validators.required],
-      number: ['', Validators.required],
-      phone: ['', Validators.required],
-      website: ['', Validators.required],
-      description: [''],
-      mon:[false],
-      tue:[false],
-      wed:[false],
-      thu:[false],
-      fri:[false],
-      sat:[false],
-      sun:[false],
-      monOpen:[null],
-      tueOpen:[null],
-      wedOpen:[null],
-      thuOpen:[null],
-      friOpen:[null],
-      satOpen:[null],
-      sunOpen:[null],
-      monClose:[null],
-      tueClose:[null],
-      wedClose:[null],
-      thuClose:[null],
-      friClose:[null],
-      satClose:[null],
-      sunClose:[null],
-      latitude:[''],
-      longitude:['']
-      
-    })
+    this.newPlace.image=[];   
+    
+    
 
     this.dictionaryService.getCategories().subscribe(x => {
       this.categories = x;
@@ -91,6 +144,7 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
 
     this.dictionaryService.getCountries().subscribe(y=>{
       this.countries = y;
+      if(this.editedPlace)this.form.controls.country.setValue(this.editedPlace.country);
       this.checkHeight();
     })
   }
