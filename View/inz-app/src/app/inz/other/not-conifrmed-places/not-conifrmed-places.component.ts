@@ -40,12 +40,9 @@ export class NotConifrmedPlacesComponent implements OnInit {
 
 
       })
-
-
-     
-      
-   
   }
-
+}
+onPlace(id){
+  this.router.navigate(['/place/details/'+id]);
 }
 }
