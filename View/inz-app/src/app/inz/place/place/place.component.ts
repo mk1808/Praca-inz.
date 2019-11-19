@@ -48,6 +48,7 @@ export class PlaceComponent implements OnInit {
   initialized = false;
   photo = "";
   user:User=new User;
+  isAdmin=false;
   @ViewChild('tooltip') tooltip: MatTooltip;
   constructor(private router: Router, private route: ActivatedRoute, private placeService: PlaceService,
     private componentsService: ComponentsService, private cookie:CookieService, public dialog: MatDialog) { }
@@ -61,6 +62,9 @@ export class PlaceComponent implements OnInit {
     } else {
       this.logged=true;
       this.user = JSON.parse(this.cookie.get('user'));
+      if(this.user.role.id!=1){
+        this.isAdmin=true;
+      }
     }
 
 

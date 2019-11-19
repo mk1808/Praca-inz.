@@ -5,7 +5,7 @@ export class User{
     login:string;   
     email:string;
     password:string;
-    role:number|string;
+    role;
     sex:number;
     city:string;
     country:string;
