@@ -52,7 +52,7 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
         this.editedPlace=y;
         this.form = this.fb.group({
           name: [this.editedPlace.name, Validators.required],
-          category: ['', Validators.required],
+          category: [this.componentService.changeCategoriesToDisplay(this.editedPlace.category), Validators.required],
           country: ['Polska', Validators.required],
           region: [this.editedPlace.region, Validators.required],
           city: [this.editedPlace.city, Validators.required],
