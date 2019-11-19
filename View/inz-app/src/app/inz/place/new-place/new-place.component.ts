@@ -30,6 +30,7 @@ file:any;
 image:any;
 imgObj:Image = new Image();
 res:any;
+id;
 @ViewChild('doc') targetElement: any; 
 constructor(private fb: FormBuilder, private placeService: PlaceService,
   private componentService:ComponentsService,
@@ -37,6 +38,12 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
    private dictionaryService: DictionaryService, private cookie:CookieService) { }
 
   ngOnInit() {
+    this.route.params.subscribe(x => {
+      if(x!=null)
+      this.id = x['id'];
+      console.log(this.id)
+    })
+
     this.componentService.heightObj=this.res;
     this.newPlace.image=[];
     this.form = this.fb.group({

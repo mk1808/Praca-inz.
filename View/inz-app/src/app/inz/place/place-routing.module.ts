@@ -15,6 +15,12 @@ const routes: Routes = [
         path: "new", 
         component:NewPlaceComponent
   
+},
+{
+        
+        path: "new/:id", 
+        component:NewPlaceComponent
+  
 }
 ]
 

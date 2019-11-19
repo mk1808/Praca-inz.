@@ -294,11 +294,11 @@ export class PlaceComponent implements OnInit {
   }
 
   onEdit(){
-
+    this.router.navigate(['/place/new/'+this.place.id]);
   }
 
   onConfirm(){
-    
+
   }
 
 }
