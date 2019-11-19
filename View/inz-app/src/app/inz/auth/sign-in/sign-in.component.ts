@@ -44,11 +44,11 @@ export class SignInComponent implements OnInit {
       this.auth.changeStatus(true);
       this.auth.saveCookie("token", this.token);
       this.auth.saveCookie("user", JSON.stringify(this.user));
-      if(x.user.role.id!=1)
+      if(x.user.role.id!=1){
       this.auth.changeStatusAdmin(true);
-      this.router.navigate(['/trip/all']);
-      let user=this.cookie.get("user");
-
+      this.router.navigate(['/admin/not-confirmed']);
+    }else this.router.navigate(['/trip/all']);
+      
     })
 
   }
