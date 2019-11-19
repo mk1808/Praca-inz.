@@ -1,3 +1,38 @@
-<p>
-  not-conifrmed-places works!
-</p>
+<div class="container">
+  <div class="holy-grail-header">
+    <div class="row myRow">
+      <div class="columns small-1 heading">
+        <img src="assets/camera.svg" height="70px" width="70px">
+      </div>
+      <div class="columns small-7 heading">
+        <h3 class="tripName">Panel administratora</h3>
+      </div>
+    </div>
+    <h2 class="type-sidelines"><span>Niezatwierdzone miejsca</span></h2>
+  </div>
+
+  <div class="row secondRow">
+    <div class="columns small-12 noPadding ">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="id">Numer</th>
+            <th class="name">Nazwa</th>
+            <th class="place">Kategoria</th>
+            <th class="place">Miasto</th>
+            <th class="place">Państwo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="active tableRow" *ngFor="let place of myPlaces, let j=index" (click)="onPlace(place.id)">
+            <td data-label="First Name">{{j+1}}</td>
+            <td data-label="Last Name">{{place.name}}</td>
+            <td data-label="Hero Title">{{place.category}}</td>
+            <td data-label="Hero Title">{{place.city}}</td>
+            <td data-label="Hero Title">{{place.country}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
