@@ -1,0 +1,151 @@
+thead tr{
+    //  border-bottom: 2px solid #662d91;
+      background-color: #662d91;
+      color:#f7f9f9!important;
+    }
+    
+    thead th{
+      font-weight: 100!important;  
+    }
+
+    .hoverEff{
+        background-color: blueviolet;
+      }
+      
+      .myIcon{
+        margin-left:200px!important;
+      }
+      
+      tbody td .hovActive:hover{
+        background-color: #662d91;
+        color:#f7f9f9!important;
+      }
+      .map{
+        margin-bottom: 40px;
+      }
+      
+      .border{
+        border-left: 4px solid #4c216d;
+          padding-left: 27px;
+      }
+      
+      tr td {
+        
+        background-color: rgb(167, 162, 170); 
+        transition-duration: 300ms;
+        border-bottom:1px solid #f7f9f9;
+        text-align: center;
+      }
+      
+      tr:hover td {
+        background-color:#662d91;
+        color:#f7f9f9!important;  
+       // cursor: pointer;
+      }
+      
+      .tripName{
+        margin-top:20px;
+        margin-bottom:24px;
+      }
+      
+      .tripHeader{
+        font-weight: 600;
+      }
+      
+      .photo{
+        height: 300px!important;
+        border: 5px solid #662d91;
+      }
+      
+      thead tr{
+      //  border-bottom: 2px solid #662d91;
+        background-color: #662d91;
+        color:#f7f9f9!important;
+      
+      }
+      
+      thead th{
+        font-weight: 100!important;  
+        text-align: center;
+      }
+
+      .button.success{
+        background-color: #334049;
+        color:#F2F5F9;
+        margin-bottom:0;
+      }
+//button
+.sign-in-form-button {
+    border-radius: 30px;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color:#662d91;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    padding: 1rem;
+    transition: all ease .4s;
+margin-bottom:10px;
+  }
+  
+  .sign-in-form-button:hover {
+    background-color: #4c216d;
+    border-color: #662d91;
+  }
+
+  //button
+
+  .signUp{
+    width:30%;
+    margin-bottom:60px;
+    
+}
+
+.signUp:focus{
+  outline:none!important;
+}
+
+.signIn:focus{
+  outline:none!important;
+}
+
+button{
+  cursor:pointer;
+
+}
+.mat-dialog-title{
+font-weight: 600;
+border-bottom: 1px solid gray;
+}
+
+.infoConfirm{
+  text-align: center;
+  margin-bottom: 19px;
+}
+
+.smallButton{
+  height: 15px;
+    /* padding-top: 5px; */
+    /* padding-bottom: 0.5rem; */
+    /* padding-top: 0.8rem; */
+    padding-top: 11px;
+    padding-bottom: 30px;
+}
+
+.actions{
+  margin-top:10px;
+}
+
+.sign-in-form-button.cancel:hover{
+  background-color: #cacaca;
+  border-color: #cacaca;
+}
+
+.sign-in-form-button.cancel {
+background-color: #cacaca;
+}
+
+::ng-deep.rating{
+    outline: none;
+    margin-bottom: 20px;
+}
