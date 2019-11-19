@@ -278,6 +278,10 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
     this.placeService.updatePlace(this.editedPlace).subscribe(x=>{
       console.log(x);
       this.newPlaceId=x.id;
+      this.placeService.markPlaceAsChecked(this.editedPlace.id).subscribe(y=>{
+        console.log(y);
+      })
+
       this.router.navigate(['/place/details/' + this.newPlaceId]);
     })
    

@@ -71,5 +71,9 @@ public updatePlace(place:Place):Observable<Place>{
   return this.rest.put('/api/places/',place )
 }
 
+public markPlaceAsChecked(id:number):Observable<any>{
+  return this.rest.put('/api/places/checked/'+id,"")
+}
+
 
 }
