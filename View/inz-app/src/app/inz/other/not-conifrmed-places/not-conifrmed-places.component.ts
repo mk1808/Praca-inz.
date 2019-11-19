@@ -14,11 +14,12 @@ import { CookieService } from 'ngx-cookie-service';
 export class NotConifrmedPlacesComponent implements OnInit {
   hover = false;
   myTrips: Trip[]=[];
-  myPlaces: Place[]=[];
+  uncheckedPlaces: Place[]=[];
   myFavTrips:Trip[]=[];
   placesFromTrip:Place[]=[];
   user: User;
   res:any;
+  initialized=false;
   constructor(private router: Router, private route: ActivatedRoute, private cookie: CookieService,
     private tripService: TripService, private placeService:PlaceService, 
     private componentService:ComponentsService) {}
@@ -28,36 +29,22 @@ export class NotConifrmedPlacesComponent implements OnInit {
 
     } else {
       this.user = JSON.parse(this.cookie.get('user'));
-      this.tripService.getTripsByUser(this.user.id).subscribe(x => {
-        this.myTrips = x;
-        console.log(this.myTrips);
-
-      })
-
-
-      this.placeService.getPlacesByUser(this.user.id).subscribe(x=>{
-        
-        this.myPlaces=x;
+      this.placeService.getUncheckedPlaces().subscribe(x => {
+        this.uncheckedPlaces = x;
         let i=0;
-        this.myPlaces.forEach(x=>{
-          this.myPlaces[i].category=this.componentService.changeCategoriesToDisplay(this.myPlaces[i].category);
+        this.uncheckedPlaces.forEach(x=>{
+          this.uncheckedPlaces[i].category=this.componentService.changeCategoriesToDisplay(this.uncheckedPlaces[i].category);
           i++;
         })
-        console.log(this.myPlaces);
+        this.initialized=true;
+
 
       })
-      
-      this.tripService.getWishListsForUser(this.user.id).subscribe(x=>{
-       console.log(x);
 
-        x.forEach(element => {
-         this.myFavTrips.push(element.trip); 
+
      
- 
-      })
-    }
-
-      )
+      
+   
   }
 
 }

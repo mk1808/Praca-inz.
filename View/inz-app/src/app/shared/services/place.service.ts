@@ -62,4 +62,10 @@ public getRatingByPlaceAndUser(place:number, user:number): Observable<Rating> {
 }
 
 
+public getUncheckedPlaces(): Observable<Place[]> {
+
+  return this.rest.get('/api/places/notchecked');
+}
+
+
 }
