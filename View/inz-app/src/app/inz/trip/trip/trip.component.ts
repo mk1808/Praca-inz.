@@ -240,8 +240,9 @@ onDelete(id){
 
   dialogRef.afterClosed().subscribe(result => {
     console.log('The dialog was closed');
-  
+    window.location.reload();
       this.ngOnInit();
+
   });
   }
 }
