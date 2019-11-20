@@ -6,9 +6,10 @@
         <div class="columns large-2">
         <img src={{photo}}  height="90px" width="90px">
       </div>
-      <div class="columns large-4">
-        <h3 class="mainName">{{place.name}} </h3>
+      <div class="columns large-5">
         
+        <h3 class="mainName">{{place.name}} 
+        <img *ngIf="place.checked" src="assets/success.png" width="20px"></h3>
         <star-rating id="ratingStar" [starType]="'svg'" rating="{{place.mean}}" [disabled]="true" [showHalfStars]="true"
           size="large"></star-rating>
         
