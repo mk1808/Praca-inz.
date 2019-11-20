@@ -8,7 +8,7 @@ import { AgmCoreModule } from '@agm/core';
 import { NgxEqualizerModule } from 'ngx-equalizer';
 import { NewPlaceComponent } from './new-place/new-place.component';
 import { AddPlaceComponent } from './add-place/add-place.component';
-import { MatDialogModule, MatSelectModule, MatFormFieldModule, MatAutocompleteModule, MatChipsModule, MatCheckboxModule, MatTooltip, MatTooltipModule, MatButtonModule } from '@angular/material';
+import { MatDialogModule, MatSelectModule, MatFormFieldModule, MatAutocompleteModule, MatChipsModule, MatCheckboxModule, MatTooltip, MatTooltipModule, MatButtonModule, MatRadioModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { ImageUploadModule } from 'angular2-image-upload';
@@ -18,10 +18,11 @@ import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { RateDialogComponent } from './place/rate-dialog/rate-dialog.component';
 import { ConfirmPlaceDialogComponent } from '../other/not-conifrmed-places/confirm-place-dialog/confirm-place-dialog.component';
 import { OtherModule } from '../other/other.module';
+import { PlaceOnMapDialogComponent } from './new-place/place-on-map-dialog/place-on-map-dialog.component';
 
 
 @NgModule({
-  declarations: [PlaceComponent, NewPlaceComponent, AddPlaceComponent, RateDialogComponent],
+  declarations: [PlaceComponent, NewPlaceComponent, AddPlaceComponent, RateDialogComponent, PlaceOnMapDialogComponent],
   imports: [
     CommonModule,
     PlaceRoutingModule,
@@ -45,13 +46,15 @@ import { OtherModule } from '../other/other.module';
     MatDividerModule,
     SharedModule,
     MatButtonModule,
-    OtherModule
+    OtherModule,
+    MatRadioModule
   ], 
   entryComponents: [
 
     AddPlaceComponent,
     RateDialogComponent,
-    ConfirmPlaceDialogComponent
+    ConfirmPlaceDialogComponent,
+    PlaceOnMapDialogComponent
   ],
   exports:[RateDialogComponent
     ]
