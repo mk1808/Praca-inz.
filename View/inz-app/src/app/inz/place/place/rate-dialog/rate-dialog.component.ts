@@ -59,7 +59,7 @@ before=true;
       })
 
     }
-    this.initialized=true;
+    //this.initialized=true;
   
   }
 
