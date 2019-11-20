@@ -25,5 +25,9 @@ export class DictionaryService {
     return this.rest.get<String[]>('/api/tags',true);
   }
 
+  public getPossibleCoordinates(name){
+    return this.rest.get(`https://nominatim.openstreetmap.org/search/${name}?format=json`)
+  }
+
 
 }

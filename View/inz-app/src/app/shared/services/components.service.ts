@@ -3,6 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { OpeningHours } from '../models/classes';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { element } from '@angular/core/src/render3';
+import { RestService } from './rest.service';
 
 @Injectable({
   providedIn: 'root'
@@ -220,4 +221,6 @@ public heightObj;
       this.spinner.hide();
     }
   }
+
+
 }
