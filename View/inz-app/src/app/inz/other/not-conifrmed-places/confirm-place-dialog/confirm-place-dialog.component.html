@@ -19,3 +19,24 @@
           </div>
         </mat-dialog-actions>
       </div>
+
+      <div *ngIf="!before">
+  
+          <h1 mat-dialog-title >Potwierdzenie </h1>
+            <mat-dialog-content>
+               
+           Miejsce {{data.place.name}} zostało dodane do zweryfikowanych.
+            </mat-dialog-content>
+      
+            <mat-dialog-actions>
+          
+                <div class="columns small-9">
+                  
+                </div>
+            
+                <div class="columns small-3 ">
+                  <button type="submit" (click)="cancel()" class="sign-in-form-button signIn smallButton ">Ok
+                  </button>
+                </div>
+              </mat-dialog-actions>
+            </div>

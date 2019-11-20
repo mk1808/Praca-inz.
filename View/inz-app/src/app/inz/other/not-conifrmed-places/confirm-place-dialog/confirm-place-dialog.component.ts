@@ -12,7 +12,7 @@ export class ConfirmPlaceDialogComponent implements OnInit {
   initialized=false;
   before=true;
   
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Place,  
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,  
     private placeService:PlaceService,  public dialogRef: MatDialogRef<ConfirmPlaceDialogComponent>) { }
   
 
@@ -23,7 +23,7 @@ export class ConfirmPlaceDialogComponent implements OnInit {
   }
 
   onConfirm(){
-  this.placeService.markPlaceAsChecked(this.data.id).subscribe(x=>{
+  this.placeService.markPlaceAsChecked(this.data.place.id).subscribe(x=>{
     this.before=false;
   })
       
