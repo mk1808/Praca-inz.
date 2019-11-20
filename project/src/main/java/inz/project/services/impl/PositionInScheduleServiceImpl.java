@@ -32,7 +32,8 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 	PositionInScheduleRepository positionInScheduleRepository;
 	@Autowired
 	PositionInTripServiceImpl positionInTripService;
-	@Autowired ScheduleRepository scheduleRepository;
+	@Autowired
+	ScheduleRepository scheduleRepository;
 
 	@Override
 	public PositionInSchedule createPositionInSchedule(PositionInSchedule positionInSchedule) {
@@ -49,17 +50,15 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 	@Override
 	public PositionInSchedule updatePositionInSchedule(PositionInSchedule position) {
 
-		
 		PositionInSchedule updated = this.getPositionInSchedule(position.getId());
-		Schedule schedule=updated.getPositionInTrip().getTrip().getSchedule();
-		
+		Schedule schedule = updated.getPositionInTrip().getTrip().getSchedule();
+
 		schedule.setScheduleExists(true);
 		this.scheduleRepository.save(schedule);
 		updated.setStartDay(position.getStartDay());
 		updated.setStartTime(position.getStartTime());
 		updated.setEndDay(position.getEndDay());
 		updated.setEndTime(position.getEndTime());
-	
 
 		return this.positionInScheduleRepository.save(updated);
 	}
@@ -85,8 +84,9 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 			posInSchedule.add(this.positionInScheduleRepository.getPositionInScheduleByPositionInTrip(pos));
 
 		}
-		List<PositionInSchedule> posWOTDay = posInSchedule.stream().filter(p->p.getStartDay()==null).collect(Collectors.toList()); 
-		posInSchedule = posInSchedule.stream().filter(p->p.getStartDay()!=null).collect(Collectors.toList());
+		List<PositionInSchedule> posWOTDay = posInSchedule.stream().filter(p -> p.getStartDay() == null)
+				.collect(Collectors.toList());
+		posInSchedule = posInSchedule.stream().filter(p -> p.getStartDay() != null).collect(Collectors.toList());
 		posInSchedule.sort(Comparator.comparing(PositionInSchedule::getStartDay));
 		posInSchedule.addAll(posWOTDay);
 
@@ -95,7 +95,7 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 
 	@Override
 	public List<List<PositionInSchedule>> getPositionsInScheduleSorted(List<PositionInSchedule> posInSchedule) {
-		Date previous = posInSchedule.get(0).getPositionInTrip().getTrip().getSchedule().getStart();
+		Date current = posInSchedule.get(0).getPositionInTrip().getTrip().getSchedule().getStart();
 		List<List<PositionInSchedule>> table = new ArrayList<List<PositionInSchedule>>();
 		Long duration = posInSchedule.get(0).getPositionInTrip().getTrip().getDuration();
 		for (int j = 0; j < duration; j++) {
@@ -103,73 +103,62 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 			table.add(add);
 		}
 		List<Date> dates = new ArrayList<Date>();
-		dates.add(posInSchedule.get(0).getStartDay());
-		Date current = posInSchedule.get(0).getStartDay();
-		
-		for (int m = 0; m < duration; m++) {
+		dates.add(current);
+		// Date current = posInSchedule.get(0).getStartDay();
+
+		for (int m = 1; m < duration; m++) {
 			Date newDate = this.addOneDay(current);
-			current=newDate;
+			current = newDate;
 			dates.add(newDate);
-			//System.out.println(newDate);
+			// System.out.println(newDate);
 		}
-		List<PositionInSchedule> posWOTDay = posInSchedule.stream().filter(p->p.getStartDay()==null).collect(Collectors.toList()); 
-		posInSchedule = posInSchedule.stream().filter(p->p.getStartDay()!=null).collect(Collectors.toList());
-		 
-		int dateNo=0;
+		List<PositionInSchedule> posWOTDay = posInSchedule.stream().filter(p -> p.getStartDay() == null)
+				.collect(Collectors.toList());
+		posInSchedule = posInSchedule.stream().filter(p -> p.getStartDay() != null).collect(Collectors.toList());
+
 		for (PositionInSchedule pos : posInSchedule) {
-			dateNo=0;
-			for (Date date:dates) {
-				System.out.println(date);
-				
-				if(this.equalDate(pos.getStartDay(), date)) {
-					System.out.println(dateNo);
+			int dateNo = 0;
+			for (Date date : dates) {
+				//dateNo = 0;
+				//System.out.println(date);
+
+				if (this.equalDate(pos.getStartDay(), date)) {
+					//System.out.println(dateNo);
 					table.get(dateNo).add(pos);
-					dateNo++;
+
 					break;
 				}
-				else {
-					dateNo++;
-				}
-				
+
+				dateNo++;
+
 			}
 		}
-		
-		
-		/*
-		int i = 0;
-		for (PositionInSchedule pos : posInSchedule) {
 
-			if (pos.getStartDay().compareTo(previous) == 0) {
-				table.get(i).add(pos);
-				previous = pos.getStartDay();
-			} else {
-				i = i + 1;
-				table.get(i).add(pos);
-				previous = pos.getStartDay();
-			}
-		}*/
+		/*
+		 * int i = 0; for (PositionInSchedule pos : posInSchedule) {
+		 * 
+		 * if (pos.getStartDay().compareTo(previous) == 0) { table.get(i).add(pos);
+		 * previous = pos.getStartDay(); } else { i = i + 1; table.get(i).add(pos);
+		 * previous = pos.getStartDay(); } }
+		 */
 		for (List<PositionInSchedule> list : table) {
-			List<PositionInSchedule> posWOTime = list.stream().filter(p->p.getStartTime()==null).collect(Collectors.toList());
-			List<PositionInSchedule> posWTime = list.stream().filter(p->p.getStartTime()!=null).collect(Collectors.toList());
-		
-			/*	if(!list.isEmpty()) {
-			int i=0;
-			for (PositionInSchedule position:list) {
-				if(position.getStartTime()==null) {
-					posWOTime.add(position);
-					wholeList.remove(i);
-				}
-				i++;
-			}
-			*/	
-			
+			List<PositionInSchedule> posWOTime = list.stream().filter(p -> p.getStartTime() == null)
+					.collect(Collectors.toList());
+			List<PositionInSchedule> posWTime = list.stream().filter(p -> p.getStartTime() != null)
+					.collect(Collectors.toList());
+
+			/*
+			 * if(!list.isEmpty()) { int i=0; for (PositionInSchedule position:list) {
+			 * if(position.getStartTime()==null) { posWOTime.add(position);
+			 * wholeList.remove(i); } i++; }
+			 */
+
 			posWTime.sort(Comparator.comparing(PositionInSchedule::getStartTime));
 			list.clear();
 			list.addAll(posWTime);
 			list.addAll(posWOTime);
-			}
+		}
 		table.add(posWOTDay);
-		
 
 		return table;
 	}
@@ -183,17 +172,16 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 
 	public Date addOneDay(Date oldDate) {
 		String newDate = oldDate.toString();
-		
+
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 		Calendar c = Calendar.getInstance();
 		c.setTime(oldDate);
-	//	c.get(field)
-	/*	try {
-			c.setTime(sdf.parse(newDate));
-		} catch (ParseException e) {
-
-			e.printStackTrace();
-		}*/
+		// c.get(field)
+		/*
+		 * try { c.setTime(sdf.parse(newDate)); } catch (ParseException e) {
+		 * 
+		 * e.printStackTrace(); }
+		 */
 		c.add(Calendar.DATE, 1);
 		newDate = sdf.format(c.getTime());
 //System.out.println(newDate);
@@ -204,31 +192,29 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-	//	System.out.println(date);
+		// System.out.println(date);
 		return date;
 	}
 
 	private Boolean equalDate(Date date1, Date date2) {
 
-
 //Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //String s = formatter.format(date);
-
 
 		Format sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 		String sDate1 = sdf.format(date1);
 		String sDate2 = sdf.format(date2);
 		return sDate1.equals(sDate2);
 	}
-	
+
 	public Long countDays(Date start, Date end) {
-			TimeUnit unit = TimeUnit.DAYS; 
-		    long diffInMillies = end.getTime() - start.getTime();
-		    Long time = unit.convert(diffInMillies,unit)/1000/86400;
-		    return time+1;
-		
+		TimeUnit unit = TimeUnit.DAYS;
+		long diffInMillies = end.getTime() - start.getTime();
+		Long time = unit.convert(diffInMillies, unit) / 1000 / 86400;
+		return time + 1;
+
 	}
-	
+
 	@Override
 	public Boolean isHourCorrect(Date open, Date close, Date start, Date end) {
 		int f = start.compareTo(open);
@@ -245,9 +231,9 @@ public class PositionInScheduleServiceImpl implements PositionInScheduleService 
 	public Boolean isDayCorrect(List<Boolean> openDays, int day) {
 		return openDays.get(day);
 	}
-	
+
 	@Override
 	public void deletePositionInSchedule(Long id) {
-		this.positionInScheduleRepository.deleteById(id);		
+		this.positionInScheduleRepository.deleteById(id);
 	}
 }
