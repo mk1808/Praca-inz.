@@ -4,14 +4,17 @@ import { NotConifrmedPlacesComponent } from './not-conifrmed-places/not-conifrme
 import { AllPlacesAdminComponent } from './all-places-admin/all-places-admin.component';
 import { OtherRoutingModule } from './other-routing.module';
 import { ConfirmPlaceDialogComponent } from './not-conifrmed-places/confirm-place-dialog/confirm-place-dialog.component';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule, MatAutocompleteModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [NotConifrmedPlacesComponent, AllPlacesAdminComponent, ConfirmPlaceDialogComponent],
   imports: [
     CommonModule,
     OtherRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule
   ],
   entryComponents: [
     ConfirmPlaceDialogComponent

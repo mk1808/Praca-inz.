@@ -1,3 +1,61 @@
-<p>
-  all-places-admin works!
-</p>
+<div class="container">
+    <h4 class="headingStyle">Przeszukiwanie obiektów</h4>
+    <form [formGroup]="form" *ngIf="initialized">
+      <div class="row whereGo">
+        <div class="wrap">
+          <div class="search">
+  
+            <input type="text" class="searchTerm" placeholder="Wpisz nazwę" [matAutocomplete]="auto"
+              formControlName="name">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let place of filteredPlaces" [value]="place.name">
+  
+                <span>{{place.name}}</span>
+                <!--       <small>Population: {{state.population}}</small>-->
+              </mat-option>
+            </mat-autocomplete>
+            <button (click)="onSearchName()" type="submit" class="searchButton">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  
+  
+  <h2 class="type-sidelines" *ngIf="first"><span>Ostatnio dodane miejsca</span></h2>
+  <h2 class="type-sidelines" *ngIf="first==false"><span>Wyniki wyszukiwania </span></h2>
+  <div class="row nocontent" *ngIf="initialized">
+      <div class="noContentText" *ngIf="places.length==0"> Brak wyników 
+          <img src="assets/heart.png" height="30px" width="30px"><br>
+         <div> Zmień kryteria wyszukiwania </div>
+        </div>
+    <div *ngFor="let place of places; let i = index;">
+      <div class="small-2 large-4 columns">
+        <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+          <div class="flip-card-inner">
+            <!--<div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
+                background-size: cover;">-->
+                <div class="flip-card-inner-front" 
+                
+                 [ngStyle]="{ 'background': 'url('+(place.status=='new'? 'https://live.staticflickr.com/8652/27620992483_a37104d94b_b.jpg':place.status)+')', 'background-size': 'cover' }"
+                >
+  
+              <span>{{place.name}}<br>
+                Kategoria: {{place.category}} <br>
+                Ocena: 4.5/5
+  
+              </span>
+  
+            </div>
+            <div class="flip-card-inner-back">
+              <h3 class="flip-card-inner-back-title">{{place.name}}</h3>
+              <p class="flip-card-inner-back-text">{{place.description}}</p>
+              <a [href]="'/place/details/'+places[i].id" class="button success">Zobacz</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
