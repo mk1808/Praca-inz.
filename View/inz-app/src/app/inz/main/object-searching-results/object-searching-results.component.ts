@@ -61,7 +61,7 @@ export class ObjectSearchingResultsComponent implements OnInit {
     this.route.params.subscribe(x => {
       this.id = x['place'];
       console.log(this.id)
-      if(this.first){
+      if(this.first&&this.id!="undefined"){
         this.placeService.getPlace(this.id).subscribe(y=>{
           this.places.push(y);
           this.places[0].category=this.componentService.changeCategoriesToDisplay(this.places[0].category);
@@ -73,11 +73,10 @@ export class ObjectSearchingResultsComponent implements OnInit {
           this.trips=z;
           console.log(this.trips)
         })
-     
-        
-
-        
-      }
+}else{
+  this.places=[];
+  this.trips=[];
+}
     })
     
     this.initialized = true;
