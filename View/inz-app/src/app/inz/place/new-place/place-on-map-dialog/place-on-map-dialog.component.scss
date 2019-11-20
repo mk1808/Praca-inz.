@@ -149,3 +149,34 @@ background-color: #cacaca;
     outline: none;
     margin-bottom: 20px;
 }
+
+.mapPos{
+    margin-bottom:40px;
+    width:750px;
+    height: 150px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top:20px;
+    margin:0 auto;
+  }
+
+  .radioOption{
+      margin-top:5px;
+      margin-bottom:5px;
+    
+    
+  }
+  ::ng-deep .mat-radio-label-content{
+    white-space:pre-wrap; 
+}
+::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+      border-color:#662d91;
+  }
+
+  mat-radio-group{
+      overflow-y:auto;
+  }
+
+  .placeResults{
+    overflow-y:auto;
+  }

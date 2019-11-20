@@ -1,13 +1,22 @@
 <div>
     <form [formGroup]="form">
     <h1 mat-dialog-title *ngIf="initialized">Znajdź miejsce na mapie</h1>
-      <mat-dialog-content *ngIf="initialized">
-          <mat-radio-group aria-label="Select an option">
-              <mat-radio-button value="1">Option 1</mat-radio-button>
-              <mat-radio-button value="2">Option 2</mat-radio-button>
-            </mat-radio-group>
-            
-     
+      <mat-dialog-content>
+      
+        <div id="map" class="mapPos row">
+          <div id="popup">
+            <div (click)="tooltip.toggle()" mat-raised-button #tooltip="matTooltip" matTooltip="" matTooltipPosition="above">
+            </div>
+          </div>
+      
+        </div>
+        <div class="placeResults">
+        <mat-radio-group formControlName="place" aria-label="Select an option">
+          <mat-radio-button *ngFor="let coord of coordinates"
+           class="radioOption" [value]="coord">{{coord.display_name}}</mat-radio-button><br>
+        
+        </mat-radio-group></div>
+      
       </mat-dialog-content>
     </form>
       <mat-dialog-actions>
@@ -18,7 +27,7 @@
           </div>
       
           <div class="columns small-3 ">
-            <button type="submit" (click)="onConfirm()" class="sign-in-form-button signIn smallButton ">Zatwierdź
+            <button type="submit" (click)="confirm()" class="sign-in-form-button signIn smallButton ">Zatwierdź
             </button>
           </div>
         </mat-dialog-actions>

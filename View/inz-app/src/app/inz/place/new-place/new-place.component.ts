@@ -6,6 +6,8 @@ import { PlaceService } from 'src/app/shared/services/place.service';
 import { DictionaryService } from 'src/app/shared/services/dictionary.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ComponentsService } from 'src/app/shared/services/components.service';
+import { MatDialog } from '@angular/material';
+import { PlaceOnMapDialogComponent } from './place-on-map-dialog/place-on-map-dialog.component';
 
 @Component({
   selector: 'app-new-place',
@@ -37,7 +39,8 @@ editing:boolean=false;
 constructor(private fb: FormBuilder, private placeService: PlaceService,
   private componentService:ComponentsService,
   private router: Router, private route: ActivatedRoute,
-   private dictionaryService: DictionaryService, private cookie:CookieService) { }
+   private dictionaryService: DictionaryService, private cookie:CookieService,
+   public dialog: MatDialog) { }
 
   ngOnInit() {
     //this.form = this.fb.group({});
@@ -288,7 +291,17 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
 
   }
   map(){
-    
+    const dialogRef = this.dialog.open(PlaceOnMapDialogComponent, {
+      width: '800px',
+      data: {place:this.form.controls.name.value}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.form.controls.latitude.setValue(result.lat);
+      this.form.controls.longitude.setValue(result.lon);
+      //this.ngOnInit();
+
+    });
   }
 
 }
