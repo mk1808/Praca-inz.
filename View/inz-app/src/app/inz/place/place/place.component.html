@@ -36,7 +36,7 @@
             <span class="btnText"> Edytuj miejsce
             </span>
           </span>
-          <span class="button success add-button two" (click)="onConfirm()" *ngIf="isAdmin">
+          <span class="button success add-button two" (click)="onConfirm()" *ngIf="isAdmin&&!place.checked">
             <i class="material-icons add-icon">
                 done_outline
             </i>
