@@ -44,7 +44,7 @@
 <h2 *ngIf="placeFirst" class="type-sidelines"><span>Miejsca w regionie</span></h2>
 <h2 *ngIf="placeFirst==false" class="type-sidelines"><span>Wyniki wyszukiwania miejsc</span></h2>
 
-<div class="row" *ngIf="initialized">
+<div class="row nocontent" *ngIf="initialized">
     <div class="noContentText" *ngIf="places.length==0"> Brak wyników 
         <img src="assets/heart.png" height="30px" width="30px"><br>
        <div> Zmień kryteria wyszukiwania lub </div>
@@ -191,7 +191,7 @@
   </div>
 </div>-->
 
-<div class="row">
+<div class="row nocontent">
     <div class="noContentText" *ngIf="trips.length==0"> Brak wyników 
         <img src="assets/heart.png" height="30px" width="30px"><br>
        <div> Zmień kryteria wyszukiwania lub </div>
