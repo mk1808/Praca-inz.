@@ -45,6 +45,10 @@
 <h2 *ngIf="placeFirst==false" class="type-sidelines"><span>Wyniki wyszukiwania miejsc</span></h2>
 
 <div class="row" *ngIf="initialized">
+    <div class="noContentText" *ngIf="places.length==0"> Brak wyników 
+        <img src="assets/heart.png" height="30px" width="30px"><br>
+       <div> Zmień kryteria wyszukiwania lub </div>
+      </div>
     <div *ngFor="let place of places; let i = index;">
       <div class="small-2 large-4 columns">
         <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
@@ -188,6 +192,10 @@
 </div>-->
 
 <div class="row">
+    <div class="noContentText" *ngIf="trips.length==0"> Brak wyników 
+        <img src="assets/heart.png" height="30px" width="30px"><br>
+       <div> Zmień kryteria wyszukiwania lub </div>
+      </div>
     <div *ngFor="let trip of trips; let i = index;">
       <div class="small-2 large-4 columns">
         <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">

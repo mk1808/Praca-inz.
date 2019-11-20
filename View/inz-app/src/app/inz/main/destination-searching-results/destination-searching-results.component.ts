@@ -61,7 +61,7 @@ export class DestinationSearchingResultsComponent implements OnInit {
     this.route.params.subscribe(x => {
       this.region = x['region'];
       console.log(this.region)
-      if(this.first){
+      if(this.first&&this.region!="undefined"){
         this.placeService.getPlacesByRegCat(this.region, "").subscribe(a => {
           this.places = a;
           this.places.forEach(element => {
@@ -79,6 +79,9 @@ export class DestinationSearchingResultsComponent implements OnInit {
         })
 
         
+      }else{
+        this.places=[];
+        this.trips=[]; 
       }
     })
     
