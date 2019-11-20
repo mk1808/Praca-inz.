@@ -11,8 +11,17 @@
     <h2 class="type-sidelines"><span>Niezatwierdzone miejsca</span></h2>
   </div>
 
-  <div class="row secondRow">
-    <div class="columns small-12 noPadding ">
+  <div class="row secondRow"  [ngClass]="{'secondRowMargin':uncheckedPlaces.length!=0}">
+    <div class="noPlaces"*ngIf="uncheckedPlaces.length==0">
+     Brak miejsc oczekujących na zatwierdzenie. <br>
+     Wszystkie utworzone dotychczas miejsca zostały już zatwierdzone. <br>
+     <img src="/assets/list.png" width="100px"> <br>
+     <button class="button moreBtn button-rounded-hover" (click)="onNewTrip()">
+       Przeglądaj miejsca
+    
+      </button>
+    </div>
+    <div *ngIf="uncheckedPlaces.length>0"class="columns small-12 noPadding ">
       <table class="table table-striped table-hover">
         <thead>
           <tr>

@@ -15,7 +15,11 @@ h3 {
 
 .secondRow{
   margin-bottom: 40px;
-  margin-left:254px;    
+  
+}
+
+.secondRowMargin{
+  margin-left:254px;  
 }
 
 .columns{
@@ -113,11 +117,11 @@ thead th{
 
 
 .moreBtn{
-    margin-left: 37%;
+ 
     width: 26%;
-    margin-top: 10px;
-    margin-bottom: 60px;
     height: 64px;
+    margin-top: 34px;
+    margin-bottom: 20px;
   }
   
   .moreBtn:focus{
@@ -438,4 +442,13 @@ $sidelines-double-line-spacing: 0.5em !default;
         -ms-transform: translateX(0%);
             transform: translateX(0%);
     opacity: 0.25;
+  }
+
+  .noPlaces{
+    font-size:24px;
+    text-align: center;
+
+    img{
+      margin-top:20px;
+    }
   }
