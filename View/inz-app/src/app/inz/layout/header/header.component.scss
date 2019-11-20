@@ -52,3 +52,8 @@ $menu-underline-from-center-border-thickness: 0.165rem;
 button{
   cursor:pointer;
 }
+
+.logo{
+  position: absolute;
+  z-index: 9;
+}
