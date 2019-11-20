@@ -46,7 +46,7 @@
 
     <div class="timeline-item" *ngFor="let otherPosition of positionsWODay; let h=index">
       <div class="timeline-icon">
-          <img src={{icons[position.positionInTrip.place.name]}} width="32" height="32">
+          <img src={{icons[otherPosition.positionInTrip.place.name]}} width="32" height="32">
       </div>
       <div class="timeline-content" [ngClass]="{'right':(h+1)%2==0}">
         <p class="timeline-content-date">{{otherPosition.positionInTrip.place.name}}</p>
