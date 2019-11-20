@@ -1,9 +1,9 @@
-<div *ngIf="!before">
+<div *ngIf="before">
   
-    <h1 mat-dialog-title *ngIf="initialized">Oceń {{data.place!=null?'miejsce':'wycieczkę'}}</h1>
+    <h1 mat-dialog-title *ngIf="initialized">Potwierdź poprawność miejsca </h1>
       <mat-dialog-content *ngIf="initialized">
          
-     
+     Czy zatwierdzić poprawność miejsca {{data.place.name}}?
       </mat-dialog-content>
 
       <mat-dialog-actions>
