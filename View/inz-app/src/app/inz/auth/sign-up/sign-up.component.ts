@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/shared/models/classes';
 import { DictionaryService } from 'src/app/shared/services/dictionary.service';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-sign-up',
@@ -28,7 +29,8 @@ registerForm: FormGroup = this.fb.group({
 
 
 constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder, 
-    private auth: AuthService, private cookie: CookieService, private dictionaryService: DictionaryService) { 
+    private auth: AuthService, private cookie: CookieService, private dictionaryService: DictionaryService,
+    private notifier: NotifierService) { 
       this.dictionaryService.getCountries().subscribe(x=>{
         this.countries2=x;
         console.log(this.countries2);
@@ -56,7 +58,7 @@ constructor(private router: Router, private route: ActivatedRoute, private fb: F
 
 
     this.auth.register(this.user).subscribe(x => {
-          console.log("yay")        
+    this.notifier.notify( 'default', 'Konto zostało założone ' );       
         },
           e => {
           
