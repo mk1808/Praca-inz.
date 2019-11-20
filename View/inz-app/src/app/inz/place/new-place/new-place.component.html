@@ -59,6 +59,8 @@
         <label for="sign-in-form-password">Numer</label>
         <input type="text" formControlName="number" class="sign-in-form-password" id="sign-in-form-password" autocomplete="off"></div>
        <!---->
+       <div class="textCateogory down up">- Położenie na mapie -</div>
+       <div class="columns large-8">
         <div class="singleInput">
           <label for="sign-in-form-password">Szerokość geograficzna</label>
           <input type="number" step="0.000001"formControlName="latitude" class="sign-in-form-password" id="sign-in-form-password"
@@ -67,8 +69,15 @@
           <label for="sign-in-form-password">Długość geograficzna</label>
           <input type="number" step="0.000001" formControlName="longitude" class="sign-in-form-password" id="sign-in-form-password"
             autocomplete="off"></div>
+          </div>
+          <div class="columns large-4">
+            <span>lub</span>
+              <button  class="sign-in-form-button signIn mapBtn" (click)="map()">Znajdź na mapie
+
+                </button>
+          </div>
         <!---->
-        <div class="textCateogory down up">- Dni i godziny otwarcia -</div>
+        <div class=" hours textCateogory down up">- Dni i godziny otwarcia -</div>
         <div class="row">
           <div class="columns small-4 weekDays">
             <div class="checkbox">

@@ -287,5 +287,8 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
    
 
   }
+  map(){
+    
+  }
 
 }
