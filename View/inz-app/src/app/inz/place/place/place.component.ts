@@ -8,6 +8,7 @@ import { AddPlaceComponent } from '../add-place/add-place.component';
 import { ComponentsService } from 'src/app/shared/services/components.service';
 import { RateDialogComponent } from './rate-dialog/rate-dialog.component';
 import { CookieService } from 'ngx-cookie-service';
+import { ConfirmPlaceDialogComponent } from '../../other/not-conifrmed-places/confirm-place-dialog/confirm-place-dialog.component';
 
 @Component({
   selector: 'app-place',
@@ -298,7 +299,16 @@ export class PlaceComponent implements OnInit {
   }
 
   onConfirm(){
+    const dialogRef = this.dialog.open(ConfirmPlaceDialogComponent, {
+      width: '600px',
+      data: {place:this.place}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.ngOnInit();
+
+    });
   }
 
 }

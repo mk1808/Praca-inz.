@@ -1,14 +1,11 @@
 <div *ngIf="!before">
-    <form [formGroup]="form">
+  
     <h1 mat-dialog-title *ngIf="initialized">Oceń {{data.place!=null?'miejsce':'wycieczkę'}}</h1>
       <mat-dialog-content *ngIf="initialized">
-          <star-rating-control  formControlName="rating"class="stars" id="ratingStar" 
-          [starType]="'svg'" 
-          [showHalfStars]="true"
-          size="large"></star-rating-control>
+         
      
       </mat-dialog-content>
-    </form>
+
       <mat-dialog-actions>
     
           <div class="columns small-9">

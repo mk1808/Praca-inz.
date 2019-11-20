@@ -16,6 +16,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { RateDialogComponent } from './place/rate-dialog/rate-dialog.component';
+import { ConfirmPlaceDialogComponent } from '../other/not-conifrmed-places/confirm-place-dialog/confirm-place-dialog.component';
+import { OtherModule } from '../other/other.module';
 
 
 @NgModule({
@@ -42,12 +44,14 @@ import { RateDialogComponent } from './place/rate-dialog/rate-dialog.component';
     MatCardModule,
     MatDividerModule,
     SharedModule,
-    MatButtonModule
+    MatButtonModule,
+    OtherModule
   ], 
   entryComponents: [
 
     AddPlaceComponent,
-    RateDialogComponent
+    RateDialogComponent,
+    ConfirmPlaceDialogComponent
   ],
   exports:[RateDialogComponent
     ]
