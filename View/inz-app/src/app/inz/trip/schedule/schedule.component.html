@@ -48,8 +48,16 @@
       <div class="timeline-icon">
           <img src={{icons[otherPosition.positionInTrip.place.name]}} width="32" height="32">
       </div>
-      <div class="timeline-content" [ngClass]="{'right':(h+1)%2==0}">
+      <div class="timeline-content hoverTimelineItem" [ngClass]="{'right':(h+1)%2==0}">
+        <div class="">
         <p class="timeline-content-date">{{otherPosition.positionInTrip.place.name}}</p>
+      </div>
+      <div class="address">
+        <p> <span class="timeline-content-month">
+            ul. {{otherPosition.positionInTrip.place.street}} {{otherPosition.positionInTrip.place.number}},
+            {{otherPosition.positionInTrip.place.city}}
+          </span></p>
+      </div>
 
       </div>
     </div>
