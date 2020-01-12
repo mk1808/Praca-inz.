@@ -18,14 +18,11 @@ public class Rating {
 	
 	@NotNull private Double value;
 	
-	@ManyToOne
-    private User user;
+	@ManyToOne private User user;
 	
-	@ManyToOne
-    private Place place;
+	@ManyToOne private Place place;
 
-	@ManyToOne
-	private Trip trip;
+	@ManyToOne private Trip trip;
 
 	
 	
