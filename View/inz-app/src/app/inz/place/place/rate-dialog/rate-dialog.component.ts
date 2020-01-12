@@ -29,6 +29,9 @@ before=true;
       this.placeService.getRatingByPlaceAndUser(this.data.place.id, this.data.user.id).subscribe(x=>{
         this.initialized=true;
         console.log(x);
+        
+     //   this.oldRatingVal=x?x.value:0;
+       // this.form.controls.rating.setValue(this.oldRatingVal);
         if(x)
         {
           this.oldRatingVal=x.value;

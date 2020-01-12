@@ -9,12 +9,12 @@
   <mat-dialog-actions>
 
     <div class="columns small-9">
-        <button type="submit" class="sign-in-form-button signIn">Zobacz wycieczkę
+        <button (click)="checkTrip()" type="submit"  class="sign-in-form-button signIn">Zobacz wycieczkę
           </button>
     </div>
 
     <div class="columns small-3 ">
-      <button type="submit" class="sign-in-form-button signIn">Zamknij
+      <button (click)="cancel()" type="submit" class="sign-in-form-button signIn">Zamknij
       </button>
     </div>
   </mat-dialog-actions>

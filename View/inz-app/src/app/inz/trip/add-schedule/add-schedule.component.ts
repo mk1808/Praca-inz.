@@ -286,10 +286,10 @@ console.log(this.allDays);
         dialogRef.afterClosed().subscribe(result => {
             console.log(result);
             if (result) {
-                this.tabScheduleHours[result[0].name] = result[1].startTime + ' - ' + result[1].endTime;
-                this.tabScheduleHours[result[0].name + 'H'] = result[2];
-                this.tab[result[0].name] = result[2] ? 'c' : 'h';
-                console.log(this.tabScheduleHours);
+                this.tabScheduleHours[result.place.name] = result.position.startTime + ' - ' + result.position.endTime;
+                this.tabScheduleHours[result.place.name + 'H'] = result.hourCorrect;
+                this.tab[result.place.name] = result.hourCorrect ? 'c' : 'h';
+                
             }
         });
 

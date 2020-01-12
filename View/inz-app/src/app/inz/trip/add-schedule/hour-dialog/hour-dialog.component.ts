@@ -56,7 +56,7 @@ export class HourDialogComponent implements OnInit {
     this.scheduleService.updatePositionInSchedule(this.position).subscribe(x => {
       console.log(x);
       this.newPosition=x;
-        this.dialogRef.close([this.place, this.newPosition, this.hourCorrect]);
+        this.dialogRef.close({place:this.place, position:this.newPosition, hourCorrect:this.hourCorrect});
     })
   
   }
