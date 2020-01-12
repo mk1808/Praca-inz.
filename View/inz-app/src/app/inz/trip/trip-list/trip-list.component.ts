@@ -24,6 +24,8 @@ export class TripListComponent implements OnInit, AfterViewInit {
   placesFromTrip:Place[]=[];
   user: User;
   res:any;
+  numberOfPlaces:any []=[];
+  numberOfPlacesFav:any []=[];
   @ViewChild('doc') targetElement: any; 
   constructor(private router: Router, private route: ActivatedRoute, private cookie: CookieService,
     private tripService: TripService, private placeService:PlaceService, private componentService:ComponentsService) { 
@@ -41,7 +43,13 @@ export class TripListComponent implements OnInit, AfterViewInit {
       this.tripService.getTripsByUser(this.user.id).subscribe(x => {
         this.myTrips = x;
         console.log(this.myTrips);
-        this.checkHeight() 
+        this.checkHeight();
+        this.myTrips.forEach(y=>{
+           this.tripService.getPlacesForTrip(y.id).subscribe(z=>{
+            this.numberOfPlaces.push(z.length);
+           })
+        })
+       
       })
 /*
       this.tripService.getPlacesForTrip(this.id).subscribe(x=>{
@@ -68,7 +76,9 @@ export class TripListComponent implements OnInit, AfterViewInit {
 
         x.forEach(element => {
          this.myFavTrips.push(element.trip); 
-     
+         this.tripService.getPlacesForTrip(element.trip.id).subscribe(z=>{
+          this.numberOfPlacesFav.push(z.length);
+         }) 
         });
         this.checkHeight()
       })
