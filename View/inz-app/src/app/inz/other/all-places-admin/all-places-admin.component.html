@@ -51,7 +51,7 @@
             <div class="flip-card-inner-back">
               <h3 class="flip-card-inner-back-title">{{place.name}}</h3>
               <p class="flip-card-inner-back-text">{{place.description}}</p>
-              <a [href]="'/place/details/'+places[i].id" class="button success">Zobacz</a>
+              <a [routerLink]="'/place/details/'+places[i].id" class="button success">Zobacz</a>
             </div>
           </div>
         </div>

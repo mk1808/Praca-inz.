@@ -111,7 +111,7 @@
             <div class="flip-card-inner-back">
               <h3 class="flip-card-inner-back-title">{{trip.name}}</h3>
               <p class="flip-card-inner-back-text">{{trip.description}}</p>
-              <a [href]="'/trip/details/'+trips[i].id" class="button success">Zobacz</a>
+              <a [routerLink]="'/trip/details/'+trips[i].id" class="button success">Zobacz</a>
             </div>
           </div>
         </div>
