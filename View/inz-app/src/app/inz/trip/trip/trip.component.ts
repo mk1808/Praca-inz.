@@ -228,7 +228,7 @@ onRatePlace(){
 }
 
 addSchedule(){
-  this.router.navigate(['/trip/new-schedule', this.trip.id]);
+  this.router.navigate(['/trip/new-schedule-dates', this.trip.id]);
 }
 
 

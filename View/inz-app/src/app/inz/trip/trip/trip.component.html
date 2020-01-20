@@ -68,7 +68,7 @@
   <div claee="row">
     <div class="columns large-6 align-center ">
       <div *ngIf="!hover; else photoContainer">
-        <img class="photo" src="{{this.places[0].image[1].image}}" width="600px">
+        <img *ngIf="places[0]"class="photo" src="{{places[0].image[1].image}}" width="600px">
       </div>
       <ng-template #photoContainer>
         <div class="myTable">

@@ -49,7 +49,7 @@ constructor(private router: Router, private route: ActivatedRoute, private fb: F
   onSignUp(){
     this.user.email = this.registerForm.controls.email.value;
     this.user.name = this.registerForm.controls.username.value;
-    this.user.username=this.registerForm.controls.email.value;
+    this.user.username=this.registerForm.controls.username.value;
     this.user.role="user";
     this.user.password = this.registerForm.controls.password.value;
     this.user.age = this.registerForm.controls.age.value;
