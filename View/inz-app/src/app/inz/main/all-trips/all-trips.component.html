@@ -90,11 +90,22 @@
             [ngStyle]="{'background-image': 'url('+trip.image+')'}"
             style="background-size: cover;">
                <!--"background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Toru%C5%84_Stare_Miasto_panorama_zima.jpg/1024px-Toru%C5%84_Stare_Miasto_panorama_zima.jpg);--> 
-              <span>{{trip.name}}<br>
+              
+               <span *ngIf="trip.mean==0">{{trip.name}}<br>
 
-                Ocena: 4.5/5
+                Ocena: brak 
+             
+                
 
               </span>
+              <span *ngIf="trip.mean!=0">{{trip.name}}<br>
+
+             
+                Ocena: {{trip.mean}}/5
+                
+
+              </span>
+              
 
             </div>
             <div class="flip-card-inner-back">

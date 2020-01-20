@@ -55,11 +55,18 @@
           <div class="flip-card-inner">
             <div class="flip-card-inner-front" 
             [ngStyle]="{ 'background': 'url('+(place.status=='new'? 'https://live.staticflickr.com/8652/27620992483_a37104d94b_b.jpg':place.status)+')', 'background-size': 'cover' }">
-              <span>{{place.name}}<br>
-                Kategoria: {{place.category}} <br>
-                Ocena: 4.5/5
-  
-              </span>
+            <span *ngIf="place.mean==0">{{place.name}}<br>
+              Kategoria: {{place.category}} <br>
+              Ocena: brak 
+
+            </span>
+
+            <span *ngIf="place.mean!=0">{{place.name}}<br>
+              Kategoria: {{place.category}} <br>
+              Ocena: {{place.mean}}/5
+              
+
+            </span>
   
             </div>
             <div class="flip-card-inner-back">
@@ -200,12 +207,21 @@
       <div class="small-2 large-4 columns">
         <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
           <div class="flip-card-inner">
-              <div class="flip-card-inner-front"
+              <div class="flip-card-inner-front trip"
               [ngStyle]="{'background-image': 'url('+trip.image+')'}"
               style="background-size: cover;">
-              <span>{{trip.name}}<br>
+              <span *ngIf="trip.mean==0">{{trip.name}}<br>
 
-                Ocena: 4.5/5
+                Ocena: brak 
+             
+                
+
+              </span>
+              <span *ngIf="trip.mean!=0">{{trip.name}}<br>
+
+             
+                Ocena: {{trip.mean}}/5
+                
 
               </span>
 
