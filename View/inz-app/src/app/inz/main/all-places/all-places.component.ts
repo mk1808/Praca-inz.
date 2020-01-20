@@ -39,7 +39,7 @@ export class AllPlacesComponent implements OnInit {
       category: [""],
       region: [""]
     });
-    this.initialized = true;
+    
 
     this.form.controls.name.valueChanges.subscribe(y => {
       console.log(y);
@@ -96,11 +96,13 @@ export class AllPlacesComponent implements OnInit {
         });
       }
   //    this.first=false;
+  this.initialized = true;
     })
 
     this.dictionaryService.getCategories().subscribe(x => {
       this.categories = x;
       console.log(this.categories);
+  
     })
 
   }

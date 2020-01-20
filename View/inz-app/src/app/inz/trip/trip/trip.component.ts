@@ -77,10 +77,11 @@ if(this.logged){
 
   this.tripService.getTrip(this.id).subscribe(x=>{
       this.trip=x;
-      console.log(this.trip);
+      console.log(this.user);
+      if(this.user){
       this.tripService.ifBelongs(this.trip.id, this.user.id).subscribe(x=>{
         this.belongsToUser=x;
-      })
+      })}
   });
   this.tripService.getPlacesForTrip(this.id).subscribe(x=>{
     this.places=x;

@@ -145,6 +145,7 @@ export class NewTripComponent implements OnInit {
 
     
     if (!this.added) {
+      place.category=this.componentService.changeCategoriesToSend(place.category);
       this.position.place=place;
       this.position.trip=this.newTrip;
       this.tripService.addPlaceToTrip(this.position).subscribe(x=>{

@@ -31,6 +31,8 @@ week:boolean[]=[false,false,false,false,false,false,false];
 file:any;
 image:any;
 imgObj:Image = new Image();
+allImages:any[]=[];
+allImagesObj:Image[]=[];
 res:any;
 id;
 editedPlace:Place;
@@ -193,14 +195,24 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
     this.openingHours.sunOpen=this.form.controls.sunOpen.value;
     this.openingHours.sunClose=this.form.controls.sunClose.value;
     this.newPlace.hours=this.openingHours;
-    this.imgObj.image=this.image;
+    this.allImages.forEach(img=>{
+      let image:Image=new Image;
+      image.image=img;
+      this.allImagesObj.push(image);
+    })
+    console.log(this.allImages)
+    
+   // this.imgObj.image=this.image;
     console.log(this.imgObj);
-    this.newPlace.image.push(this.imgObj);
+    
+  //  this.newPlace.image.push(this.imgObj);
+    this.newPlace.image=this.allImagesObj;
     this.newPlace.latitude=this.form.controls.latitude.value;
     this.newPlace.longitude=this.form.controls.longitude.value;
     this.user = JSON.parse(this.cookie.get('user'));
     this.newPlace.user=this.user;
     this.newPlace.checked=false;
+    this.newPlace.status=this.allImagesObj[0].image;
 
   }
 
@@ -268,8 +280,12 @@ constructor(private fb: FormBuilder, private placeService: PlaceService,
   
     myReader.onloadend = (e) => {
       this.image = myReader.result;
+      
+    //  this.imgObj.image=this.image;
+    //  this.newPlace.image.push(this.imgObj);
      // this.imageControl=''; 
-     console.log(this.image);
+    
+     this.allImages.push(this.image);
     }
     myReader.readAsDataURL(this.file);
   }

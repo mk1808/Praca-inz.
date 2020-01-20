@@ -1,4 +1,4 @@
-<div class="containerFull full ">
+<div class="containerFull full" *ngIf="initialized">
   <div claee="row">
     <div class="columns large-6 align-center screen ">
       <div class="row iconS align-start">
@@ -6,7 +6,7 @@
         <div class="columns large-2">
           <img src="assets/map.svg" height="90px" width="90px">
         </div>
-        <div class="columns large-7" *ngIf="initialized">
+        <div class="columns large-7" >
           <h3 class="mainName">{{trip.name}} </h3>
           <div class="row">
             <div class="columns large-7">
@@ -68,7 +68,7 @@
   <div claee="row">
     <div class="columns large-6 align-center ">
       <div *ngIf="!hover; else photoContainer">
-        <img class="photo" src="{{this.places[1].image[1].image}}" width="600px">
+        <img class="photo" src="{{this.places[0].image[1].image}}" width="600px">
       </div>
       <ng-template #photoContainer>
         <div class="myTable">
@@ -121,7 +121,7 @@
   </div>
 </mat-card>
 
-<div class="infoLabel2 mapInfo2 scheduleInfo" *ngIf="trip.schedule.scheduleExists">Grafik</div>
+<div *ngIf="initialized&&trip.schedule.scheduleExists" class="infoLabel2 mapInfo2 scheduleInfo" >Grafik</div>
 <!--
 <mat-accordion>
     <mat-expansion-panel>
@@ -140,12 +140,12 @@
     </mat-accordion>
 -->
 
-<button *ngIf="!trip.schedule.scheduleExists&&belongsToUser" class="button moreBtn button-rounded-hover" 
+<button *ngIf="initialized&&!trip.schedule.scheduleExists&&belongsToUser" class="button moreBtn button-rounded-hover" 
 (click)="addSchedule()" >
     
    Dodaj grafik
   </button>
-<mat-card class="schedule" *ngIf="trip.schedule.scheduleExists">
+<mat-card class="schedule" *ngIf="initialized&&trip.schedule.scheduleExists">
   <app-schedule [inTrip]="true"></app-schedule>
 </mat-card>
 <!--

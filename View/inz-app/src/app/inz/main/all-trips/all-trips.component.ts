@@ -43,7 +43,7 @@ export class AllTripsComponent implements OnInit {
       region: [""]
     });
 
-    this.initialized = true;
+ 
 
     this.form.controls.tags.valueChanges.subscribe(y => {
       console.log(y);
@@ -119,6 +119,7 @@ export class AllTripsComponent implements OnInit {
     
       }
       console.log(this.trips);
+      this.initialized = true;
     })
   }
 

@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" *ngIf="initialized">
   <h4 class="headingStyle">Przeszukiwanie obiektów</h4>
-  <form [formGroup]="form" *ngIf="initialized">
+  <form [formGroup]="form" >
     <div class="row whereGo">
       <div class="wrap">
         <div class="search">
