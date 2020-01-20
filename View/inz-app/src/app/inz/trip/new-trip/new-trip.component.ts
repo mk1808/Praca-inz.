@@ -120,6 +120,9 @@ export class NewTripComponent implements OnInit {
 
         this.places.forEach(x=>{
           this.status.push(true);
+            x.category=this.componentService.changeCategoriesToDisplay(x.category);
+              
+         
         })
         console.log(this.places);
         if (this.places.length<1)this.router.navigate(['/all-places']);

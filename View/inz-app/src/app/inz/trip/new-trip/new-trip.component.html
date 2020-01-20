@@ -66,7 +66,7 @@
         <div class="small-2 large-4 columns">
           <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
             <div class="flip-card-inner">
-              <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
+           <!--   <div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
                   background-size: cover;">
                 <span>{{place.name}}<br>
                   Kategoria: {{place.category}} <br>
@@ -75,6 +75,25 @@
                 </span>
     
               </div>
+              -->
+              <div class="flip-card-inner-front" 
+              
+              [ngStyle]="{ 'background': 'url('+(place.status=='new'? 'https://live.staticflickr.com/8652/27620992483_a37104d94b_b.jpg':place.status)+')', 'background-size': 'cover' }"
+             >
+
+           <span *ngIf="place.mean==0">{{place.name}}<br>
+             Kategoria: {{place.category}} <br>
+             Ocena: brak 
+
+           </span>
+
+           <span *ngIf="place.mean!=0">{{place.name}}<br>
+             Kategoria: {{place.category}} <br>
+             Ocena: {{place.mean}}/5
+             
+
+           </span>
+         </div>
               <div class="flip-card-inner-back">
                 <h3 class="flip-card-inner-back-title">{{place.name}}</h3>
                 <p class="flip-card-inner-back-text">{{place.description}}</p>
