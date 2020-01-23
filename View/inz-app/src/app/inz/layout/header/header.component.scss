@@ -3,14 +3,14 @@ $menu-underline-from-center-border-thickness: 0.165rem;
 
 .hover-underline-menu {
   width: 100%;
-  
+
 
   .menu {
     background-color: $menu-underline-from-center-bg;
 
-    .appNavItemActive{
+    .appNavItemActive {
       border-bottom: $menu-underline-from-center-border-thickness solid #F2f5f9;
-     
+
     }
 
     a {
@@ -41,21 +41,37 @@ $menu-underline-from-center-border-thickness: 0.165rem;
   }
 }
 
-.hover-underline-menu :focus{
-  outline:none!important;
+.hover-underline-menu :focus {
+  outline: none !important;
 
 }
 
-::ng-deep .cdk-overlay-pane 
-{   margin-top: 22px;}
-
-button{
-  cursor:pointer;
+::ng-deep .cdk-overlay-pane {
+  margin-top: 22px;
 }
 
-.logo{
+button {
+  cursor: pointer;
+}
+
+.logo {
   position: absolute;
   z-index: 9;
   height: 38px;
-    margin-top: 10px;
+  margin-top: 10px;
+}
+
+@media (max-width: 1100px) {
+  .align-center {
+
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 900px) {
+  .align-center {
+
+    justify-content: center;
+    padding-top: 57px;
+  }
 }
