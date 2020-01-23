@@ -19,6 +19,14 @@ font-family: 'Work Sans', sans-serif;
 min-height: calc(100vh - 217px);
 
 }
+@media 
+screen and (max-width: 64em) and (min-width:40em){
+  .medium-7 {
+    width:582px;
+    margin: 0 auto;
+    float: none !important;
+  }
+}
 
 .containerFull{
 
