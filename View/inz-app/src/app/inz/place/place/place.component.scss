@@ -48,7 +48,12 @@ h3 {
 }
 
 .leftCol{
-    margin-left: -20px;
+   // margin-left: -20px;
+}
+
+img{
+  
+  max-width: none;
 }
 
 .oneCell :hover{
@@ -118,10 +123,10 @@ h3 {
 
 .mapPos{
   margin-bottom:40px;
-  width:1400px;
+  //width:1400px;
   height: 300px;
-  margin-left: 20px;
-  margin-right: 20px;
+  //margin-left: 160px;
+  margin-right: 160px;
   margin-top:20px;
   margin:0 auto;
 }
@@ -284,6 +289,7 @@ h3 {
     background-color: #4c216d;
   }
 
+
   .photo.bck{
     min-height: 420px;
   }
@@ -303,6 +309,8 @@ h3 {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
+    top: 20px;
   }
 
   ::ng-deep .row {
@@ -330,8 +338,7 @@ h3 {
 
   .strip{
     margin-top: 30px;
-
-    height: 218px;
+    min-height: 218px;
     padding-top:20px;
   }
 
@@ -339,6 +346,11 @@ h3 {
     margin-right: 160px;
     margin-left: 160px;
     margin-bottom: 60px;
+    @media print, screen and (max-width: 850px){
+      .medium-4 {
+          width: 100%;
+      }
+      }
    
   }
 
@@ -348,6 +360,7 @@ h3 {
   }
 
   .infoLabel{
+    margin-top: 51px;
     margin-left: 160px;
     font-size: 24px;
     width: fit-content;
@@ -362,17 +375,48 @@ h3 {
     padding-right: 7px;
     padding-top: 3px;
     padding-bottom: 3px;
+
+    
 }
+
+@media print, screen and (max-width: 850px){
+
+}
+.galleryRow{
   
+  .myGallery{
+    width: fit-content;
+    float: left;
+    margin-left: 30px;
+  }
+
 .rectangle{
   background-color: #4c216d;  
     background-image: linear-gradient(to right, #9174a7, #4c216d);
-    height:460px; 
+    height:560px; 
     position:relative;
-    top: -19px;
-    left: -49px;    
-    width:750px; z-index: -1;
+    top: -30px;
+    //left: -49px;  
+    width:1000px; 
+    z-index: -1;
+    
+    margin-left: calc(100% - 1000px - 30px);
 }
+
+@media print, screen and (max-width: 1100px){
+  .rectangle{
+    margin-left: 10px;
+    width: calc(100% - 20px);
+    height: calc(46vw + 60px);
+  }
+    .gallery{
+     width: calc(100vw - 80px)!important;
+    height: 46vw!important;
+    }
+}
+
+}
+
 
 .mapCard{
 
@@ -411,3 +455,17 @@ margin-top: 13px;
   margin-left:10px;
   margin-right:10px;
 }
+
+
+@media screen and (max-width: 1200px) {
+  .infoCard{
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .infoLabel{
+    margin-left: 20px;
+  }
+ 
+}
+

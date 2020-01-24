@@ -193,8 +193,8 @@ export class PlaceComponent implements OnInit {
 
     this.galleryOptions = [
       {
-        width: '800px',
-        height: '420px',
+        width: '1000px',
+        height: '500px',
         thumbnailsColumns: 4,
         imageAnimation: NgxGalleryAnimation.Slide
       },

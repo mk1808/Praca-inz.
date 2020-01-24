@@ -1,4 +1,4 @@
-<div class="containerFull full " *ngIf="initialized">
+<div class="  " *ngIf="initialized">
   <div claee="row">
     <div class="columns large-6 align-center screen ">
       <div class="row iconS align-start" >
@@ -47,9 +47,10 @@
         </div>
       </div>
     </div>
-    <div class="columns large-6 photo screen ">a
+    <div class="columns large-6 photo screen ">
       <div class="background" [ngStyle]="{'background-image': 'url('+place.status+')'}"></div>
     </div>
+    <div style="clear: both;"></div>
   </div>
 </div>
  <!--
@@ -115,10 +116,12 @@
             </div>
         
 </div>-->
+
+<div>
 <div class="infoLabel">Informacje</div>
 <mat-card class="infoCard" *ngIf="initialized">
 <div class="cont full strip row align-justify">
-<div class="columns myHighlight small-4 ">
+<div class="columns myHighlight medium-4 small-7 ">
     <div class="row">
       <div class="columns small-2 " >
         <img src="assets/pin.svg" height="20px" width="20px">
@@ -133,7 +136,7 @@
       </div>
     </div>
   </div>
-  <div class="columns myHighlight small-4">
+  <div class="columns myHighlight medium-4 small-7 ">
       <div class="row">
         <div class="columns small-2 ">
           <img src="assets/clock.svg" height="20px" width="20px">
@@ -147,12 +150,12 @@
         </div>
       </div>
     </div>
-    <div class="columns small-4 panel myHighlight oneCell " >
+    <div class="columns medium-4 small-7 panel myHighlight oneCell " >
         <div class="row contactRow">
-          <div class="columns small-3 ">
+          <div class="columns small-2 ">
             <img src="assets/contact.svg" height="20px" width="20px">
           </div>
-          <div class="columns small-6 heading leftCol contactRow">
+          <div class="columns small-9 heading leftCol contactRow">
             <h5 class="colHeader">Kontakt</h5>
             <div class="addressStyle">
               <h6>{{place.website}}</h6>
@@ -179,15 +182,21 @@
     
 </div>
 </mat-card> 
-<div class="row" *ngIf="initialized"> 
-<div class="columns small-6 " >
+</div>
+
+
+<div class="galleryRow" *ngIf="initialized"> 
+<div class="myGallery" >
     <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="gallery"></ngx-gallery>
   </div>
   
     
-    <div class="columns small-6 rectangle" ></div>
+    <div class=" rectangle" ></div>
   
 </div>
+
+
+
 
 <div>
 <div class="infoLabel mapInfo" >Lokalizacja</div>
@@ -204,7 +213,8 @@
     <agm-map class="map" [latitude]='latitude' [longitude]='longitude' [mapTypeId]='mapType'>
     </agm-map>-->
   </div>
-</mat-card></div>
+</mat-card>
+</div>
 <!--
 <div class="container">
  
