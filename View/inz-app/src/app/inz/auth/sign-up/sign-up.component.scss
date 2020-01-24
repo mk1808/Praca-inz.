@@ -81,7 +81,7 @@ padding-top:25px;
     background-color: #662d91;
     text-transform: uppercase;
     letter-spacing: 1px;
-    width: 35%;
+  //  width: 35%;
     padding: 1rem;
     transition: all ease .4s;
     margin-top: 15px;
@@ -141,7 +141,7 @@ padding-top:25px;
   }
     
 .signUp{
-    width:30%;
+    //width:30%;
     margin-bottom: 60px;
 }
 
@@ -183,4 +183,11 @@ button{
   url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Purple_night_%28Unsplash%29.jpg/1200px-Purple_night_%28Unsplash%29.jpg"); 
   background-repeat: round;
   background-size: cover;
+}
+
+@media 
+screen and (max-width: 720px){
+  .sign-in-form{
+    width:100%
+  }
 }
