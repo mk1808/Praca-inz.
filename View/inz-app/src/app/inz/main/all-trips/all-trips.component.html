@@ -19,14 +19,14 @@
             </mat-form-field>
   -->
 
-
-  <input #fruitInput type="text" class="searchTerm" placeholder="Wybierz tagi" [matAutocomplete]="auto"
+<div>
+  <input #fruitInput type="text" class="searchTerm selectSearch" placeholder="Wybierz tagi" [matAutocomplete]="auto"
   formControlName="tags" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
   [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+</div>
 
-
-
-          <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto2"
+<div>   
+       <input type="text" class="searchTerm selectSearch" placeholder="Wybierz region" [matAutocomplete]="auto2"
             formControlName="region">
           <mat-autocomplete #auto2="matAutocomplete">
             <mat-option *ngFor="let region of filteredRegions" [value]="region">
@@ -35,32 +35,31 @@
               <!--       <small>Population: {{state.population}}</small>-->
             </mat-option>
           </mat-autocomplete>
-
-
+        </div>
+      
+<div>
 <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
             <mat-option *ngFor="let tag of filteredTags" [value]="tag">
 
               <span>{{tag}}</span>
             </mat-option>
           </mat-autocomplete>
+        </div>
 
+<div class="">
 
-
-          <input type="number" min="1" class="searchTerm" placeholder="Min. ilość dni" formControlName="durationFrom">
-
+          <input  type="number" min="1" class="searchTerm selectSearch" placeholder="Min. ilość dni" formControlName="durationFrom">
+</div>
+<div class="selectSearch" >
+<div >
 
           <input type="number" min="1" class="searchTerm" placeholder="Max. ilość dni" formControlName="durationTo">
-
-         
-          
-
-
-
+        </div>
           <button (click)="onSearch()" type="submit" class="searchButton">
             <i class="fa fa-search"></i>
           </button>
 
-
+        </div>
         </div>
         <mat-chip-list #chipList aria-label="Fruit selection">
           <mat-chip *ngFor="let tag of chosenTags" [selectable]="selectable" [removable]="removable"
@@ -83,7 +82,7 @@
          <div> Zmień kryteria wyszukiwania </div>
         </div>
     <div *ngFor="let trip of trips; let i = index;">
-      <div class="small-2 large-4 columns">
+      <div class="small-12 medium-6 large-4 columns">
         <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
           <div class="flip-card-inner">
             <div class="flip-card-inner-front"
