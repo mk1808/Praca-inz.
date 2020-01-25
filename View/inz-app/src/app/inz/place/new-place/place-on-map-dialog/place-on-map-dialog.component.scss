@@ -152,7 +152,8 @@ background-color: #cacaca;
 
 .mapPos{
     margin-bottom:40px;
-    width:750px;
+    overflow-x: auto;
+    width:none;
     height: 150px;
     margin-left: 20px;
     margin-right: 20px;
@@ -180,3 +181,4 @@ background-color: #cacaca;
   .placeResults{
     overflow-y:auto;
   }
+
