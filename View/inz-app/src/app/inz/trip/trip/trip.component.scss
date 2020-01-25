@@ -265,7 +265,6 @@ thead th{
 
 .mapPos{
   margin-bottom:40px;
-  width:1400px;
   height: 300px;
   margin-left: 20px;
   margin-right: 20px;
@@ -294,6 +293,8 @@ thead th{
     margin-left: 40px;
 
 }
+
+
 
 .mainName{
   margin-left: 6px;
@@ -431,7 +432,6 @@ mat-chip{
 
 .mapPos2{
   margin-bottom:40px;
-  width:1400px;
   height: 300px;
   margin-left: 20px;
   margin-right: 20px;
@@ -709,4 +709,83 @@ button.moreBtn{
 
 .lastCol{
   text-align: center;
+}
+
+@media screen and (max-width: 88em){
+.large-6{
+  width: 100%!important;
+}
+
+.iconS{
+  max-width: 750px!important;
+}
+
+.imagesTab{
+  margin-top: 60px!important;
+
+    display: inline-block;
+    height: 100%;
+
+}
+
+}
+
+@media screen and (max-width: 750px){
+ 
+  mat-card.smallCard{
+    margin-left: 0px;
+    width:100%;
+  }
+  .infoLabel{
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 610px){
+  .iconS{
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 550px){
+.stars{
+  width: 85%;
+}
+
+.iconRow{
+  width: 110px;
+  margin:0 auto;
+  float: none!important;
+}
+.info{
+  margin:0 auto;
+  float: none!important;
+  width:240px;
+}
+
+.mainName{
+  margin-left: 0px;
+  text-align: center;
+    font-size: 25px;
+    margin-top: 5px;
+}
+}
+
+
+@media screen and (max-width: 900px){
+  .imagesTab{
+
+    margin-top: 60px!important;
+
+    display: inline-block;
+    height: 100%;
+   
+    width: 100%;
+  .medium-6{
+    width: 100% !important;
+  }
+}
+}
+.table{
+  overflow-x:auto;
 }
