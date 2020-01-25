@@ -789,3 +789,10 @@ button.moreBtn{
 .table{
   overflow-x:auto;
 }
+
+@media screen and (max-width: 350px){
+  mat-card.smallCard{
+  height: unset;
+  display: inline-block;
+}
+}
