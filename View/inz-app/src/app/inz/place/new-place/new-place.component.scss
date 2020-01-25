@@ -91,7 +91,6 @@
     background-color:#662d91;
     text-transform: uppercase;
     letter-spacing: 1px;
-    width: 20%;
     padding: 1rem;
     transition: all ease .4s;
     margin-top: 15px;
@@ -113,7 +112,6 @@
   }
     
 .signUp{
-    width:30%;
     margin-bottom:60px;
     
 }
@@ -262,3 +260,58 @@ textarea {
   .mapBtn{
     width:100%!important;
   }
+
+  @media 
+screen and (max-width: 800px){
+  .sign-in-form{
+    width:100%
+  }
+
+ 
+}
+
+@media 
+screen and (max-width: 1280px) and (min-width: 800px){
+  .sign-in-form{
+    width:790px;
+  }
+}
+
+@media 
+screen and (max-width: 1020px){
+
+.mapBtn{
+  display: block;
+  margin-bottom: 20px;
+}
+}
+
+@media 
+screen and (max-width: 600px){
+ .hourCont{
+  .small-4{
+    width: 100%;
+  }
+  .small-2{
+  width: fit-content;
+}
+}
+}
+
+@media 
+screen and (max-width: 380px){
+  .hourCont{
+    
+    .small-2{
+    width: 100%;
+  }
+  }
+  }
+
+  @media
+  screen and (max-width: 670px){
+    ::ng-deep .img-ul-button{
+      width: 100px!important;
+    }
+  }
+

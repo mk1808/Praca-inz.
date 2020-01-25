@@ -78,13 +78,14 @@
           </div>
         <!---->
         <div class=" hours textCateogory down up">- Dni i godziny otwarcia -</div>
+       <div class="hourCont">
         <div class="row">
           <div class="columns small-4 weekDays">
             <div class="checkbox">
               <mat-checkbox  formControlName="mon" [(ngModel)]="week[0]">Poniedziałek</mat-checkbox><br>
             </div>
           </div>
-         <div *ngIf="week[0]">
+         <div class="" *ngIf="week[0]">
           <div class="columns small-1 weekDays from">od</div>
           <div class="columns small-2 weekDays">
             <div class="singleInput">
@@ -218,7 +219,7 @@
           <div class="columns small-2"></div>
         </div>
         </div>
-     
+       </div>
     
     
         <div class="textCateogory down">- Dane kontaktowe -</div>
