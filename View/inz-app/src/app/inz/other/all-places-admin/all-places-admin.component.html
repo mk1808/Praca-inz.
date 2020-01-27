@@ -4,8 +4,8 @@
       <div class="row whereGo">
         <div class="wrap">
           <div class="search">
-  
-            <input type="text" class="searchTerm" placeholder="Wpisz nazwę" [matAutocomplete]="auto"
+  <div>
+            <input type="text" class="searchTerm regSearch" placeholder="Wpisz nazwę" [matAutocomplete]="auto"
               formControlName="name">
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option *ngFor="let place of filteredPlaces" [value]="place.name">
@@ -17,6 +17,7 @@
             <button (click)="onSearchName()" type="submit" class="searchButton">
               <i class="fa fa-search"></i>
             </button>
+          </div>
           </div>
         </div>
       </div>
@@ -31,7 +32,7 @@
          <div> Zmień kryteria wyszukiwania </div>
         </div>
     <div *ngFor="let place of places; let i = index;">
-      <div class="small-2 large-4 columns">
+      <div class="small-12 medium-6 large-4 columns">
         <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
           <div class="flip-card-inner">
             <!--<div class="flip-card-inner-front" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Zamo%C5%9B%C4%87._Ratusz..jpg/800px-Zamo%C5%9B%C4%87._Ratusz..jpg);
