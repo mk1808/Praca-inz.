@@ -240,10 +240,14 @@ textarea {
 
 
 .moreBtn{
-  margin-left: 37%;
-  width: 26%;
-  margin-top: 10px;
-  margin-bottom: 60px
+  
+    margin-left: 37%;
+
+    margin: 0 auto;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 60px
+  
 }
 
 .moreBtn:focus{
