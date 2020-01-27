@@ -237,7 +237,6 @@
   background-color:#662d91;
   text-transform: uppercase;
   letter-spacing: 1px;
-  width: 20%;
   padding: 1rem;
   transition: all ease .4s;
   margin-top: 15px;
@@ -259,7 +258,7 @@
 }
   
 .signUp{
-  width:30%;
+  
   margin-bottom:60px;
   
 }
@@ -331,4 +330,12 @@ button{
 
 .row{
   text-align: center;
+}
+
+
+@media 
+screen and (max-width: 720px){
+  .sign-in-form{
+    width:100%
+  }
 }
