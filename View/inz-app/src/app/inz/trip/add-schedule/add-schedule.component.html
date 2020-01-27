@@ -31,7 +31,7 @@
 
   <div *ngIf="!fillingForm" class="test3">
     <div cdkDropListGroup>
-      <div class="columns small-8 topMargin">
+      <div class="columns large-8 medium-8 topMargin">
         <div *ngFor="let next of allDays; let k=index" class="example-container">
           <h2>Dzień {{k+1}}. {{allDates[k].getDate()}}.{{allDates[k].getMonth()+1}}.{{allDates[k].getFullYear()}}</h2>
           <div cdkDropList cdkDropListOrientation="horizontal" #{{k}} [cdkDropListData]="next"
@@ -76,7 +76,7 @@
         </div>-->
       </div>
 
-      <div class="columns small-4">
+      <div class="columns large-4 medium-4">
         <div class="list-container">
           <h2>Lista miejsc</h2>
           <div cdkDropList [cdkDropListData]="done" class="example-list" (cdkDropListDropped)="drop($event)">

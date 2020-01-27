@@ -339,3 +339,17 @@ screen and (max-width: 720px){
     width:100%
   }
 }
+
+@media 
+screen and (max-width: 1120px){
+  .list-container{
+    padding-left: 10px;
+  }
+}
+
+@media 
+screen and (max-width: 350px){
+  .myList{
+    overflow-x: auto!important;
+  }
+}
