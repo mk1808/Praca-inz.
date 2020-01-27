@@ -1,9 +1,10 @@
 <div class="container" >
     <h4 class="headingStyle">Przeszukiwanie obiektów</h4>
-    <form [formGroup]="form" *ngIf="initialized">
+    <div [formGroup]="form" *ngIf="initialized">
         <div class="row whereGo">
           <div class="wrap">
             <div class="search">
+              <div>
               <input type="text" class="searchTerm" placeholder="Wpisz nazwę" [matAutocomplete]="auto"
                 formControlName="name">
               <mat-autocomplete #auto="matAutocomplete">
@@ -16,14 +17,17 @@
               <button (click)="onSearchName()" type="submit" class="searchButton">
                 <i class="fa fa-search"></i>
               </button>
+              </div>
               <div class="or">lub</div>
-    
+    <div>
+      <div>
               <mat-select class="searchTerm" placeholder="Wybierz kategorię" formControlName="category">
                 <mat-option *ngFor="let category of categories" [value]="category">
                   {{category}}
                 </mat-option>
               </mat-select>
-    
+    </div>
+    <div class="regSearch">
               <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto3"
                 formControlName="region">
               <mat-autocomplete #auto3="matAutocomplete">
@@ -36,10 +40,12 @@
               <button (click)="onSearch()" type="submit" class="searchButton">
                 <i class="fa fa-search"></i>
               </button>
+              </div>
             </div>
           </div>
         </div>
-      </form>
+      </div>
+      </div>
   
   <h2 *ngIf="placeFirst" class="type-sidelines"><span>Wyniki wyszukiwania</span></h2>
   <h2 *ngIf="placeFirst==false" class="type-sidelines"><span>Wyniki wyszukiwania miejsc</span></h2>
@@ -50,7 +56,7 @@
      <div> Zmień kryteria wyszukiwania lub </div>
     </div>
       <div *ngFor="let place of places; let i = index;">
-        <div class="small-2 large-4 columns">
+        <div class="small-12 medium-6 large-4 columns">
           <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
             <div class="flip-card-inner">
               <div class="flip-card-inner-front" 
@@ -114,23 +120,25 @@
     <img src="assets/map.svg" height="70px" width="70px">
   </span></h2>
   <h4 class="headingStyle">Przeszukiwanie wycieczek</h4>
-  <form [formGroup]="formTrip" *ngIf="initialized">
+  <div [formGroup]="formTrip" *ngIf="initialized">
     <div class="row whereGo">
-      <div class="wrap">
+      <div class="wrap tripsSearch">
         <div class="search">
-          
-            <input #fruitInput type="text" class="searchTerm" placeholder="Wybierz tagi" [matAutocomplete]="autoT"
+          <div>
+            <input #fruitInput type="text" class="searchTerm selectSearch" placeholder="Wybierz tagi" [matAutocomplete]="autoT"
             formControlName="tags" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
             [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
-         
-          <input type="text" class="searchTerm" placeholder="Wybierz region" [matAutocomplete]="auto6"
+         </div>
+         <div>
+          <input type="text" class="searchTerm selectSearch" placeholder="Wybierz region" [matAutocomplete]="auto6"
             formControlName="region">
             <mat-autocomplete #auto6="matAutocomplete">
             <mat-option *ngFor="let region of filteredRegionsTrip" [value]="region">
               <span>{{region}}</span>
             </mat-option>
           </mat-autocomplete>
-  
+  </div>
+  <div>
         
           <mat-autocomplete #autoT="matAutocomplete" (optionSelected)="selected($event)">
             <mat-option *ngFor="let tag of filteredTags" [value]="tag">
@@ -138,14 +146,17 @@
             </mat-option>
           </mat-autocomplete>
   
-  
-  
-          <input type="number" min="1" class="searchTerm" placeholder="Min. ilość dni" formControlName="durationFrom">
+  </div>
+  <div>
+          <input type="number" min="1" class="searchTerm selectSearch" placeholder="Min. ilość dni" formControlName="durationFrom">
+          <div class="" >
+            <div >
           <input type="number" min="1" class="searchTerm" placeholder="Max. ilość dni" formControlName="durationTo">
+          </div>
           <button (click)="onSearchTrip()" type="submit" class="searchButton">
             <i class="fa fa-search"></i>
           </button>
-  
+  </div>
   
         </div>
         <mat-chip-list #chipList aria-label="Fruit selection">
@@ -158,7 +169,8 @@
         </mat-chip-list>
       </div>
     </div>
-  </form>
+    </div>
+  
   
   <h2 *ngIf="tripFirst" class="type-sidelines"><span>Wycieczki powiązane z miejscem</span></h2>
   <h2 *ngIf="tripFirst==false" class="type-sidelines"><span>Wyniki wyszukiwania wycieczek</span></h2>
@@ -205,7 +217,7 @@
          <div> Zmień kryteria wyszukiwania lub </div>
         </div>
       <div *ngFor="let trip of trips; let i = index;">
-        <div class="small-2 large-4 columns">
+        <div class="small-12 medium-6 large-4 columns">
           <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
             <div class="flip-card-inner">
                 <div class="flip-card-inner-front trip"
