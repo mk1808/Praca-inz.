@@ -120,11 +120,13 @@ thead th{
 
 .moreBtn{
  
-    width: 26%;
-    height: 64px;
-    margin-top: 34px;
-    margin-bottom: 20px;
-  }
+  margin: 0 auto;
+  display: block;
+ // width: 26%;
+  margin-top: 10px;
+  margin-bottom: 60px
+}
+  
   
   .moreBtn:focus{
     outline:none!important;
