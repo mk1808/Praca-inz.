@@ -469,3 +469,9 @@ margin-top: 13px;
  
 }
 
+@media screen and (max-width: 350px) {
+  .two{
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+}
