@@ -20,7 +20,7 @@ h3 {
 }
 
 .secondRowMargin{
-  margin-left:254px;  
+  
 }
 
 .columns{
@@ -38,6 +38,7 @@ h3 {
 
 table{
     width:80%;
+    margin: 0 auto;
 }
 .tbl{
   width:100%
@@ -451,5 +452,21 @@ $sidelines-double-line-spacing: 0.5em !default;
 
     img{
       margin-top:20px;
+    }
+  }
+
+  .tabScroll{
+    overflow-x: auto;
+  }
+
+  @media screen and (max-width: 600px) {
+    .small-1{
+      width:12%;
+    }
+  }
+
+  @media screen and (max-width: 430px) {
+    .type-sidelines{
+      white-space: initial;
     }
   }
