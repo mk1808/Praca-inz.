@@ -145,6 +145,7 @@
     font-weight: 800;
     font-size: 26px;    
     margin-top: 18px;
+    margin-left: 130px;
   }
   
     
@@ -165,8 +166,10 @@
 
 .otherPos{
   font-size: 20px!important;
-    padding-left: 644px!important;
+   text-transform: unset;
     margin-top:20px;
+    margin-left: 500px;
+    font-weight: 500!important;
 }
 
 .hoverTimelineItem{
@@ -274,4 +277,29 @@ text-align: left;
 .firstOption{
 text-align: right;
 }
+
+@media 
+screen and (max-width: 980px) {
+  .otherPos{
+    margin-left: 51%;
+  }
+}
+@media 
+screen and (max-width: 40em){
+  .anotherDay{
+    margin-left: 0px;
+  }
+
+  .noPlaces{
+    padding-left: 0px;
+  }
+  .otherPos{
+    margin-left: 0;
+  }
+  .hoverTimelineItem:hover .address{
+      height: 100%;
+  }
+}
+
+
 

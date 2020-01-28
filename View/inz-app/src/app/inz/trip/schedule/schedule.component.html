@@ -8,7 +8,7 @@
   <div class="timeline" [ngStyle]="{ 'background-color': inTrip?'white':'#f7f9f9'}">
     <div *ngFor="let tab of positions; let i=index">
       <div class="anotherDay">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dzień {{i+1}}
+      Dzień {{i+1}}
       </div>
       <div *ngIf="tab.length<1" class="noPlaces">
         Na ten dzień nie zaplanowano zwiedzania
@@ -39,9 +39,8 @@
       </div>
 
     </div>
-    <div class="otherPos" *ngIf="positionsWODay.length>0">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Obiekty nieprzypisane do
-      żadnego dnia
+    <div class="otherPos anotherDay" *ngIf="positionsWODay.length>0">
+     Obiekty nieprzypisane do żadnego dnia
     </div>
 
     <div class="timeline-item" *ngFor="let otherPosition of positionsWODay; let h=index">
